@@ -64,5 +64,4 @@ Downstream:
 ```
 cd pipeline && npm run rate    # regenerates data/teams.json from the sourced snapshot
 ```
-To refresh to a newer FIFA release, replace `pipeline/sources/fifa-rankings-*.json` with a
-new sourced+cited snapshot and re-run; nothing else changes.
+To refresh to a newer FIFA release, replace `pipeline/sources/fifa-rankings-*.json` with a new sourced+cited snapshot and re-run; nothing else changes.
