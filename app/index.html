@@ -10,9 +10,27 @@
 <meta name="theme-color" content="#08160f">
 <meta name="color-scheme" content="dark">
 <meta name="description" content="An honest Monte Carlo of the 2026 World Cup — 50,000 simulations, narrated by Claude, constrained to the actual results.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI World Cup 2026">
+<meta property="og:url" content="https://c-beltran.github.io/world-cup-2026-simulator/">
 <meta property="og:title" content="AI World Cup 2026 — Journey Tree">
 <meta property="og:description" content="50,000 simulations decide who wins; Claude narrates the real result. Pick any of 48 nations.">
-<meta property="og:type" content="website">
+<!-- Absolute URL is required: LinkedIn/iMessage/Slack scrapers reject relative image paths.
+     The /world-cup-2026-simulator/ subdir is part of the GitHub Pages project-site URL. -->
+<meta property="og:image" content="https://c-beltran.github.io/world-cup-2026-simulator/og.png">
+<meta property="og:image:secure_url" content="https://c-beltran.github.io/world-cup-2026-simulator/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI World Cup 2026 — the math decides who wins, then Claude tells the story. 50,000 simulations, 48 nations, constrained to the actual result.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<!-- Twitter/X + Slack render the large image from these -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI World Cup 2026 — Journey Tree">
+<meta name="twitter:description" content="50,000 simulations decide who wins; Claude narrates the real result. Pick any of 48 nations.">
+<meta name="twitter:image" content="https://c-beltran.github.io/world-cup-2026-simulator/og.png">
+<meta name="twitter:image:alt" content="AI World Cup 2026 — the math decides who wins, then Claude tells the story.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="data.js"></script>
 <style>
@@ -53,6 +71,11 @@
   .tagline { color: var(--muted); font-size: 13.5px; margin-top: 4px; max-width: 620px; }
   .method { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; line-height: 1.7; }
   .method b { color: var(--ink); font-weight: 600; } .method .sim { color: var(--sim); } .method .ai { color: var(--ai); }
+  .headright { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .langtoggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .langtoggle button { border: 0; background: transparent; color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 5px 12px; cursor: pointer; transition: .15s; }
+  .langtoggle button.active { background: var(--sim); color: #06231c; }
+  .langtoggle button:not(.active):hover { color: var(--ink); }
 
   .layout { display: grid; grid-template-columns: 340px 1fr; gap: 26px; margin-top: 24px; align-items: start; }
   .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
@@ -181,7 +204,10 @@
 
   .lower { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; transform: translateY(110%); transition: transform .5s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
   .lower.show { transform: translateY(0); }
-  .lower .inner { max-width: 980px; margin: 0 auto 26px; background: rgba(8,16,12,.93); backdrop-filter: blur(8px); border: 1px solid var(--line); border-top: 3px solid var(--ai); border-radius: 14px; padding: 16px 22px; box-shadow: 0 20px 60px rgba(0,0,0,.5); pointer-events: auto; }
+  .lower .inner { position: relative; max-width: 980px; margin: 0 auto 26px; background: rgba(8,16,12,.93); backdrop-filter: blur(8px); border: 1px solid var(--line); border-top: 3px solid var(--ai); border-radius: 14px; padding: 16px 22px; box-shadow: 0 20px 60px rgba(0,0,0,.5); pointer-events: auto; }
+  .lower .head { padding-right: 30px; }   /* keep the matchup clear of the ✕ end-button */
+  .lclose { position: absolute; top: 11px; right: 12px; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; border-radius: 7px; border: 1px solid var(--line); background: rgba(233,241,234,.05); color: var(--muted); font-size: 12px; line-height: 1; cursor: pointer; transition: .18s; }
+  .lclose:hover { color: var(--ink); border-color: var(--loss); background: rgba(233,241,234,.1); }
   /* in-sheet step controls — always at the bottom, within thumb reach (so you never scroll back to the top toolbar) */
   .lower .lnav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--line); }
   .lnavbtn { cursor: pointer; border: 1px solid var(--gold-dim); background: transparent; color: var(--gold); border-radius: 8px; padding: 8px 18px; font-weight: 700; font-size: 13px; transition: .18s; }
@@ -195,7 +221,7 @@
   .lower .head .tag { margin-left: auto; color: var(--ai); letter-spacing: .12em; text-transform: uppercase; }
   .lower p { margin: 0; font-size: 16px; line-height: 1.6; max-height: 46vh; overflow-y: auto; }
 
-  body.thumb .layout, body.thumb header .method, body.thumb .selector, body.thumb .toolbar, body.thumb .tree-scroll, body.thumb .storyline, body.thumb .shocks { display: none; }
+  body.thumb .layout, body.thumb header .method, body.thumb .langtoggle, body.thumb .selector, body.thumb .toolbar, body.thumb .tree-scroll, body.thumb .storyline, body.thumb .shocks { display: none; }
   .hero { display: none; }
   body.thumb .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; min-height: 74vh; text-align: center; }
   .hero .kicker { font-family: var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); font-size: 13px; }
@@ -221,6 +247,9 @@
     .tier.left .rib::after, .tier.right .rib::before { content: none; }   /* drop the horizontal flank connectors */
     .apex-out .elim { min-width: 0; width: 100%; max-width: 360px; }
     .crown .champ { max-width: 100%; }
+    /* centre the step control on phones (each wrapped toolbar row is centred; the hint no longer right-pushes) */
+    .toolbar { justify-content: center; }
+    .toolbar .hint { margin-left: 0; text-align: center; }
   }
 </style>
 </head>
@@ -231,17 +260,22 @@
       <h1><span class="ball">●</span> AI World Cup 2026 — Journey Tree</h1>
       <div class="tagline">An honest Monte Carlo of the real 2026 World Cup, narrated by an LLM. Two engines: the <b style="color:var(--sim)">math</b> decides who wins, the <b style="color:var(--ai)">story</b> is written by Claude — constrained to the simulation's actual result.</div>
     </div>
-    <div class="method" id="method"></div>
+    <div class="headright">
+      <div class="langtoggle" id="langToggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button>
+      </div>
+      <div class="method" id="method"></div>
+    </div>
   </header>
 
   <div class="hero" id="hero"></div>
 
   <div class="layout">
     <aside>
-      <div class="panel"><h2>What 50,000 simulations said</h2><div class="readout" id="readout"></div></div>
-      <div class="panel"><h2>Title odds — top 10 <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">· across all 50k sims</span></h2><canvas id="champChart" height="220"></canvas></div>
-      <div class="panel"><h2>Most common finals</h2><ul class="list" id="finals"></ul></div>
-      <div class="panel"><h2>Cinderella watch <span style="color:var(--muted);font-weight:400">· field #&gt;24 → SF+</span></h2><ul class="list" id="cinderellaList"></ul></div>
+      <div class="panel"><h2 data-k="pStats">What 50,000 simulations said</h2><div class="readout" id="readout"></div></div>
+      <div class="panel"><h2 data-k="pOdds">Title odds — top 10 <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">· across all 50k sims</span></h2><canvas id="champChart" height="220"></canvas></div>
+      <div class="panel"><h2 data-k="pFinals">Most common finals</h2><ul class="list" id="finals"></ul></div>
+      <div class="panel"><h2 data-k="pCind">Cinderella watch <span style="color:var(--muted);font-weight:400">· field #&gt;24 → SF+</span></h2><ul class="list" id="cinderellaList"></ul></div>
     </aside>
 
     <section class="stage">
@@ -270,6 +304,7 @@
 <button class="hero-close" id="heroClose" aria-label="Back to explorer" title="Back to explorer (Esc)"><span class="x">✕</span> Back</button>
 
 <div class="lower" id="lower"><div class="inner">
+  <button class="lclose" id="lclose" aria-label="End narration" title="End narration (Esc)">✕</button>
   <div class="head"><span class="vs" id="lvs"></span> · <span class="sc" id="lsc"></span> <span id="lbadge"></span><span class="tag">AI take</span></div>
   <p id="ltake"></p>
   <div class="lnav">
@@ -282,7 +317,81 @@
 <script>
 const D = window.WC_DATA;
 const FLAG = c => `https://flagcdn.com/w320/${c}.png`;
-const ROUND = { R32:"Round of 32", R16:"Round of 16", QF:"Quarter-final", SF:"Semi-final", final:"Final" };
+// ---------- i18n: UI chrome (en/es). Narration is {en,es}-aware via loc(); Spanish narration = Stage 2. ----------
+let LANG = (new URLSearchParams(location.search).get("lang") || localStorage.getItem("wc_lang") || "en").toLowerCase();
+if (LANG !== "es") LANG = "en";
+document.documentElement.lang = LANG;
+const ROUND_MAP = {
+  en: { R32:"Round of 32", R16:"Round of 16", QF:"Quarter-final", SF:"Semi-final", final:"Final" },
+  es: { R32:"Dieciseisavos", R16:"Octavos", QF:"Cuartos", SF:"Semifinal", final:"Final" },
+};
+const ROUND_KEY = { "Round of 32":"R32", "Round of 16":"R16", "Quarter-final":"QF", "Semi-final":"SF", "Final":"final" }; // data stores EN names
+const NICE_MAP = {
+  en: { modalChampion:"Most likely champion", cinderella:"Biggest underdog", chalkFinal:"Favorites win", chaos:"Most shocks" },
+  es: { modalChampion:"Campeón más probable", cinderella:"La mayor sorpresa", chalkFinal:"Ganan los favoritos", chaos:"Más sorpresas" },
+};
+const I18N = {
+  en: {
+    h1:"AI World Cup 2026 — Journey Tree",
+    tagline:`An honest Monte Carlo of the real 2026 World Cup, narrated by an LLM. Two engines: the <b style="color:var(--sim)">math</b> decides who wins, the <b style="color:var(--ai)">story</b> is written by Claude — constrained to the simulation's actual result.`,
+    mSim:"SIMULATION", mRuns:"runs", mSeed:"seed", mNarr:"NARRATION", mPrebaked:"pre-baked LLM", mConstrained:"constrained to actual results",
+    mRatings:"Ratings:", mFifa:"FIFA pts,", mNeutral:"neutral venue (no host bump)",
+    sGoals:"goals / game", sUpsets:"knockout shocks", sDraws:"group draws", sCind:"have a Cinderella",
+    pStats:"What 50,000 simulations said", pOdds:"Title odds — top 10", pOddsSub:"· across all 50k sims",
+    pFinals:"Most common finals", pCind:"Cinderella watch", pCindSub:"· field #>24 → SF+", chartTip:"% win the title",
+    npLabel:"⚽ Pick your nation", npPlaceholder:"— pick a nation —", npNote:"any of 48 teams · its best run that recurs in ≥1% of 50,000 sims",
+    slKicker:"◆ AI storyline —", slField:"field #{r} of 48", slPending:"(not yet narrated)", slPendingS:"(not yet narrated — sample stage)",
+    angle:`Pick-your-nation · {name}'s most dramatic run across the 50,000 simulations — it {odds}. Same engine, same honesty rules; pre-baked offline, no live calls.`,
+    oddsWin:"wins the title in {freq}", oddsReach:"reaches the {round} in {freq}",
+    freq:"{x}% of simulations", freqRare:"{x}% of simulations · about 1 in {n}",
+    ceilTitleA:`Champion — wins the title in <span class="freq">{freq}</span>`, ceilRunA:`Best run: reached the {round} — in <span class="freq">{freq}</span>`,
+    ceilTitleB:"Their realistic ceiling: the title", ceilRunB:"Their best realistic run: {round}",
+    champ:"★ Champion ★", champFunnel:"▲ 48 teams → 1 champion", of48:"of 48",
+    bestRun:"Best run · <b>reached the {round}</b>", tagOut:"out", tagAdv:"advanced", runEnded:"▲ this run ended in the {round}",
+    cardLeft:"{round} · {n} left", bPens:"won on penalties", bET:"after extra time", aiDot:"◆ AI take",
+    upBig:"⚡ SHOCK", upSub:"shock", out:"out", baseHint:"↑ the run starts here · {r32} · read bottom → top",
+    shocks:"⚡ Biggest shocks in this bracket · by field-rank gap · straight from the sim, off the champion's path", beat:"beat",
+    aiTake:"AI take", vs:"v",
+    prev:"◀ Prev", next:"Next ▶", start:"▶ Start", done:"✓ Done", steps:"{n} steps",
+    hint:"step with ◀ ▶ · or ← → / Space · ranks are field rank (1–48)",
+    heroFrame:"◫ Hero frame", back:"Back", backTitle:"Back to explorer (Esc)", endNarr:"End narration (Esc)", heroBrand:"AI World Cup 2026",
+    heroKnation:"AI World Cup 2026 · Pick your nation", heroFinal:"Final", heroChampion:"Champion", heroChampFreq:"Champion · in {freq}",
+    heroOut:"Out in the {round} · lost to {opp} {a}–{b}", heroBest:"Best run: {round} · in {freq}",
+    heroReads:"▲ the journey reads bottom → top · {r32} {dest}", toTitle:"to the title", toRound:"to the {round}",
+  },
+  es: {
+    h1:"Mundial 2026 con IA — Árbol del Camino",
+    tagline:`Un Monte Carlo honesto del Mundial 2026 real, narrado por una IA. Dos motores: las <b style="color:var(--sim)">matemáticas</b> deciden quién gana, la <b style="color:var(--ai)">historia</b> la escribe Claude — ceñida al resultado real de la simulación.`,
+    mSim:"SIMULACIÓN", mRuns:"corridas", mSeed:"semilla", mNarr:"NARRACIÓN", mPrebaked:"IA pre-generada", mConstrained:"ceñida a los resultados reales",
+    mRatings:"Valoraciones:", mFifa:"pts FIFA,", mNeutral:"sede neutral (sin ventaja local)",
+    sGoals:"goles / partido", sUpsets:"sorpresas en eliminatorias", sDraws:"empates en grupos", sCind:"tienen una Cenicienta",
+    pStats:"Lo que dijeron 50.000 simulaciones", pOdds:"Probabilidad de título — top 10", pOddsSub:"· en las 50k simulaciones",
+    pFinals:"Finales más comunes", pCind:"Observatorio Cenicienta", pCindSub:"· puesto #>24 → SF+", chartTip:"% gana el título",
+    npLabel:"⚽ Elige tu selección", npPlaceholder:"— elige una selección —", npNote:"cualquiera de las 48 selecciones · su mejor camino que se repite en ≥1% de 50.000 simulaciones",
+    slKicker:"◆ Relato IA —", slField:"puesto #{r} de 48", slPending:"(aún sin narrar)", slPendingS:"(aún sin narrar — fase de muestra)",
+    angle:`Elige tu selección · el camino más dramático de {name} en las 50.000 simulaciones — {odds}. Mismo motor, mismas reglas de honestidad; pre-generado sin conexión, sin llamadas en vivo.`,
+    oddsWin:"gana el título en {freq}", oddsReach:"llega a {round} en {freq}",
+    freq:"{x}% de las simulaciones", freqRare:"{x}% de las simulaciones · ~1 de cada {n}",
+    ceilTitleA:`Campeón — gana el título en <span class="freq">{freq}</span>`, ceilRunA:`Mejor camino: llega a {round} — en <span class="freq">{freq}</span>`,
+    ceilTitleB:"Su tope realista: el título", ceilRunB:"Su mejor camino realista: {round}",
+    champ:"★ Campeón ★", champFunnel:"▲ 48 selecciones → 1 campeón", of48:"de 48",
+    bestRun:"Mejor camino · <b>llegó a {round}</b>", tagOut:"fuera", tagAdv:"avanzó", runEnded:"▲ este camino terminó en {round}",
+    cardLeft:"{round} · quedan {n}", bPens:"ganó en penales", bET:"tras la prórroga", aiDot:"◆ Análisis IA",
+    upBig:"⚡ SORPRESA", upSub:"sorpresa", out:"fuera", baseHint:"↑ el camino empieza aquí · {r32} · de abajo → arriba",
+    shocks:"⚡ Mayores sorpresas de este cuadro · por diferencia de puesto · directo de la simulación, fuera del camino del campeón", beat:"venció a",
+    aiTake:"Análisis IA", vs:"vs",
+    prev:"◀ Atrás", next:"Siguiente ▶", start:"▶ Comenzar", done:"✓ Listo", steps:"{n} pasos",
+    hint:"avanza con ◀ ▶ · o ← → / Espacio · los puestos son ranking de campo (1–48)",
+    heroFrame:"◫ Portada", back:"Volver", backTitle:"Volver al explorador (Esc)", endNarr:"Terminar narración (Esc)", heroBrand:"Mundial 2026 con IA",
+    heroKnation:"Mundial 2026 con IA · Elige tu selección", heroFinal:"Final", heroChampion:"Campeón", heroChampFreq:"Campeón · en {freq}",
+    heroOut:"Eliminado en {round} · perdió con {opp} {a}–{b}", heroBest:"Mejor camino: {round} · en {freq}",
+    heroReads:"▲ el camino se lee de abajo → arriba · {r32} {dest}", toTitle:"al título", toRound:"a {round}",
+  },
+};
+const t = (k, p) => { let s = (I18N[LANG] && I18N[LANG][k] != null) ? I18N[LANG][k] : (I18N.en[k] != null ? I18N.en[k] : k); if (p) for (const key in p) s = s.split("{" + key + "}").join(p[key]); return s; };
+const loc = x => (x && typeof x === "object") ? (x[LANG] != null ? x[LANG] : (x.en || "")) : (x == null ? "" : x);  // narration: string today, {en,es} after Stage 2
+let ROUND = ROUND_MAP[LANG], NICE = NICE_MAP[LANG];
+const rdLoc = enName => ROUND[ROUND_KEY[enName]] || enName;   // localize an EN round name stored in the data
 const ORDER = ["final","SF","QF","R16","R32"];          // top -> bottom (crown sits above final)
 const PIDX = { R32:0, R16:1, QF:2, SF:3, final:4 };       // path sequence, base -> apex
 const LEFT = { R32:32, R16:16, QF:8, SF:4, final:2 };     // teams still alive at each round (the funnel)
@@ -301,49 +410,69 @@ const el = (t, c, h) => { const e = document.createElement(t); if (c) e.classNam
 const $ = id => document.getElementById(id);
 const teamRow = (t, cls, score) => `<div class="team ${cls}"><img class="flag" src="${FLAG(t.code)}" alt=""><span class="nm">${t.name}</span><span class="rank">#${t.fieldRank}</span><span class="sc">${score}</span></div>`;
 
-// ---------- method strip ----------
-const m = D.meta;
-$("method").innerHTML =
-  `<div><span class="sim">SIMULATION</span> · ${m.sims.toLocaleString()} runs · seed ${m.masterSeed} · Poisson-from-Elo /${m.model.ELO_DIVISOR}</div>` +
-  `<div><span class="ai">NARRATION</span> · ${m.narration ? m.narration.provider + "/" + m.narration.model : "pre-baked LLM"} · constrained to actual results</div>` +
-  `<div><b>Ratings:</b> FIFA pts, ${m.ratingSnapshot} · neutral venue (no host bump)</div>`;
-
-// ---------- stats ----------
-const s = D.stats;
+// ---------- sidebar + chrome (functions so a language switch can re-render in place) ----------
+const m = D.meta, s = D.stats;
 const r1 = x => (Math.round(x * 10) / 10).toFixed(1);
-$("readout").innerHTML = [
-  [s.meanGoalsPerGame.toFixed(2), "goals / game"], [r1(s.knockout.upsetPct) + "%", "knockout upsets"],
-  [r1(s.groupStage.drawPct) + "%", "group draws"], [r1(s.cinderella.simsWithCinderellaPct) + "%", "have a Cinderella"],
-].map(([n, l]) => `<div class="stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join("");
-$("finals").innerHTML = s.finals.slice(0, 6).map(f => `<li><span>${f.pair}</span><span class="pct">${r1(f.pct)}%</span></li>`).join("");
-$("cinderellaList").innerHTML = (s.cinderella.teams || []).slice(0, 6)
-  .map(c => `<li><img class="flag" src="${FLAG(c.code)}"><span>${c.name}</span><span class="rank">#${c.fieldRank}</span><span class="pct">${r1(c.pct)}%</span></li>`).join("");
+const FEAT = D.featured;
+const NATIONS = D.nations || {};
+const ALL_KEYS = ["modalChampion", "cinderella", "chalkFinal", "chaos"].filter(k => FEAT[k]); // chalk/chaos kept, deep-linkable
+const TAB_KEYS = ["modalChampion", "cinderella"].filter(k => FEAT[k]);                          // the only chips surfaced
+const selector = $("selector");
+const nationPick = $("nationPick");
+const nationNames = Object.keys(NATIONS).sort((a, b) => a.localeCompare(b));
+
+function renderMeta() {
+  $("method").innerHTML =
+    `<div><span class="sim">${t('mSim')}</span> · ${m.sims.toLocaleString()} ${t('mRuns')} · ${t('mSeed')} ${m.masterSeed} · Poisson-from-Elo /${m.model.ELO_DIVISOR}</div>` +
+    `<div><span class="ai">${t('mNarr')}</span> · ${m.narration ? m.narration.provider + "/" + m.narration.model : t('mPrebaked')} · ${t('mConstrained')}</div>` +
+    `<div><b>${t('mRatings')}</b> ${t('mFifa')} ${m.ratingSnapshot} · ${t('mNeutral')}</div>`;
+}
+function renderStats() {
+  $("readout").innerHTML = [
+    [s.meanGoalsPerGame.toFixed(2), t('sGoals')], [r1(s.knockout.upsetPct) + "%", t('sUpsets')],
+    [r1(s.groupStage.drawPct) + "%", t('sDraws')], [r1(s.cinderella.simsWithCinderellaPct) + "%", t('sCind')],
+  ].map(([n, l]) => `<div class="stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join("");
+  $("finals").innerHTML = s.finals.slice(0, 6).map(f => `<li><span>${LANG === 'es' ? f.pair.replace(/ v /, ' vs ') : f.pair}</span><span class="pct">${r1(f.pct)}%</span></li>`).join("");
+  $("cinderellaList").innerHTML = (s.cinderella.teams || []).slice(0, 6)
+    .map(c => `<li><img class="flag" src="${FLAG(c.code)}"><span>${c.name}</span><span class="rank">#${c.fieldRank}</span><span class="pct">${r1(c.pct)}%</span></li>`).join("");
+}
+function renderSelector() {
+  selector.innerHTML = TAB_KEYS.map(k => `<button class="chip" data-k="${k}">${NICE[k]} · ${FEAT[k].storyTeam}</button>`).join("");
+  selector.querySelectorAll(".chip").forEach(c => c.onclick = () => selectFeatured(c.dataset.k));
+  if (view && view.kind === "featured") selector.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.k === view.key));
+}
+function renderNationOptions() {
+  nationPick.innerHTML = `<option value="">${t('npPlaceholder')}</option>` +
+    nationNames.map(n => `<option value="${n}">${n} · #${NATIONS[n].fieldRank}</option>`).join("");
+  if (view && view.kind === "nation") nationPick.value = view.name;
+}
+function renderChrome() {   // static HTML labels: header, panel titles, nationbar, toolbar hint, hero-exit, sheet tag
+  const set = (sel, html) => { const e = document.querySelector(sel); if (e) e.innerHTML = html; };
+  set("header h1", `<span class="ball">●</span> ${t('h1')}`);
+  set(".tagline", t('tagline'));
+  set('.panel h2[data-k="pStats"]', t('pStats'));
+  set('.panel h2[data-k="pOdds"]', `${t('pOdds')} <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">${t('pOddsSub')}</span>`);
+  set('.panel h2[data-k="pFinals"]', t('pFinals'));
+  set('.panel h2[data-k="pCind"]', `${t('pCind')} <span style="color:var(--muted);font-weight:400">${t('pCindSub')}</span>`);
+  const lab = document.querySelector('.nationbar label'); if (lab) lab.textContent = t('npLabel');
+  $("nationnote").textContent = t('npNote');
+  const hint = document.querySelector('.hint'); if (hint) hint.textContent = t('hint');
+  $("thumbBtn").textContent = t('heroFrame');
+  $("heroClose").innerHTML = `<span class="x">✕</span> ${t('back')}`; $("heroClose").title = t('backTitle');
+  $("lclose").title = t('endNarr'); $("lclose").setAttribute("aria-label", t('endNarr'));
+  const tag = document.querySelector('#lower .tag'); if (tag) tag.textContent = t('aiTake');
+}
 
 const topC = s.champions.slice(0, 10);
 new Chart($("champChart"), {
   type: "bar",
   data: { labels: topC.map(c => c.name), datasets: [{ data: topC.map(c => +c.pct.toFixed(2)),
     backgroundColor: topC.map((_, i) => i === 0 ? "#f2cd5c" : "rgba(242,205,92,.45)"), borderRadius: 4, barThickness: 13 }] },
-  options: { indexAxis: "y", plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.x + "% win the title" } } },
+  options: { indexAxis: "y", plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.x + t('chartTip') } } },
     scales: { x: { grid: { color: "rgba(255,255,255,.05)" }, ticks: { color: "#82998c", callback: v => v + "%" } },
               y: { grid: { display: false }, ticks: { color: "#e9f1ea", font: { size: 11 } } } } }
 });
 
-// ---------- featured tabs (Part A: only 2 surfaced) + pick-your-nation ----------
-const FEAT = D.featured;
-const NATIONS = D.nations || {};
-const ALL_KEYS = ["modalChampion", "cinderella", "chalkFinal", "chaos"].filter(k => FEAT[k]); // chalk/chaos kept, deep-linkable
-const TAB_KEYS = ["modalChampion", "cinderella"].filter(k => FEAT[k]);                          // the only chips surfaced
-const NICE = { modalChampion: "Most likely champion", cinderella: "Biggest underdog", chalkFinal: "Favorites win", chaos: "Most upsets" };
-
-const selector = $("selector");
-selector.innerHTML = TAB_KEYS.map(k => `<button class="chip" data-k="${k}">${NICE[k]} · ${FEAT[k].storyTeam}</button>`).join("");
-selector.querySelectorAll(".chip").forEach(c => c.onclick = () => selectFeatured(c.dataset.k));
-
-const nationPick = $("nationPick");
-const nationNames = Object.keys(NATIONS).sort((a, b) => a.localeCompare(b));
-nationPick.innerHTML = `<option value="">— pick a nation —</option>` +
-  nationNames.map(n => `<option value="${n}">${n} · #${NATIONS[n].fieldRank}</option>`).join("");
 nationPick.onchange = () => { if (nationPick.value) selectNation(nationPick.value); };
 
 // what's on stage: {kind:'featured', key} | {kind:'nation', name}
@@ -353,7 +482,7 @@ function selectFeatured(k) {
   view = { kind: "featured", key: k };
   nationPick.value = "";
   selector.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.k === k));
-  $("storyline").innerHTML = `<div class="k">◆ AI storyline — ${FEAT[k].storyTeam}</div><p>${FEAT[k].storyline || "(not yet narrated)"}</p><div class="angle">${FEAT[k].angle}</div>`;
+  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${FEAT[k].storyTeam}</div><p>${loc(FEAT[k].storyline) || t('slPending')}</p><div class="angle">${loc(FEAT[k].angle)}</div>`;
   renderShocks(k);
   renderJourney(featuredJourney(k));
   requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; }); // start at the base (R32)
@@ -365,15 +494,15 @@ function selectNation(name) {
   nationPick.value = name;
   selector.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
   const J = nationJourney(name), n = NATIONS[name];
-  $("storyline").innerHTML = `<div class="k">◆ AI storyline — ${name} · field #${n.fieldRank} of 48</div><p>${J.storyline || "(not yet narrated — sample stage)"}</p><div class="angle">${nationAngle(n)}</div>`;
+  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${name} · ${t('slField', { r: n.fieldRank })}</div><p>${loc(J.storyline) || t('slPendingS')}</p><div class="angle">${nationAngle(n)}</div>`;
   renderShocks(null);
   renderJourney(J);
   requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; });
 }
 
 function nationAngle(n) {
-  const odds = n.champion ? `wins the title in ${freqText(n.titlePct)}` : `reaches the ${n.ceilingRound} in ${freqText(n.reachPct)}`;
-  return `Pick-your-nation · ${n.name}'s most dramatic run across the 50,000 simulations — it ${odds}. Same engine, same honesty rules; pre-baked offline, no live calls.`;
+  const odds = n.champion ? t('oddsWin', { freq: freqText(n.titlePct) }) : t('oddsReach', { round: rdLoc(n.ceilingRound), freq: freqText(n.reachPct) });
+  return t('angle', { name: n.name, odds });
 }
 
 // ---------- journey builders: a featured tab OR a picked nation, normalized ----------
@@ -393,16 +522,15 @@ function nationJourney(name) {
 
 // frequency phrasing that reads to a non-fan
 function freqText(pct) {
-  if (pct >= 1) return `${pct < 10 ? pct.toFixed(1) : Math.round(pct)}% of simulations`;
-  return `${pct.toFixed(1)}% of simulations · about 1 in ${Math.round(100 / pct).toLocaleString()}`;
+  if (pct >= 1) return t('freq', { x: pct < 10 ? pct.toFixed(1) : Math.round(pct) });
+  return t('freqRare', { x: pct.toFixed(1), n: Math.round(100 / pct).toLocaleString() });
 }
 // realistic-ceiling label — SAMPLE renders BOTH wordings (A = with %, B = plain) to choose from
 function ceilingLine(J) {
   if (!J.ceiling) return "";
-  const c = J.ceiling, isT = c.key === "title";
-  const A = isT ? `Champion — wins the title in <span class="freq">${freqText(c.pct)}</span>`
-               : `Best run: reached the ${c.round} — in <span class="freq">${freqText(c.pct)}</span>`;
-  const B = isT ? `Their realistic ceiling: the title` : `Their best realistic run: ${c.round}`;
+  const c = J.ceiling, isT = c.key === "title", round = rdLoc(c.round);
+  const A = isT ? t('ceilTitleA', { freq: freqText(c.pct) }) : t('ceilRunA', { round, freq: freqText(c.pct) });
+  const B = isT ? t('ceilTitleB') : t('ceilRunB', { round });
   return `<div class="ceil"><div class="ceil-opt"><span class="ab">A</span>${A}</div><div class="ceil-opt"><span class="ab">B</span>${B}</div></div>`;
 }
 
@@ -416,18 +544,19 @@ function renderJourney(J) {
 
   if (J.isChampion) {
     const crown = el("div", "crown");
-    crown.innerHTML = `<div class="lbl">★ Champion ★</div><div class="champ"><img src="${FLAG(story.code)}"><span class="name">${story.name}</span><span class="rank">#${story.fieldRank} of 48</span></div>${ceilingLine(J)}<div class="funnel">▲ 48 teams → 1 champion</div>`;
+    crown.innerHTML = `<div class="lbl">${t('champ')}</div><div class="champ"><img src="${FLAG(story.code)}"><span class="name">${story.name}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span></div>${ceilingLine(J)}<div class="funnel">${t('champFunnel')}</div>`;
     spine.appendChild(crown);
   } else {
     const opp = loss.home.name === story.name ? loss.away : loss.home;
     const myG = loss.home.name === story.name ? loss.homeGoals : loss.awayGoals;
     const oppG = loss.home.name === story.name ? loss.awayGoals : loss.homeGoals;
+    const rnd = rdLoc(J.ceiling.round);
     const apex = el("div", "apex-out");
-    apex.innerHTML = `<div class="lbl">Best run · <b>reached the ${J.ceiling.round}</b></div>` +
+    apex.innerHTML = `<div class="lbl">${t('bestRun', { round: rnd })}</div>` +
       `<div class="elim">` +
-        `<div class="team eliminated"><img class="flag" src="${FLAG(story.code)}" alt=""><span class="nm">${story.name}</span><span class="rank">#${story.fieldRank} of 48</span><span class="sc">${myG}</span><span class="tag">out</span></div>` +
-        `<div class="team adv"><img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span><span class="tag">advanced</span></div>` +
-      `</div>${ceilingLine(J)}<div class="funnel">▲ this run ended in the ${J.ceiling.round}</div>`;
+        `<div class="team eliminated"><img class="flag" src="${FLAG(story.code)}" alt=""><span class="nm">${story.name}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span><span class="sc">${myG}</span><span class="tag">${t('tagOut')}</span></div>` +
+        `<div class="team adv"><img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span><span class="tag">${t('tagAdv')}</span></div>` +
+      `</div>${ceilingLine(J)}<div class="funnel">${t('runEnded', { round: rnd })}</div>`;
     const elim = apex.querySelector(".elim"); elim._match = loss;
     spine.appendChild(apex);
   }
@@ -437,19 +566,19 @@ function renderJourney(J) {
     const isHome = mm.home.name === story.name;
     const me = isHome ? mm.home : mm.away, opp = isHome ? mm.away : mm.home;
     const myG = isHome ? mm.homeGoals : mm.awayGoals, oppG = isHome ? mm.awayGoals : mm.homeGoals;
-    const badge = mm.decidedBy === "PENS" ? "won on penalties" : mm.decidedBy === "ET" ? "after extra time" : "";
+    const badge = mm.decidedBy === "PENS" ? t('bPens') : mm.decidedBy === "ET" ? t('bET') : "";
     const side = i % 2 === 0 ? "right" : "left";
     const tier = el("div", "tier " + side);
 
     const card = el("div", "pcard");
-    card.innerHTML = `<div class="rlabel">${ROUND[mm.round]} · ${LEFT[mm.round]} left</div>` + teamRow(me, "win", myG) +
-      `<div class="meta">${badge ? `<span class="badge">${badge}</span>` : ""}${badge && mm.take ? " · " : ""}${mm.take ? `<span class="ai-dot">◆ AI take</span>` : ""}</div>`;
+    card.innerHTML = `<div class="rlabel">${t('cardLeft', { round: ROUND[mm.round], n: LEFT[mm.round] })}</div>` + teamRow(me, "win", myG) +
+      `<div class="meta">${badge ? `<span class="badge">${badge}</span>` : ""}${badge && mm.take ? " · " : ""}${mm.take ? `<span class="ai-dot">${t('aiDot')}</span>` : ""}</div>`;
     card._match = mm; card.dataset.pidx = PIDX[mm.round];
 
     const tier_up = upsetTier(me.fieldRank, opp.fieldRank);
-    const outTag = tier_up === "big" ? `<span class="out big">⚡ UPSET</span>`
-                 : tier_up === "subtle" ? `<span class="out sub">upset</span>`
-                 : `<span class="out">out</span>`;
+    const outTag = tier_up === "big" ? `<span class="out big">${t('upBig')}</span>`
+                 : tier_up === "subtle" ? `<span class="out sub">${t('upSub')}</span>`
+                 : `<span class="out">${t('out')}</span>`;
     const rib = el("div", "rib" + (tier_up ? " up-" + tier_up : ""));
     rib.innerHTML = `<img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span>${outTag}`;
     rib._match = mm;
@@ -458,7 +587,7 @@ function renderJourney(J) {
     spine.appendChild(tier);
   });
 
-  spine.appendChild(el("div", "base-hint", "↑ the run starts here · Round of 32 · read bottom → top"));
+  spine.appendChild(el("div", "base-hint", t('baseHint', { r32: ROUND.R32 })));
   tree.appendChild(spine);
   const flag = el("div", "spine-flag"); flag.id = "spineFlag";
   flag.innerHTML = `<img src="${FLAG(story.code)}" alt="">`;
@@ -486,9 +615,9 @@ function renderShocks(k) {
   const box = $("shocks");
   if (k !== "chaos") { box.style.display = "none"; box.innerHTML = ""; return; }
   box.style.display = "";
-  box.innerHTML = `<div class="k">⚡ Biggest shocks in this bracket · by field-rank gap · straight from the sim, off the champion's path</div><div class="shock-list">` +
+  box.innerHTML = `<div class="k">${t('shocks')}</div><div class="shock-list">` +
     biggestShocks(FEAT[k]).map(s =>
-      `<div class="shock"><img class="flag" src="${FLAG(s.W.code)}"><b>#${s.W.fieldRank} ${s.W.name}</b> beat <span class="muted">#${s.L.fieldRank} ${s.L.name}</span> <span class="sc">${s.wg}–${s.lg}</span><span class="rd">${ROUND[s.round]}</span></div>`
+      `<div class="shock"><img class="flag" src="${FLAG(s.W.code)}"><b>#${s.W.fieldRank} ${s.W.name}</b> ${t('beat')} <span class="muted">#${s.L.fieldRank} ${s.L.name}</span> <span class="sc">${s.wg}–${s.lg}</span><span class="rd">${ROUND[s.round]}</span></div>`
     ).join("") + `</div>`;
 }
 
@@ -500,10 +629,10 @@ function showTake(card, hold) {                 // card._match is the ONLY sourc
   clearTimeout(hideTimer);
   document.querySelectorAll(".focus").forEach(c => c.classList.remove("focus"));
   card.classList.add("focus");
-  $("lvs").textContent = `${ROUND[mm.round]} — ${mm.home.name} v ${mm.away.name}`;
+  $("lvs").textContent = `${ROUND[mm.round]} — ${mm.home.name} ${t('vs')} ${mm.away.name}`;
   $("lsc").textContent = `${mm.home.name} ${mm.homeGoals}–${mm.awayGoals} ${mm.away.name}`;
   $("lbadge").innerHTML = mm.decidedBy !== "REG" ? `<span class="badge" style="color:var(--gold);font-family:var(--mono)">(${mm.decidedBy})</span> ` : "";
-  $("ltake").textContent = mm.take;
+  $("ltake").textContent = loc(mm.take);
   lower.classList.add("show");
   if (!hold) hideTimer = setTimeout(() => lower.classList.remove("show"), 6000);
 }
@@ -562,16 +691,29 @@ function goStep(i) {
 }
 function nextStep() { if (steps.length) goStep(started ? cur + 1 : 0); }   // first press begins at the base (R32)
 function prevStep() { if (steps.length && started) goStep(cur - 1); }
+function atLastStep() { return started && steps.length > 0 && cur === steps.length - 1; }
+function advanceOrEnd() { if (atLastStep()) endNarration(); else nextStep(); }   // the Next control becomes "Done" on the last card
+function endNarration() {                                                        // close the take sheet, reset to "Start"
+  lower.classList.remove("show");
+  started = false; cur = 0;
+  document.querySelectorAll(".focus").forEach(c => c.classList.remove("focus"));
+  $("spineFlag") && $("spineFlag").classList.remove("show");
+  updateStepUI();
+}
 function updateStepUI() {
-  const n = steps.length;
-  $("stepInd").textContent = !n ? "—" : !started ? `▶ Start · ${n} steps` : `${steps[cur].label} · ${cur + 1} / ${n}`;
+  const n = steps.length, atStart = !started || cur === 0, atEnd = started && cur === n - 1;
+  $("stepInd").textContent = !n ? "—" : !started ? t('steps', { n }) : `${steps[cur].label} · ${cur + 1} / ${n}`;
   $("lstep").textContent = n ? `${cur + 1} / ${n}` : "—";
-  const atStart = !started || cur === 0, atEnd = started && cur === n - 1;
+  // the Next control is never a dead end: it reads Start → Next → Done (which closes). Only Prev disables, at the start.
+  const nextLabel = !started ? t('start') : atEnd ? t('done') : t('next');
+  $("nextBtn").textContent = nextLabel; $("lnext").textContent = atEnd ? t('done') : t('next');
+  $("prevBtn").textContent = t('prev'); $("lprev").textContent = t('prev');
+  $("nextBtn").disabled = false; $("lnext").disabled = false;
   $("prevBtn").disabled = atStart; $("lprev").disabled = atStart;
-  $("nextBtn").disabled = atEnd;  $("lnext").disabled = atEnd;
 }
 $("prevBtn").onclick = prevStep; $("lprev").onclick = prevStep;
-$("nextBtn").onclick = nextStep; $("lnext").onclick = nextStep;
+$("nextBtn").onclick = advanceOrEnd; $("lnext").onclick = advanceOrEnd;
+$("lclose").onclick = endNarration;
 document.addEventListener("keydown", (e) => {
   if (document.body.classList.contains("thumb")) return;               // tree is hidden in the hero frame
   const t = e.target; if (t && /^(INPUT|SELECT|TEXTAREA)$/.test(t.tagName)) return;
@@ -579,6 +721,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") { e.preventDefault(); nextStep(); }
   else if (e.key === "ArrowLeft") { e.preventDefault(); prevStep(); }
   else if (e.key === " " && (!t || t.tagName !== "BUTTON")) { e.preventDefault(); nextStep(); } // Space = advance (let a focused button handle its own)
+  else if (e.key === "Escape" && lower.classList.contains("show")) endNarration();              // Esc ends the narration
 });
 
 // ---------- hero / thumbnail ----------
@@ -595,28 +738,30 @@ function setHero(on) {
   if (!on) { clearTimeout(hudTimer); document.body.classList.remove("hud"); return; }
   lower.classList.remove("show");   // never let the take sheet sit in a captured hero frame
   const J = activeJourney(), story = J.story;
-  const kicker = view.kind === "nation" ? "AI World Cup 2026 · Pick your nation" : `AI World Cup 2026 · ${NICE[view.key]}`;
+  const kicker = view.kind === "nation" ? t('heroKnation') : `${t('heroBrand')} · ${NICE[view.key]}`;
   let line, tagline = "";
   if (J.isChampion) {
     const fin = J.path.find(x => x.round === "final");
-    line = fin ? `${fin.home.name} ${fin.homeGoals}–${fin.awayGoals} ${fin.away.name} · Final` : "Champion";
-    if (view.kind === "nation") tagline = `Champion · in ${freqText(J.ceiling.pct)}`;
+    line = fin ? `${fin.home.name} ${fin.homeGoals}–${fin.awayGoals} ${fin.away.name} · ${t('heroFinal')}` : t('heroChampion');
+    if (view.kind === "nation") tagline = t('heroChampFreq', { freq: freqText(J.ceiling.pct) });
   } else {
     const loss = J.path.find(m => m.winner !== story.name);
     const opp = loss.home.name === story.name ? loss.away : loss.home;
     const myG = loss.home.name === story.name ? loss.homeGoals : loss.awayGoals;
     const oppG = loss.home.name === story.name ? loss.awayGoals : loss.homeGoals;
-    line = `Out in the ${J.ceiling.round} · lost to ${opp.name} ${myG}–${oppG}`;
-    tagline = `Best run: ${J.ceiling.round} · in ${freqText(J.ceiling.pct)}`;
+    const rnd = rdLoc(J.ceiling.round);
+    line = t('heroOut', { round: rnd, opp: opp.name, a: myG, b: oppG });
+    tagline = t('heroBest', { round: rnd, freq: freqText(J.ceiling.pct) });
   }
-  const storyline = view.kind === "nation" ? (NATIONS[view.name].storyline || "") : (FEAT[view.key].storyline || "");
+  const storyline = loc(view.kind === "nation" ? NATIONS[view.name].storyline : FEAT[view.key].storyline) || "";
+  const dest = J.isChampion ? t('toTitle') : t('toRound', { round: rdLoc(J.ceiling.round) });
   $("hero").innerHTML =
     `<div class="kicker">${kicker}</div>` +
     `<div class="big"><img src="${FLAG(story.code)}">${story.name}</div>` +
     `<div class="scoreline">${line}</div>` +
     (tagline ? `<div class="scoreline" style="color:var(--sim);font-size:14px">${tagline}</div>` : "") +
     `<div class="sub">${storyline.split(". ").slice(0, 2).join(". ")}${storyline ? "." : ""}</div>` +
-    `<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">▲ the journey reads bottom → top · Round of 32 ${J.isChampion ? "to the title" : "to the " + J.ceiling.round}</div>`;
+    `<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">${t('heroReads', { r32: ROUND.R32, dest })}</div>`;
   pingHud(); // show the exit affordance on entry, then let it fade
 }
 $("thumbBtn").onclick = () => setHero(!document.body.classList.contains("thumb"));
@@ -624,7 +769,20 @@ $("heroClose").onclick = () => setHero(false);
 document.addEventListener("mousemove", pingHud);
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("thumb")) setHero(false); });
 
-// ---------- initial view from the hash (#modalChampion · #chaos · #nation:Brazil · …/hero) ----------
+// ---------- language toggle (EN | ES) — re-renders chrome + the active view in place ----------
+function updateLangToggle() { document.querySelectorAll("#langToggle button").forEach(b => b.classList.toggle("active", b.dataset.lang === LANG)); }
+function applyLang(lang) {
+  if (lang !== "es") lang = "en";
+  if (lang === LANG) return;
+  LANG = lang; localStorage.setItem("wc_lang", lang); document.documentElement.lang = lang;
+  ROUND = ROUND_MAP[lang]; NICE = NICE_MAP[lang];
+  renderChrome(); renderMeta(); renderStats(); renderSelector(); renderNationOptions(); updateLangToggle();
+  if (view.kind === "nation" && NATIONS[view.name]) selectNation(view.name); else selectFeatured(view.key || TAB_KEYS[0]);
+}
+document.querySelectorAll("#langToggle button").forEach(b => b.onclick = () => applyLang(b.dataset.lang));
+
+// ---------- initial render + view from the hash (#modalChampion · #chaos · #nation:Brazil · …/hero) ----------
+renderChrome(); renderMeta(); renderStats(); renderSelector(); renderNationOptions(); updateLangToggle();
 const rawHash = decodeURIComponent(location.hash.slice(1));
 const [hKey, hView] = rawHash.split("/");
 if (hKey.startsWith("nation:") && NATIONS[hKey.slice(7)]) selectNation(hKey.slice(7));

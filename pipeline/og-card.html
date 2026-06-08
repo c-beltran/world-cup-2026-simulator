@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  Social-share (Open Graph) card for the AI World Cup 2026 app — 1200x630.
+  This is the SOURCE; render it to app/og.png with:
+
+    CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "$CHROME" --headless=new --disable-gpu --hide-scrollbars \
+      --window-size=1200,630 --screenshot="<repo>/app/og.png" \
+      --virtual-time-budget=2500 "file://<repo>/pipeline/og-card.html"
+
+  Palette + fonts mirror app/index.html so the card matches the live app.
+  Every claim here is true (50,000 sims, 48 nations, Claude-narrated, constrained
+  to the actual result) — same honesty bar as the app itself.
+-->
+<style>
+  :root{
+    --bg:#08120e; --ink:#e9f1ea; --muted:#8aa093;
+    --line:rgba(233,241,234,0.12); --panel:rgba(233,241,234,0.045);
+    --gold:#f2cd5c; --gold-dim:#c2a043; --sim:#44c4ac; --ai:#b794f6;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1200px;height:630px;overflow:hidden;}
+  body{
+    font-family:var(--sans);color:var(--ink);position:relative;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1250px 780px at 50% -18%, #1d4f38 0%, transparent 60%),
+      radial-gradient(820px 560px at 94% 120%, rgba(68,196,172,.12) 0%, transparent 60%),
+      var(--bg);
+  }
+  /* three-colour top rule = the two engines (math teal · story violet) + gold */
+  .topbar{position:absolute;top:0;left:0;right:0;height:6px;
+    background:linear-gradient(90deg,var(--gold) 0 34%, var(--sim) 34% 67%, var(--ai) 67% 100%);}
+  /* faint 4->2->1 knockout bracket motif, right side — signals the "journey tree" */
+  .bracket{position:absolute;top:0;right:-6px;width:520px;height:630px;opacity:.13;}
+  .wrap{position:absolute;inset:0;padding:60px 66px;display:flex;flex-direction:column;justify-content:space-between;z-index:1;}
+  .kicker{display:flex;align-items:center;gap:14px;font-family:var(--mono);
+    font-size:19px;letter-spacing:.20em;text-transform:uppercase;color:var(--muted);}
+  .ball{width:27px;height:27px;border-radius:50%;flex:none;
+    background:radial-gradient(circle at 34% 30%, #ffe9a3, var(--gold) 58%, #b8932f);
+    box-shadow:0 0 24px rgba(242,205,92,.55);}
+  .kicker b{color:var(--ink);font-weight:700;letter-spacing:.20em;}
+  h1{font-size:67px;line-height:1.06;font-weight:800;letter-spacing:-.022em;max-width:980px;}
+  h1 .math{color:var(--sim);} h1 .ai{color:var(--ai);}
+  .sub{margin-top:24px;font-size:23px;line-height:1.42;color:var(--muted);max-width:740px;}
+  .sub b{color:#d3e3da;font-weight:600;}
+  .foot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+  .chips{display:flex;gap:11px;}
+  .chip{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:15px;
+    letter-spacing:.04em;color:#d3e3da;border:1px solid var(--line);background:var(--panel);
+    padding:9px 15px;border-radius:999px;white-space:nowrap;}
+  .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .url{font-family:var(--mono);font-size:16px;color:var(--gold-dim);letter-spacing:.01em;padding-bottom:3px;}
+</style>
+</head>
+<body>
+  <div class="topbar"></div>
+  <svg class="bracket" viewBox="0 0 520 630" fill="none" stroke="#cfe6db" stroke-width="2" stroke-linecap="round">
+    <!-- round-of-4 stubs -->
+    <path d="M520 140 H470 M520 232 H470 M520 398 H470 M520 490 H470"/>
+    <!-- join to semis -->
+    <path d="M470 140 V232 M470 186 H388  M470 398 V490 M470 444 H388"/>
+    <!-- join to final -->
+    <path d="M388 186 V444 M388 315 H300"/>
+    <circle cx="296" cy="315" r="8" fill="#f2cd5c" stroke="none"/>
+  </svg>
+  <div class="wrap">
+    <div class="kicker"><span class="ball"></span> AI · WORLD CUP 2026 · <b>SIMULATOR</b></div>
+    <div>
+      <h1>The <span class="math">math</span> decides who wins.<br>Then <span class="ai">Claude</span> tells the story.</h1>
+      <div class="sub">An honest Monte&nbsp;Carlo of the 2026 World&nbsp;Cup — every storyline <b>constrained to the simulation's actual outcome</b>. No hype, no invented drama.</div>
+    </div>
+    <div class="foot">
+      <div class="chips">
+        <span class="chip"><span class="dot" style="background:var(--gold)"></span>50,000 SIMULATIONS</span>
+        <span class="chip"><span class="dot" style="background:var(--sim)"></span>48 NATIONS</span>
+        <span class="chip"><span class="dot" style="background:var(--ai)"></span>CLAUDE-NARRATED</span>
+      </div>
+      <div class="url">c-beltran.github.io/world-cup-2026-simulator</div>
+    </div>
+  </div>
+</body>
+</html>
