@@ -1,0 +1,10 @@
+# secrets & deps (never commit the key; it lives only in .env, used only by /pipeline)
+.env
+node_modules/
+**/node_modules/
+
+# generated pipeline intermediates (regenerate: npm run simulate / npm run narrate)
+pipeline/out/
+
+# OS cruft
+.DS_Store

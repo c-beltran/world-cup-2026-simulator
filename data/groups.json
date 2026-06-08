@@ -1,0 +1,114 @@
+{
+  "tournament": "FIFA World Cup 2026",
+  "note": "Verified against live sources (Jun 2026). 12 groups of 4. Top 2 of each group + 8 best 3rd-place teams advance to Round of 32. flag = flagcdn.com/w320/{code}.png",
+  "groups": [
+    {
+      "id": "A",
+      "teams": [
+        { "name": "Mexico", "code": "mx" },
+        { "name": "South Africa", "code": "za" },
+        { "name": "Korea Republic", "code": "kr" },
+        { "name": "Czechia", "code": "cz" }
+      ]
+    },
+    {
+      "id": "B",
+      "teams": [
+        { "name": "Canada", "code": "ca" },
+        { "name": "Switzerland", "code": "ch" },
+        { "name": "Qatar", "code": "qa" },
+        { "name": "Bosnia and Herzegovina", "code": "ba" }
+      ]
+    },
+    {
+      "id": "C",
+      "teams": [
+        { "name": "Brazil", "code": "br" },
+        { "name": "Morocco", "code": "ma" },
+        { "name": "Haiti", "code": "ht" },
+        { "name": "Scotland", "code": "gb-sct" }
+      ]
+    },
+    {
+      "id": "D",
+      "teams": [
+        { "name": "United States", "code": "us" },
+        { "name": "Paraguay", "code": "py" },
+        { "name": "Australia", "code": "au" },
+        { "name": "Türkiye", "code": "tr" }
+      ]
+    },
+    {
+      "id": "E",
+      "teams": [
+        { "name": "Germany", "code": "de" },
+        { "name": "Curaçao", "code": "cw" },
+        { "name": "Côte d'Ivoire", "code": "ci" },
+        { "name": "Ecuador", "code": "ec" }
+      ]
+    },
+    {
+      "id": "F",
+      "teams": [
+        { "name": "Netherlands", "code": "nl" },
+        { "name": "Japan", "code": "jp" },
+        { "name": "Tunisia", "code": "tn" },
+        { "name": "Sweden", "code": "se" }
+      ]
+    },
+    {
+      "id": "G",
+      "teams": [
+        { "name": "Belgium", "code": "be" },
+        { "name": "Egypt", "code": "eg" },
+        { "name": "Iran", "code": "ir" },
+        { "name": "New Zealand", "code": "nz" }
+      ]
+    },
+    {
+      "id": "H",
+      "teams": [
+        { "name": "Spain", "code": "es" },
+        { "name": "Cabo Verde", "code": "cv" },
+        { "name": "Saudi Arabia", "code": "sa" },
+        { "name": "Uruguay", "code": "uy" }
+      ]
+    },
+    {
+      "id": "I",
+      "teams": [
+        { "name": "France", "code": "fr" },
+        { "name": "Senegal", "code": "sn" },
+        { "name": "Norway", "code": "no" },
+        { "name": "Iraq", "code": "iq" }
+      ]
+    },
+    {
+      "id": "J",
+      "teams": [
+        { "name": "Argentina", "code": "ar" },
+        { "name": "Algeria", "code": "dz" },
+        { "name": "Austria", "code": "at" },
+        { "name": "Jordan", "code": "jo" }
+      ]
+    },
+    {
+      "id": "K",
+      "teams": [
+        { "name": "Portugal", "code": "pt" },
+        { "name": "Uzbekistan", "code": "uz" },
+        { "name": "Colombia", "code": "co" },
+        { "name": "Congo DR", "code": "cd" }
+      ]
+    },
+    {
+      "id": "L",
+      "teams": [
+        { "name": "England", "code": "gb-eng" },
+        { "name": "Croatia", "code": "hr" },
+        { "name": "Ghana", "code": "gh" },
+        { "name": "Panama", "code": "pa" }
+      ]
+    }
+  ]
+}

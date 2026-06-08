@@ -1,0 +1,14 @@
+{
+  "name": "wc2026-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline generation pipeline for the AI World Cup 2026 Simulator: ratings -> Monte Carlo -> AI narration -> baked data.json. Uses the API key; never ships to /app.",
+  "scripts": {
+    "rate": "node rateTeams.js",
+    "simulate": "node --env-file-if-exists=../.env --env-file-if-exists=.env simulate.js",
+    "narrate": "node --env-file-if-exists=../.env --env-file-if-exists=.env narrate.js",
+    "verify": "node verify.js",
+    "build": "node build.js"
+  }
+}

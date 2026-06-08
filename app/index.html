@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI World Cup 2026 — Simulator & Journey Tree</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<style>
+  :root {
+    --bg: #08120e; --ink: #e9f1ea; --muted: #82998c;
+    --line: rgba(233, 241, 234, 0.10); --panel: rgba(233, 241, 234, 0.035);
+    --gold: #f2cd5c; --gold-dim: #b8932f; --sim: #44c4ac; --ai: #b794f6; --loss: #5d7268; --upset: #ff7a5c;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background:
+      radial-gradient(1300px 820px at 50% -12%, #1a4632 0%, transparent 62%),
+      radial-gradient(1100px 780px at 50% 122%, #0c2316 0%, transparent 58%),
+      #08160f;
+    color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.5;
+  }
+  /* darkened broadcast pitch behind everything: mowing stripes + centre circle + centre spot */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 118px, rgba(233,241,234,.17) 119px, rgba(233,241,234,.17) 121px, transparent 122px),
+      radial-gradient(circle at 50% 50%, rgba(233,241,234,.19) 0 3px, transparent 4px),
+      repeating-linear-gradient(0deg, rgba(180,235,200,.07) 0 7%, rgba(0,0,0,0) 7% 14%);
+    mask: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  /* pitch markings as one SVG: boundary, halfway line, penalty + six-yard boxes, and a GOAL at each byline */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='rgba(233,241,234,0.14)' stroke-width='2'%3E%3Crect x='18' y='14' width='964' height='572'/%3E%3Cline x1='500' y1='14' x2='500' y2='586'/%3E%3Crect x='18' y='180' width='140' height='240'/%3E%3Crect x='842' y='180' width='140' height='240'/%3E%3Crect x='18' y='250' width='48' height='100'/%3E%3Crect x='934' y='250' width='48' height='100'/%3E%3C/g%3E%3Cg fill='rgba(233,241,234,0.11)' stroke='rgba(233,241,234,0.28)' stroke-width='2.5'%3E%3Crect x='6' y='268' width='16' height='64'/%3E%3Crect x='978' y='268' width='16' height='64'/%3E%3C/g%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1500px; margin: 0 auto; padding: 26px 30px 150px; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.01em; margin: 0; } h1 .ball { color: var(--gold); }
+  .tagline { color: var(--muted); font-size: 13.5px; margin-top: 4px; max-width: 620px; }
+  .method { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; line-height: 1.7; }
+  .method b { color: var(--ink); font-weight: 600; } .method .sim { color: var(--sim); } .method .ai { color: var(--ai); }
+
+  .layout { display: grid; grid-template-columns: 340px 1fr; gap: 26px; margin-top: 24px; align-items: start; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .panel h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); margin: 0 0 14px; font-weight: 700; }
+  .panel + .panel { margin-top: 18px; }
+  .readout { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; font-family: var(--mono); }
+  .readout .stat { border-left: 2px solid var(--sim); padding-left: 10px; }
+  .readout .num { font-size: 20px; font-weight: 700; } .readout .lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .list li { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 13px; border-bottom: 1px dashed var(--line); }
+  .list li:last-child { border-bottom: 0; } .list .pct { margin-left: auto; font-family: var(--mono); color: var(--gold); font-size: 12px; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); flex: none; background: #222; }
+  .rank { font-family: var(--mono); font-size: 10px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+
+  .stage { min-width: 0; }
+  .selector { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .chip { cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--muted); border-radius: 999px; padding: 8px 15px; font-size: 12.5px; font-weight: 600; transition: .18s; }
+  .chip:hover { color: var(--ink); border-color: var(--gold-dim); }
+  .chip.active { color: #1a1206; background: linear-gradient(180deg, var(--gold), var(--gold-dim)); border-color: var(--gold); box-shadow: 0 4px 18px rgba(242,205,92,.25); }
+  .storyline { background: linear-gradient(180deg, rgba(183,148,246,.10), transparent); border: 1px solid var(--line); border-left: 3px solid var(--ai); border-radius: 12px; padding: 16px 18px; margin-bottom: 18px; }
+  .storyline .k { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ai); margin-bottom: 8px; }
+  .storyline p { margin: 0; font-size: 15px; line-height: 1.62; } .storyline .angle { color: var(--muted); font-size: 12.5px; margin-top: 10px; font-style: italic; }
+  .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .btn { cursor: pointer; border: 1px solid var(--gold-dim); background: transparent; color: var(--gold); border-radius: 8px; padding: 9px 16px; font-weight: 700; font-size: 13px; transition: .18s; }
+  .btn:hover { background: rgba(242,205,92,.10); } .btn.primary { background: linear-gradient(180deg, var(--gold), var(--gold-dim)); color: #1a1206; border-color: var(--gold); }
+  .btn.ghost { color: var(--muted); border-color: var(--line); } .hint { color: var(--muted); font-size: 11.5px; font-family: var(--mono); margin-left: auto; }
+
+  /* ---- journey spine ---- */
+  .tree-scroll { position: relative; overflow-y: auto; overflow-x: hidden; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, rgba(242,205,92,.05), transparent 22%); max-height: 80vh; scroll-behavior: smooth; }
+  .spine { position: relative; width: 100%; max-width: 880px; margin: 0 auto; padding: 26px 0 40px; display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
+  /* the Journey line — one continuous gold champion path, dead-centre behind the spine cards */
+  .spine::before { content: ""; position: absolute; left: 50%; transform: translateX(-50%); top: 92px; bottom: 58px; width: 3px; background: linear-gradient(180deg, var(--gold), var(--gold-dim)); box-shadow: 0 0 14px rgba(242,205,92,.55); z-index: 0; border-radius: 2px; }
+  .spine-flag { position: absolute; z-index: 4; transform: translate(-50%, -50%); transition: left .8s cubic-bezier(.4,0,.2,1), top .8s cubic-bezier(.4,0,.2,1); opacity: 0; pointer-events: none; }
+  .spine-flag.show { opacity: 1; } .spine-flag img { width: 36px; height: 24px; border-radius: 3px; box-shadow: 0 0 0 2px var(--gold), 0 0 24px rgba(242,205,92,.7); }
+  .crown { position: relative; z-index: 2; text-align: center; }
+  .crown .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .crown .champ { display: inline-flex; align-items: center; gap: 12px; margin-top: 8px; padding: 12px 22px; border: 1px solid var(--gold); border-radius: 14px; background: linear-gradient(180deg, rgba(242,205,92,.2), rgba(242,205,92,.05)); box-shadow: 0 0 44px rgba(242,205,92,.22); }
+  .crown .champ img { width: 40px; height: 27px; border-radius: 3px; } .crown .champ .name { font-size: 22px; font-weight: 800; }
+
+  /* each round = a tier: champion card dead-centre (gold), the team it knocked out dimmed on one flank */
+  .tier { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 300px 1fr; column-gap: 30px; align-items: center; }
+  .tier .pcard { grid-column: 2; }
+  .tier.left .rib  { grid-column: 1; justify-self: end; }
+  .tier.right .rib { grid-column: 3; justify-self: start; }
+
+  .pcard { position: relative; width: 300px; border: 1px solid var(--gold); border-radius: 11px; background: linear-gradient(180deg, rgba(242,205,92,.13), rgba(8,18,14,.85)); box-shadow: 0 0 26px rgba(242,205,92,.16); padding: 9px 14px 10px; cursor: pointer; transition: box-shadow .2s, transform .2s; }
+  .pcard:hover { box-shadow: 0 0 34px rgba(242,205,92,.3); transform: translateY(-1px); }
+  .focus { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .pcard .rlabel { text-align: center; font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .team { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: 14px; }
+  .team .nm { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .team .sc { margin-left: auto; font-family: var(--mono); font-weight: 700; font-size: 17px; }
+  .team.win .nm { font-weight: 700; } .team.win .sc { color: var(--gold); }
+  .pcard .meta { text-align: center; font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; color: var(--muted); margin-top: 5px; min-height: 12px; }
+  .pcard .badge { color: var(--gold); } .ai-dot { color: var(--ai); }
+
+  /* dimmed eliminated-opponent branch — "this team's road ended here" */
+  .rib { position: relative; z-index: 1; display: flex; align-items: center; gap: 7px; width: 212px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 9px; background: rgba(233,241,234,.03); color: var(--loss); cursor: pointer; opacity: .8; transition: opacity .2s, border-color .2s; }
+  .rib:hover { opacity: 1; border-color: var(--loss); }
+  .rib .flag { filter: grayscale(.55) opacity(.85); }
+  .rib .nm { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12.5px; }
+  .rib .sc { font-family: var(--mono); font-weight: 700; font-size: 14px; color: var(--loss); }
+  .rib .out { font-family: var(--mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--loss); border: 1px solid var(--line); border-radius: 4px; padding: 1px 4px; }
+  /* dim fork connector spanning the column gap from spine card to branch */
+  .tier.left .rib::after  { content: ""; position: absolute; right: -30px; top: 50%; width: 30px; height: 2px; background: linear-gradient(90deg, transparent, var(--loss)); opacity: .5; }
+  .tier.right .rib::before { content: ""; position: absolute; left: -30px; top: 50%; width: 30px; height: 2px; background: linear-gradient(90deg, var(--loss), transparent); opacity: .5; }
+
+  /* upset signal folded onto the eliminated-giant branch — giant-killings pop, routine stays quiet */
+  .rib.up-subtle { opacity: .95; border-color: rgba(255,122,92,.45); }
+  .rib.up-subtle .nm { color: #c4b1ab; }
+  .rib.up-big { opacity: 1; border-color: var(--upset); background: rgba(255,122,92,.09); box-shadow: 0 0 20px rgba(255,122,92,.22); }
+  .rib.up-big .flag { filter: none; }
+  .rib.up-big .nm { color: #ffd9cf; font-weight: 700; }
+  .rib .out.sub { color: var(--upset); border-color: rgba(255,122,92,.5); }
+  .rib .out.big { color: #1a0f0b; background: var(--upset); border-color: var(--upset); font-weight: 800; letter-spacing: .06em; }
+  .tier.left .rib.up-big::after  { background: linear-gradient(90deg, transparent, var(--upset)); opacity: .8; }
+  .tier.right .rib.up-big::before { background: linear-gradient(90deg, var(--upset), transparent); opacity: .8; }
+
+  /* orientation cues */
+  .crown .funnel { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 9px; }
+  .base-hint { position: relative; z-index: 1; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---- Pick-your-nation dropdown ---- */
+  .nationbar { display: flex; align-items: center; gap: 11px; flex-wrap: wrap; margin: -2px 0 16px; padding: 11px 15px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(180deg, rgba(68,196,172,.07), transparent); }
+  .nationbar label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--sim); font-weight: 700; }
+  .nationbar select { background: #0c1c14; color: var(--ink); border: 1px solid var(--gold-dim); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-weight: 600; font-family: var(--sans); cursor: pointer; min-width: 230px; }
+  .nationbar select:focus { outline: none; border-color: var(--gold); }
+  .nationbar .nationnote { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+  /* ---- non-champion apex: "the run ended here" (no crown) ---- */
+  .apex-out { position: relative; z-index: 2; text-align: center; }
+  .apex-out .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--loss); }
+  .apex-out .lbl b { color: #c9d6cd; }
+  .apex-out .elim { display: inline-block; margin-top: 8px; padding: 9px 18px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, rgba(233,241,234,.05), rgba(8,18,14,.65)); min-width: 270px; cursor: pointer; transition: border-color .2s; }
+  .apex-out .elim:hover { border-color: var(--loss); }
+  .apex-out .elim .team { font-size: 15px; gap: 9px; }
+  .apex-out .elim .team .sc { font-size: 18px; }
+  .apex-out .elim .team.eliminated { opacity: .72; }
+  .apex-out .elim .team.eliminated .nm { color: var(--loss); }
+  .apex-out .elim .team.adv .nm { font-weight: 700; }
+  .apex-out .elim .team .tag { font-family: var(--mono); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  .apex-out .elim .team.adv .tag { color: #c9d6cd; }
+  .apex-out .funnel { font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 9px; }
+
+  /* ---- realistic-ceiling label (SAMPLE shows BOTH A=with %, B=plain) ---- */
+  .ceil { margin-top: 11px; display: inline-flex; flex-direction: column; gap: 4px; align-items: center; }
+  .ceil-opt { font-size: 12.5px; color: var(--ink); }
+  .ceil-opt .ab { display: inline-block; font-family: var(--mono); font-size: 9px; font-weight: 800; color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 4px; padding: 0 4px; margin-right: 7px; vertical-align: middle; }
+  .ceil-opt .freq { color: var(--sim); }
+
+  /* chaos "biggest shocks" factual strip (chaos tab only) */
+  .shocks { border: 1px solid var(--line); border-left: 3px solid var(--upset); border-radius: 12px; padding: 13px 16px; margin-bottom: 18px; background: linear-gradient(180deg, rgba(255,122,92,.07), transparent); }
+  .shocks .k { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--upset); margin-bottom: 9px; }
+  .shock-list { display: grid; gap: 6px; }
+  .shock { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .shock .flag { width: 20px; height: 13px; }
+  .shock b { font-weight: 700; } .shock .muted { color: var(--muted); }
+  .shock .sc { font-family: var(--mono); color: var(--upset); font-weight: 700; }
+  .shock .rd { margin-left: auto; font-family: var(--mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+  .lower { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; transform: translateY(110%); transition: transform .5s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+  .lower.show { transform: translateY(0); }
+  .lower .inner { max-width: 980px; margin: 0 auto 26px; background: rgba(8,16,12,.93); backdrop-filter: blur(8px); border: 1px solid var(--line); border-top: 3px solid var(--ai); border-radius: 14px; padding: 16px 22px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .lower .head { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+  .lower .head .vs { color: var(--ink); font-weight: 600; } .lower .head .sc { color: var(--gold); font-weight: 700; }
+  .lower .head .tag { margin-left: auto; color: var(--ai); letter-spacing: .12em; text-transform: uppercase; }
+  .lower p { margin: 0; font-size: 16px; line-height: 1.6; }
+
+  body.thumb .layout, body.thumb header .method, body.thumb .selector, body.thumb .toolbar, body.thumb .tree-scroll, body.thumb .storyline, body.thumb .shocks { display: none; }
+  .hero { display: none; }
+  body.thumb .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; min-height: 74vh; text-align: center; }
+  .hero .kicker { font-family: var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); font-size: 13px; }
+  .hero .big { font-size: clamp(40px, 8vw, 92px); font-weight: 800; line-height: 1; display: flex; align-items: center; gap: 20px; }
+  .hero .big img { width: 92px; height: 62px; border-radius: 6px; box-shadow: 0 0 50px rgba(242,205,92,.3); }
+  .hero .sub { color: var(--muted); font-size: 17px; max-width: 680px; } .hero .scoreline { font-family: var(--mono); color: var(--ink); font-size: 18px; }
+  /* exit control for the hero frame (the toolbar that toggles it is hidden in hero mode).
+     Fades when idle so it never sits in a captured cover frame; reveal on mouse move or Esc. */
+  .hero-close { display: none; }
+  body.thumb .hero-close { display: inline-flex; align-items: center; gap: 8px; position: fixed; top: 20px; right: 22px; z-index: 40; padding: 9px 14px 9px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(8,16,12,.6); backdrop-filter: blur(6px); color: var(--muted); font-family: var(--mono); font-size: 12px; letter-spacing: .04em; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  body.thumb.hud .hero-close { opacity: .8; pointer-events: auto; }
+  body.thumb.hud .hero-close:hover { opacity: 1; color: var(--gold); border-color: var(--gold-dim); background: rgba(8,16,12,.92); }
+  .hero-close .x { font-size: 15px; line-height: 1; }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span class="ball">●</span> AI World Cup 2026 — Journey Tree</h1>
+      <div class="tagline">An honest Monte Carlo of the real 2026 World Cup, narrated by an LLM. Two engines: the <b style="color:var(--sim)">math</b> decides who wins, the <b style="color:var(--ai)">story</b> is written by Claude — constrained to the simulation's actual result.</div>
+    </div>
+    <div class="method" id="method"></div>
+  </header>
+
+  <div class="hero" id="hero"></div>
+
+  <div class="layout">
+    <aside>
+      <div class="panel"><h2>What 50,000 simulations said</h2><div class="readout" id="readout"></div></div>
+      <div class="panel"><h2>Title odds — top 10 <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">· across all 50k sims</span></h2><canvas id="champChart" height="220"></canvas></div>
+      <div class="panel"><h2>Most common finals</h2><ul class="list" id="finals"></ul></div>
+      <div class="panel"><h2>Cinderella watch <span style="color:var(--muted);font-weight:400">· field #&gt;24 → SF+</span></h2><ul class="list" id="cinderellaList"></ul></div>
+    </aside>
+
+    <section class="stage">
+      <div class="selector" id="selector"></div>
+      <div class="nationbar">
+        <label for="nationPick">⚽ Pick your nation</label>
+        <select id="nationPick"></select>
+        <span class="nationnote" id="nationnote">any of 48 teams · its best run that recurs in ≥1% of 50,000 sims</span>
+      </div>
+      <div class="storyline" id="storyline"></div>
+      <div class="shocks" id="shocks" style="display:none"></div>
+      <div class="toolbar">
+        <button class="btn primary" id="autoBtn">▶ Auto-Scroll Journey</button>
+        <button class="btn ghost" id="thumbBtn">◫ Hero frame</button>
+        <span class="hint">screen-record this page · ranks are field rank (1–48)</span>
+      </div>
+      <div class="tree-scroll" id="treeScroll"><div class="tree" id="tree"></div></div>
+    </section>
+  </div>
+</div>
+
+<button class="hero-close" id="heroClose" aria-label="Back to explorer" title="Back to explorer (Esc)"><span class="x">✕</span> Back</button>
+
+<div class="lower" id="lower"><div class="inner">
+  <div class="head"><span class="vs" id="lvs"></span> · <span class="sc" id="lsc"></span> <span id="lbadge"></span><span class="tag">AI take</span></div>
+  <p id="ltake"></p>
+</div></div>
+
+<script>
+const D = window.WC_DATA;
+const FLAG = c => `https://flagcdn.com/w320/${c}.png`;
+const ROUND = { R32:"Round of 32", R16:"Round of 16", QF:"Quarter-final", SF:"Semi-final", final:"Final" };
+const ORDER = ["final","SF","QF","R16","R32"];          // top -> bottom (crown sits above final)
+const PIDX = { R32:0, R16:1, QF:2, SF:3, final:4 };       // path sequence, base -> apex
+const LEFT = { R32:32, R16:16, QF:8, SF:4, final:2 };     // teams still alive at each round (the funnel)
+
+// Upset tier from field ranks (the champion `wr` beat the opponent `lr`).
+// null = quiet (a toss-up, or the champion was favoured). BIG = top-6 victim OR gap > 20.
+const upsetTier = (wr, lr) => {
+  if (wr <= lr) return null;                 // winner higher-rated → not an upset
+  const gap = wr - lr;
+  if (lr <= 6 || gap > 20) return "big";     // giant-killing: a top-6 side, or a huge rank gap
+  if (gap >= 8) return "subtle";             // a clear upset, but not a giant-killing
+  return null;                               // gap < 8 → toss-up, stays quiet
+};
+
+// Auto-scroll capture pacing — DEFERRED: tune at the screen-record dry run, not from a
+// code guess. All capture timing lives here, in one place.
+const AUTOSCROLL = { settleMs: 1200, readMs: 5200, gapMs: 650, endMs: 2400 };
+
+const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; };
+const $ = id => document.getElementById(id);
+const teamRow = (t, cls, score) => `<div class="team ${cls}"><img class="flag" src="${FLAG(t.code)}" alt=""><span class="nm">${t.name}</span><span class="rank">#${t.fieldRank}</span><span class="sc">${score}</span></div>`;
+
+// ---------- method strip ----------
+const m = D.meta;
+$("method").innerHTML =
+  `<div><span class="sim">SIMULATION</span> · ${m.sims.toLocaleString()} runs · seed ${m.masterSeed} · Poisson-from-Elo /${m.model.ELO_DIVISOR}</div>` +
+  `<div><span class="ai">NARRATION</span> · ${m.narration ? m.narration.provider + "/" + m.narration.model : "pre-baked LLM"} · constrained to actual results</div>` +
+  `<div><b>Ratings:</b> FIFA pts, ${m.ratingSnapshot} · neutral venue (no host bump)</div>`;
+
+// ---------- stats ----------
+const s = D.stats;
+const r1 = x => (Math.round(x * 10) / 10).toFixed(1);
+$("readout").innerHTML = [
+  [s.meanGoalsPerGame.toFixed(2), "goals / game"], [r1(s.knockout.upsetPct) + "%", "knockout upsets"],
+  [r1(s.groupStage.drawPct) + "%", "group draws"], [r1(s.cinderella.simsWithCinderellaPct) + "%", "have a Cinderella"],
+].map(([n, l]) => `<div class="stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join("");
+$("finals").innerHTML = s.finals.slice(0, 6).map(f => `<li><span>${f.pair}</span><span class="pct">${r1(f.pct)}%</span></li>`).join("");
+$("cinderellaList").innerHTML = (s.cinderella.teams || []).slice(0, 6)
+  .map(c => `<li><img class="flag" src="${FLAG(c.code)}"><span>${c.name}</span><span class="rank">#${c.fieldRank}</span><span class="pct">${r1(c.pct)}%</span></li>`).join("");
+
+const topC = s.champions.slice(0, 10);
+new Chart($("champChart"), {
+  type: "bar",
+  data: { labels: topC.map(c => c.name), datasets: [{ data: topC.map(c => +c.pct.toFixed(2)),
+    backgroundColor: topC.map((_, i) => i === 0 ? "#f2cd5c" : "rgba(242,205,92,.45)"), borderRadius: 4, barThickness: 13 }] },
+  options: { indexAxis: "y", plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.x + "% win the title" } } },
+    scales: { x: { grid: { color: "rgba(255,255,255,.05)" }, ticks: { color: "#82998c", callback: v => v + "%" } },
+              y: { grid: { display: false }, ticks: { color: "#e9f1ea", font: { size: 11 } } } } }
+});
+
+// ---------- featured tabs (Part A: only 2 surfaced) + pick-your-nation ----------
+const FEAT = D.featured;
+const NATIONS = D.nations || {};
+const ALL_KEYS = ["modalChampion", "cinderella", "chalkFinal", "chaos"].filter(k => FEAT[k]); // chalk/chaos kept, deep-linkable
+const TAB_KEYS = ["modalChampion", "cinderella"].filter(k => FEAT[k]);                          // the only chips surfaced
+const NICE = { modalChampion: "Most likely champion", cinderella: "Biggest underdog", chalkFinal: "Favorites win", chaos: "Most upsets" };
+
+const selector = $("selector");
+selector.innerHTML = TAB_KEYS.map(k => `<button class="chip" data-k="${k}">${NICE[k]} · ${FEAT[k].storyTeam}</button>`).join("");
+selector.querySelectorAll(".chip").forEach(c => c.onclick = () => selectFeatured(c.dataset.k));
+
+const nationPick = $("nationPick");
+const nationNames = Object.keys(NATIONS).sort((a, b) => a.localeCompare(b));
+nationPick.innerHTML = `<option value="">— pick a nation —</option>` +
+  nationNames.map(n => `<option value="${n}">${n} · #${NATIONS[n].fieldRank}</option>`).join("");
+nationPick.onchange = () => { if (nationPick.value) selectNation(nationPick.value); };
+
+// what's on stage: {kind:'featured', key} | {kind:'nation', name}
+let view = { kind: "featured", key: TAB_KEYS[0] || ALL_KEYS[0] };
+
+function selectFeatured(k) {
+  view = { kind: "featured", key: k }; stopAuto();
+  nationPick.value = "";
+  selector.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.k === k));
+  $("storyline").innerHTML = `<div class="k">◆ AI storyline — ${FEAT[k].storyTeam}</div><p>${FEAT[k].storyline || "(not yet narrated)"}</p><div class="angle">${FEAT[k].angle}</div>`;
+  renderShocks(k);
+  renderJourney(featuredJourney(k));
+  requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; }); // start at the base (R32)
+}
+
+function selectNation(name) {
+  if (!NATIONS[name]) return;
+  view = { kind: "nation", name }; stopAuto();
+  nationPick.value = name;
+  selector.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  const J = nationJourney(name), n = NATIONS[name];
+  $("storyline").innerHTML = `<div class="k">◆ AI storyline — ${name} · field #${n.fieldRank} of 48</div><p>${J.storyline || "(not yet narrated — sample stage)"}</p><div class="angle">${nationAngle(n)}</div>`;
+  renderShocks(null);
+  renderJourney(J);
+  requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; });
+}
+
+function nationAngle(n) {
+  const odds = n.champion ? `wins the title in ${freqText(n.titlePct)}` : `reaches the ${n.ceilingRound} in ${freqText(n.reachPct)}`;
+  return `Pick-your-nation · ${n.name}'s most dramatic run across the 50,000 simulations — it ${odds}. Same engine, same honesty rules; pre-baked offline, no live calls.`;
+}
+
+// ---------- journey builders: a featured tab OR a picked nation, normalized ----------
+function featuredJourney(k) {
+  const f = FEAT[k], champ = f.champion.name;
+  const path = f.knockout.filter(m => (m.home.name === champ || m.away.name === champ) && m.round !== "3rd_place");
+  return { story: f.champion, isChampion: true, path, ceiling: null };       // tabs keep their curated crown (no freq line)
+}
+function nationJourney(name) {
+  const n = NATIONS[name];
+  return {
+    story: { name: n.name, code: n.code, fieldRank: n.fieldRank },
+    isChampion: n.champion, path: n.path, storyline: n.storyline,
+    ceiling: { key: n.ceiling, round: n.ceilingRound, pct: n.champion ? n.titlePct : n.reachPct },
+  };
+}
+
+// frequency phrasing that reads to a non-fan
+function freqText(pct) {
+  if (pct >= 1) return `${pct < 10 ? pct.toFixed(1) : Math.round(pct)}% of simulations`;
+  return `${pct.toFixed(1)}% of simulations · about 1 in ${Math.round(100 / pct).toLocaleString()}`;
+}
+// realistic-ceiling label — SAMPLE renders BOTH wordings (A = with %, B = plain) to choose from
+function ceilingLine(J) {
+  if (!J.ceiling) return "";
+  const c = J.ceiling, isT = c.key === "title";
+  const A = isT ? `Champion — wins the title in <span class="freq">${freqText(c.pct)}</span>`
+               : `Best run: reached the ${c.round} — in <span class="freq">${freqText(c.pct)}</span>`;
+  const B = isT ? `Their realistic ceiling: the title` : `Their best realistic run: ${c.round}`;
+  return `<div class="ceil"><div class="ceil-opt"><span class="ab">A</span>${A}</div><div class="ceil-opt"><span class="ab">B</span>${B}</div></div>`;
+}
+
+// ---------- render: gold spine of WINS; apex = crown (champion) or muted "best run" marker ----------
+function renderJourney(J) {
+  const tree = $("tree"); tree.innerHTML = "";
+  const spine = el("div", "spine");
+  const story = J.story;
+  const wins = J.path.filter(m => m.winner === story.name).sort((a, b) => PIDX[b.round] - PIDX[a.round]); // apex-most first
+  const loss = J.path.find(m => m.winner !== story.name); // undefined when champion
+
+  if (J.isChampion) {
+    const crown = el("div", "crown");
+    crown.innerHTML = `<div class="lbl">★ Champion ★</div><div class="champ"><img src="${FLAG(story.code)}"><span class="name">${story.name}</span><span class="rank">#${story.fieldRank} of 48</span></div>${ceilingLine(J)}<div class="funnel">▲ 48 teams → 1 champion</div>`;
+    spine.appendChild(crown);
+  } else {
+    const opp = loss.home.name === story.name ? loss.away : loss.home;
+    const myG = loss.home.name === story.name ? loss.homeGoals : loss.awayGoals;
+    const oppG = loss.home.name === story.name ? loss.awayGoals : loss.homeGoals;
+    const apex = el("div", "apex-out");
+    apex.innerHTML = `<div class="lbl">Best run · <b>reached the ${J.ceiling.round}</b></div>` +
+      `<div class="elim">` +
+        `<div class="team eliminated"><img class="flag" src="${FLAG(story.code)}" alt=""><span class="nm">${story.name}</span><span class="rank">#${story.fieldRank} of 48</span><span class="sc">${myG}</span><span class="tag">out</span></div>` +
+        `<div class="team adv"><img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span><span class="tag">advanced</span></div>` +
+      `</div>${ceilingLine(J)}<div class="funnel">▲ this run ended in the ${J.ceiling.round}</div>`;
+    const elim = apex.querySelector(".elim"); elim._match = loss; elim.onclick = () => showTake(elim);
+    spine.appendChild(apex);
+  }
+
+  // WIN TIERS (deepest win at top → R32 at the base) — gold card + the team it knocked out
+  wins.forEach((mm, i) => {
+    const isHome = mm.home.name === story.name;
+    const me = isHome ? mm.home : mm.away, opp = isHome ? mm.away : mm.home;
+    const myG = isHome ? mm.homeGoals : mm.awayGoals, oppG = isHome ? mm.awayGoals : mm.homeGoals;
+    const badge = mm.decidedBy === "PENS" ? "won on penalties" : mm.decidedBy === "ET" ? "after extra time" : "";
+    const side = i % 2 === 0 ? "right" : "left";
+    const tier = el("div", "tier " + side);
+
+    const card = el("div", "pcard");
+    card.innerHTML = `<div class="rlabel">${ROUND[mm.round]} · ${LEFT[mm.round]} left</div>` + teamRow(me, "win", myG) +
+      `<div class="meta">${badge ? `<span class="badge">${badge}</span>` : ""}${badge && mm.take ? " · " : ""}${mm.take ? `<span class="ai-dot">◆ AI take</span>` : ""}</div>`;
+    card._match = mm; card.dataset.pidx = PIDX[mm.round]; card.onclick = () => showTake(card);
+
+    const tier_up = upsetTier(me.fieldRank, opp.fieldRank);
+    const outTag = tier_up === "big" ? `<span class="out big">⚡ UPSET</span>`
+                 : tier_up === "subtle" ? `<span class="out sub">upset</span>`
+                 : `<span class="out">out</span>`;
+    const rib = el("div", "rib" + (tier_up ? " up-" + tier_up : ""));
+    rib.innerHTML = `<img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span>${outTag}`;
+    rib._match = mm; rib.onclick = () => showTake(rib);
+
+    tier.appendChild(card); tier.appendChild(rib);
+    spine.appendChild(tier);
+  });
+
+  spine.appendChild(el("div", "base-hint", "↑ the run starts here · Round of 32 · read bottom → top"));
+  tree.appendChild(spine);
+  const flag = el("div", "spine-flag"); flag.id = "spineFlag";
+  flag.innerHTML = `<img src="${FLAG(story.code)}" alt="">`;
+  spine.appendChild(flag);
+}
+
+// ---------- chaos tab: biggest shocks across the whole bracket (factual, from sim data) ----------
+// The champion (a top side) cruised, so the carnage lives in OTHER matches — surface it honestly,
+// straight from the sim's results (no LLM), ranked by field-rank gap.
+function biggestShocks(f, n = 5) {
+  return f.knockout
+    .filter(x => x.round !== "3rd_place")
+    .map(x => {
+      const homeWon = x.winner === x.home.name;
+      const W = homeWon ? x.home : x.away, L = homeWon ? x.away : x.home;
+      const wg = homeWon ? x.homeGoals : x.awayGoals, lg = homeWon ? x.awayGoals : x.homeGoals;
+      return { W, L, wg, lg, round: x.round, gap: W.fieldRank - L.fieldRank };
+    })
+    .filter(x => x.gap > 0)                       // upsets only (lower-rated won)
+    .sort((a, b) => b.gap - a.gap)
+    .slice(0, n);
+}
+function renderShocks(k) {
+  const box = $("shocks");
+  if (k !== "chaos") { box.style.display = "none"; box.innerHTML = ""; return; }
+  box.style.display = "";
+  box.innerHTML = `<div class="k">⚡ Biggest shocks in this bracket · by field-rank gap · straight from the sim, off the champion's path</div><div class="shock-list">` +
+    biggestShocks(FEAT[k]).map(s =>
+      `<div class="shock"><img class="flag" src="${FLAG(s.W.code)}"><b>#${s.W.fieldRank} ${s.W.name}</b> beat <span class="muted">#${s.L.fieldRank} ${s.L.name}</span> <span class="sc">${s.wg}–${s.lg}</span><span class="rd">${ROUND[s.round]}</span></div>`
+    ).join("") + `</div>`;
+}
+
+// ---------- AI take lower-third — single source bound to the focused card ----------
+const lower = $("lower");
+let hideTimer;
+function showTake(card, hold) {                 // card._match is the ONLY source: take + matchup can't desync
+  const mm = card._match; if (!mm || !mm.take) return;
+  clearTimeout(hideTimer);
+  document.querySelectorAll(".focus").forEach(c => c.classList.remove("focus"));
+  card.classList.add("focus");
+  $("lvs").textContent = `${ROUND[mm.round]} — ${mm.home.name} v ${mm.away.name}`;
+  $("lsc").textContent = `${mm.home.name} ${mm.homeGoals}–${mm.awayGoals} ${mm.away.name}`;
+  $("lbadge").innerHTML = mm.decidedBy !== "REG" ? `<span class="badge" style="color:var(--gold);font-family:var(--mono)">(${mm.decidedBy})</span> ` : "";
+  $("ltake").textContent = mm.take;
+  lower.classList.add("show");
+  if (!hold) hideTimer = setTimeout(() => lower.classList.remove("show"), 6000);
+}
+
+function moveFlag(card) {
+  const fl = $("spineFlag"); if (!fl) return;
+  const sr = fl.offsetParent.getBoundingClientRect(); // .spine is the flag's containing block
+  const r = card.getBoundingClientRect();
+  fl.style.left = (r.left - sr.left + r.width / 2) + "px";
+  fl.style.top = (r.top - sr.top + r.height / 2) + "px";
+  fl.classList.add("show");
+}
+
+// ---------- auto-scroll capture ----------
+let timer = null, stopped = false;
+const sleep = ms => new Promise(r => (timer = setTimeout(r, ms)));
+async function runAuto() {
+  const cards = [...document.querySelectorAll(".pcard")].sort((a, b) => a.dataset.pidx - b.dataset.pidx); // base -> apex
+  $("autoBtn").textContent = "■ Stop";
+  for (const card of cards) {                    // the SAME element drives camera, flag and take
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    moveFlag(card);
+    await sleep(AUTOSCROLL.settleMs); if (stopped) return endAuto();
+    showTake(card, true);
+    await sleep(AUTOSCROLL.readMs); if (stopped) return endAuto();
+    lower.classList.remove("show");
+    await sleep(AUTOSCROLL.gapMs); if (stopped) return endAuto();
+  }
+  const top = $("tree").querySelector(".crown, .apex-out");
+  if (top) {
+    top.scrollIntoView({ behavior: "smooth", block: "center" });
+    moveFlag(top.querySelector(".champ") || top.querySelector(".elim") || top);
+    const lossEl = top.querySelector(".elim");
+    if (lossEl && lossEl._match && lossEl._match.take) showTake(lossEl, true); // end on "how the run ended"
+  }
+  await sleep(AUTOSCROLL.endMs); endAuto();
+}
+function endAuto() { stopped = false; $("autoBtn").textContent = "▶ Auto-Scroll Journey"; lower.classList.remove("show"); $("spineFlag")?.classList.remove("show"); }
+function stopAuto() { if (timer) { clearTimeout(timer); timer = null; } stopped = true; endAuto(); }
+$("autoBtn").onclick = function () { if (this.textContent[0] === "■") stopAuto(); else { stopped = false; runAuto(); } };
+
+// ---------- hero / thumbnail ----------
+function activeJourney() { return view.kind === "nation" ? nationJourney(view.name) : featuredJourney(view.key); }
+let hudTimer;
+function pingHud() {                              // reveal the exit control, then fade it after idle
+  if (!document.body.classList.contains("thumb")) return;
+  document.body.classList.add("hud");
+  clearTimeout(hudTimer);
+  hudTimer = setTimeout(() => document.body.classList.remove("hud"), 2600);
+}
+function setHero(on) {
+  document.body.classList.toggle("thumb", on);
+  if (!on) { clearTimeout(hudTimer); document.body.classList.remove("hud"); return; }
+  const J = activeJourney(), story = J.story;
+  const kicker = view.kind === "nation" ? "AI World Cup 2026 · Pick your nation" : `AI World Cup 2026 · ${NICE[view.key]}`;
+  let line, tagline = "";
+  if (J.isChampion) {
+    const fin = J.path.find(x => x.round === "final");
+    line = fin ? `${fin.home.name} ${fin.homeGoals}–${fin.awayGoals} ${fin.away.name} · Final` : "Champion";
+    if (view.kind === "nation") tagline = `Champion · in ${freqText(J.ceiling.pct)}`;
+  } else {
+    const loss = J.path.find(m => m.winner !== story.name);
+    const opp = loss.home.name === story.name ? loss.away : loss.home;
+    const myG = loss.home.name === story.name ? loss.homeGoals : loss.awayGoals;
+    const oppG = loss.home.name === story.name ? loss.awayGoals : loss.homeGoals;
+    line = `Out in the ${J.ceiling.round} · lost to ${opp.name} ${myG}–${oppG}`;
+    tagline = `Best run: ${J.ceiling.round} · in ${freqText(J.ceiling.pct)}`;
+  }
+  const storyline = view.kind === "nation" ? (NATIONS[view.name].storyline || "") : (FEAT[view.key].storyline || "");
+  $("hero").innerHTML =
+    `<div class="kicker">${kicker}</div>` +
+    `<div class="big"><img src="${FLAG(story.code)}">${story.name}</div>` +
+    `<div class="scoreline">${line}</div>` +
+    (tagline ? `<div class="scoreline" style="color:var(--sim);font-size:14px">${tagline}</div>` : "") +
+    `<div class="sub">${storyline.split(". ").slice(0, 2).join(". ")}${storyline ? "." : ""}</div>` +
+    `<div style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">▲ the journey reads bottom → top · Round of 32 ${J.isChampion ? "to the title" : "to the " + J.ceiling.round}</div>`;
+  pingHud(); // show the exit affordance on entry, then let it fade
+}
+$("thumbBtn").onclick = () => setHero(!document.body.classList.contains("thumb"));
+$("heroClose").onclick = () => setHero(false);
+document.addEventListener("mousemove", pingHud);
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.body.classList.contains("thumb")) setHero(false); });
+
+// ---------- initial view from the hash (#modalChampion · #chaos · #nation:Brazil · …/hero) ----------
+const rawHash = decodeURIComponent(location.hash.slice(1));
+const [hKey, hView] = rawHash.split("/");
+if (hKey.startsWith("nation:") && NATIONS[hKey.slice(7)]) selectNation(hKey.slice(7));
+else if (ALL_KEYS.includes(hKey)) selectFeatured(hKey);
+else selectFeatured(TAB_KEYS[0]);
+if (hView === "hero") setHero(true);
+requestAnimationFrame(() => window.scrollTo(0, 0)); // deep-link opens at the top, not at a same-named element
+</script>
+</body>
+</html>

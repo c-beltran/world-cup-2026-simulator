@@ -1,0 +1,48 @@
+{
+  "tournament": "FIFA World Cup 2026 — knockout stage",
+  "source": "FIFA tournament regulations / official bracket (verified Jun 2026)",
+  "slotConventions": {
+    "group":  "{ source:'group', group:'A', pos:'winner'|'runnerup' }",
+    "third":  "{ source:'third', eligible:[...] }  -> a best-3rd-place team from ONE of the listed groups",
+    "match":  "{ source:'match', match:'M74', take:'winner'|'loser' }"
+  },
+  "thirdPlaceHandling": "MVP recommendation: let the user pick which 8 of the 12 third-place teams advance, then DRAG each into one of the 8 third-place slots below, constrained to that slot's 'eligible' groups. Official Annex C maps the exact 8-group combination to fixed slots (495 combinations) — ask if you want that lookup table instead.",
+  "knockout": [
+    { "id": "M73", "round": "R32", "home": { "source": "group", "group": "A", "pos": "runnerup" }, "away": { "source": "group", "group": "B", "pos": "runnerup" } },
+    { "id": "M74", "round": "R32", "home": { "source": "group", "group": "E", "pos": "winner" }, "away": { "source": "third", "eligible": ["A","B","C","D","F"] } },
+    { "id": "M75", "round": "R32", "home": { "source": "group", "group": "F", "pos": "winner" }, "away": { "source": "group", "group": "C", "pos": "runnerup" } },
+    { "id": "M76", "round": "R32", "home": { "source": "group", "group": "C", "pos": "winner" }, "away": { "source": "group", "group": "F", "pos": "runnerup" } },
+    { "id": "M77", "round": "R32", "home": { "source": "group", "group": "I", "pos": "winner" }, "away": { "source": "third", "eligible": ["C","D","F","G","H"] } },
+    { "id": "M78", "round": "R32", "home": { "source": "group", "group": "E", "pos": "runnerup" }, "away": { "source": "group", "group": "I", "pos": "runnerup" } },
+    { "id": "M79", "round": "R32", "home": { "source": "group", "group": "A", "pos": "winner" }, "away": { "source": "third", "eligible": ["C","E","F","H","I"] } },
+    { "id": "M80", "round": "R32", "home": { "source": "group", "group": "L", "pos": "winner" }, "away": { "source": "third", "eligible": ["E","H","I","J","K"] } },
+    { "id": "M81", "round": "R32", "home": { "source": "group", "group": "D", "pos": "winner" }, "away": { "source": "third", "eligible": ["B","E","F","I","J"] } },
+    { "id": "M82", "round": "R32", "home": { "source": "group", "group": "G", "pos": "winner" }, "away": { "source": "third", "eligible": ["A","E","H","I","J"] } },
+    { "id": "M83", "round": "R32", "home": { "source": "group", "group": "K", "pos": "runnerup" }, "away": { "source": "group", "group": "L", "pos": "runnerup" } },
+    { "id": "M84", "round": "R32", "home": { "source": "group", "group": "H", "pos": "winner" }, "away": { "source": "group", "group": "J", "pos": "runnerup" } },
+    { "id": "M85", "round": "R32", "home": { "source": "group", "group": "B", "pos": "winner" }, "away": { "source": "third", "eligible": ["E","F","G","I","J"] } },
+    { "id": "M86", "round": "R32", "home": { "source": "group", "group": "J", "pos": "winner" }, "away": { "source": "group", "group": "H", "pos": "runnerup" } },
+    { "id": "M87", "round": "R32", "home": { "source": "group", "group": "K", "pos": "winner" }, "away": { "source": "third", "eligible": ["D","E","I","J","L"] } },
+    { "id": "M88", "round": "R32", "home": { "source": "group", "group": "D", "pos": "runnerup" }, "away": { "source": "group", "group": "G", "pos": "runnerup" } },
+
+    { "id": "M89", "round": "R16", "home": { "source": "match", "match": "M74", "take": "winner" }, "away": { "source": "match", "match": "M77", "take": "winner" } },
+    { "id": "M90", "round": "R16", "home": { "source": "match", "match": "M73", "take": "winner" }, "away": { "source": "match", "match": "M75", "take": "winner" } },
+    { "id": "M91", "round": "R16", "home": { "source": "match", "match": "M76", "take": "winner" }, "away": { "source": "match", "match": "M78", "take": "winner" } },
+    { "id": "M92", "round": "R16", "home": { "source": "match", "match": "M79", "take": "winner" }, "away": { "source": "match", "match": "M80", "take": "winner" } },
+    { "id": "M93", "round": "R16", "home": { "source": "match", "match": "M83", "take": "winner" }, "away": { "source": "match", "match": "M84", "take": "winner" } },
+    { "id": "M94", "round": "R16", "home": { "source": "match", "match": "M81", "take": "winner" }, "away": { "source": "match", "match": "M82", "take": "winner" } },
+    { "id": "M95", "round": "R16", "home": { "source": "match", "match": "M86", "take": "winner" }, "away": { "source": "match", "match": "M88", "take": "winner" } },
+    { "id": "M96", "round": "R16", "home": { "source": "match", "match": "M85", "take": "winner" }, "away": { "source": "match", "match": "M87", "take": "winner" } },
+
+    { "id": "M97", "round": "QF", "home": { "source": "match", "match": "M89", "take": "winner" }, "away": { "source": "match", "match": "M90", "take": "winner" } },
+    { "id": "M98", "round": "QF", "home": { "source": "match", "match": "M93", "take": "winner" }, "away": { "source": "match", "match": "M94", "take": "winner" } },
+    { "id": "M99", "round": "QF", "home": { "source": "match", "match": "M91", "take": "winner" }, "away": { "source": "match", "match": "M92", "take": "winner" } },
+    { "id": "M100", "round": "QF", "home": { "source": "match", "match": "M95", "take": "winner" }, "away": { "source": "match", "match": "M96", "take": "winner" } },
+
+    { "id": "M101", "round": "SF", "home": { "source": "match", "match": "M97", "take": "winner" }, "away": { "source": "match", "match": "M98", "take": "winner" } },
+    { "id": "M102", "round": "SF", "home": { "source": "match", "match": "M99", "take": "winner" }, "away": { "source": "match", "match": "M100", "take": "winner" } },
+
+    { "id": "M103", "round": "3rd_place", "home": { "source": "match", "match": "M101", "take": "loser" }, "away": { "source": "match", "match": "M102", "take": "loser" } },
+    { "id": "M104", "round": "final", "home": { "source": "match", "match": "M101", "take": "winner" }, "away": { "source": "match", "match": "M102", "take": "winner" } }
+  ]
+}
