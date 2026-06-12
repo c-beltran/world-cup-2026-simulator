@@ -28,6 +28,7 @@ let checked = 0;
 let mism = 0;
 let missing = 0;
 let rankBad = 0;
+let esRank = 0, esRep = 0, esTitle = 0, esUnver = 0; // Spanish parity scan
 
 for (const [key, f] of Object.entries(sim.featured)) {
   if (!nar.sims?.[key]) {
@@ -71,6 +72,11 @@ for (const [key, f] of Object.entries(sim.featured)) {
       console.log(`  RANK ${key} ${m.id}: ${rv} — "${t.take.slice(0, 80)}..."`);
       rankBad++;
     } else ok++;
+    if (t.takeEs) { // Spanish parity (featured takes: rank only, like EN)
+      if (t.verifiedEs !== true) { console.log(`  ES-UNVERIFIED ${key} ${m.id}`); esUnver++; }
+      const erv = rankViolation(t.takeEs, new Set([res.home.fieldRank, res.away.fieldRank]), 'es');
+      if (erv) { console.log(`  ES-RANK ${key} ${m.id}: ${erv}`); esRank++; }
+    }
   }
 
   const sl = nar.sims[key].storyline;
@@ -80,6 +86,11 @@ for (const [key, f] of Object.entries(sim.featured)) {
       console.log(`  RANK ${key} storyline: ${rv}`);
       rankBad++;
     }
+  }
+  const slEs = nar.sims[key].storylineEs;
+  if (slEs) {
+    const rv = rankViolation(slEs, storyAllowed, 'es');
+    if (rv) { console.log(`  ES-RANK ${key} storyline: ${rv}`); esRank++; }
   }
   console.log(`- ${key.padEnd(14)} ${story.padEnd(14)} sim #${String(f.simIndex).padStart(5)}: ${ok} path takes faithful${sl ? ' + storyline' : ''}`);
 }
@@ -111,6 +122,13 @@ for (const [name, nat] of Object.entries(sim.nations || {})) {
     if (rv) { console.log(`  RANK nation ${name} ${m.id}: ${rv}`); nRank++; continue; }
     const rep = reputationClaim(t.take);
     if (rep) { console.log(`  REPUTATION nation ${name} ${m.id}: "${rep}"`); nRep++; continue; }
+    if (t.takeEs) { // Spanish parity (nation takes: rank + reputation, like EN strict)
+      if (t.verifiedEs !== true) { console.log(`  ES-UNVERIFIED nation ${name} ${m.id}`); esUnver++; }
+      const erv = rankViolation(t.takeEs, new Set([res.home.fieldRank, res.away.fieldRank]), 'es');
+      if (erv) { console.log(`  ES-RANK nation ${name} ${m.id}: ${erv}`); esRank++; }
+      const erep = reputationClaim(t.takeEs, 'es');
+      if (erep) { console.log(`  ES-REP nation ${name} ${m.id}: "${erep}"`); esRep++; }
+    }
     ok++;
   }
   const sl = narN.storyline;
@@ -124,11 +142,19 @@ for (const [name, nat] of Object.entries(sim.nations || {})) {
       if (tc) { console.log(`  TITLE-CLAIM nation ${name} storyline: "${tc}" — run ended in the ${nat.ceilingRound}`); nTitle++; }
     }
   }
+  const slEs = narN.storylineEs;
+  if (slEs) {
+    if (rankViolation(slEs, allowed, 'es')) { console.log(`  ES-RANK nation ${name} storyline`); esRank++; }
+    const erep = reputationClaim(slEs, 'es');
+    if (erep) { console.log(`  ES-REP nation ${name} storyline: "${erep}"`); esRep++; }
+    if (!nat.champion) { const tc = titleClaim(slEs, 'es'); if (tc) { console.log(`  ES-TITLE nation ${name} storyline: "${tc}"`); esTitle++; } }
+  }
   console.log(`- nation ${name.padEnd(16)} ${nat.ceilingRound.padEnd(13)} sim #${String(nat.simIndex).padStart(5)}: ${ok}/${nat.path.length} takes faithful${sl ? ' + storyline' : ''}`);
 }
 
-const pass = mism === 0 && missing === 0 && rankBad === 0 && nMism === 0 && nMissing === 0 && nRank === 0 && nTitle === 0 && nRep === 0;
+const pass = mism === 0 && missing === 0 && rankBad === 0 && nMism === 0 && nMissing === 0 && nRank === 0 && nTitle === 0 && nRep === 0 && esRank === 0 && esRep === 0 && esTitle === 0 && esUnver === 0;
 console.log(`\nFEATURED · ${checked} takes re-derived: ${mism} score/winner mismatches, ${rankBad} rank/seed violations, ${missing} missing.`);
 console.log(`NATIONS  · ${nSeen} narrated, ${nChecked} takes re-derived: ${nMism} mismatches, ${nRank} rank/seed violations, ${nTitle} false title claims, ${nRep} reputation claims, ${nMissing} missing.`);
+console.log(`SPANISH  · ${esUnver} unverified, ${esRank} rank/seed violations, ${esRep} reputation claims, ${esTitle} false title claims.`);
 console.log(`\n${pass ? 'PASS' : 'FAIL'} — every baked take re-derived from the seed-true simulation.`);
 process.exit(pass ? 0 : 1);

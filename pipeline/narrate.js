@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { generate, llmInfo } from './lib/llm.js';
 import { rankViolation, titleClaim, reputationClaim } from './lib/rankguard.js';
+import { esName } from './lib/teamNamesEs.js';
 
 const OUT = join(import.meta.dirname, 'out');
 const RESULTS = join(OUT, 'sim-results.json');
@@ -316,16 +317,268 @@ async function narrateFeatured(key, { storylineOnly = false } = {}) {
   console.log(`Wrote ${NARRATION}\n`);
 }
 
+// ============================ Spanish (ES) narration ============================
+// Native Spanish generation with a Latin/Spanish football-TV voice (¡GOOOOL!): the
+// voice is exuberant, the CLAIMS stay exact. Same §7.3 contract + honesty guards as
+// EN (ported to Spanish vocab). Writes takeEs/storylineEs ALONGSIDE the EN fields so
+// build.js can bake {en,es}; the verified EN narration is never modified.
+
+const ROUND_ES = { R32: 'Dieciseisavos de final', R16: 'Octavos de final', QF: 'Cuartos de final', SF: 'Semifinal', '3rd_place': 'Partido por el tercer puesto', final: 'Final' };
+const RD_NEXT_ES = { R32: 'los octavos de final', R16: 'los cuartos de final', QF: 'la semifinal' };
+const CEIL_ES = { 'Round of 32': 'los dieciseisavos de final', 'Round of 16': 'los octavos de final', 'Quarter-final': 'los cuartos de final', 'Semi-final': 'la semifinal', 'Final': 'la final' };
+
+const SYSTEM_ES = `Eres un comentarista y redactor de televisión de fútbol de primer nivel, en español, generando color para un Mundial 2026 SIMULADO POR MONTE CARLO — UN universo simulado concreto, no un partido real ni una predicción. Se te entrega un único resultado de eliminatoria; nárralo con vibra de transmisión, vívido y exacto.
+
+VOZ (televisión latina/española): energía de relato, cadencia de comentarista. Cuando menciones un gol, celébralo como en la tele — "¡GOOOOL!", "¡GOOOOOOL!", "¡golazo!" — pero SOLO de forma coherente con el marcador final exacto. La voz es exuberante; los HECHOS son exactos.
+
+REGLAS DURAS (innegociables):
+- Nunca cambies al ganador, al perdedor ni el marcador. Narra exactamente el resultado dado.
+- Cualquier goleador, minuto o jugada que imagines es color para ESTE partido simulado. Si narras el desarrollo, DEBE sumar exactamente el marcador final para AMBOS equipos — nunca describas una secuencia que implique otro marcador (no lo llames empate o "1-1" cuando es 2-1, y da cuenta de cada gol del ganador). No nombres a futbolistas reales como goleadores.
+- Solo conoces el marcador FINAL, nunca el orden ni el minuto de los goles. Si un relato gol a gol corriera el riesgo de no sumar exactamente, describe el carácter del partido (control, presión, resiliencia, una definición decisiva) coherente con el marcador. Puedes gritar "¡GOOOOL!" sin inventar quién ni cuándo.
+- Usa los nombres de los equipos en español. NO afirmes hechos reales, lesiones, alineaciones, fichajes ni declaraciones como ciertos, y NO afirmes que un equipo ya ganó este ni ningún torneo ("su segundo título", "bicampeón", "campeón defensor").
+- NO caracterices el estatus, la siembra, el ranking, la forma ni la reputación previa de ningún equipo con tus propias palabras. La ÚNICA referencia de rango permitida es el entero de puesto exacto impreso arriba, escrito como "#N" (p. ej. "el #1", "el #27"). Nunca uses las palabras sembrado/cabeza de serie, favorito(s), aspirante, tapado, gallito, cenicienta, comparsa, ranking, ni comparativos "mejor/peor clasificado/rankeado". No añadas adjetivos de estatus como "potencia", "gigante", "coloso", "clase mundial", "estrellas", "figuras", "galácticos", "prestigio", "jerarquía", "élite", "tradición" ni "calidad". Para transmitir que un equipo es más fuerte, apóyate SOLO en los enteros de puesto — un #1 contra #38 hace evidente la diferencia — y di quién ganó y el marcador exacto. Cualquier número que uses como rango DEBE ser uno de los puestos impresos arriba. Escribe "el #N" o "puesto #N", nunca "#N de la siembra".
+- NO inventes estadio, ciudad ni país, y NO digas dónde se juega — el Mundial 2026 se disputa entre EE. UU., Canadá y México en sedes neutrales. Nunca insinúes que un equipo juega "de local" ni "en casa"; el modelo NO da ventaja de localía.
+- Cíñete a ESTE partido y su contexto. No menciones otros partidos ni el resto del cuadro que no se te dio.
+- Este es un resultado simulado — escríbelo como la historia de ese partido, no como predicción del torneo real.
+- Tono: relato de TV enérgico pero medido — una mesa afilada, no un carrete de hype puro. 2-3 oraciones. Como mucho UNA imagen vívida por texto; no apiles adjetivos.
+
+Devuelve SOLO JSON válido (sin bloques de código): {"winner": string, "homeGoals": number, "awayGoals": number, "take": string}. homeGoals/awayGoals DEBEN ser el resultado dado; devuelve "winner" con el nombre EN INGLÉS que se te indica (para la auto-verificación). El campo "take" va en español.`;
+
+const SYSTEM_STORYLINE_ES = `Eres un redactor de fútbol de primer nivel, en español, narrando UN Mundial 2026 simulado por Monte Carlo — un único universo simulado, no una predicción. Escribe una crónica de 4-5 oraciones con vibra de transmisión latina/española: enérgica y con cadencia de relato, pero medida — una mesa afilada, no puro hype. Cuando menciones un gol puedes celebrarlo como en la tele ("¡GOOOOL!", "¡golazo!"), pero SOLO de forma coherente con los marcadores exactos. Como mucho una o dos imágenes figurativas en toda la pieza; recorta adjetivos morados y deja que los resultados lleven el drama. Evita palabras de hype como "sísmico" o "terremoto". Refiérete a cada partido solo por su ronda y marcador final — NO inventes secuencias de goles, remontadas ni desventajas (solo conoces el marcador final), ni totales como cuántos partidos jugó un equipo. No cambies ningún resultado dado. NO inventes estadios, ciudades ni países anfitriones, y nunca insinúes "de local" ni "en casa" (sedes neutrales; sin localía). NO caracterices el estatus, la siembra, el ranking, la forma ni la reputación previa con tus palabras; la ÚNICA referencia de rango permitida es el entero de puesto exacto suministrado (escrito "#N", p. ej. "el #27"). Nunca uses sembrado/cabeza de serie, favorito, aspirante, tapado, cenicienta, comparsa, ranking ni comparativos "mejor/peor clasificado", y nunca afirmes un título previo. Cualquier número usado como rango DEBE ser uno de los puestos suministrados. Di una vez, en palabras simples, que es un torneo de 48 equipos (p. ej. "puesto #27 de 48"). Esta es una historia simulada, enmarcada como tal. Usa nombres de equipos en español. Devuelve SOLO JSON: {"take": string}.`;
+
+function matchPromptEs(m, story) {
+  const H = esName(m.home.name), A = esName(m.away.name), Wn = esName(m.winner), St = esName(story);
+  const decided =
+    m.decidedBy === 'PENS'
+      ? ` El partido terminó igualado ${m.homeGoals}-${m.awayGoals}; ${Wn} ganó la tanda de penales.`
+      : m.decidedBy === 'ET'
+        ? ' El ganador se definió en la prórroga.'
+        : '';
+  const hostNote = CO_HOSTS.has(story)
+    ? ` Nota: ${St} es coanfitrión, y esta simulación NO da ventaja de localía a los anfitriones — su recorrido se gana puramente por el rating FIFA.`
+    : '';
+  const stake =
+    m.round === 'final'
+      ? ` EN JUEGO: es la FINAL — el ganador (${Wn}) se corona CAMPEÓN DEL MUNDO y levanta el trofeo. NO digas que "avanza" ni a una "siguiente ronda".`
+      : m.round === 'SF'
+        ? ` EN JUEGO: el ganador llega a la final; el perdedor queda eliminado.`
+        : ` EN JUEGO: el ganador avanza a ${RD_NEXT_ES[m.round] || 'la siguiente ronda'}; el perdedor queda eliminado.`;
+  return `${ROUND_ES[m.round]} (simulado).
+Local: ${H} (puesto #${m.home.fieldRank}${CO_HOSTS.has(m.home.name) ? ', coanfitrión' : ''})
+Visitante: ${A} (puesto #${m.away.fieldRank}${CO_HOSTS.has(m.away.name) ? ', coanfitrión' : ''})
+Resultado EXACTO a narrar: ${H} ${m.homeGoals}-${m.awayGoals} ${A}.${decided} Ganador: ${Wn}.${stake}
+Para la auto-verificación, devuelve el campo "winner" EXACTAMENTE como: ${m.winner}.
+Contexto: esto es parte del recorrido de ${St} en este torneo simulado.${hostNote}
+Escribe el texto en español.`;
+}
+
+async function matchTakeEs(m, story, strict = false) {
+  const allowed = new Set([m.home.fieldRank, m.away.fieldRank]);
+  const enW = m.winner, esW = esName(m.winner);
+  let why = 'sin respuesta válida';
+  for (const temperature of [0.85, 0.7, 0.55, 0.4, 0.3, 0.2]) {
+    let obj;
+    try {
+      obj = parseJSON(await generate({ system: SYSTEM_ES, user: matchPromptEs(m, story), temperature }));
+    } catch {
+      why = 'error de parseo/API';
+      continue;
+    }
+    const scoreOk =
+      obj &&
+      (obj.winner === enW || obj.winner === esW) && // accept EN canonical or ES name
+      Number(obj.homeGoals) === m.homeGoals &&
+      Number(obj.awayGoals) === m.awayGoals &&
+      typeof obj.take === 'string' &&
+      obj.take.length > 0;
+    if (!scoreOk) { why = 'marcador/ganador no coincide'; continue; }
+    const rv = rankViolation(obj.take, allowed, 'es');
+    if (rv) { why = rv; continue; }
+    if (strict) {
+      const rep = reputationClaim(obj.take, 'es');
+      if (rep) { why = `reputación/estatus "${rep}"`; continue; }
+    }
+    return { take: obj.take.trim(), verified: true };
+  }
+  return { take: null, verified: false, why };
+}
+
+function pathSummaryEs(path, story) {
+  return path
+    .map((m) => {
+      const opp = m.home.name === story ? m.away : m.home;
+      const gf = m.home.name === story ? m.homeGoals : m.awayGoals;
+      const ga = m.home.name === story ? m.awayGoals : m.homeGoals;
+      const res = m.winner === story
+        ? `venció a ${esName(opp.name)} (puesto #${opp.fieldRank}) ${gf}-${ga}`
+        : `perdió ante ${esName(opp.name)} (puesto #${opp.fieldRank}) ${gf}-${ga}`;
+      const pens = m.decidedBy === 'PENS' ? ' en los penales' : m.decidedBy === 'ET' ? ' tras la prórroga' : '';
+      return `${ROUND_ES[m.round]}: ${res}${pens}`;
+    })
+    .join('; ');
+}
+
+async function storylineEs(featured) {
+  const story = featured.storyTeam;
+  const path = featured.bracket.knockout.filter((m) => m.home.name === story || m.away.name === story);
+  const summary = pathSummaryEs(path, story);
+  const hostFrame = CO_HOSTS.has(story)
+    ? `ENCUADRE HONESTO CLAVE para tejer con naturalidad: ${esName(story)} es coanfitrión, pero esta simulación NO da ventaja de localía a los anfitriones — cada equipo se juzga puramente por el rating FIFA — así que este recorrido se gana por mérito, no está fabricado para los anfitriones.`
+    : '';
+  const user = `Escribe la crónica del recorrido de ${esName(story)} (puesto #${rankOf(story)} de 48) en este torneo simulado.
+Encuadre (respétalo; no reformules a un equipo de arriba como tapado ni viceversa): ${featured.angle}
+Su camino ${featured.bracket.champion.name === story ? 'al título' : 'a una gran actuación'}: ${summary}.
+${hostFrame}
+Usa nombres de equipos en español. Devuelve SOLO JSON {"take": string}.`;
+  const allowed = new Set();
+  for (const m of path) { allowed.add(m.home.fieldRank); allowed.add(m.away.fieldRank); }
+  for (const temperature of [0.8, 0.55, 0.35, 0.2]) {
+    try {
+      const obj = parseJSON(await generate({ system: SYSTEM_STORYLINE_ES, user, maxTokens: 700, temperature }));
+      if (obj && typeof obj.take === 'string' && obj.take.length > 0 && !rankViolation(obj.take, allowed, 'es') && !reputationClaim(obj.take, 'es')) {
+        return obj.take.trim();
+      }
+    } catch { /* retry */ }
+  }
+  return null;
+}
+
+async function nationStorylineEs(nation) {
+  const story = nation.name, St = esName(story);
+  const summary = pathSummaryEs(nation.path, story);
+  const hostFrame = CO_HOSTS.has(story)
+    ? `ENCUADRE HONESTO CLAVE para tejer con naturalidad: ${St} es coanfitrión, pero esta simulación NO da ventaja de localía a los anfitriones — cada equipo se juzga puramente por el rating FIFA — así que este recorrido se gana por mérito.`
+    : '';
+  const isChamp = nation.champion;
+  const ceil = CEIL_ES[nation.ceilingRound] || nation.ceilingRound;
+  const endClause = isChamp
+    ? ''
+    : ` CRUCIAL: ${St} NO ganó este torneo — su recorrido TERMINÓ con la eliminación en ${ceil}. Nunca afirmes ni insinúes que fue campeón, que se coronó, que levantó el trofeo o la copa, ni que ganó el Mundial; puedes decir que el recorrido terminó ahí o que se quedó corto. El último latido de su historia es una derrota, no un triunfo.`;
+  const sys = `Eres un redactor de fútbol de primer nivel, en español, narrando UN Mundial 2026 simulado por Monte Carlo — un único universo simulado, no una predicción. Escribe una crónica de 4-5 oraciones con vibra de transmisión latina/española: enérgica y con cadencia de relato, pero medida — una mesa afilada, no puro hype. Cuando menciones un gol puedes celebrarlo como en la tele ("¡GOOOOL!", "¡golazo!"), pero SOLO coherente con los marcadores exactos. Como mucho una o dos imágenes figurativas; recorta adjetivos morados y deja que los resultados lleven el drama. Evita "sísmico" o "terremoto". Refiérete a cada partido solo por su ronda y marcador final — NO inventes secuencias de goles, remontadas ni desventajas (solo conoces el marcador final), ni totales como cuántos partidos jugó. No cambies ningún resultado. NO inventes estadios, ciudades ni países anfitriones, y nunca insinúes "de local" ni "en casa" (sedes neutrales; sin localía). NO caracterices estatus, siembra, ranking, forma ni reputación previa con tus palabras; la ÚNICA referencia de rango permitida es el entero de puesto exacto suministrado (escrito "#N", p. ej. "el #${nation.fieldRank}"). Nunca uses sembrado/cabeza de serie, favorito(s), aspirante, tapado, gallito, cenicienta, comparsa, ranking ni comparativos "mejor/peor clasificado/rankeado", y nunca afirmes un título previo. Cualquier número usado como rango DEBE ser uno de los puestos suministrados. Escribe "el #N" o "puesto #N", nunca "#N de la siembra". Explica cualquier diferencia competitiva SOLO mediante los puestos suministrados (que codifican el rating FIFA) — p. ej. "el #10 tenía ventaja sobre el #48". NO atribuyas resultados a reputación o estatus del mundo real, y NO uses palabras como élite, potencia, gigante, coloso, clase mundial, estrellas, figuras, cracks, galácticos, prestigio, jerarquía, tradición, recursos, experiencia ni "calidad"; esto es una simulación basada en rating, no un duelo de reputaciones. Deja que los enteros de puesto digan qué lado era más fuerte. Di una vez, en palabras simples, que es un cuadro de 48 (p. ej. "puesto #${nation.fieldRank} de 48").${endClause} Esta es una historia simulada, enmarcada como tal. Usa nombres de equipos en español. Devuelve SOLO JSON: {"take": string}.`;
+  const framing = isChamp
+    ? `Encuadre: ${St} gana el título en este universo simulado — narra el recorrido por sus méritos.`
+    : `Encuadre: ${St} llega a ${ceil} en este universo simulado antes de quedar fuera — narra hasta dónde llegó, por sus méritos, SIN dar a entender que ganó el torneo.`;
+  const runLine = isChamp ? 'Su camino al título' : `Su recorrido, que terminó con la eliminación en ${ceil}`;
+  const user = `Escribe la crónica del recorrido de ${St} (puesto #${nation.fieldRank} de 48) en este torneo simulado.
+${framing}
+${runLine}: ${summary}.
+${hostFrame}
+Usa nombres de equipos en español. Devuelve SOLO JSON {"take": string}.`;
+  const allowed = new Set();
+  for (const m of nation.path) { allowed.add(m.home.fieldRank); allowed.add(m.away.fieldRank); }
+  for (const temperature of [0.85, 0.7, 0.5, 0.35, 0.2]) {
+    try {
+      const obj = parseJSON(await generate({ system: sys, user, maxTokens: 700, temperature }));
+      if (obj && typeof obj.take === 'string' && obj.take.length > 0) {
+        if (rankViolation(obj.take, allowed, 'es')) continue;
+        if (!isChamp && titleClaim(obj.take, 'es')) continue;
+        if (reputationClaim(obj.take, 'es')) continue;
+        return obj.take.trim();
+      }
+    } catch { /* retry */ }
+  }
+  return null;
+}
+
+async function narrateFeaturedEs(key, all) {
+  const featured = sim.featured[key];
+  if (!featured) { console.error(`Featured desconocido "${key}". Opciones: ${Object.keys(sim.featured).join(', ')}`); process.exit(1); }
+  const story = featured.storyTeam;
+  all.sims ||= {};
+  const en = all.sims[key];
+  if (!en || !en.matches) { console.error(`  [FLAG] "${key}" sin narración EN previa — corre el narrate EN primero`); return; }
+  const path = featured.bracket.knockout.filter((m) => (m.home.name === story || m.away.name === story) && m.round !== '3rd_place');
+  console.log(`\n[ES] Narrando "${key}" — recorrido de ${esName(story)} (${path.length} partidos) vía ${llmInfo().provider}/${llmInfo().model}`);
+  let flagged = 0;
+  for (const m of path) {
+    const { take, verified, why } = await matchTakeEs(m, story);
+    en.matches[m.id] ||= {};
+    en.matches[m.id].takeEs = take;
+    en.matches[m.id].verifiedEs = verified;
+    if (!verified) flagged++;
+    console.log(`  [${verified ? 'ok ' : 'FLAG'}] ${ROUND_ES[m.round]}: ${esName(m.home.name)} ${m.homeGoals}-${m.awayGoals} ${esName(m.away.name)}${verified ? '' : `  (${why})`}`);
+  }
+  const sl = await storylineEs(featured);
+  if (!sl) { console.log('  [FLAG] crónica ES falló el guard tras reintentos'); flagged++; }
+  en.storylineEs = sl;
+  console.log(`\n${'='.repeat(70)}\nCRÓNICA — ${esName(story)}\n${'='.repeat(70)}\n${sl || '[SIN crónica]'}\n`);
+  for (const m of path) { const t = en.matches[m.id]; console.log(`${'-'.repeat(70)}\n${ROUND_ES[m.round]} · ${esName(m.home.name)} ${m.homeGoals}-${m.awayGoals} ${esName(m.away.name)}\n${t.takeEs || '[MARCADO]'}`); }
+  console.log(`\n${flagged === 0 ? 'Todos los textos ES verificados contra la simulación.' : `${flagged} texto(s) MARCADOS.`}`);
+}
+
+async function narrateNationEs(name, all) {
+  const nation = sim.nations?.[name];
+  if (!nation) { console.error(`  Selección desconocida "${name}"`); return 1; }
+  all.nations ||= {};
+  const en = all.nations[name];
+  if (!en) { console.error(`  [FLAG] ${name}: sin narración EN previa — corre el narrate EN de naciones primero`); return 1; }
+  if (nation.pinned) {
+    const src = all.sims?.[nation.pinned];
+    if (!src || !src.storylineEs) { console.error(`  [FLAG] ${name}: fuente pinned "${nation.pinned}" sin ES aún — narra ese featured en ES primero`); return 1; }
+    en.storylineEs = src.storylineEs;
+    for (const m of nation.path) if (src.matches?.[m.id]?.takeEs && en.matches?.[m.id]) {
+      en.matches[m.id].takeEs = src.matches[m.id].takeEs;
+      en.matches[m.id].verifiedEs = src.matches[m.id].verifiedEs ?? true; // carry the verification stamp
+    }
+    console.log(`  [pin ] ${name.padEnd(16)} ← ${nation.pinned} (ES reutilizado)`);
+    return 0;
+  }
+  let flagged = 0;
+  for (const m of nation.path) {
+    const { take, verified, why } = await matchTakeEs(m, nation.name, true); // strict: rating-grounded
+    en.matches ||= {};
+    en.matches[m.id] ||= {};
+    en.matches[m.id].takeEs = take;
+    en.matches[m.id].verifiedEs = verified;
+    if (!verified) { flagged++; console.log(`         [FLAG] ${name} ${m.id} ${ROUND_ES[m.round]}: ${why}`); }
+  }
+  const sl = await nationStorylineEs(nation);
+  if (!sl) flagged++;
+  en.storylineEs = sl;
+  const tag = flagged === 0 ? 'ok  ' : 'FLAG';
+  console.log(`  [${tag}] ${name.padEnd(16)} ${nation.ceilingRound.padEnd(13)} · ${nation.path.length} texto(s)${sl ? '' : ' · SIN crónica'}${flagged ? ` · ${flagged} marcados` : ''}`);
+  return flagged;
+}
+
 // CLI:
-//   npm run narrate -- all                                  full narrate, every featured sim
-//   npm run narrate -- chaos                                full narrate, one sim
+//   npm run narrate -- all                                  full narrate (EN), every featured sim
+//   npm run narrate -- chaos                                full narrate (EN), one sim
 //   npm run narrate -- storyline modalChampion chalkFinal   refresh storylines only (keep takes)
 //   npm run narrate -- nations Haiti "New Zealand"          narrate specific nation runs (Part B)
 //   npm run narrate -- nations all                          narrate all 48 nation runs
-const args = process.argv.slice(2);
+//   npm run narrate -- --lang es chaos                      Spanish featured (adds takeEs/storylineEs)
+//   npm run narrate -- --lang es nations all                Spanish nation runs
+const rawArgs = process.argv.slice(2);
+let LANG = 'en';
+const li = rawArgs.indexOf('--lang');
+if (li >= 0) { LANG = (rawArgs[li + 1] || 'en').toLowerCase(); rawArgs.splice(li, 2); }
+const args = rawArgs;
 const mode = args[0];
 
-if (mode === 'nations') {
+if (LANG === 'es') {
+  // Spanish pass: attaches takeEs/storylineEs onto the EXISTING (EN) narration entries.
+  const all = existsSync(NARRATION) ? JSON.parse(readFileSync(NARRATION, 'utf8')) : { generatedWith: llmInfo(), sims: {}, nations: {} };
+  all.generatedWith = llmInfo();
+  if (mode === 'nations') {
+    const list = args.slice(1);
+    const names = list.length === 0 || list[0] === 'all' ? Object.keys(sim.nations) : list;
+    console.log(`\n[ES] Narrando ${names.length} selección(es) vía ${llmInfo().provider}/${llmInfo().model}`);
+    let flags = 0;
+    for (const nm of names) {
+      flags += await narrateNationEs(nm, all);
+      writeFileSync(NARRATION, JSON.stringify(all, null, 2) + '\n'); // checkpoint — resumable
+    }
+    console.log(`\n${flags === 0 ? 'Todas las selecciones ES verificadas.' : `${flags} marca(s) — esas entradas no llevan texto/crónica ES.`}`);
+    console.log(`Wrote ${NARRATION}\n`);
+  } else {
+    const keys = args.length === 0 || args[0] === 'all' ? Object.keys(sim.featured) : args;
+    for (const k of keys) {
+      await narrateFeaturedEs(k, all);
+      writeFileSync(NARRATION, JSON.stringify(all, null, 2) + '\n');
+    }
+    console.log(`Wrote ${NARRATION}\n`);
+  }
+} else if (mode === 'nations') {
   const all = existsSync(NARRATION) ? JSON.parse(readFileSync(NARRATION, 'utf8')) : { generatedWith: llmInfo(), sims: {} };
   all.generatedWith = llmInfo();
   all.nations ||= {};

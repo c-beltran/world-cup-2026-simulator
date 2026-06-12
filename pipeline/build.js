@@ -9,6 +9,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { TEAM_NAMES_ES } from './lib/teamNamesEs.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const APP = join(ROOT, 'app');
@@ -26,15 +27,17 @@ const featured = {};
 for (const [key, f] of Object.entries(sim.featured)) {
   const nar = narration.sims?.[key];
   const knockout = f.bracket.knockout.map((m) => {
-    const take = nar?.matches?.[m.id]?.take || null;
-    if (take) takeCount++;
+    const e = nar?.matches?.[m.id];
+    const en = e?.take || null;
+    const take = e?.takeEs ? { en, es: e.takeEs } : en; // bilingual when Spanish exists, else plain EN string
+    if (en) takeCount++;
     return { ...m, take };
   });
   featured[key] = {
     angle: f.angle,
     storyTeam: f.storyTeam,
     simIndex: f.simIndex,
-    storyline: nar?.storyline || null,
+    storyline: nar?.storylineEs ? { en: nar.storyline || null, es: nar.storylineEs } : (nar?.storyline || null),
     champion: f.bracket.champion,
     runnerUp: f.bracket.runnerUp,
     thirdPlace: f.bracket.thirdPlace,
@@ -54,8 +57,10 @@ for (const [name, nat] of Object.entries(sim.nations || {})) {
   const nar = narration.nations?.[name];
   if (nar?.storyline) nationsNarrated++;
   const path = nat.path.map((mm) => {
-    const take = nar?.matches?.[mm.id]?.take || null;
-    if (take) nationTakeCount++;
+    const e = nar?.matches?.[mm.id];
+    const en = e?.take || null;
+    const take = e?.takeEs ? { en, es: e.takeEs } : en;
+    if (en) nationTakeCount++;
     return { ...mm, take };
   });
   nations[name] = {
@@ -63,7 +68,7 @@ for (const [name, nat] of Object.entries(sim.nations || {})) {
     ceiling: nat.ceiling, ceilingRound: nat.ceilingRound, depth: nat.depth, champion: nat.champion,
     reachCount: nat.reachCount, reachPct: nat.reachPct, titleCount: nat.titleCount, titlePct: nat.titlePct,
     simIndex: nat.simIndex, pinned: nat.pinned,
-    storyline: nar?.storyline || null,
+    storyline: nar?.storylineEs ? { en: nar.storyline || null, es: nar.storylineEs } : (nar?.storyline || null),
     path,
   };
 }
@@ -78,6 +83,7 @@ const data = {
     masterSeed: sim.config.masterSeed,
     model: sim.config.model,
     rankBasis: sim.rankBasis,
+    teamNamesEs: TEAM_NAMES_ES, // EN->ES names so the app localizes cards to match the Spanish takes
     method:
       "An honest, seeded Monte Carlo of the real 2026 World Cup. Match scorelines come from a Poisson model parameterized by the FIFA/Elo rating gap (FIFA's own divisor, 600). Team strength = the official FIFA/Coca-Cola ranking points (1 April 2026), used directly. Storylines are real LLM output, generated offline and each constrained to narrate the simulation's actual result — never to change it. Neutral venue (no host advantage). All ranks are field rank (1-48 within this field); world rank is shown only as flavor.",
     narration: narration.generatedWith || null,

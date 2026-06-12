@@ -390,6 +390,10 @@ const I18N = {
 };
 const t = (k, p) => { let s = (I18N[LANG] && I18N[LANG][k] != null) ? I18N[LANG][k] : (I18N.en[k] != null ? I18N.en[k] : k); if (p) for (const key in p) s = s.split("{" + key + "}").join(p[key]); return s; };
 const loc = x => (x && typeof x === "object") ? (x[LANG] != null ? x[LANG] : (x.en || "")) : (x == null ? "" : x);  // narration: string today, {en,es} after Stage 2
+// Team names live in the data in English; localize the DISPLAY (cards/kicker/headers) to
+// match the Spanish takes via the map baked into data.meta. Selection keys stay English.
+const TEAM_ES = (D.meta && D.meta.teamNamesEs) || {};
+const teamName = n => (LANG === "es" && TEAM_ES[n]) ? TEAM_ES[n] : n;
 let ROUND = ROUND_MAP[LANG], NICE = NICE_MAP[LANG];
 const rdLoc = enName => ROUND[ROUND_KEY[enName]] || enName;   // localize an EN round name stored in the data
 const ORDER = ["final","SF","QF","R16","R32"];          // top -> bottom (crown sits above final)
@@ -408,7 +412,7 @@ const upsetTier = (wr, lr) => {
 
 const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; };
 const $ = id => document.getElementById(id);
-const teamRow = (t, cls, score) => `<div class="team ${cls}"><img class="flag" src="${FLAG(t.code)}" alt=""><span class="nm">${t.name}</span><span class="rank">#${t.fieldRank}</span><span class="sc">${score}</span></div>`;
+const teamRow = (t, cls, score) => `<div class="team ${cls}"><img class="flag" src="${FLAG(t.code)}" alt=""><span class="nm">${teamName(t.name)}</span><span class="rank">#${t.fieldRank}</span><span class="sc">${score}</span></div>`;
 
 // ---------- sidebar + chrome (functions so a language switch can re-render in place) ----------
 const m = D.meta, s = D.stats;
@@ -434,16 +438,16 @@ function renderStats() {
   ].map(([n, l]) => `<div class="stat"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join("");
   $("finals").innerHTML = s.finals.slice(0, 6).map(f => `<li><span>${LANG === 'es' ? f.pair.replace(/ v /, ' vs ') : f.pair}</span><span class="pct">${r1(f.pct)}%</span></li>`).join("");
   $("cinderellaList").innerHTML = (s.cinderella.teams || []).slice(0, 6)
-    .map(c => `<li><img class="flag" src="${FLAG(c.code)}"><span>${c.name}</span><span class="rank">#${c.fieldRank}</span><span class="pct">${r1(c.pct)}%</span></li>`).join("");
+    .map(c => `<li><img class="flag" src="${FLAG(c.code)}"><span>${teamName(c.name)}</span><span class="rank">#${c.fieldRank}</span><span class="pct">${r1(c.pct)}%</span></li>`).join("");
 }
 function renderSelector() {
-  selector.innerHTML = TAB_KEYS.map(k => `<button class="chip" data-k="${k}">${NICE[k]} · ${FEAT[k].storyTeam}</button>`).join("");
+  selector.innerHTML = TAB_KEYS.map(k => `<button class="chip" data-k="${k}">${NICE[k]} · ${teamName(FEAT[k].storyTeam)}</button>`).join("");
   selector.querySelectorAll(".chip").forEach(c => c.onclick = () => selectFeatured(c.dataset.k));
   if (view && view.kind === "featured") selector.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.k === view.key));
 }
 function renderNationOptions() {
   nationPick.innerHTML = `<option value="">${t('npPlaceholder')}</option>` +
-    nationNames.map(n => `<option value="${n}">${n} · #${NATIONS[n].fieldRank}</option>`).join("");
+    nationNames.map(n => `<option value="${n}">${teamName(n)} · #${NATIONS[n].fieldRank}</option>`).join("");
   if (view && view.kind === "nation") nationPick.value = view.name;
 }
 function renderChrome() {   // static HTML labels: header, panel titles, nationbar, toolbar hint, hero-exit, sheet tag
@@ -466,7 +470,7 @@ function renderChrome() {   // static HTML labels: header, panel titles, nationb
 const topC = s.champions.slice(0, 10);
 new Chart($("champChart"), {
   type: "bar",
-  data: { labels: topC.map(c => c.name), datasets: [{ data: topC.map(c => +c.pct.toFixed(2)),
+  data: { labels: topC.map(c => teamName(c.name)), datasets: [{ data: topC.map(c => +c.pct.toFixed(2)),
     backgroundColor: topC.map((_, i) => i === 0 ? "#f2cd5c" : "rgba(242,205,92,.45)"), borderRadius: 4, barThickness: 13 }] },
   options: { indexAxis: "y", plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.x + t('chartTip') } } },
     scales: { x: { grid: { color: "rgba(255,255,255,.05)" }, ticks: { color: "#82998c", callback: v => v + "%" } },
@@ -482,7 +486,7 @@ function selectFeatured(k) {
   view = { kind: "featured", key: k };
   nationPick.value = "";
   selector.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.k === k));
-  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${FEAT[k].storyTeam}</div><p>${loc(FEAT[k].storyline) || t('slPending')}</p><div class="angle">${loc(FEAT[k].angle)}</div>`;
+  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${teamName(FEAT[k].storyTeam)}</div><p>${loc(FEAT[k].storyline) || t('slPending')}</p><div class="angle">${loc(FEAT[k].angle)}</div>`;
   renderShocks(k);
   renderJourney(featuredJourney(k));
   requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; }); // start at the base (R32)
@@ -494,7 +498,7 @@ function selectNation(name) {
   nationPick.value = name;
   selector.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
   const J = nationJourney(name), n = NATIONS[name];
-  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${name} · ${t('slField', { r: n.fieldRank })}</div><p>${loc(J.storyline) || t('slPendingS')}</p><div class="angle">${nationAngle(n)}</div>`;
+  $("storyline").innerHTML = `<div class="k">${t('slKicker')} ${teamName(name)} · ${t('slField', { r: n.fieldRank })}</div><p>${loc(J.storyline) || t('slPendingS')}</p><div class="angle">${nationAngle(n)}</div>`;
   renderShocks(null);
   renderJourney(J);
   requestAnimationFrame(() => { $("treeScroll").scrollTop = $("treeScroll").scrollHeight; });
@@ -544,7 +548,7 @@ function renderJourney(J) {
 
   if (J.isChampion) {
     const crown = el("div", "crown");
-    crown.innerHTML = `<div class="lbl">${t('champ')}</div><div class="champ"><img src="${FLAG(story.code)}"><span class="name">${story.name}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span></div>${ceilingLine(J)}<div class="funnel">${t('champFunnel')}</div>`;
+    crown.innerHTML = `<div class="lbl">${t('champ')}</div><div class="champ"><img src="${FLAG(story.code)}"><span class="name">${teamName(story.name)}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span></div>${ceilingLine(J)}<div class="funnel">${t('champFunnel')}</div>`;
     spine.appendChild(crown);
   } else {
     const opp = loss.home.name === story.name ? loss.away : loss.home;
@@ -554,8 +558,8 @@ function renderJourney(J) {
     const apex = el("div", "apex-out");
     apex.innerHTML = `<div class="lbl">${t('bestRun', { round: rnd })}</div>` +
       `<div class="elim">` +
-        `<div class="team eliminated"><img class="flag" src="${FLAG(story.code)}" alt=""><span class="nm">${story.name}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span><span class="sc">${myG}</span><span class="tag">${t('tagOut')}</span></div>` +
-        `<div class="team adv"><img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span><span class="tag">${t('tagAdv')}</span></div>` +
+        `<div class="team eliminated"><img class="flag" src="${FLAG(story.code)}" alt=""><span class="nm">${teamName(story.name)}</span><span class="rank">#${story.fieldRank} ${t('of48')}</span><span class="sc">${myG}</span><span class="tag">${t('tagOut')}</span></div>` +
+        `<div class="team adv"><img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${teamName(opp.name)}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span><span class="tag">${t('tagAdv')}</span></div>` +
       `</div>${ceilingLine(J)}<div class="funnel">${t('runEnded', { round: rnd })}</div>`;
     const elim = apex.querySelector(".elim"); elim._match = loss;
     spine.appendChild(apex);
@@ -580,7 +584,7 @@ function renderJourney(J) {
                  : tier_up === "subtle" ? `<span class="out sub">${t('upSub')}</span>`
                  : `<span class="out">${t('out')}</span>`;
     const rib = el("div", "rib" + (tier_up ? " up-" + tier_up : ""));
-    rib.innerHTML = `<img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${opp.name}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span>${outTag}`;
+    rib.innerHTML = `<img class="flag" src="${FLAG(opp.code)}" alt=""><span class="nm">${teamName(opp.name)}</span><span class="rank">#${opp.fieldRank}</span><span class="sc">${oppG}</span>${outTag}`;
     rib._match = mm;
 
     tier.appendChild(card); tier.appendChild(rib);
@@ -617,7 +621,7 @@ function renderShocks(k) {
   box.style.display = "";
   box.innerHTML = `<div class="k">${t('shocks')}</div><div class="shock-list">` +
     biggestShocks(FEAT[k]).map(s =>
-      `<div class="shock"><img class="flag" src="${FLAG(s.W.code)}"><b>#${s.W.fieldRank} ${s.W.name}</b> ${t('beat')} <span class="muted">#${s.L.fieldRank} ${s.L.name}</span> <span class="sc">${s.wg}–${s.lg}</span><span class="rd">${ROUND[s.round]}</span></div>`
+      `<div class="shock"><img class="flag" src="${FLAG(s.W.code)}"><b>#${s.W.fieldRank} ${teamName(s.W.name)}</b> ${t('beat')} <span class="muted">#${s.L.fieldRank} ${teamName(s.L.name)}</span> <span class="sc">${s.wg}–${s.lg}</span><span class="rd">${ROUND[s.round]}</span></div>`
     ).join("") + `</div>`;
 }
 
@@ -629,8 +633,8 @@ function showTake(card, hold) {                 // card._match is the ONLY sourc
   clearTimeout(hideTimer);
   document.querySelectorAll(".focus").forEach(c => c.classList.remove("focus"));
   card.classList.add("focus");
-  $("lvs").textContent = `${ROUND[mm.round]} — ${mm.home.name} ${t('vs')} ${mm.away.name}`;
-  $("lsc").textContent = `${mm.home.name} ${mm.homeGoals}–${mm.awayGoals} ${mm.away.name}`;
+  $("lvs").textContent = `${ROUND[mm.round]} — ${teamName(mm.home.name)} ${t('vs')} ${teamName(mm.away.name)}`;
+  $("lsc").textContent = `${teamName(mm.home.name)} ${mm.homeGoals}–${mm.awayGoals} ${teamName(mm.away.name)}`;
   $("lbadge").innerHTML = mm.decidedBy !== "REG" ? `<span class="badge" style="color:var(--gold);font-family:var(--mono)">(${mm.decidedBy})</span> ` : "";
   $("ltake").textContent = loc(mm.take);
   lower.classList.add("show");
@@ -742,7 +746,7 @@ function setHero(on) {
   let line, tagline = "";
   if (J.isChampion) {
     const fin = J.path.find(x => x.round === "final");
-    line = fin ? `${fin.home.name} ${fin.homeGoals}–${fin.awayGoals} ${fin.away.name} · ${t('heroFinal')}` : t('heroChampion');
+    line = fin ? `${teamName(fin.home.name)} ${fin.homeGoals}–${fin.awayGoals} ${teamName(fin.away.name)} · ${t('heroFinal')}` : t('heroChampion');
     if (view.kind === "nation") tagline = t('heroChampFreq', { freq: freqText(J.ceiling.pct) });
   } else {
     const loss = J.path.find(m => m.winner !== story.name);
@@ -750,14 +754,14 @@ function setHero(on) {
     const myG = loss.home.name === story.name ? loss.homeGoals : loss.awayGoals;
     const oppG = loss.home.name === story.name ? loss.awayGoals : loss.homeGoals;
     const rnd = rdLoc(J.ceiling.round);
-    line = t('heroOut', { round: rnd, opp: opp.name, a: myG, b: oppG });
+    line = t('heroOut', { round: rnd, opp: teamName(opp.name), a: myG, b: oppG });
     tagline = t('heroBest', { round: rnd, freq: freqText(J.ceiling.pct) });
   }
   const storyline = loc(view.kind === "nation" ? NATIONS[view.name].storyline : FEAT[view.key].storyline) || "";
   const dest = J.isChampion ? t('toTitle') : t('toRound', { round: rdLoc(J.ceiling.round) });
   $("hero").innerHTML =
     `<div class="kicker">${kicker}</div>` +
-    `<div class="big"><img src="${FLAG(story.code)}">${story.name}</div>` +
+    `<div class="big"><img src="${FLAG(story.code)}">${teamName(story.name)}</div>` +
     `<div class="scoreline">${line}</div>` +
     (tagline ? `<div class="scoreline" style="color:var(--sim);font-size:14px">${tagline}</div>` : "") +
     `<div class="sub">${storyline.split(". ").slice(0, 2).join(". ")}${storyline ? "." : ""}</div>` +
