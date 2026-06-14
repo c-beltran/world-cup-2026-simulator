@@ -115,5 +115,71 @@ console.log('\n[5] Conditional sim is deterministic');
   ok(same === 4, 'repeated runs yield identical champions');
 }
 
+// ---- 6. live standings reconcile with the real results ----
+console.log('\n[6] Group standings match the played results');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    // independently recompute points from ld.results, compare to ld.standings
+    const pts = {}, played = {};
+    for (const r of ld.results.filter((m) => m.round === 'group')) {
+      pts[r.home] ??= 0; pts[r.away] ??= 0; played[r.home] = (played[r.home] || 0) + 1; played[r.away] = (played[r.away] || 0) + 1;
+      if (r.homeGoals > r.awayGoals) pts[r.home] += 3;
+      else if (r.homeGoals < r.awayGoals) pts[r.away] += 3;
+      else { pts[r.home] += 1; pts[r.away] += 1; }
+    }
+    let mismatch = 0, posBad = 0;
+    for (const g of ld.standings) {
+      for (const row of g.rows) {
+        if ((pts[row.name] || 0) !== row.pts) mismatch++;
+        if ((played[row.name] || 0) !== row.p) mismatch++;
+      }
+      // positions are 1..4 and sorted by pts desc (then GD/GF)
+      const ps = g.rows.map((r) => r.pos).join(',');
+      if (ps !== '1,2,3,4') posBad++;
+      for (let i = 1; i < g.rows.length; i++) if (g.rows[i].pts > g.rows[i - 1].pts) posBad++;
+    }
+    ok(mismatch === 0, `every team's pts + games-played match a fresh recompute (${mismatch} off)`);
+    ok(posBad === 0, `all 12 groups ordered 1-4 by points (${posBad} anomalies)`);
+    // clinch honesty: a "through" team must be mathematically unreachable from 3rd
+    let clinchBad = 0;
+    for (const g of ld.standings) for (const r of g.rows) {
+      if (r.status === 'through') {
+        const ceilOthers = g.rows.filter((u) => u !== r).map((u) => u.pts + 3 * u.remaining);
+        if (ceilOthers.filter((c) => c >= r.pts).length > 1) clinchBad++; // >1 rival can reach them → not clinched
+      }
+    }
+    ok(clinchBad === 0, `no team flagged "through" that could still be caught by 2+ rivals (${clinchBad})`);
+  }
+}
+
+// ---- 7. conditional advancement obeys the law of total probability ----
+console.log('\n[7] Conditional advancement reconciles with marginal advance%');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const advByName = new Map(ld.reach.map((r) => [r.name, r.advancePct / 100]));
+    let probBad = 0, reconBad = 0, checked = 0;
+    for (const p of ld.projections) {
+      if (!p.cond) continue;
+      for (const [team, c] of [[p.home, p.cond.home], [p.away, p.cond.away]]) {
+        if (!c || c.ifWin == null) continue;
+        for (const v of [c.ifWin, c.ifDraw, c.ifLoss]) if (v < -1e-9 || v > 1 + 1e-9) probBad++;
+        // E[advance over this match's outcome] must equal the team's marginal advance%
+        const n = c.nWin + c.nDraw + c.nLoss;
+        const blended = (c.nWin * c.ifWin + c.nDraw * c.ifDraw + c.nLoss * c.ifLoss) / n;
+        if (Math.abs(blended - (advByName.get(team) ?? 0)) > 0.01) reconBad++;
+        checked++;
+      }
+    }
+    ok(probBad === 0, `all conditional probabilities in [0,1] (${probBad} out of range)`);
+    ok(reconBad === 0, `Σ P(outcome)·P(advance|outcome) == marginal advance% for ${checked} team-matches (${reconBad} off)`);
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);

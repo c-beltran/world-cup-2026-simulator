@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-14",
     "asOfDate": "2026-06-14",
-    "fetchedAt": "2026-06-14T20:18:07.177Z",
+    "fetchedAt": "2026-06-14T21:13:07.013Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -1278,6 +1278,836 @@
       "baseTitlePct": 0
     }
   ],
+  "standings": [
+    {
+      "id": "A",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Mexico",
+          "code": "mx",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 2,
+          "ga": 0,
+          "gd": 2,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 98.258,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Korea Republic",
+          "code": "kr",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 2,
+          "ga": 1,
+          "gd": 1,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 95.162,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Czechia",
+          "code": "cz",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 1,
+          "ga": 2,
+          "gd": -1,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 44.496,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "South Africa",
+          "code": "za",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 0,
+          "ga": 2,
+          "gd": -2,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 28.704,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Switzerland",
+          "code": "ch",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 83.236,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Canada",
+          "code": "ca",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 66.782,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Qatar",
+          "code": "qa",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 66.424,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Bosnia and Herzegovina",
+          "code": "ba",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 47.342,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Scotland",
+          "code": "gb-sct",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 1,
+          "ga": 0,
+          "gd": 1,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 78.572,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Brazil",
+          "code": "br",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 93.032,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Morocco",
+          "code": "ma",
+          "p": 1,
+          "w": 0,
+          "d": 1,
+          "l": 0,
+          "gf": 1,
+          "ga": 1,
+          "gd": 0,
+          "pts": 1,
+          "remaining": 2,
+          "advancePct": 92.87,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Haiti",
+          "code": "ht",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 0,
+          "ga": 1,
+          "gd": -1,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 8.824,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "United States",
+          "code": "us",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 4,
+          "ga": 1,
+          "gd": 3,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 98.722,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Australia",
+          "code": "au",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 2,
+          "ga": 0,
+          "gd": 2,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 96.152,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Türkiye",
+          "code": "tr",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 0,
+          "ga": 2,
+          "gd": -2,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 44.738,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Paraguay",
+          "code": "py",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 1,
+          "ga": 4,
+          "gd": -3,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 27.714,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Germany",
+          "code": "de",
+          "p": 1,
+          "w": 1,
+          "d": 0,
+          "l": 0,
+          "gf": 7,
+          "ga": 1,
+          "gd": 6,
+          "pts": 3,
+          "remaining": 2,
+          "advancePct": 99.638,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Ecuador",
+          "code": "ec",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 81.36,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Côte d'Ivoire",
+          "code": "ci",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 72.324,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Curaçao",
+          "code": "cw",
+          "p": 1,
+          "w": 0,
+          "d": 0,
+          "l": 1,
+          "gf": 1,
+          "ga": 7,
+          "gd": -6,
+          "pts": 0,
+          "remaining": 2,
+          "advancePct": 11.098,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Netherlands",
+          "code": "nl",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 89.866,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Japan",
+          "code": "jp",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 79.95,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Sweden",
+          "code": "se",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 53.298,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Tunisia",
+          "code": "tn",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 45.996,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Belgium",
+          "code": "be",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 92.408,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Iran",
+          "code": "ir",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 81.782,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Egypt",
+          "code": "eg",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 74.188,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "New Zealand",
+          "code": "nz",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 22.072,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "H",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Spain",
+          "code": "es",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 96.544,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Uruguay",
+          "code": "uy",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 85.496,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Saudi Arabia",
+          "code": "sa",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 44.548,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Cabo Verde",
+          "code": "cv",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 33.764,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "France",
+          "code": "fr",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 94.864,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Senegal",
+          "code": "sn",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 79.712,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Norway",
+          "code": "no",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 56.178,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Iraq",
+          "code": "iq",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 34.77,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "J",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Argentina",
+          "code": "ar",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 96.004,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Austria",
+          "code": "at",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 71.472,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Algeria",
+          "code": "dz",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 66.258,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Jordan",
+          "code": "jo",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 31.88,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "K",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "Portugal",
+          "code": "pt",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 90.866,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Colombia",
+          "code": "co",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 84.538,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Congo DR",
+          "code": "cd",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 47.17,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Uzbekistan",
+          "code": "uz",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 44.628,
+          "status": "live"
+        }
+      ]
+    },
+    {
+      "id": "L",
+      "rows": [
+        {
+          "pos": 1,
+          "name": "England",
+          "code": "gb-eng",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 93.962,
+          "status": "live"
+        },
+        {
+          "pos": 2,
+          "name": "Croatia",
+          "code": "hr",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 86.724,
+          "status": "live"
+        },
+        {
+          "pos": 3,
+          "name": "Panama",
+          "code": "pa",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 61.14,
+          "status": "live"
+        },
+        {
+          "pos": 4,
+          "name": "Ghana",
+          "code": "gh",
+          "p": 0,
+          "w": 0,
+          "d": 0,
+          "l": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0,
+          "remaining": 3,
+          "advancePct": 24.474,
+          "status": "live"
+        }
+      ]
+    }
+  ],
   "nextDate": "2026-06-14",
   "projections": [
     {
@@ -1301,7 +2131,25 @@
         "away": 1,
         "p": 0.12381880485799819
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9636525386032916,
+          "ifDraw": 0.7351594630247537,
+          "ifLoss": 0.5390625,
+          "nWin": 15737,
+          "nDraw": 12887,
+          "nLoss": 21376
+        },
+        "away": {
+          "ifWin": 0.9764689371257484,
+          "ifDraw": 0.7852874990300303,
+          "ifLoss": 0.6155556967655843,
+          "nWin": 21376,
+          "nDraw": 12887,
+          "nLoss": 15737
+        }
+      }
     },
     {
       "date": "2026-06-14",
@@ -1324,7 +2172,25 @@
         "away": 1,
         "p": 0.12219522339362159
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9848655193288939,
+          "ifDraw": 0.8860071439664544,
+          "ifLoss": 0.7678622463561018,
+          "nWin": 23126,
+          "nDraw": 12878,
+          "nLoss": 13996
+        },
+        "away": {
+          "ifWin": 0.9686338953986854,
+          "ifDraw": 0.8255940363410468,
+          "ifLoss": 0.6826083196402317,
+          "nWin": 13996,
+          "nDraw": 12878,
+          "nLoss": 23126
+        }
+      }
     },
     {
       "date": "2026-06-14",
@@ -1347,7 +2213,25 @@
         "away": 1,
         "p": 0.12464037957966596
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8490943660562393,
+          "ifDraw": 0.4377294981640147,
+          "ifLoss": 0.2335615629795774,
+          "nWin": 19986,
+          "nDraw": 13072,
+          "nLoss": 16942
+        },
+        "away": {
+          "ifWin": 0.816963758706174,
+          "ifDraw": 0.3923653610771114,
+          "ifLoss": 0.20154107875512858,
+          "nWin": 16942,
+          "nDraw": 13072,
+          "nLoss": 19986
+        }
+      }
     },
     {
       "date": "2026-06-15",
@@ -1370,7 +2254,25 @@
         "away": 0,
         "p": 0.11965311649132736
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9893277216188794,
+          "ifDraw": 0.9007201229872968,
+          "ifLoss": 0.7928377153218495,
+          "nWin": 26611,
+          "nDraw": 12359,
+          "nLoss": 11030
+        },
+        "away": {
+          "ifWin": 0.9630099728014506,
+          "ifDraw": 0.7959381827008658,
+          "ifLoss": 0.6251174326406373,
+          "nWin": 11030,
+          "nDraw": 12359,
+          "nLoss": 26611
+        }
+      }
     },
     {
       "date": "2026-06-15",
@@ -1393,7 +2295,25 @@
         "away": 0,
         "p": 0.13857352564069075
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9480776250152086,
+          "ifDraw": 0.6440168934772408,
+          "ifLoss": 0.44210851754521563,
+          "nWin": 32876,
+          "nDraw": 10655,
+          "nLoss": 6469
+        },
+        "away": {
+          "ifWin": 0.6787756994898748,
+          "ifDraw": 0.274331299859221,
+          "ifLoss": 0.11321328628786957,
+          "nWin": 6469,
+          "nDraw": 10655,
+          "nLoss": 32876
+        }
+      }
     },
     {
       "date": "2026-06-15",
@@ -1416,7 +2336,25 @@
         "away": 0,
         "p": 0.16057885170941005
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9951083158630328,
+          "ifDraw": 0.915943661971831,
+          "ifLoss": 0.7958662924215361,
+          "nWin": 37206,
+          "nDraw": 8875,
+          "nLoss": 3919
+        },
+        "away": {
+          "ifWin": 0.785914774177086,
+          "ifDraw": 0.4605070422535211,
+          "ifLoss": 0.2611137988496479,
+          "nWin": 3919,
+          "nDraw": 8875,
+          "nLoss": 37206
+        }
+      }
     },
     {
       "date": "2026-06-15",
@@ -1439,7 +2377,25 @@
         "away": 1,
         "p": 0.12965833790674064
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8626224477752862,
+          "ifDraw": 0.5223470875868577,
+          "ifLoss": 0.2971543354536324,
+          "nWin": 8473,
+          "nDraw": 11657,
+          "nLoss": 29870
+        },
+        "away": {
+          "ifWin": 0.9713424840977569,
+          "ifDraw": 0.7663206656944326,
+          "ifLoss": 0.5666233919509028,
+          "nWin": 29870,
+          "nDraw": 11657,
+          "nLoss": 8473
+        }
+      }
     },
     {
       "date": "2026-06-16",
@@ -1462,7 +2418,25 @@
         "away": 0,
         "p": 0.12185325517546508
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.993875380496571,
+          "ifDraw": 0.931866864392816,
+          "ifLoss": 0.8514393581878245,
+          "nWin": 27267,
+          "nDraw": 12138,
+          "nLoss": 10595
+        },
+        "away": {
+          "ifWin": 0.9728173666823974,
+          "ifDraw": 0.8503048278134784,
+          "ifLoss": 0.7051747533648733,
+          "nWin": 10595,
+          "nDraw": 12138,
+          "nLoss": 27267
+        }
+      }
     },
     {
       "date": "2026-06-16",
@@ -1485,7 +2459,25 @@
         "away": 1,
         "p": 0.1218352191667514
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7555170921678926,
+          "ifDraw": 0.30177327422419253,
+          "ifLoss": 0.13177601906220748,
+          "nWin": 13866,
+          "nDraw": 12632,
+          "nLoss": 23502
+        },
+        "away": {
+          "ifWin": 0.8475023402263637,
+          "ifDraw": 0.4131570614312856,
+          "ifLoss": 0.21289485071397662,
+          "nWin": 23502,
+          "nDraw": 12632,
+          "nLoss": 13866
+        }
+      }
     },
     {
       "date": "2026-06-16",
@@ -1508,7 +2500,25 @@
         "away": 0,
         "p": 0.1362013671496883
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9949377436800403,
+          "ifDraw": 0.9337081708533599,
+          "ifLoss": 0.845724647789092,
+          "nWin": 31804,
+          "nDraw": 11027,
+          "nLoss": 7169
+        },
+        "away": {
+          "ifWin": 0.9361138234063329,
+          "ifDraw": 0.7505214473564886,
+          "ifLoss": 0.5704313922777009,
+          "nWin": 7169,
+          "nDraw": 11027,
+          "nLoss": 31804
+        }
+      }
     },
     {
       "date": "2026-06-16",
@@ -1531,7 +2541,25 @@
         "away": 0,
         "p": 0.12360145995789103
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9149187486577421,
+          "ifDraw": 0.5546589018302829,
+          "ifLoss": 0.34933280223063135,
+          "nWin": 27938,
+          "nDraw": 12020,
+          "nLoss": 10042
+        },
+        "away": {
+          "ifWin": 0.7472615016928899,
+          "ifDraw": 0.33718801996672215,
+          "ifLoss": 0.15688309828906866,
+          "nWin": 10042,
+          "nDraw": 12020,
+          "nLoss": 27938
+        }
+      }
     },
     {
       "date": "2026-06-17",
@@ -1554,7 +2582,25 @@
         "away": 0,
         "p": 0.1335059759750405
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9836070843110154,
+          "ifDraw": 0.8444285586632115,
+          "ifLoss": 0.6991426344505066,
+          "nWin": 31111,
+          "nDraw": 11191,
+          "nLoss": 7698
+        },
+        "away": {
+          "ifWin": 0.8628215120810601,
+          "ifDraw": 0.5592887141452954,
+          "ifLoss": 0.34341551219825783,
+          "nWin": 7698,
+          "nDraw": 11191,
+          "nLoss": 31111
+        }
+      }
     },
     {
       "date": "2026-06-17",
@@ -1577,7 +2623,25 @@
         "away": 1,
         "p": 0.12680237692468135
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8415873355439084,
+          "ifDraw": 0.5122259696458684,
+          "ifLoss": 0.2907505817790282,
+          "nWin": 9349,
+          "nDraw": 11860,
+          "nLoss": 28791
+        },
+        "away": {
+          "ifWin": 0.967385641346254,
+          "ifDraw": 0.7627318718381113,
+          "ifLoss": 0.5744999465183442,
+          "nWin": 28791,
+          "nDraw": 11860,
+          "nLoss": 9349
+        }
+      }
     },
     {
       "date": "2026-06-17",
@@ -1600,7 +2664,25 @@
         "away": 1,
         "p": 0.12153183789945811
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9934482025101042,
+          "ifDraw": 0.9380690737833595,
+          "ifLoss": 0.8490730643402399,
+          "nWin": 23505,
+          "nDraw": 12740,
+          "nLoss": 13755
+        },
+        "away": {
+          "ifWin": 0.9848782260996002,
+          "ifDraw": 0.9002354788069074,
+          "ifLoss": 0.7805147840884918,
+          "nWin": 13755,
+          "nDraw": 12740,
+          "nLoss": 23505
+        }
+      }
     },
     {
       "date": "2026-06-17",
@@ -1623,7 +2705,25 @@
         "away": 1,
         "p": 0.12262461044771586
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.6854368932038835,
+          "ifDraw": 0.229444398443322,
+          "ifLoss": 0.08710132860297579,
+          "nWin": 10300,
+          "nDraw": 12077,
+          "nLoss": 27623
+        },
+        "away": {
+          "ifWin": 0.8546863121311951,
+          "ifDraw": 0.3970356876707792,
+          "ifLoss": 0.21029126213592234,
+          "nWin": 27623,
+          "nDraw": 12077,
+          "nLoss": 10300
+        }
+      }
     },
     {
       "date": "2026-06-18",
@@ -1646,7 +2746,25 @@
         "away": 1,
         "p": 0.1237163109617679
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8437050443176017,
+          "ifDraw": 0.20713845205057047,
+          "ifLoss": 0.08915304606240713,
+          "nWin": 21549,
+          "nDraw": 12972,
+          "nLoss": 15479
+        },
+        "away": {
+          "ifWin": 0.6990761677110925,
+          "ifDraw": 0.20636756090040087,
+          "ifLoss": 0.03963060930901666,
+          "nWin": 15479,
+          "nDraw": 12972,
+          "nLoss": 21549
+        }
+      }
     },
     {
       "date": "2026-06-18",
@@ -1669,7 +2787,25 @@
         "away": 1,
         "p": 0.12282366710276658
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 0.9996127933090684,
+          "ifLoss": 0.9407498631636563,
+          "nWin": 22471,
+          "nDraw": 12913,
+          "nLoss": 14616
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 0.9969797878107334,
+          "ifLoss": 0.894085710471274,
+          "nWin": 14616,
+          "nDraw": 12913,
+          "nLoss": 22471
+        }
+      }
     },
     {
       "date": "2026-06-18",
@@ -1692,7 +2828,25 @@
         "away": 0,
         "p": 0.1290814735872677
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9959874565869777,
+          "ifDraw": 0.7053478712357217,
+          "ifLoss": 0.44713781722999885,
+          "nWin": 29657,
+          "nDraw": 11556,
+          "nLoss": 8787
+        },
+        "away": {
+          "ifWin": 0.972117901445317,
+          "ifDraw": 0.551834544825199,
+          "ifLoss": 0.2951073945442897,
+          "nWin": 8787,
+          "nDraw": 11556,
+          "nLoss": 29657
+        }
+      }
     },
     {
       "date": "2026-06-18",
@@ -1715,7 +2869,25 @@
         "away": 1,
         "p": 0.12285377007434481
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9925302614408495,
+          "ifDraw": 0.5514184397163121,
+          "ifLoss": 0.2824045930428909,
+          "nWin": 22223,
+          "nDraw": 12972,
+          "nLoss": 14805
+        },
+        "away": {
+          "ifWin": 0.9879094900371496,
+          "ifDraw": 0.68509096515572,
+          "ifLoss": 0.43643972460963865,
+          "nWin": 14805,
+          "nDraw": 12972,
+          "nLoss": 22223
+        }
+      }
     },
     {
       "date": "2026-06-19",
@@ -1738,7 +2910,25 @@
         "away": 1,
         "p": 0.1285430133394791
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 0.9983462442336147,
+          "ifLoss": 0.64010499040953,
+          "nWin": 8794,
+          "nDraw": 11489,
+          "nLoss": 29717
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 0.8904169205326834,
+          "ifLoss": 0.7377757561974073,
+          "nWin": 29717,
+          "nDraw": 11489,
+          "nLoss": 8794
+        }
+      }
     },
     {
       "date": "2026-06-19",
@@ -1761,7 +2951,25 @@
         "away": 0,
         "p": 0.15706604525518406
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 0.8103938730853392,
+          "ifLoss": 0.5876118699952897,
+          "nWin": 36614,
+          "nDraw": 9140,
+          "nLoss": 4246
+        },
+        "away": {
+          "ifWin": 0.5426283560998587,
+          "ifDraw": 0.09452954048140044,
+          "ifLoss": 0.03397607472551483,
+          "nWin": 4246,
+          "nDraw": 9140,
+          "nLoss": 36614
+        }
+      }
     },
     {
       "date": "2026-06-19",
@@ -1784,7 +2992,25 @@
         "away": 1,
         "p": 0.12290087569865751
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 1,
+          "ifLoss": 0.9562987279441937,
+          "nWin": 22556,
+          "nDraw": 12822,
+          "nLoss": 14622
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 0.9981282171268133,
+          "ifLoss": 0.9157652065969143,
+          "nWin": 14622,
+          "nDraw": 12822,
+          "nLoss": 22556
+        }
+      }
     },
     {
       "date": "2026-06-19",
@@ -1807,7 +3033,25 @@
         "away": 1,
         "p": 0.1227510856445537
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7885752095280106,
+          "ifDraw": 0.26576260618813813,
+          "ifLoss": 0.07462583626456996,
+          "nWin": 22670,
+          "nDraw": 12831,
+          "nLoss": 14499
+        },
+        "away": {
+          "ifWin": 0.6765294158217808,
+          "ifDraw": 0.24721377912867273,
+          "ifLoss": 0.03864137626819585,
+          "nWin": 14499,
+          "nDraw": 12831,
+          "nLoss": 22670
+        }
+      }
     },
     {
       "date": "2026-06-20",
@@ -1830,7 +3074,25 @@
         "away": 0,
         "p": 0.12401813067562546
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 1,
+          "ifLoss": 0.9816745975498633,
+          "nWin": 27904,
+          "nDraw": 12219,
+          "nLoss": 9877
+        },
+        "away": {
+          "ifWin": 0.9575782120076947,
+          "ifDraw": 0.7754317047221541,
+          "ifLoss": 0.6174383600917431,
+          "nWin": 9877,
+          "nDraw": 12219,
+          "nLoss": 27904
+        }
+      }
     },
     {
       "date": "2026-06-20",
@@ -1853,7 +3115,25 @@
         "away": 0,
         "p": 0.1359372353702319
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9535882168599186,
+          "ifDraw": 0.6415337819153839,
+          "ifLoss": 0.4544952354647148,
+          "nWin": 31910,
+          "nDraw": 10849,
+          "nLoss": 7241
+        },
+        "away": {
+          "ifWin": 0.4384753487087419,
+          "ifDraw": 0.17743570836021752,
+          "ifLoss": 0.014070824193042933,
+          "nWin": 7241,
+          "nDraw": 10849,
+          "nLoss": 31910
+        }
+      }
     },
     {
       "date": "2026-06-20",
@@ -1876,7 +3156,25 @@
         "away": 0,
         "p": 0.12865037024214115
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9820383725676963,
+          "ifDraw": 0.8467209601371625,
+          "ifLoss": 0.692247454972592,
+          "nWin": 29396,
+          "nDraw": 11665,
+          "nLoss": 8939
+        },
+        "away": {
+          "ifWin": 0.8843271059402618,
+          "ifDraw": 0.6120017145306472,
+          "ifLoss": 0.3947816029391754,
+          "nWin": 8939,
+          "nDraw": 11665,
+          "nLoss": 29396
+        }
+      }
     },
     {
       "date": "2026-06-20",
@@ -1899,7 +3197,25 @@
         "away": 1,
         "p": 0.1204297030248358
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.839134438305709,
+          "ifDraw": 0.5011808779216549,
+          "ifLoss": 0.2878150478388742,
+          "nWin": 10860,
+          "nDraw": 12279,
+          "nLoss": 26861
+        },
+        "away": {
+          "ifWin": 0.9554000223372175,
+          "ifDraw": 0.7096669109862367,
+          "ifLoss": 0.5154696132596686,
+          "nWin": 26861,
+          "nDraw": 12279,
+          "nLoss": 10860
+        }
+      }
     },
     {
       "date": "2026-06-21",
@@ -1922,7 +3238,25 @@
         "away": 1,
         "p": 0.12086637031668024
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9905039566847147,
+          "ifDraw": 0.9163371326665116,
+          "ifLoss": 0.8098984190025205,
+          "nWin": 24010,
+          "nDraw": 12897,
+          "nLoss": 13093
+        },
+        "away": {
+          "ifWin": 0.9771633697395555,
+          "ifDraw": 0.8504303326354966,
+          "ifLoss": 0.7134110787172012,
+          "nWin": 13093,
+          "nDraw": 12897,
+          "nLoss": 24010
+        }
+      }
     },
     {
       "date": "2026-06-21",
@@ -1945,7 +3279,25 @@
         "away": 1,
         "p": 0.1330846702930282
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.6808155937419851,
+          "ifDraw": 0.24347434743474347,
+          "ifLoss": 0.09719542004374115,
+          "nWin": 7798,
+          "nDraw": 11110,
+          "nLoss": 31092
+        },
+        "away": {
+          "ifWin": 0.9164093657532484,
+          "ifDraw": 0.5402340234023403,
+          "ifLoss": 0.33329058733008465,
+          "nWin": 31092,
+          "nDraw": 11110,
+          "nLoss": 7798
+        }
+      }
     },
     {
       "date": "2026-06-21",
@@ -1968,7 +3320,25 @@
         "away": 0,
         "p": 0.15268509077231648
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9953357949970849,
+          "ifDraw": 0.9231017423101743,
+          "ifLoss": 0.8195601110399316,
+          "nWin": 36019,
+          "nDraw": 9298,
+          "nLoss": 4683
+        },
+        "away": {
+          "ifWin": 0.8543668588511638,
+          "ifDraw": 0.5821682082168208,
+          "ifLoss": 0.3570337877231461,
+          "nWin": 4683,
+          "nDraw": 9298,
+          "nLoss": 36019
+        }
+      }
     },
     {
       "date": "2026-06-21",
@@ -1991,7 +3361,25 @@
         "away": 0,
         "p": 0.13582151320093463
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9664860778631725,
+          "ifDraw": 0.7393115942028986,
+          "ifLoss": 0.5410427066001109,
+          "nWin": 31748,
+          "nDraw": 11040,
+          "nLoss": 7212
+        },
+        "away": {
+          "ifWin": 0.78840820854132,
+          "ifDraw": 0.41793478260869565,
+          "ifLoss": 0.20732014615093863,
+          "nWin": 7212,
+          "nDraw": 11040,
+          "nLoss": 31748
+        }
+      }
     },
     {
       "date": "2026-06-22",
@@ -2014,7 +3402,25 @@
         "away": 0,
         "p": 0.1488148898041888
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9914684445448896,
+          "ifDraw": 0.8845915841584159,
+          "ifLoss": 0.7662046473705667,
+          "nWin": 35398,
+          "nDraw": 9696,
+          "nLoss": 4906
+        },
+        "away": {
+          "ifWin": 0.7843456991439054,
+          "ifDraw": 0.45235148514851486,
+          "ifLoss": 0.2585174303632974,
+          "nWin": 4906,
+          "nDraw": 9696,
+          "nLoss": 35398
+        }
+      }
     },
     {
       "date": "2026-06-22",
@@ -2037,7 +3443,25 @@
         "away": 1,
         "p": 0.1195582705872244
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8923076923076924,
+          "ifDraw": 0.602177219242776,
+          "ifLoss": 0.3754506850412627,
+          "nWin": 12545,
+          "nDraw": 12493,
+          "nLoss": 24962
+        },
+        "away": {
+          "ifWin": 0.9606602035093342,
+          "ifDraw": 0.735211718562395,
+          "ifLoss": 0.5333599043443603,
+          "nWin": 24962,
+          "nDraw": 12493,
+          "nLoss": 12545
+        }
+      }
     },
     {
       "date": "2026-06-22",
@@ -2060,7 +3484,25 @@
         "away": 0,
         "p": 0.13305025648611718
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9944815567818762,
+          "ifDraw": 0.9404354867734389,
+          "ifLoss": 0.8525129763261172,
+          "nWin": 30987,
+          "nDraw": 11114,
+          "nLoss": 7899
+        },
+        "away": {
+          "ifWin": 0.9523990378528928,
+          "ifDraw": 0.7933237358286845,
+          "ifLoss": 0.6259399102849582,
+          "nWin": 7899,
+          "nDraw": 11114,
+          "nLoss": 30987
+        }
+      }
     },
     {
       "date": "2026-06-22",
@@ -2083,7 +3525,25 @@
         "away": 1,
         "p": 0.11982969253403952
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7437248771773113,
+          "ifDraw": 0.32297628781684384,
+          "ifLoss": 0.13787394167450612,
+          "nWin": 11195,
+          "nDraw": 12230,
+          "nLoss": 26575
+        },
+        "away": {
+          "ifWin": 0.8947507055503292,
+          "ifDraw": 0.49852820932134095,
+          "ifLoss": 0.29066547565877626,
+          "nWin": 26575,
+          "nDraw": 12230,
+          "nLoss": 11195
+        }
+      }
     },
     {
       "date": "2026-06-23",
@@ -2106,7 +3566,25 @@
         "away": 0,
         "p": 0.13492146492411258
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9833438287153652,
+          "ifDraw": 0.8420420974889217,
+          "ifLoss": 0.6858801295896328,
+          "nWin": 31760,
+          "nDraw": 10832,
+          "nLoss": 7408
+        },
+        "away": {
+          "ifWin": 0.843952483801296,
+          "ifDraw": 0.5381277695716395,
+          "ifLoss": 0.3221977329974811,
+          "nWin": 7408,
+          "nDraw": 10832,
+          "nLoss": 31760
+        }
+      }
     },
     {
       "date": "2026-06-23",
@@ -2129,7 +3607,25 @@
         "away": 0,
         "p": 0.12520056745024935
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9695259593679458,
+          "ifDraw": 0.7663024923181974,
+          "ifLoss": 0.5842730567861458,
+          "nWin": 28352,
+          "nDraw": 11716,
+          "nLoss": 9932
+        },
+        "away": {
+          "ifWin": 0.8545106725734998,
+          "ifDraw": 0.5280812564015022,
+          "ifLoss": 0.3142988148984199,
+          "nWin": 9932,
+          "nDraw": 11716,
+          "nLoss": 28352
+        }
+      }
     },
     {
       "date": "2026-06-23",
@@ -2152,7 +3648,25 @@
         "away": 0,
         "p": 0.15633564224886695
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9885016563090316,
+          "ifDraw": 0.8545673076923077,
+          "ifLoss": 0.706549409858829,
+          "nWin": 36527,
+          "nDraw": 9152,
+          "nLoss": 4321
+        },
+        "away": {
+          "ifWin": 0.7100208285119185,
+          "ifDraw": 0.34232954545454547,
+          "ifLoss": 0.16524762504448764,
+          "nWin": 4321,
+          "nDraw": 9152,
+          "nLoss": 36527
+        }
+      }
     },
     {
       "date": "2026-06-23",
@@ -2175,7 +3689,25 @@
         "away": 1,
         "p": 0.1203052554749992
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9224489795918367,
+          "ifDraw": 0.6771123872026251,
+          "ifLoss": 0.45346275900690686,
+          "nWin": 11025,
+          "nDraw": 12190,
+          "nLoss": 26785
+        },
+        "away": {
+          "ifWin": 0.978084748926638,
+          "ifDraw": 0.8215750615258408,
+          "ifLoss": 0.6484353741496599,
+          "nWin": 26785,
+          "nDraw": 12190,
+          "nLoss": 11025
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2198,7 +3730,25 @@
         "away": 1,
         "p": 0.125146055307726
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.834092792046396,
+          "ifDraw": 0.44873613080837577,
+          "ifLoss": 0.31085798920901364,
+          "nWin": 9656,
+          "nDraw": 11987,
+          "nLoss": 28357
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 1,
+          "ifLoss": 0.9097970173985087,
+          "nWin": 28357,
+          "nDraw": 11987,
+          "nLoss": 9656
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2221,7 +3771,25 @@
         "away": 1,
         "p": 0.12252875812286183
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.6446328221735403,
+          "ifDraw": 0.31136079900124847,
+          "ifLoss": 0.1398166339227243,
+          "nWin": 10499,
+          "nDraw": 12015,
+          "nLoss": 27486
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 0.9997503121098626,
+          "ifLoss": 0.769882845985332,
+          "nWin": 27486,
+          "nDraw": 12015,
+          "nLoss": 10499
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2244,7 +3812,25 @@
         "away": 1,
         "p": 0.12249153266233807
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9956493078444298,
+          "ifDraw": 0.8175918686473808,
+          "ifLoss": 0.5883777239709443,
+          "nWin": 22755,
+          "nDraw": 12790,
+          "nLoss": 14455
+        },
+        "away": {
+          "ifWin": 0.9898996886890349,
+          "ifDraw": 0.6962470680218921,
+          "ifLoss": 0.44724236431553505,
+          "nWin": 14455,
+          "nDraw": 12790,
+          "nLoss": 22755
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2267,7 +3853,25 @@
         "away": 1,
         "p": 0.12350080923993857
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9794140934283452,
+          "ifDraw": 0.40009144947416553,
+          "ifLoss": 0.16467176134794217,
+          "nWin": 15156,
+          "nDraw": 13122,
+          "nLoss": 21722
+        },
+        "away": {
+          "ifWin": 0.9907006721296382,
+          "ifDraw": 0.5554031397652797,
+          "ifLoss": 0.2905779889152811,
+          "nWin": 21722,
+          "nDraw": 13122,
+          "nLoss": 15156
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2290,7 +3894,25 @@
         "away": 1,
         "p": 0.1291101452172524
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 1,
+          "ifDraw": 0.998012615570725,
+          "ifLoss": 0.6395117510199952,
+          "nWin": 8770,
+          "nDraw": 11573,
+          "nLoss": 29657
+        },
+        "away": {
+          "ifWin": 0.9999662811477897,
+          "ifDraw": 0.8938909530804459,
+          "ifLoss": 0.7428734321550741,
+          "nWin": 29657,
+          "nDraw": 11573,
+          "nLoss": 8770
+        }
+      }
     },
     {
       "date": "2026-06-24",
@@ -2313,7 +3935,25 @@
         "away": 0,
         "p": 0.1563830369695545
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9999725606409834,
+          "ifDraw": 0.8140891579526692,
+          "ifLoss": 0.5806307313800044,
+          "nWin": 36444,
+          "nDraw": 9085,
+          "nLoss": 4471
+        },
+        "away": {
+          "ifWin": 0.5517781256989488,
+          "ifDraw": 0.08596587782058338,
+          "ifLoss": 0.0319394138952914,
+          "nWin": 4471,
+          "nDraw": 9085,
+          "nLoss": 36444
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2336,7 +3976,25 @@
         "away": 1,
         "p": 0.12101660857419251
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7872292418772563,
+          "ifDraw": 0.4531544256120527,
+          "ifLoss": 0.2557178631051753,
+          "nWin": 13296,
+          "nDraw": 12744,
+          "nLoss": 23960
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 1,
+          "ifLoss": 0.9519404332129964,
+          "nWin": 23960,
+          "nDraw": 12744,
+          "nLoss": 13296
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2359,7 +4017,25 @@
         "away": 1,
         "p": 0.12081490921171477
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.5908813662702044,
+          "ifDraw": 0.28999531762135167,
+          "ifLoss": 0.09933527212297466,
+          "nWin": 13116,
+          "nDraw": 12814,
+          "nLoss": 24070
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 0.9999219603558608,
+          "ifLoss": 0.8533851784080513,
+          "nWin": 24070,
+          "nDraw": 12814,
+          "nLoss": 13116
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2382,7 +4058,25 @@
         "away": 1,
         "p": 0.12902231914368562
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.4115388957886418,
+          "ifDraw": 0.13929833635031463,
+          "ifLoss": 0.009748832171146166,
+          "nWin": 8857,
+          "nDraw": 11601,
+          "nLoss": 29542
+        },
+        "away": {
+          "ifWin": 0.9177103784442489,
+          "ifDraw": 0.5246961468838893,
+          "ifLoss": 0.3346505588799819,
+          "nWin": 29542,
+          "nDraw": 11601,
+          "nLoss": 8857
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2405,7 +4099,25 @@
         "away": 1,
         "p": 0.11914656069847383
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9743063536365129,
+          "ifDraw": 0.8508876681792851,
+          "ifLoss": 0.7175436512649959,
+          "nWin": 12182,
+          "nDraw": 12561,
+          "nLoss": 25257
+        },
+        "away": {
+          "ifWin": 1,
+          "ifDraw": 1,
+          "ifLoss": 0.9851420128057791,
+          "nWin": 25257,
+          "nDraw": 12561,
+          "nLoss": 12182
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2428,7 +4140,25 @@
         "away": 1,
         "p": 0.11897951316874185
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9589924074659918,
+          "ifDraw": 0.7303803562831006,
+          "ifLoss": 0.5405714285714286,
+          "nWin": 25288,
+          "nDraw": 12462,
+          "nLoss": 12250
+        },
+        "away": {
+          "ifWin": 0.8817959183673469,
+          "ifDraw": 0.5602632001283903,
+          "ifLoss": 0.350561531161025,
+          "nWin": 12250,
+          "nDraw": 12462,
+          "nLoss": 25288
+        }
+      }
     },
     {
       "date": "2026-06-25",
@@ -2451,7 +4181,25 @@
         "away": 1,
         "p": 0.13231954181491862
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8524201596806387,
+          "ifDraw": 0.5359169918410784,
+          "ifLoss": 0.329620945681907,
+          "nWin": 8016,
+          "nDraw": 11276,
+          "nLoss": 30708
+        },
+        "away": {
+          "ifWin": 0.9814706265468282,
+          "ifDraw": 0.8334515785739623,
+          "ifLoss": 0.6731536926147704,
+          "nWin": 30708,
+          "nDraw": 11276,
+          "nLoss": 8016
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2474,7 +4222,25 @@
         "away": 1,
         "p": 0.12414134334087183
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9570791527313266,
+          "ifDraw": 0.7660557523486832,
+          "ifLoss": 0.5603316082039487,
+          "nWin": 16146,
+          "nDraw": 12986,
+          "nLoss": 20868
+        },
+        "away": {
+          "ifWin": 0.9720624880199348,
+          "ifDraw": 0.8076389958416756,
+          "ifLoss": 0.6266567570915397,
+          "nWin": 20868,
+          "nDraw": 12986,
+          "nLoss": 16146
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2497,7 +4263,25 @@
         "away": 2,
         "p": 0.15240639554386196
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.6810287975379204,
+          "ifDraw": 0.30306230200633577,
+          "ifLoss": 0.14085211639476392,
+          "nWin": 4549,
+          "nDraw": 9470,
+          "nLoss": 35981
+        },
+        "away": {
+          "ifWin": 0.9844918151246491,
+          "ifDraw": 0.8257655755015839,
+          "ifLoss": 0.6509122884150362,
+          "nWin": 35981,
+          "nDraw": 9470,
+          "nLoss": 4549
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2520,7 +4304,25 @@
         "away": 1,
         "p": 0.12403998806805325
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7230963665086888,
+          "ifDraw": 0.25278439204239955,
+          "ifLoss": 0.10153148043108338,
+          "nWin": 15825,
+          "nDraw": 13019,
+          "nLoss": 21156
+        },
+        "away": {
+          "ifWin": 0.7738230289279637,
+          "ifDraw": 0.2962593133113142,
+          "ifLoss": 0.12928909952606635,
+          "nWin": 21156,
+          "nDraw": 13019,
+          "nLoss": 15825
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2543,7 +4345,25 @@
         "away": 1,
         "p": 0.12376978107200176
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9838789929346203,
+          "ifDraw": 0.8975409836065574,
+          "ifLoss": 0.7895571330762855,
+          "nWin": 10049,
+          "nDraw": 12200,
+          "nLoss": 27751
+        },
+        "away": {
+          "ifWin": 0.995964109401463,
+          "ifDraw": 0.9545081967213115,
+          "ifLoss": 0.8944173549606926,
+          "nWin": 27751,
+          "nDraw": 12200,
+          "nLoss": 10049
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2566,7 +4386,25 @@
         "away": 1,
         "p": 0.13783391820596555
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9007337073802331,
+          "ifDraw": 0.662797281993205,
+          "ifLoss": 0.45619819431177394,
+          "nWin": 6951,
+          "nDraw": 10596,
+          "nLoss": 32453
+        },
+        "away": {
+          "ifWin": 0.9929128277817151,
+          "ifDraw": 0.9107210268025671,
+          "ifLoss": 0.7997410444540354,
+          "nWin": 32453,
+          "nDraw": 10596,
+          "nLoss": 6951
+        }
+      }
     },
     {
       "date": "2026-06-26",
@@ -2589,7 +4427,25 @@
         "away": 0,
         "p": 0.12850161325185033
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9477033004423273,
+          "ifDraw": 0.6715580492015537,
+          "ifLoss": 0.4679224376731302,
+          "nWin": 29390,
+          "nDraw": 11585,
+          "nLoss": 9025
+        },
+        "away": {
+          "ifWin": 0.7780609418282548,
+          "ifDraw": 0.39585671126456623,
+          "ifLoss": 0.19656345695814903,
+          "nWin": 9025,
+          "nDraw": 11585,
+          "nLoss": 29390
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2612,7 +4468,25 @@
         "away": 1,
         "p": 0.12468571372552843
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9260573622665659,
+          "ifDraw": 0.6535853082374458,
+          "ifLoss": 0.4385412433969931,
+          "nWin": 17189,
+          "nDraw": 13123,
+          "nLoss": 19688
+        },
+        "away": {
+          "ifWin": 0.9419443315725315,
+          "ifDraw": 0.691533948030176,
+          "ifLoss": 0.47216242946070164,
+          "nWin": 19688,
+          "nDraw": 13123,
+          "nLoss": 17189
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2635,7 +4509,25 @@
         "away": 2,
         "p": 0.15686513273218733
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.7645977011494253,
+          "ifDraw": 0.4333589715415888,
+          "ifLoss": 0.23721579249774274,
+          "nWin": 4350,
+          "nDraw": 9101,
+          "nLoss": 36549
+        },
+        "away": {
+          "ifWin": 0.9936523571096336,
+          "ifDraw": 0.9048456213602901,
+          "ifLoss": 0.7931034482758621,
+          "nWin": 36549,
+          "nDraw": 9101,
+          "nLoss": 4350
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2658,7 +4550,25 @@
         "away": 1,
         "p": 0.123476113422574
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.977251747329553,
+          "ifDraw": 0.8668204536716647,
+          "ifLoss": 0.7409867607311375,
+          "nWin": 15166,
+          "nDraw": 13005,
+          "nLoss": 21829
+        },
+        "away": {
+          "ifWin": 0.9868981629941821,
+          "ifDraw": 0.905113417916186,
+          "ifLoss": 0.7990900698931821,
+          "nWin": 21829,
+          "nDraw": 13005,
+          "nLoss": 15166
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2681,7 +4591,25 @@
         "away": 1,
         "p": 0.12488699288404231
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.8087535680304472,
+          "ifDraw": 0.374857922255058,
+          "ifLoss": 0.1866368465194297,
+          "nWin": 18918,
+          "nDraw": 13197,
+          "nLoss": 17885
+        },
+        "away": {
+          "ifWin": 0.8019010343863573,
+          "ifDraw": 0.3543229521861029,
+          "ifLoss": 0.17422560524368327,
+          "nWin": 17885,
+          "nDraw": 13197,
+          "nLoss": 18918
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2704,7 +4632,25 @@
         "away": 1,
         "p": 0.13348944696114978
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.928974358974359,
+          "ifDraw": 0.7095083152566883,
+          "ifLoss": 0.49698098663926005,
+          "nWin": 7800,
+          "nDraw": 11064,
+          "nLoss": 31136
+        },
+        "away": {
+          "ifWin": 0.9909108427543679,
+          "ifDraw": 0.8975958062183659,
+          "ifLoss": 0.7944871794871795,
+          "nWin": 31136,
+          "nDraw": 11064,
+          "nLoss": 7800
+        }
+      }
     },
     {
       "date": "2026-06-27",
@@ -2727,7 +4673,25 @@
         "away": 0,
         "p": 0.14212182999831055
       },
-      "knockout": false
+      "knockout": false,
+      "cond": {
+        "home": {
+          "ifWin": 0.9660231432282442,
+          "ifDraw": 0.7302888368462139,
+          "ifLoss": 0.5365895166780122,
+          "nWin": 33876,
+          "nDraw": 10248,
+          "nLoss": 5876
+        },
+        "away": {
+          "ifWin": 0.7086453369639211,
+          "ifDraw": 0.31381733021077285,
+          "ifLoss": 0.14337584130357775,
+          "nWin": 5876,
+          "nDraw": 10248,
+          "nLoss": 33876
+        }
+      }
     }
   ],
   "movers": [

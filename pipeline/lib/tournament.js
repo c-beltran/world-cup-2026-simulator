@@ -36,7 +36,10 @@ function compareStandings(a, b) {
 // clampGroup (optional): Map pairKey -> { [teamName]: goals }. When a pairing has a
 // clamped REAL result we use those goals and draw NO RNG; otherwise we sample as
 // usual. With no clamp the RNG stream is byte-identical to the unconditional sim.
-function playGroup(teams, rng, m, clampGroup) {
+// track (optional): Set of pairKeys whose sampled goals should be reported back via
+// `tracked` (used by the live forecast to bucket per-match conditional advancement).
+// Inert unless a track set is supplied.
+function playGroup(teams, rng, m, clampGroup, track, tracked) {
   const rows = teams.map((team) => ({ team, pts: 0, gf: 0, ga: 0, gd: 0 }));
   let favWin = 0;
   let draw = 0;
@@ -44,10 +47,12 @@ function playGroup(teams, rng, m, clampGroup) {
   let goals = 0;
   let umag = 0;
   for (const [i, j] of PAIRINGS) {
-    const fixed = clampGroup && clampGroup.get(pairKey(rows[i].team.name, rows[j].team.name));
+    const key = pairKey(rows[i].team.name, rows[j].team.name);
+    const fixed = clampGroup && clampGroup.get(key);
     const [gi, gj] = fixed
       ? [fixed[rows[i].team.name], fixed[rows[j].team.name]]
       : playGroupMatch(rng, rows[i].team, rows[j].team, m);
+    if (track && track.has(key)) tracked[key] = { [rows[i].team.name]: gi, [rows[j].team.name]: gj };
     goals += gi + gj;
     rows[i].gf += gi;
     rows[i].ga += gj;
@@ -120,16 +125,19 @@ export function prepareBracket(bracketDoc) {
 //     ko:     Map<pairKey, { goals:{[name]:g}, winner:name, decidedBy:'REG'|'ET'|'PENS' }> }
 // Clamped matches draw NO RNG; everything else is sampled. With no clamp this is the
 // unconditional sim, bit-for-bit (validated against the frozen baseline at 0 games).
-export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL, clamp = null) {
+// track (optional): Set<pairKey> of group matches whose sampled goals to report back
+// (returned as `tracked`), so the live forecast can bucket conditional advancement.
+export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL, clamp = null, track = null) {
   // --- Group stage ---
   const groups = {};
   const thirds = []; // {group, team, pts, gd, gf}
   const groupOutcomes = { favWin: 0, draw: 0, dogWin: 0, goals: 0 };
+  const tracked = track ? {} : null;
   let upsetMag = 0; // aggregate upset magnitude across ALL matches (group + knockout)
   for (const g of groupsDoc.groups) {
     const teamObjs = g.teams.map((t) => teamsByName.get(t.name));
     const clampGroup = clamp && clamp.groups && clamp.groups.get(g.id);
-    const { rows, favWin, draw, dogWin, goals, umag } = playGroup(teamObjs, rng, m, clampGroup);
+    const { rows, favWin, draw, dogWin, goals, umag } = playGroup(teamObjs, rng, m, clampGroup, track, tracked);
     groupOutcomes.favWin += favWin;
     groupOutcomes.draw += draw;
     groupOutcomes.dogWin += dogWin;
@@ -255,5 +263,6 @@ export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MOD
     groupOutcomes,
     koStats,
     scores: { chaos, chalk, cinderella, upsetMag },
+    tracked,
   };
 }

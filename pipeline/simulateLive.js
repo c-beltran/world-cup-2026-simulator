@@ -20,6 +20,7 @@ import { mulberry32, simSeed } from './lib/rng.js';
 import { prepareBracket, simulateTournament, pairKey } from './lib/tournament.js';
 import { MODEL, winExpectancy, expectedGoals } from './lib/model.js';
 import { updateRatings } from './lib/elo.js';
+import { groupTable, clinchFlags } from './lib/standings.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT_DIR = join(import.meta.dirname, 'out');
@@ -76,6 +77,22 @@ for (const mm of played) {
   }
 }
 
+// ---- 2b. Upcoming fixtures + per-match conditional-advancement tracking ----
+// Track every upcoming GROUP match so ONE conditional run can bucket, per team,
+// P(reach R32 | they win / draw / lose this exact match) — the honest basis for
+// "what needs to happen" (no separate sims, no false determinism).
+const upcoming = live.matches
+  .filter((mm) => !mm.finished && mm.home && mm.away)
+  .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+const nextDate = upcoming.length ? upcoming[0].date : null;
+const trackPairs = upcoming.filter((mm) => mm.round === 'group');
+const track = trackPairs.length ? new Set(trackPairs.map((mm) => pairKey(mm.home, mm.away))) : null;
+const cond = new Map(); // pairKey -> { [team]: { win:{n,adv}, draw:{n,adv}, loss:{n,adv} } }
+for (const mm of trackPairs) {
+  const blank = () => ({ win: { n: 0, adv: 0 }, draw: { n: 0, adv: 0 }, loss: { n: 0, adv: 0 } });
+  cond.set(pairKey(mm.home, mm.away), { [mm.home]: blank(), [mm.away]: blank() });
+}
+
 // ---- 3. Conditional Monte Carlo ----
 const codeOf = (n) => teamsByName.get(n)?.code || '';
 const fieldOf = (n) => teamsByName.get(n)?.fieldRank;
@@ -93,7 +110,7 @@ const t0 = performance.now();
 for (let i = 0; i < SIMS; i++) {
   let sim;
   try {
-    sim = simulateTournament(teamsByName, groupsDoc, bracket, mulberry32(simSeed(MASTER_SEED, i)), MODEL, clamp);
+    sim = simulateTournament(teamsByName, groupsDoc, bracket, mulberry32(simSeed(MASTER_SEED, i)), MODEL, clamp, track);
   } catch {
     violations.matchingFail++;
     continue;
@@ -106,6 +123,21 @@ for (let i = 0; i < SIMS; i++) {
   for (const t of sim.reach.qf) reachOf(t.name).qf++;
   for (const t of sim.reach.r16) reachOf(t.name).r16++;
   for (const t of sim.reach.r32) reachOf(t.name).r32++;
+
+  // bucket conditional advancement for the tracked group matches
+  if (sim.tracked) {
+    const r32 = new Set(sim.reach.r32.map((t) => t.name));
+    for (const key in sim.tracked) {
+      const goals = sim.tracked[key], c = cond.get(key);
+      if (!c) continue;
+      const [n1, n2] = Object.keys(goals);
+      for (const [name, other] of [[n1, n2], [n2, n1]]) {
+        const bucket = goals[name] > goals[other] ? 'win' : goals[name] < goals[other] ? 'loss' : 'draw';
+        c[name][bucket].n++;
+        if (r32.has(name)) c[name][bucket].adv++;
+      }
+    }
+  }
 }
 const elapsed = performance.now() - t0;
 const N = SIMS - violations.matchingFail;
@@ -166,11 +198,48 @@ function projectMatch(home, away, round) {
   };
 }
 
-const upcoming = live.matches
-  .filter((mm) => !mm.finished && mm.home && mm.away)
-  .sort((a, b) => String(a.date).localeCompare(String(b.date)));
-const nextDate = upcoming.length ? upcoming[0].date : null;
-const projections = upcoming.map((mm) => ({ date: mm.date, time: mm.time, kickoff: mm.kickoff, group: mm.group, ...projectMatch(mm.home, mm.away, mm.round) }));
+// conditional advancement P(reach R32 | win/draw/loss) per tracked match + team
+const condResult = {};
+for (const [key, c] of cond) {
+  condResult[key] = {};
+  for (const name in c) {
+    const o = c[name];
+    const safe = (x) => (x.n > 0 ? x.adv / x.n : null);
+    condResult[key][name] = { ifWin: safe(o.win), ifDraw: safe(o.draw), ifLoss: safe(o.loss), nWin: o.win.n, nDraw: o.draw.n, nLoss: o.loss.n };
+  }
+}
+
+const projections = upcoming.map((mm) => {
+  const base = { date: mm.date, time: mm.time, kickoff: mm.kickoff, group: mm.group, ...projectMatch(mm.home, mm.away, mm.round) };
+  const c = condResult[pairKey(mm.home, mm.away)];
+  if (c) base.cond = { home: c[mm.home] || null, away: c[mm.away] || null };
+  return base;
+});
+
+// ---- 4b. Live group standings (deterministic) + status ----
+const advByName = new Map(reachTable.map((r) => [r.name, r.advancePct]));
+const standings = groupsDoc.groups.map((g) => {
+  const teamObjs = g.teams.map((t) => teamsByName.get(t.name));
+  const gp = played.filter((m) => m.round === 'group' && m.group === g.id);
+  const rows = groupTable(teamObjs, gp);
+  const flags = clinchFlags(rows);
+  return {
+    id: g.id,
+    rows: rows.map((r) => {
+      const f = flags[r.name];
+      const adv = advByName.get(r.name) ?? 0;
+      let status = 'live';
+      if (f.clinchedTop2) status = 'through';      // guaranteed top 2 → through
+      else if (f.eliminatedTop2 && adv < 0.05) status = 'out'; // can't make top 2 and 0% via thirds
+      else if (f.eliminatedTop2) status = 'third'; // top 2 gone, 3rd-place path still alive
+      return {
+        pos: r.pos, name: r.name, code: r.code,
+        p: r.p, w: r.w, d: r.d, l: r.l, gf: r.gf, ga: r.ga, gd: r.gd, pts: r.pts, remaining: r.remaining,
+        advancePct: adv, status,
+      };
+    }),
+  };
+});
 
 // ---- 5. Rating movers (biggest Elo deltas so far) ----
 const movers = Object.entries(eloLog)
@@ -192,6 +261,7 @@ const out = {
   validation: violations,
   champions,
   reach: reachTable,
+  standings,
   nextDate,
   projections,
   movers,

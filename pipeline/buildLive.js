@@ -41,6 +41,7 @@ const data = {
   validation: sim.validation,
   champions: sim.champions,
   reach: sim.reach,
+  standings: sim.standings,
   nextDate: sim.nextDate,
   projections: sim.projections,
   movers: sim.movers,
