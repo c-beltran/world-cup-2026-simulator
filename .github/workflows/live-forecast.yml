@@ -1,0 +1,69 @@
+# Re-bakes the LIVE conditional forecast from real results and commits it.
+#
+# What it does, on a schedule during the tournament (and on-demand):
+#   fetch  → pull the latest results from openfootball (public domain, NO API key)
+#   sim    → conditional Monte Carlo: clamp played matches, update ratings on the pitch,
+#            re-simulate the remainder (lib/elo.js + the seeded engine)
+#   build  → bake app/live-data.js  ·  validate → assert the honesty invariants
+# Then it commits the regenerated data (for provenance/history) AND deploys app/ to
+# Pages in the same run. (We can't rely on the commit alone triggering pages.yml: a
+# push made with the default GITHUB_TOKEN does not trigger other workflows.)
+#
+# No secrets: openfootball needs no key, so nothing sensitive ever touches CI.
+name: Live re-forecast
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # every 6h (UTC) — World Cup group games run most days
+  workflow_dispatch: {} # manual trigger from the Actions tab
+
+permissions:
+  contents: write # commit the regenerated data back to main
+  pages: write # deploy the refreshed app to Pages
+  id-token: write # OIDC token for deploy-pages
+
+concurrency:
+  group: pages # share the deploy lock with pages.yml so deploys never clobber
+  cancel-in-progress: false
+
+jobs:
+  rebake:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # The pipeline has ZERO dependencies (pure Node built-ins), so no install step.
+      - name: Re-bake the live forecast
+        working-directory: pipeline
+        run: |
+          node fetchResults.js
+          node simulateLive.js
+          node buildLive.js
+          node validateLive.js
+
+      - name: Commit if the forecast changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/live-data.js app/live-data.json data/live/
+          if git diff --staged --quiet; then
+            echo "No change in the live forecast — nothing to commit."
+          else
+            ASOF=$(node -e "process.stdout.write(require('./app/live-data.json').meta.asOfDate || 'unknown')")
+            git commit -m "chore(live): re-forecast as of ${ASOF}"
+            git push
+          fi
+
+      # Deploy the refreshed app/ to Pages in the same run (see header note).
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+      - id: deployment
+        uses: actions/deploy-pages@v4

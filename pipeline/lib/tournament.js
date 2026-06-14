@@ -12,6 +12,10 @@ const matchUpset = (w, l) => {
   return we < 0.5 ? 0.5 - we : 0;
 };
 
+// Order-independent key for a matchup, so a clamped REAL result can be looked up
+// regardless of which side the sim happens to list as home/away.
+export const pairKey = (a, b) => [a, b].sort().join(' | ');
+
 // The 6 round-robin pairings for a group of 4.
 const PAIRINGS = [
   [0, 1],
@@ -29,7 +33,10 @@ function compareStandings(a, b) {
   return b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || b.team.strength - a.team.strength;
 }
 
-function playGroup(teams, rng, m) {
+// clampGroup (optional): Map pairKey -> { [teamName]: goals }. When a pairing has a
+// clamped REAL result we use those goals and draw NO RNG; otherwise we sample as
+// usual. With no clamp the RNG stream is byte-identical to the unconditional sim.
+function playGroup(teams, rng, m, clampGroup) {
   const rows = teams.map((team) => ({ team, pts: 0, gf: 0, ga: 0, gd: 0 }));
   let favWin = 0;
   let draw = 0;
@@ -37,7 +44,10 @@ function playGroup(teams, rng, m) {
   let goals = 0;
   let umag = 0;
   for (const [i, j] of PAIRINGS) {
-    const [gi, gj] = playGroupMatch(rng, rows[i].team, rows[j].team, m);
+    const fixed = clampGroup && clampGroup.get(pairKey(rows[i].team.name, rows[j].team.name));
+    const [gi, gj] = fixed
+      ? [fixed[rows[i].team.name], fixed[rows[j].team.name]]
+      : playGroupMatch(rng, rows[i].team, rows[j].team, m);
     goals += gi + gj;
     rows[i].gf += gi;
     rows[i].ga += gj;
@@ -105,7 +115,12 @@ export function prepareBracket(bracketDoc) {
 }
 
 // Run one tournament. teamsByName: Map name -> team object {name, code, group, strength, fifaRank}.
-export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL) {
+// clamp (optional): the conditional-Monte-Carlo overrides for REAL played results.
+//   { groups: Map<groupId, Map<pairKey,{[name]:goals}>>,
+//     ko:     Map<pairKey, { goals:{[name]:g}, winner:name, decidedBy:'REG'|'ET'|'PENS' }> }
+// Clamped matches draw NO RNG; everything else is sampled. With no clamp this is the
+// unconditional sim, bit-for-bit (validated against the frozen baseline at 0 games).
+export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL, clamp = null) {
   // --- Group stage ---
   const groups = {};
   const thirds = []; // {group, team, pts, gd, gf}
@@ -113,7 +128,8 @@ export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MOD
   let upsetMag = 0; // aggregate upset magnitude across ALL matches (group + knockout)
   for (const g of groupsDoc.groups) {
     const teamObjs = g.teams.map((t) => teamsByName.get(t.name));
-    const { rows, favWin, draw, dogWin, goals, umag } = playGroup(teamObjs, rng, m);
+    const clampGroup = clamp && clamp.groups && clamp.groups.get(g.id);
+    const { rows, favWin, draw, dogWin, goals, umag } = playGroup(teamObjs, rng, m, clampGroup);
     groupOutcomes.favWin += favWin;
     groupOutcomes.draw += draw;
     groupOutcomes.dogWin += dogWin;
@@ -155,7 +171,16 @@ export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MOD
   for (const mm of bracket.matches) {
     const home = resolveSlot(mm.home, mm.id);
     const away = resolveSlot(mm.away, mm.id);
-    const r = playKnockoutMatch(rng, home, away, m);
+    const fixed = clamp && clamp.ko && clamp.ko.get(pairKey(home.name, away.name));
+    let r;
+    if (fixed) {
+      // REAL knockout result. Orient the stored goals onto this sim's home/away and
+      // build the same shape playKnockoutMatch returns (ga = home goals, gb = away).
+      const won = fixed.winner === home.name ? home : away;
+      r = { ga: fixed.goals[home.name], gb: fixed.goals[away.name], winner: won, loser: won === home ? away : home, decidedBy: fixed.decidedBy };
+    } else {
+      r = playKnockoutMatch(rng, home, away, m);
+    }
     results[mm.id] = {
       round: mm.round,
       home,

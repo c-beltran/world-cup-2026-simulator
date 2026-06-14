@@ -6,9 +6,14 @@
   "description": "Offline generation pipeline for the AI World Cup 2026 Simulator: ratings -> Monte Carlo -> AI narration -> baked data.json. Uses the API key; never ships to /app.",
   "scripts": {
     "rate": "node rateTeams.js",
+    "fetch": "node fetchResults.js",
     "simulate": "node --env-file-if-exists=../.env --env-file-if-exists=.env simulate.js",
     "narrate": "node --env-file-if-exists=../.env --env-file-if-exists=.env narrate.js",
     "verify": "node verify.js",
-    "build": "node build.js"
+    "build": "node build.js",
+    "simulate:live": "node simulateLive.js",
+    "build:live": "node buildLive.js",
+    "live": "node fetchResults.js && node simulateLive.js && node buildLive.js",
+    "validate:live": "node validateLive.js"
   }
 }
