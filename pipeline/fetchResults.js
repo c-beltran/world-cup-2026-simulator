@@ -50,6 +50,18 @@ function outcome(m) {
   return { homeGoals: hg, awayGoals: ag, decidedBy, winner };
 }
 
+// openfootball kickoff time is venue-local with a UTC offset, e.g. "13:00 UTC-6".
+// Keep the raw string (we display venue-local time + offset) and also derive an
+// absolute ISO instant, so the app could localize later without re-fetching.
+function kickoffISO(date, time) {
+  if (!date || !time) return null;
+  const m = /^(\d{1,2}):(\d{2})\s*UTC([+-]\d{1,2})(?::?(\d{2}))?$/.exec(String(time).trim());
+  if (!m) return null;
+  const hh = m[1].padStart(2, '0'), mm = m[2];
+  const sign = m[3][0], oh = m[3].slice(1).padStart(2, '0'), om = m[4] || '00';
+  return `${date}T${hh}:${mm}:00${sign}${oh}:${om}`;
+}
+
 const unmappedRounds = new Set();
 const unresolvedNames = new Set();
 const matches = [];
@@ -67,6 +79,8 @@ for (const m of raw) {
   const o = outcome(m);
   matches.push({
     date: m.date || null,
+    time: m.time || null, // venue-local, e.g. "13:00 UTC-6"
+    kickoff: kickoffISO(m.date, m.time), // absolute ISO instant (offset-aware)
     round,
     rawRound: m.round,
     group: groupIdOf(m.group),

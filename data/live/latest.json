@@ -3,7 +3,7 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-14T19:20:29.142Z",
+  "fetchedAt": "2026-06-14T20:18:07.177Z",
   "asOfDate": "2026-06-14",
   "matchCount": 104,
   "playedCount": 9,
@@ -12,6 +12,8 @@
   "matches": [
     {
       "date": "2026-06-11",
+      "time": "13:00 UTC-6",
+      "kickoff": "2026-06-11T13:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 1",
       "group": "A",
@@ -28,6 +30,8 @@
     },
     {
       "date": "2026-06-11",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-11T20:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 1",
       "group": "A",
@@ -44,6 +48,8 @@
     },
     {
       "date": "2026-06-12",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-12T15:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 2",
       "group": "B",
@@ -60,6 +66,8 @@
     },
     {
       "date": "2026-06-12",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-12T18:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 2",
       "group": "D",
@@ -76,6 +84,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-13T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "B",
@@ -92,6 +102,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-13T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "C",
@@ -108,6 +120,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "21:00 UTC-4",
+      "kickoff": "2026-06-13T21:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "C",
@@ -124,6 +138,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "21:00 UTC-7",
+      "kickoff": "2026-06-13T21:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "D",
@@ -140,6 +156,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-14T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 4",
       "group": "E",
@@ -156,6 +174,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-14T19:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 4",
       "group": "E",
@@ -168,6 +188,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "15:00 UTC-5",
+      "kickoff": "2026-06-14T15:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 4",
       "group": "F",
@@ -180,6 +202,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-14T20:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 4",
       "group": "F",
@@ -192,6 +216,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-15T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 5",
       "group": "G",
@@ -204,6 +230,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-15T18:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 5",
       "group": "G",
@@ -216,6 +244,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-15T12:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 5",
       "group": "H",
@@ -228,6 +258,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-15T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 5",
       "group": "H",
@@ -240,6 +272,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-16T15:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 6",
       "group": "I",
@@ -252,6 +286,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-16T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 6",
       "group": "I",
@@ -264,6 +300,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "20:00 UTC-5",
+      "kickoff": "2026-06-16T20:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 6",
       "group": "J",
@@ -276,6 +314,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "21:00 UTC-7",
+      "kickoff": "2026-06-16T21:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 6",
       "group": "J",
@@ -288,6 +328,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-17T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 7",
       "group": "K",
@@ -300,6 +342,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-17T20:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 7",
       "group": "K",
@@ -312,6 +356,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "15:00 UTC-5",
+      "kickoff": "2026-06-17T15:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 7",
       "group": "L",
@@ -324,6 +370,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-17T19:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 7",
       "group": "L",
@@ -336,6 +384,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-18T12:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 8",
       "group": "A",
@@ -348,6 +398,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-18T19:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 8",
       "group": "A",
@@ -360,6 +412,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-18T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 8",
       "group": "B",
@@ -372,6 +426,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "15:00 UTC-7",
+      "kickoff": "2026-06-18T15:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 8",
       "group": "B",
@@ -384,6 +440,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-19T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 9",
       "group": "C",
@@ -396,6 +454,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "20:30 UTC-4",
+      "kickoff": "2026-06-19T20:30:00-04:00",
       "round": "group",
       "rawRound": "Matchday 9",
       "group": "C",
@@ -408,6 +468,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-19T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 9",
       "group": "D",
@@ -420,6 +482,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-19T20:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 9",
       "group": "D",
@@ -432,6 +496,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-20T16:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 10",
       "group": "E",
@@ -444,6 +510,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "19:00 UTC-5",
+      "kickoff": "2026-06-20T19:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 10",
       "group": "E",
@@ -456,6 +524,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-20T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 10",
       "group": "F",
@@ -468,6 +538,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "22:00 UTC-6",
+      "kickoff": "2026-06-20T22:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 10",
       "group": "F",
@@ -480,6 +552,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-21T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 11",
       "group": "G",
@@ -492,6 +566,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-21T18:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 11",
       "group": "G",
@@ -504,6 +580,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-21T12:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 11",
       "group": "H",
@@ -516,6 +594,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-21T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 11",
       "group": "H",
@@ -528,6 +608,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-22T17:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 12",
       "group": "I",
@@ -540,6 +622,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "20:00 UTC-4",
+      "kickoff": "2026-06-22T20:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 12",
       "group": "I",
@@ -552,6 +636,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-22T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 12",
       "group": "J",
@@ -564,6 +650,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-22T20:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 12",
       "group": "J",
@@ -576,6 +664,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-23T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 13",
       "group": "K",
@@ -588,6 +678,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-23T20:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 13",
       "group": "K",
@@ -600,6 +692,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-23T16:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 13",
       "group": "L",
@@ -612,6 +706,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-23T19:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 13",
       "group": "L",
@@ -624,6 +720,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-24T19:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "A",
@@ -636,6 +734,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-24T19:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "A",
@@ -648,6 +748,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-24T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "B",
@@ -660,6 +762,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-24T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "B",
@@ -672,6 +776,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-24T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "C",
@@ -684,6 +790,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-24T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 14",
       "group": "C",
@@ -696,6 +804,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "19:00 UTC-7",
+      "kickoff": "2026-06-25T19:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "D",
@@ -708,6 +818,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "19:00 UTC-7",
+      "kickoff": "2026-06-25T19:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "D",
@@ -720,6 +832,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-25T16:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "E",
@@ -732,6 +846,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-25T16:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "E",
@@ -744,6 +860,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "18:00 UTC-5",
+      "kickoff": "2026-06-25T18:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "F",
@@ -756,6 +874,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "18:00 UTC-5",
+      "kickoff": "2026-06-25T18:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 15",
       "group": "F",
@@ -768,6 +888,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-26T20:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "G",
@@ -780,6 +902,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-26T20:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "G",
@@ -792,6 +916,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "19:00 UTC-5",
+      "kickoff": "2026-06-26T19:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "H",
@@ -804,6 +930,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "18:00 UTC-6",
+      "kickoff": "2026-06-26T18:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "H",
@@ -816,6 +944,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-26T15:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "I",
@@ -828,6 +958,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-26T15:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 16",
       "group": "I",
@@ -840,6 +972,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "21:00 UTC-5",
+      "kickoff": "2026-06-27T21:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "J",
@@ -852,6 +986,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "21:00 UTC-5",
+      "kickoff": "2026-06-27T21:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "J",
@@ -864,6 +1000,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "19:30 UTC-4",
+      "kickoff": "2026-06-27T19:30:00-04:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "K",
@@ -876,6 +1014,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "19:30 UTC-4",
+      "kickoff": "2026-06-27T19:30:00-04:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "K",
@@ -888,6 +1028,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-27T17:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "L",
@@ -900,6 +1042,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-27T17:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 17",
       "group": "L",
@@ -912,6 +1056,8 @@
     },
     {
       "date": "2026-06-28",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-28T12:00:00-07:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -924,6 +1070,8 @@
     },
     {
       "date": "2026-06-29",
+      "time": "16:30 UTC-4",
+      "kickoff": "2026-06-29T16:30:00-04:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -936,6 +1084,8 @@
     },
     {
       "date": "2026-06-29",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-29T19:00:00-06:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -948,6 +1098,8 @@
     },
     {
       "date": "2026-06-29",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-29T12:00:00-05:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -960,6 +1112,8 @@
     },
     {
       "date": "2026-06-30",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-30T17:00:00-04:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -972,6 +1126,8 @@
     },
     {
       "date": "2026-06-30",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-30T12:00:00-05:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -984,6 +1140,8 @@
     },
     {
       "date": "2026-06-30",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-30T19:00:00-06:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -996,6 +1154,8 @@
     },
     {
       "date": "2026-07-01",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-07-01T12:00:00-04:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1008,6 +1168,8 @@
     },
     {
       "date": "2026-07-01",
+      "time": "17:00 UTC-7",
+      "kickoff": "2026-07-01T17:00:00-07:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1020,6 +1182,8 @@
     },
     {
       "date": "2026-07-01",
+      "time": "13:00 UTC-7",
+      "kickoff": "2026-07-01T13:00:00-07:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1032,6 +1196,8 @@
     },
     {
       "date": "2026-07-02",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-07-02T19:00:00-04:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1044,6 +1210,8 @@
     },
     {
       "date": "2026-07-02",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-07-02T12:00:00-07:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1056,6 +1224,8 @@
     },
     {
       "date": "2026-07-02",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-07-02T20:00:00-07:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1068,6 +1238,8 @@
     },
     {
       "date": "2026-07-03",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-07-03T18:00:00-04:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1080,6 +1252,8 @@
     },
     {
       "date": "2026-07-03",
+      "time": "20:30 UTC-5",
+      "kickoff": "2026-07-03T20:30:00-05:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1092,6 +1266,8 @@
     },
     {
       "date": "2026-07-03",
+      "time": "13:00 UTC-5",
+      "kickoff": "2026-07-03T13:00:00-05:00",
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
@@ -1104,6 +1280,8 @@
     },
     {
       "date": "2026-07-04",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-04T17:00:00-04:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1116,6 +1294,8 @@
     },
     {
       "date": "2026-07-04",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-07-04T12:00:00-05:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1128,6 +1308,8 @@
     },
     {
       "date": "2026-07-05",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-07-05T16:00:00-04:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1140,6 +1322,8 @@
     },
     {
       "date": "2026-07-05",
+      "time": "18:00 UTC-6",
+      "kickoff": "2026-07-05T18:00:00-06:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1152,6 +1336,8 @@
     },
     {
       "date": "2026-07-06",
+      "time": "14:00 UTC-5",
+      "kickoff": "2026-07-06T14:00:00-05:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1164,6 +1350,8 @@
     },
     {
       "date": "2026-07-06",
+      "time": "17:00 UTC-7",
+      "kickoff": "2026-07-06T17:00:00-07:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1176,6 +1364,8 @@
     },
     {
       "date": "2026-07-07",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-07-07T12:00:00-04:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1188,6 +1378,8 @@
     },
     {
       "date": "2026-07-07",
+      "time": "13:00 UTC-7",
+      "kickoff": "2026-07-07T13:00:00-07:00",
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
@@ -1200,6 +1392,8 @@
     },
     {
       "date": "2026-07-09",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-07-09T16:00:00-04:00",
       "round": "QF",
       "rawRound": "Quarter-final",
       "group": null,
@@ -1212,6 +1406,8 @@
     },
     {
       "date": "2026-07-10",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-07-10T12:00:00-07:00",
       "round": "QF",
       "rawRound": "Quarter-final",
       "group": null,
@@ -1224,6 +1420,8 @@
     },
     {
       "date": "2026-07-11",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-11T17:00:00-04:00",
       "round": "QF",
       "rawRound": "Quarter-final",
       "group": null,
@@ -1236,6 +1434,8 @@
     },
     {
       "date": "2026-07-11",
+      "time": "20:00 UTC-5",
+      "kickoff": "2026-07-11T20:00:00-05:00",
       "round": "QF",
       "rawRound": "Quarter-final",
       "group": null,
@@ -1248,6 +1448,8 @@
     },
     {
       "date": "2026-07-14",
+      "time": "14:00 UTC-5",
+      "kickoff": "2026-07-14T14:00:00-05:00",
       "round": "SF",
       "rawRound": "Semi-final",
       "group": null,
@@ -1260,6 +1462,8 @@
     },
     {
       "date": "2026-07-15",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-07-15T15:00:00-04:00",
       "round": "SF",
       "rawRound": "Semi-final",
       "group": null,
@@ -1272,6 +1476,8 @@
     },
     {
       "date": "2026-07-18",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-18T17:00:00-04:00",
       "round": "3rd_place",
       "rawRound": "Match for third place",
       "group": null,
@@ -1284,6 +1490,8 @@
     },
     {
       "date": "2026-07-19",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-07-19T15:00:00-04:00",
       "round": "final",
       "rawRound": "Final",
       "group": null,

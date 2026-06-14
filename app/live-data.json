@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-14",
     "asOfDate": "2026-06-14",
-    "fetchedAt": "2026-06-14T19:20:29.142Z",
+    "fetchedAt": "2026-06-14T20:18:07.177Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -1282,6 +1282,8 @@
   "projections": [
     {
       "date": "2026-06-14",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-14T19:00:00-04:00",
       "group": "E",
       "home": "Côte d'Ivoire",
       "homeCode": "ci",
@@ -1303,6 +1305,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "15:00 UTC-5",
+      "kickoff": "2026-06-14T15:00:00-05:00",
       "group": "F",
       "home": "Netherlands",
       "homeCode": "nl",
@@ -1324,6 +1328,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-14T20:00:00-06:00",
       "group": "F",
       "home": "Sweden",
       "homeCode": "se",
@@ -1345,6 +1351,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-15T12:00:00-07:00",
       "group": "G",
       "home": "Belgium",
       "homeCode": "be",
@@ -1366,6 +1374,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-15T18:00:00-07:00",
       "group": "G",
       "home": "Iran",
       "homeCode": "ir",
@@ -1387,6 +1397,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-15T12:00:00-04:00",
       "group": "H",
       "home": "Spain",
       "homeCode": "es",
@@ -1408,6 +1420,8 @@
     },
     {
       "date": "2026-06-15",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-15T18:00:00-04:00",
       "group": "H",
       "home": "Saudi Arabia",
       "homeCode": "sa",
@@ -1429,6 +1443,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-16T15:00:00-04:00",
       "group": "I",
       "home": "France",
       "homeCode": "fr",
@@ -1450,6 +1466,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-16T18:00:00-04:00",
       "group": "I",
       "home": "Iraq",
       "homeCode": "iq",
@@ -1471,6 +1489,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "20:00 UTC-5",
+      "kickoff": "2026-06-16T20:00:00-05:00",
       "group": "J",
       "home": "Argentina",
       "homeCode": "ar",
@@ -1492,6 +1512,8 @@
     },
     {
       "date": "2026-06-16",
+      "time": "21:00 UTC-7",
+      "kickoff": "2026-06-16T21:00:00-07:00",
       "group": "J",
       "home": "Austria",
       "homeCode": "at",
@@ -1513,6 +1535,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-17T12:00:00-05:00",
       "group": "K",
       "home": "Portugal",
       "homeCode": "pt",
@@ -1534,6 +1558,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-17T20:00:00-06:00",
       "group": "K",
       "home": "Uzbekistan",
       "homeCode": "uz",
@@ -1555,6 +1581,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "15:00 UTC-5",
+      "kickoff": "2026-06-17T15:00:00-05:00",
       "group": "L",
       "home": "England",
       "homeCode": "gb-eng",
@@ -1576,6 +1604,8 @@
     },
     {
       "date": "2026-06-17",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-17T19:00:00-04:00",
       "group": "L",
       "home": "Ghana",
       "homeCode": "gh",
@@ -1597,6 +1627,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-18T12:00:00-04:00",
       "group": "A",
       "home": "Czechia",
       "homeCode": "cz",
@@ -1618,6 +1650,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-18T19:00:00-06:00",
       "group": "A",
       "home": "Mexico",
       "homeCode": "mx",
@@ -1639,6 +1673,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-18T12:00:00-07:00",
       "group": "B",
       "home": "Switzerland",
       "homeCode": "ch",
@@ -1660,6 +1696,8 @@
     },
     {
       "date": "2026-06-18",
+      "time": "15:00 UTC-7",
+      "kickoff": "2026-06-18T15:00:00-07:00",
       "group": "B",
       "home": "Canada",
       "homeCode": "ca",
@@ -1681,6 +1719,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-19T18:00:00-04:00",
       "group": "C",
       "home": "Scotland",
       "homeCode": "gb-sct",
@@ -1702,6 +1742,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "20:30 UTC-4",
+      "kickoff": "2026-06-19T20:30:00-04:00",
       "group": "C",
       "home": "Brazil",
       "homeCode": "br",
@@ -1723,6 +1765,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-19T12:00:00-07:00",
       "group": "D",
       "home": "United States",
       "homeCode": "us",
@@ -1744,6 +1788,8 @@
     },
     {
       "date": "2026-06-19",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-19T20:00:00-07:00",
       "group": "D",
       "home": "Türkiye",
       "homeCode": "tr",
@@ -1765,6 +1811,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-20T16:00:00-04:00",
       "group": "E",
       "home": "Germany",
       "homeCode": "de",
@@ -1786,6 +1834,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "19:00 UTC-5",
+      "kickoff": "2026-06-20T19:00:00-05:00",
       "group": "E",
       "home": "Ecuador",
       "homeCode": "ec",
@@ -1807,6 +1857,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-20T12:00:00-05:00",
       "group": "F",
       "home": "Netherlands",
       "homeCode": "nl",
@@ -1828,6 +1880,8 @@
     },
     {
       "date": "2026-06-20",
+      "time": "22:00 UTC-6",
+      "kickoff": "2026-06-20T22:00:00-06:00",
       "group": "F",
       "home": "Tunisia",
       "homeCode": "tn",
@@ -1849,6 +1903,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-21T12:00:00-07:00",
       "group": "G",
       "home": "Belgium",
       "homeCode": "be",
@@ -1870,6 +1926,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-21T18:00:00-07:00",
       "group": "G",
       "home": "New Zealand",
       "homeCode": "nz",
@@ -1891,6 +1949,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-06-21T12:00:00-04:00",
       "group": "H",
       "home": "Spain",
       "homeCode": "es",
@@ -1912,6 +1972,8 @@
     },
     {
       "date": "2026-06-21",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-21T18:00:00-04:00",
       "group": "H",
       "home": "Uruguay",
       "homeCode": "uy",
@@ -1933,6 +1995,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-22T17:00:00-04:00",
       "group": "I",
       "home": "France",
       "homeCode": "fr",
@@ -1954,6 +2018,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "20:00 UTC-4",
+      "kickoff": "2026-06-22T20:00:00-04:00",
       "group": "I",
       "home": "Norway",
       "homeCode": "no",
@@ -1975,6 +2041,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-22T12:00:00-05:00",
       "group": "J",
       "home": "Argentina",
       "homeCode": "ar",
@@ -1996,6 +2064,8 @@
     },
     {
       "date": "2026-06-22",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-22T20:00:00-07:00",
       "group": "J",
       "home": "Jordan",
       "homeCode": "jo",
@@ -2017,6 +2087,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-23T12:00:00-05:00",
       "group": "K",
       "home": "Portugal",
       "homeCode": "pt",
@@ -2038,6 +2110,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-23T20:00:00-06:00",
       "group": "K",
       "home": "Colombia",
       "homeCode": "co",
@@ -2059,6 +2133,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-23T16:00:00-04:00",
       "group": "L",
       "home": "England",
       "homeCode": "gb-eng",
@@ -2080,6 +2156,8 @@
     },
     {
       "date": "2026-06-23",
+      "time": "19:00 UTC-4",
+      "kickoff": "2026-06-23T19:00:00-04:00",
       "group": "L",
       "home": "Panama",
       "homeCode": "pa",
@@ -2101,6 +2179,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-24T19:00:00-06:00",
       "group": "A",
       "home": "Czechia",
       "homeCode": "cz",
@@ -2122,6 +2202,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-24T19:00:00-06:00",
       "group": "A",
       "home": "South Africa",
       "homeCode": "za",
@@ -2143,6 +2225,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-24T12:00:00-07:00",
       "group": "B",
       "home": "Switzerland",
       "homeCode": "ch",
@@ -2164,6 +2248,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-24T12:00:00-07:00",
       "group": "B",
       "home": "Bosnia and Herzegovina",
       "homeCode": "ba",
@@ -2185,6 +2271,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-24T18:00:00-04:00",
       "group": "C",
       "home": "Scotland",
       "homeCode": "gb-sct",
@@ -2206,6 +2294,8 @@
     },
     {
       "date": "2026-06-24",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-24T18:00:00-04:00",
       "group": "C",
       "home": "Morocco",
       "homeCode": "ma",
@@ -2227,6 +2317,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "19:00 UTC-7",
+      "kickoff": "2026-06-25T19:00:00-07:00",
       "group": "D",
       "home": "Türkiye",
       "homeCode": "tr",
@@ -2248,6 +2340,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "19:00 UTC-7",
+      "kickoff": "2026-06-25T19:00:00-07:00",
       "group": "D",
       "home": "Paraguay",
       "homeCode": "py",
@@ -2269,6 +2363,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-25T16:00:00-04:00",
       "group": "E",
       "home": "Curaçao",
       "homeCode": "cw",
@@ -2290,6 +2386,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-25T16:00:00-04:00",
       "group": "E",
       "home": "Ecuador",
       "homeCode": "ec",
@@ -2311,6 +2409,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "18:00 UTC-5",
+      "kickoff": "2026-06-25T18:00:00-05:00",
       "group": "F",
       "home": "Japan",
       "homeCode": "jp",
@@ -2332,6 +2432,8 @@
     },
     {
       "date": "2026-06-25",
+      "time": "18:00 UTC-5",
+      "kickoff": "2026-06-25T18:00:00-05:00",
       "group": "F",
       "home": "Tunisia",
       "homeCode": "tn",
@@ -2353,6 +2455,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-26T20:00:00-07:00",
       "group": "G",
       "home": "Egypt",
       "homeCode": "eg",
@@ -2374,6 +2478,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "20:00 UTC-7",
+      "kickoff": "2026-06-26T20:00:00-07:00",
       "group": "G",
       "home": "New Zealand",
       "homeCode": "nz",
@@ -2395,6 +2501,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "19:00 UTC-5",
+      "kickoff": "2026-06-26T19:00:00-05:00",
       "group": "H",
       "home": "Cabo Verde",
       "homeCode": "cv",
@@ -2416,6 +2524,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "18:00 UTC-6",
+      "kickoff": "2026-06-26T18:00:00-06:00",
       "group": "H",
       "home": "Uruguay",
       "homeCode": "uy",
@@ -2437,6 +2547,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-26T15:00:00-04:00",
       "group": "I",
       "home": "Norway",
       "homeCode": "no",
@@ -2458,6 +2570,8 @@
     },
     {
       "date": "2026-06-26",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-26T15:00:00-04:00",
       "group": "I",
       "home": "Senegal",
       "homeCode": "sn",
@@ -2479,6 +2593,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "21:00 UTC-5",
+      "kickoff": "2026-06-27T21:00:00-05:00",
       "group": "J",
       "home": "Algeria",
       "homeCode": "dz",
@@ -2500,6 +2616,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "21:00 UTC-5",
+      "kickoff": "2026-06-27T21:00:00-05:00",
       "group": "J",
       "home": "Jordan",
       "homeCode": "jo",
@@ -2521,6 +2639,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "19:30 UTC-4",
+      "kickoff": "2026-06-27T19:30:00-04:00",
       "group": "K",
       "home": "Colombia",
       "homeCode": "co",
@@ -2542,6 +2662,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "19:30 UTC-4",
+      "kickoff": "2026-06-27T19:30:00-04:00",
       "group": "K",
       "home": "Congo DR",
       "homeCode": "cd",
@@ -2563,6 +2685,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-27T17:00:00-04:00",
       "group": "L",
       "home": "Panama",
       "homeCode": "pa",
@@ -2584,6 +2708,8 @@
     },
     {
       "date": "2026-06-27",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-06-27T17:00:00-04:00",
       "group": "L",
       "home": "Croatia",
       "homeCode": "hr",
@@ -2753,6 +2879,8 @@
   "results": [
     {
       "date": "2026-06-11",
+      "time": "13:00 UTC-6",
+      "kickoff": "2026-06-11T13:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 1",
       "group": "A",
@@ -2769,6 +2897,8 @@
     },
     {
       "date": "2026-06-11",
+      "time": "20:00 UTC-6",
+      "kickoff": "2026-06-11T20:00:00-06:00",
       "round": "group",
       "rawRound": "Matchday 1",
       "group": "A",
@@ -2785,6 +2915,8 @@
     },
     {
       "date": "2026-06-12",
+      "time": "15:00 UTC-4",
+      "kickoff": "2026-06-12T15:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 2",
       "group": "B",
@@ -2801,6 +2933,8 @@
     },
     {
       "date": "2026-06-12",
+      "time": "18:00 UTC-7",
+      "kickoff": "2026-06-12T18:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 2",
       "group": "D",
@@ -2817,6 +2951,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-13T12:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "B",
@@ -2833,6 +2969,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "18:00 UTC-4",
+      "kickoff": "2026-06-13T18:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "C",
@@ -2849,6 +2987,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "21:00 UTC-4",
+      "kickoff": "2026-06-13T21:00:00-04:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "C",
@@ -2865,6 +3005,8 @@
     },
     {
       "date": "2026-06-13",
+      "time": "21:00 UTC-7",
+      "kickoff": "2026-06-13T21:00:00-07:00",
       "round": "group",
       "rawRound": "Matchday 3",
       "group": "D",
@@ -2881,6 +3023,8 @@
     },
     {
       "date": "2026-06-14",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-14T12:00:00-05:00",
       "round": "group",
       "rawRound": "Matchday 4",
       "group": "E",

@@ -170,7 +170,7 @@ const upcoming = live.matches
   .filter((mm) => !mm.finished && mm.home && mm.away)
   .sort((a, b) => String(a.date).localeCompare(String(b.date)));
 const nextDate = upcoming.length ? upcoming[0].date : null;
-const projections = upcoming.map((mm) => ({ date: mm.date, group: mm.group, ...projectMatch(mm.home, mm.away, mm.round) }));
+const projections = upcoming.map((mm) => ({ date: mm.date, time: mm.time, kickoff: mm.kickoff, group: mm.group, ...projectMatch(mm.home, mm.away, mm.round) }));
 
 // ---- 5. Rating movers (biggest Elo deltas so far) ----
 const movers = Object.entries(eloLog)
