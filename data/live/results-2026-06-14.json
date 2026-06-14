@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-14T13:52:30.802Z",
-  "asOfDate": "2026-06-13",
+  "fetchedAt": "2026-06-14T19:20:29.142Z",
+  "asOfDate": "2026-06-14",
   "matchCount": 104,
-  "playedCount": 8,
-  "groupPlayedCount": 8,
+  "playedCount": 9,
+  "groupPlayedCount": 9,
   "groupTotal": 72,
   "matches": [
     {
@@ -148,7 +148,11 @@
       "rawHome": "Germany",
       "rawAway": "Curaçao",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 7,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Germany"
     },
     {
       "date": "2026-06-14",
