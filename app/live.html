@@ -142,8 +142,8 @@
   .stbl td.pts { color: var(--gold); font-weight: 700; }
   .stbl td.adv { color: var(--ink); }
   .stbl tr.out td { opacity: .55; }
-  .glegend { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 12px; display: flex; flex-wrap: wrap; gap: 5px 14px; }
-  .glegend .k { display: inline-flex; align-items: center; gap: 5px; } .glegend .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .glegend { font-family: var(--mono); font-size: 11px; color: var(--muted); margin: 2px 0 14px; display: flex; flex-wrap: wrap; gap: 7px 16px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); }
+  .glegend .k { display: inline-flex; align-items: center; gap: 6px; } .glegend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
   .glegend .through { background: var(--up); } .glegend .third { background: var(--gold); } .glegend .out { background: var(--down); } .glegend .live { background: var(--loss); }
 
   /* movers + results */
@@ -218,8 +218,8 @@
     <div class="panel span2" style="grid-column:1/-1">
       <h2 id="standHead">Group standings — live</h2>
       <p class="sub" id="standSub"></p>
-      <div class="groups" id="groups"></div>
       <div class="glegend" id="glegend"></div>
+      <div class="groups" id="groups"></div>
     </div>
 
     <div class="panel span2" style="grid-column:1/-1">
