@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-15T03:46:23.950Z",
+  "fetchedAt": "2026-06-15T11:56:27.221Z",
   "asOfDate": "2026-06-14",
   "matchCount": 104,
-  "playedCount": 11,
-  "groupPlayedCount": 11,
+  "playedCount": 12,
+  "groupPlayedCount": 12,
   "groupTotal": 72,
   "matches": [
     {
@@ -220,7 +220,11 @@
       "rawHome": "Sweden",
       "rawAway": "Tunisia",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 5,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Sweden"
     },
     {
       "date": "2026-06-15",
