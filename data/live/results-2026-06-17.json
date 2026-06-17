@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-17T03:39:21.356Z",
+  "fetchedAt": "2026-06-17T10:48:15.855Z",
   "asOfDate": "2026-06-16",
   "matchCount": 104,
-  "playedCount": 19,
-  "groupPlayedCount": 19,
+  "playedCount": 20,
+  "groupPlayedCount": 20,
   "groupTotal": 72,
   "matches": [
     {
@@ -364,7 +364,11 @@
       "rawHome": "Austria",
       "rawAway": "Jordan",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Austria"
     },
     {
       "date": "2026-06-17",
