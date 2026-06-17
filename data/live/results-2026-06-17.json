@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-17T20:08:05.075Z",
+  "fetchedAt": "2026-06-17T22:15:19.476Z",
   "asOfDate": "2026-06-17",
   "matchCount": 104,
-  "playedCount": 21,
-  "groupPlayedCount": 21,
+  "playedCount": 22,
+  "groupPlayedCount": 22,
   "groupTotal": 72,
   "matches": [
     {
@@ -414,7 +414,11 @@
       "rawHome": "England",
       "rawAway": "Croatia",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 4,
+      "awayGoals": 2,
+      "decidedBy": "REG",
+      "winner": "England"
     },
     {
       "date": "2026-06-17",
