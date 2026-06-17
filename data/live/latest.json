@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-17T15:19:59.733Z",
-  "asOfDate": "2026-06-16",
+  "fetchedAt": "2026-06-17T20:08:05.075Z",
+  "asOfDate": "2026-06-17",
   "matchCount": 104,
-  "playedCount": 20,
-  "groupPlayedCount": 20,
+  "playedCount": 21,
+  "groupPlayedCount": 21,
   "groupTotal": 72,
   "matches": [
     {
@@ -382,7 +382,11 @@
       "rawHome": "Portugal",
       "rawAway": "DR Congo",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": null
     },
     {
       "date": "2026-06-17",
