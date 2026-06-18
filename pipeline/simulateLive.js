@@ -106,6 +106,14 @@ const reachOf = (n) => {
 const bump = (m, k) => m.set(k, (m.get(k) || 0) + 1);
 const violations = { roundSize: 0, matchingFail: 0 };
 
+// per-group final-position distribution (for the projected final table)
+const posCount = new Map(); // groupId -> Map(teamName -> [p1,p2,p3,p4])
+for (const g of groupsDoc.groups) {
+  const mt = new Map();
+  for (const tt of g.teams) mt.set(tt.name, [0, 0, 0, 0]);
+  posCount.set(g.id, mt);
+}
+
 const t0 = performance.now();
 for (let i = 0; i < SIMS; i++) {
   let sim;
@@ -123,6 +131,12 @@ for (let i = 0; i < SIMS; i++) {
   for (const t of sim.reach.qf) reachOf(t.name).qf++;
   for (const t of sim.reach.r16) reachOf(t.name).r16++;
   for (const t of sim.reach.r32) reachOf(t.name).r32++;
+
+  // tally each team's final position within its group (standings sorted 1st→4th)
+  for (const g of groupsDoc.groups) {
+    const st = sim.groups[g.id].standings, mt = posCount.get(g.id);
+    for (let p = 0; p < st.length; p++) mt.get(st[p].team.name)[p]++;
+  }
 
   // bucket conditional advancement for the tracked group matches
   if (sim.tracked) {
@@ -216,18 +230,37 @@ const projections = upcoming.map((mm) => {
   return base;
 });
 
-// ---- 4b. Live group standings (deterministic) + status ----
+// ---- 4b. Live group standings (deterministic) + projected finish + status ----
 const advByName = new Map(reachTable.map((r) => [r.name, r.advancePct]));
+// projected finish: rank a group's teams by EXPECTED final position (Σ pos·P(pos)) →
+// a clean 1-4 permutation. posDist = [P(1st)..P(4th)]. A fully-played group is
+// deterministic, so its projection equals the real final order (a free correctness check).
+function projectGroup(gid) {
+  const mt = posCount.get(gid);
+  const out = new Map();
+  const ranked = [...mt.entries()].map(([name, c]) => {
+    const tot = c[0] + c[1] + c[2] + c[3] || 1;
+    const dist = c.map((n) => n / tot);
+    const exp = dist.reduce((s, p, i) => s + (i + 1) * p, 0);
+    out.set(name, { posDist: dist, exp });
+    return { name, exp };
+  });
+  ranked.sort((a, b) => a.exp - b.exp);
+  ranked.forEach((r, i) => { out.get(r.name).projectedPos = i + 1; });
+  return out;
+}
 const standings = groupsDoc.groups.map((g) => {
   const teamObjs = g.teams.map((t) => teamsByName.get(t.name));
   const gp = played.filter((m) => m.round === 'group' && m.group === g.id);
   const rows = groupTable(teamObjs, gp);
   const flags = clinchFlags(rows);
+  const proj = projectGroup(g.id);
   return {
     id: g.id,
     rows: rows.map((r) => {
       const f = flags[r.name];
       const adv = advByName.get(r.name) ?? 0;
+      const pr = proj.get(r.name);
       let status = 'live';
       if (f.clinchedTop2) status = 'through';      // guaranteed top 2 → through
       else if (f.eliminatedTop2 && adv < 0.05) status = 'out'; // can't make top 2 and 0% via thirds
@@ -236,6 +269,7 @@ const standings = groupsDoc.groups.map((g) => {
         pos: r.pos, name: r.name, code: r.code,
         p: r.p, w: r.w, d: r.d, l: r.l, gf: r.gf, ga: r.ga, gd: r.gd, pts: r.pts, remaining: r.remaining,
         advancePct: adv, status,
+        projectedPos: pr.projectedPos, posDist: pr.posDist.map((x) => Math.round(x * 1000) / 1000),
       };
     }),
   };

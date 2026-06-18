@@ -181,5 +181,32 @@ console.log('\n[7] Conditional advancement reconciles with marginal advance%');
   }
 }
 
+// ---- 8. projected finish is a valid 1-4 permutation; matches reality when settled ----
+console.log('\n[8] Projected group finish is well-formed');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    let permBad = 0, distBad = 0, settledBad = 0, settledGroups = 0;
+    for (const g of ld.standings) {
+      const perm = g.rows.map((r) => r.projectedPos).sort((a, b) => a - b).join(',');
+      if (perm !== '1,2,3,4') permBad++;
+      for (const r of g.rows) {
+        const s = r.posDist.reduce((a, b) => a + b, 0);
+        if (Math.abs(s - 1) > 0.02 || r.posDist.some((p) => p < -1e-9 || p > 1 + 1e-9)) distBad++;
+      }
+      // a fully-played group is deterministic → projected order must equal the real order
+      if (g.rows.every((r) => r.remaining === 0)) {
+        settledGroups++;
+        for (const r of g.rows) if (r.projectedPos !== r.pos) settledBad++;
+      }
+    }
+    ok(permBad === 0, `every group's projectedPos is a permutation of 1-4 (${permBad} bad)`);
+    ok(distBad === 0, `every posDist sums to ~1 and lies in [0,1] (${distBad} bad)`);
+    ok(settledBad === 0, `fully-played groups: projectedPos === actual pos (${settledGroups} settled, ${settledBad} off)`);
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);

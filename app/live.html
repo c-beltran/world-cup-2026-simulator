@@ -49,8 +49,10 @@
   .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 16px 14px 90px; }
 
   /* ---- header ---- */
-  .backlink { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; text-decoration: none; font-weight: 600; margin-bottom: 12px; }
+  .toplinks { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .backlink { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; text-decoration: none; font-weight: 600; }
   .backlink:hover { color: var(--ink); }
+  #accLink:hover { color: var(--ai); }
   header { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
   .titlerow { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
   h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin: 0; } h1 .ball { color: var(--gold); }
@@ -145,6 +147,12 @@
   .glegend { font-family: var(--mono); font-size: 11px; color: var(--muted); margin: 2px 0 14px; display: flex; flex-wrap: wrap; gap: 7px 16px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); }
   .glegend .k { display: inline-flex; align-items: center; gap: 6px; } .glegend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
   .glegend .through { background: var(--up); } .glegend .third { background: var(--gold); } .glegend .out { background: var(--down); } .glegend .live { background: var(--loss); }
+  .standtoggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin: 0 0 13px; }
+  .standtoggle button { border: 0; background: transparent; color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 6px 15px; cursor: pointer; transition: .15s; }
+  .standtoggle button.active { background: var(--sim); color: #06231c; }
+  .standtoggle button:not(.active):hover { color: var(--ink); }
+  .stbl td.num { text-align: left; white-space: nowrap; } .stbl .ar { font-size: 9px; margin-left: 1px; }
+  .stbl .ar.up { color: var(--up); } .stbl .ar.dn { color: var(--down); } .stbl .ar.fl { color: var(--muted); }
 
   /* movers + results */
   .mover { display: flex; align-items: center; gap: 9px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
@@ -184,7 +192,10 @@
 </head>
 <body>
 <div class="wrap">
-  <a class="backlink" href="index.html" id="backlink">← Pre-tournament forecast &amp; Journey Tree</a>
+  <div class="toplinks">
+    <a class="backlink" href="index.html" id="backlink">← Pre-tournament forecast &amp; Journey Tree</a>
+    <a class="backlink" href="accuracy.html" id="accLink">◷ Model accuracy →</a>
+  </div>
   <header>
     <div class="titlerow">
       <div>
@@ -218,6 +229,9 @@
     <div class="panel span2" style="grid-column:1/-1">
       <h2 id="standHead">Group standings — live</h2>
       <p class="sub" id="standSub"></p>
+      <div class="standtoggle" id="standToggle" role="group" aria-label="Standings view">
+        <button type="button" data-view="now">Now</button><button type="button" data-view="proj">Projected</button>
+      </div>
       <div class="glegend" id="glegend"></div>
       <div class="groups" id="groups"></div>
     </div>
@@ -254,7 +268,7 @@ const ROUND = {
 };
 const I18N = {
   en: {
-    back:"← Pre-tournament forecast & Journey Tree",
+    back:"← Pre-tournament forecast & Journey Tree", accLink:"◷ Model accuracy →",
     h1:"Live Re-Forecast",
     tagline:"The same honest Monte Carlo, now <b style='color:var(--sim)'>conditioned on real results</b>. Finished matches are locked to their real score; ratings move on the pitch; the rest is re-simulated.",
     asOf:"AS OF", games:"group games played", fetched:"data", source:"source",
@@ -267,6 +281,8 @@ const I18N = {
     nextUp:"NEXT UP", noNext:"No upcoming fixtures with both teams decided yet — they appear once the groups resolve.",
     fxMatches:"matches", showAll:"Show all {n} remaining fixtures  ▾", showLess:"Show next matchday only  ▴", grp:"Group",
     standHead:"Group standings — live", standSub:"Live tables from the real results; the last column is the model's chance to reach the Round of 32.",
+    standSubProj:"The model's expected FINAL order — ▲/▼ shows the move vs the current table. (Points shown are still today's.)",
+    vNow:"Now", vProj:"Projected", cProj:"Proj",
     cPld:"Pl", cGD:"GD", cPts:"Pts", cAdv:"R32",
     legThrough:"clinched top 2", legThird:"3rd-place path", legOut:"out", legLive:"in contention",
     advIf:"Reach the Round of 32 if…", advThrough:"✓ through", advOut:"✗ out",
@@ -276,7 +292,7 @@ const I18N = {
     methodFoot:"{sims} simulations · seed {seed} · ratings: {rs} ({rsnap}) · source: ",
   },
   es: {
-    back:"← Pronóstico pre-torneo y Árbol del Camino",
+    back:"← Pronóstico pre-torneo y Árbol del Camino", accLink:"◷ Precisión del modelo →",
     h1:"Pronóstico en Vivo",
     tagline:"El mismo Monte Carlo honesto, ahora <b style='color:var(--sim)'>condicionado a los resultados reales</b>. Los partidos jugados quedan fijados a su marcador; las valoraciones cambian en el campo; el resto se vuelve a simular.",
     asOf:"AL", games:"partidos de grupo jugados", fetched:"datos", source:"fuente",
@@ -289,6 +305,8 @@ const I18N = {
     nextUp:"PRÓXIMO", noNext:"Aún no hay próximos partidos con ambos rivales definidos — aparecerán cuando se resuelvan los grupos.",
     fxMatches:"partidos", showAll:"Ver los {n} partidos restantes  ▾", showLess:"Solo la próxima jornada  ▴", grp:"Grupo",
     standHead:"Tabla de grupos — en vivo", standSub:"Tablas reales según los resultados; la última columna es la probabilidad del modelo de llegar a dieciseisavos.",
+    standSubProj:"El orden FINAL esperado por el modelo — ▲/▼ muestra el cambio frente a la tabla actual. (Los puntos siguen siendo los de hoy.)",
+    vNow:"Ahora", vProj:"Proyectado", cProj:"Proy",
     cPld:"PJ", cGD:"DG", cPts:"Pts", cAdv:"R32",
     legThrough:"top 2 asegurado", legThird:"vía mejor 3º", legOut:"fuera", legLive:"en disputa",
     advIf:"Llega a dieciseisavos si…", advThrough:"✓ clasificado", advOut:"✗ fuera",
@@ -305,6 +323,7 @@ const pc = x => Math.round(x); // 0-1 -> %
 const fmtDate = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m-1, d)).toLocaleDateString(LANG === "es" ? "es-ES" : "en-US", { month:"short", day:"numeric", timeZone:"UTC" }); };
 const fmtDay = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m-1, d)).toLocaleDateString(LANG === "es" ? "es-ES" : "en-US", { weekday:"short", month:"short", day:"numeric", timeZone:"UTC" }); };
 let fxExpanded = false; // "Next matches" shows the next matchday by default; toggle reveals the rest
+let standView = "now"; // group standings: "now" (points table) ⇄ "proj" (model's expected final order)
 // Kickoff shown in US Eastern. We convert from the absolute ISO instant via the
 // America/New_York zone, which resolves to EDT (UTC−4) in June automatically; we
 // label it "ET" so it's correct year-round. Falls back to the raw venue string.
@@ -331,6 +350,8 @@ function render() {
   document.querySelectorAll("#langToggle button").forEach(b => b.classList.toggle("active", b.dataset.lang === LANG));
   document.getElementById("backlink").href = "index.html" + (LANG === "es" ? "?lang=es" : "");
   document.getElementById("backlink").textContent = t('back');
+  document.getElementById("accLink").href = "accuracy.html" + (LANG === "es" ? "?lang=es" : "");
+  document.getElementById("accLink").textContent = t('accLink');
   document.getElementById("h1").textContent = t('h1');
   document.getElementById("tagline").innerHTML = t('tagline');
   const simsTxt = (m.sims || 0).toLocaleString(LANG === "es" ? "es-ES" : "en-US");
@@ -384,28 +405,39 @@ function render() {
     </div>`;
   }).join("");
 
-  // ---- group standings (live tables + status) ----
+  // ---- group standings (live tables + status; Now ⇄ Projected final order) ----
   const statusByName = {};
   for (const g of (L.standings || [])) for (const r of g.rows) statusByName[r.name] = r.status;
   document.getElementById("standHead").textContent = t('standHead');
-  document.getElementById("standSub").textContent = t('standSub');
-  document.getElementById("groups").innerHTML = (L.standings || []).map(g => `
-    <div class="grp-card">
-      <h3>${t('grp')} ${g.id}</h3>
-      <table class="stbl">
-        <thead><tr><th class="l">#</th><th class="l"></th><th>${t('cPld')}</th><th>${t('cGD')}</th><th>${t('cPts')}</th><th>${t('cAdv')}</th></tr></thead>
-        <tbody>${g.rows.map(r => `
-          <tr class="${r.status}">
-            <td>${r.pos}</td>
-            <td class="team"><span class="tin"><span class="dot ${r.status}"></span><img class="flag" src="${FLAG(r.code)}" alt=""><span class="nm">${teamName(r.name)}</span>${r.status === "through" ? '<span class="ck">✓</span>' : ""}</span></td>
-            <td>${r.p}</td>
-            <td>${r.gd > 0 ? "+" + r.gd : r.gd}</td>
-            <td class="pts">${r.pts}</td>
-            <td class="adv">${r.status === "out" ? "—" : r1(r.advancePct) + "%"}</td>
-          </tr>`).join("")}
-        </tbody>
-      </table>
-    </div>`).join("");
+  document.querySelectorAll("#standToggle button").forEach(b => b.textContent = t(b.dataset.view === "now" ? "vNow" : "vProj"));
+  const projArrow = r => { const d = r.projectedPos - r.pos; return d < 0 ? '<span class="ar up">▲</span>' : d > 0 ? '<span class="ar dn">▼</span>' : '<span class="ar fl">—</span>'; };
+  function renderStandings() {
+    const proj = standView === "proj";
+    document.querySelectorAll("#standToggle button").forEach(b => b.classList.toggle("active", b.dataset.view === standView));
+    document.getElementById("standSub").textContent = proj ? t('standSubProj') : t('standSub');
+    document.getElementById("groups").innerHTML = (L.standings || []).map(g => {
+      const rows = proj ? [...g.rows].sort((a, b) => a.projectedPos - b.projectedPos) : g.rows;
+      return `
+      <div class="grp-card">
+        <h3>${t('grp')} ${g.id}</h3>
+        <table class="stbl">
+          <thead><tr><th class="l">${proj ? t('cProj') : "#"}</th><th class="l"></th><th>${t('cPld')}</th><th>${t('cGD')}</th><th>${t('cPts')}</th><th>${t('cAdv')}</th></tr></thead>
+          <tbody>${rows.map(r => `
+            <tr class="${r.status}">
+              ${proj ? `<td class="num">${r.projectedPos} ${projArrow(r)}</td>` : `<td>${r.pos}</td>`}
+              <td class="team"><span class="tin"><span class="dot ${r.status}"></span><img class="flag" src="${FLAG(r.code)}" alt=""><span class="nm">${teamName(r.name)}</span>${r.status === "through" ? '<span class="ck">✓</span>' : ""}</span></td>
+              <td>${r.p}</td>
+              <td>${r.gd > 0 ? "+" + r.gd : r.gd}</td>
+              <td class="pts">${r.pts}</td>
+              <td class="adv">${r.status === "out" ? "—" : r1(r.advancePct) + "%"}</td>
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>`;
+    }).join("");
+  }
+  renderStandings();
+  document.querySelectorAll("#standToggle button").forEach(b => b.onclick = () => { if (b.dataset.view !== standView) { standView = b.dataset.view; renderStandings(); } });
   document.getElementById("glegend").innerHTML =
     [["through", t('legThrough')], ["live", t('legLive')], ["third", t('legThird')], ["out", t('legOut')]]
       .map(([c, lbl]) => `<span class="k"><span class="dot ${c}"></span>${lbl}</span>`).join("");
