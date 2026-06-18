@@ -1,0 +1,174 @@
+{
+  "tournament": "FIFA World Cup 2022",
+  "note": "Real 2022 group draw (8 groups). Derived from openfootball; teams ordered by pre-WC FIFA points.",
+  "groups": [
+    {
+      "id": "A",
+      "teams": [
+        {
+          "name": "Netherlands",
+          "code": "nl"
+        },
+        {
+          "name": "Senegal",
+          "code": "sn"
+        },
+        {
+          "name": "Ecuador",
+          "code": "ec"
+        },
+        {
+          "name": "Qatar",
+          "code": "qa"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "teams": [
+        {
+          "name": "England",
+          "code": "gb-eng"
+        },
+        {
+          "name": "USA",
+          "code": "us"
+        },
+        {
+          "name": "Wales",
+          "code": "gb-wls"
+        },
+        {
+          "name": "Iran",
+          "code": "ir"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "teams": [
+        {
+          "name": "Argentina",
+          "code": "ar"
+        },
+        {
+          "name": "Mexico",
+          "code": "mx"
+        },
+        {
+          "name": "Poland",
+          "code": "pl"
+        },
+        {
+          "name": "Saudi Arabia",
+          "code": "sa"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "teams": [
+        {
+          "name": "France",
+          "code": "fr"
+        },
+        {
+          "name": "Denmark",
+          "code": "dk"
+        },
+        {
+          "name": "Tunisia",
+          "code": "tn"
+        },
+        {
+          "name": "Australia",
+          "code": "au"
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "teams": [
+        {
+          "name": "Spain",
+          "code": "es"
+        },
+        {
+          "name": "Germany",
+          "code": "de"
+        },
+        {
+          "name": "Japan",
+          "code": "jp"
+        },
+        {
+          "name": "Costa Rica",
+          "code": "cr"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "teams": [
+        {
+          "name": "Belgium",
+          "code": "be"
+        },
+        {
+          "name": "Croatia",
+          "code": "hr"
+        },
+        {
+          "name": "Morocco",
+          "code": "ma"
+        },
+        {
+          "name": "Canada",
+          "code": "ca"
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "teams": [
+        {
+          "name": "Brazil",
+          "code": "br"
+        },
+        {
+          "name": "Switzerland",
+          "code": "ch"
+        },
+        {
+          "name": "Serbia",
+          "code": "rs"
+        },
+        {
+          "name": "Cameroon",
+          "code": "cm"
+        }
+      ]
+    },
+    {
+      "id": "H",
+      "teams": [
+        {
+          "name": "Portugal",
+          "code": "pt"
+        },
+        {
+          "name": "Uruguay",
+          "code": "uy"
+        },
+        {
+          "name": "South Korea",
+          "code": "kr"
+        },
+        {
+          "name": "Ghana",
+          "code": "gh"
+        }
+      ]
+    }
+  ]
+}

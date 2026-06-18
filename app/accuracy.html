@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>AI World Cup — Model Accuracy (2022 backtest)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308160f'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='%23f2cd5c'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#08160f">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Is the model any good? The exact same engine, frozen, replayed through the 2022 World Cup with only pre-tournament inputs — calibration, Brier score, and how it compared to the betting market.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI World Cup 2026">
+<meta property="og:url" content="https://c-beltran.github.io/world-cup-2026-simulator/accuracy.html">
+<meta property="og:title" content="AI World Cup — Model Accuracy (2022 backtest)">
+<meta property="og:description" content="The same engine, frozen, run on 2022 with only pre-tournament data. Reliability, Brier vs baseline, model vs market.">
+<meta property="og:image" content="https://c-beltran.github.io/world-cup-2026-simulator/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://c-beltran.github.io/world-cup-2026-simulator/og.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="accuracy-data.js"></script>
+<style>
+  :root {
+    --bg: #08120e; --ink: #e9f1ea; --muted: #82998c;
+    --line: rgba(233, 241, 234, 0.10); --panel: rgba(233, 241, 234, 0.035);
+    --gold: #f2cd5c; --gold-dim: #b8932f; --sim: #44c4ac; --ai: #b794f6;
+    --up: #51d1a4; --down: #ff7a5c;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1100px 700px at 50% -16%, #1a4632 0%, transparent 60%),
+      radial-gradient(900px 640px at 50% 124%, #0c2316 0%, transparent 56%),
+      #08160f;
+    color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.5;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 88px, rgba(233,241,234,.13) 89px, rgba(233,241,234,.13) 91px, transparent 92px),
+      repeating-linear-gradient(0deg, rgba(180,235,200,.055) 0 7%, rgba(0,0,0,0) 7% 14%);
+    mask: linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .wrap { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 16px 14px 90px; }
+  .backlink { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; text-decoration: none; font-weight: 600; margin-bottom: 12px; }
+  .backlink:hover { color: var(--ink); }
+  header { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+  .titlerow { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; margin: 0; } h1 .ball { color: var(--gold); }
+  .tagline { color: var(--muted); font-size: 13px; }
+  .langtoggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex: none; }
+  .langtoggle button { border: 0; background: transparent; color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 6px 11px; cursor: pointer; transition: .15s; }
+  .langtoggle button.active { background: var(--sim); color: #06231c; }
+
+  .verdict { margin-top: 16px; border: 1px solid var(--line); border-left: 3px solid var(--up); border-radius: 12px; background: linear-gradient(180deg, rgba(81,209,164,.08), transparent 60%); padding: 16px 16px; }
+  .verdict .big { font-size: 16px; font-weight: 700; line-height: 1.5; }
+  .verdict .big b { color: var(--up); }
+  .scores { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 12px; font-family: var(--mono); }
+  .scores .s { } .scores .s .n { font-size: 22px; font-weight: 800; } .scores .s .l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .scores .s.good .n { color: var(--up); }
+
+  .grid { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 15px 14px; }
+  .panel h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: 0 0 4px; font-weight: 700; }
+  .panel .sub { color: var(--muted); font-size: 11.5px; margin: 0 0 12px; }
+  .chartbox { position: relative; height: 320px; }
+
+  .receipts { display: grid; grid-template-columns: 1fr; gap: 11px; }
+  .rcard { border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; background: rgba(255,255,255,.02); display: flex; gap: 11px; align-items: flex-start; }
+  .rcard .flag { width: 34px; height: 23px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; flex: none; margin-top: 2px; }
+  .rcard .tag { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; display: inline-block; margin-bottom: 5px; }
+  .rcard.champion .tag { background: var(--gold); color: #1a1206; } .rcard.favouriteFell .tag { background: rgba(255,122,92,.2); color: var(--down); }
+  .rcard.darkHorse .tag { background: rgba(183,148,246,.2); color: var(--ai); } .rcard.overrated .tag { background: rgba(255,255,255,.08); color: var(--muted); }
+  .rcard .nm { font-weight: 800; font-size: 15px; } .rcard p { margin: 3px 0 0; font-size: 13px; color: var(--ink); line-height: 1.5; } .rcard p b { color: var(--gold); }
+
+  table.cmp { width: 100%; border-collapse: collapse; }
+  table.cmp th { font-family: var(--mono); font-size: 9px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; text-align: right; padding: 0 0 7px; }
+  table.cmp th.l { text-align: left; }
+  table.cmp td { padding: 6px 0; border-top: 1px solid var(--line); text-align: right; font-family: var(--mono); font-size: 12.5px; }
+  table.cmp td.team { text-align: left; font-family: var(--sans); font-size: 13px; display: flex; align-items: center; gap: 7px; }
+  table.cmp td.team .flag { width: 20px; height: 13px; border-radius: 2px; object-fit: cover; background: #222; box-shadow: 0 0 0 1px rgba(0,0,0,.4); flex: none; }
+  table.cmp td.model { color: var(--sim); font-weight: 700; } table.cmp td.market { color: var(--gold); }
+  table.cmp td.res { font-family: var(--sans); color: var(--muted); font-size: 11.5px; }
+  table.cmp td.res.deep { color: var(--up); }
+
+  .method { margin-top: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); font-size: 12px; color: var(--muted); line-height: 1.65; }
+  .method b { color: var(--ink); } .method .em { color: var(--sim); font-weight: 600; }
+  .method code { font-family: var(--mono); font-size: 11px; color: var(--ink); } .method a { color: var(--sim); text-decoration: none; } .method a:hover { text-decoration: underline; }
+
+  @media (min-width: 720px) {
+    .wrap { padding: 26px 26px 110px; }
+    h1 { font-size: 26px; }
+    .receipts { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="index.html" id="backlink">← AI World Cup 2026 forecast</a>
+  <header>
+    <div class="titlerow">
+      <div>
+        <h1><span class="ball">●</span> <span id="h1">Is the model any good?</span></h1>
+        <div class="tagline" id="tagline"></div>
+      </div>
+      <div class="langtoggle" id="langToggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="verdict">
+    <div class="big" id="verdict"></div>
+    <div class="scores" id="scores"></div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h2 id="relHead">Reliability — predicted vs what happened</h2>
+      <p class="sub" id="relSub"></p>
+      <div class="chartbox"><canvas id="relChart"></canvas></div>
+    </div>
+
+    <div class="panel">
+      <h2 id="recHead">The receipts — notable 2022 calls</h2>
+      <p class="sub" id="recSub"></p>
+      <div class="receipts" id="receipts"></div>
+    </div>
+
+    <div class="panel">
+      <h2 id="mktHead">Model vs the betting market</h2>
+      <p class="sub" id="mktSub"></p>
+      <table class="cmp"><thead><tr><th class="l" id="cTeam">Team</th><th id="cModel">Model</th><th id="cMarket">Market</th><th id="cResult">2022 result</th></tr></thead><tbody id="market"></tbody></table>
+    </div>
+  </div>
+
+  <div class="method" id="method"></div>
+</div>
+
+<script>
+const A = window.WC_ACCURACY;
+const FLAG = c => `https://flagcdn.com/w320/${c}.png`;
+let LANG = (new URLSearchParams(location.search).get("lang") || localStorage.getItem("wc_lang") || "en").toLowerCase();
+if (LANG !== "es") LANG = "en";
+document.documentElement.lang = LANG;
+const TEAM_ES = (A.meta && A.meta.teamNamesEs) || {};
+const teamName = n => (LANG === "es" && TEAM_ES[n]) ? TEAM_ES[n] : n;
+const pc = x => (100 * x).toFixed(x >= 0.1 ? 0 : 1);
+const pc1 = x => (100 * x).toFixed(1);
+
+const ROUND = {
+  en: { group: "the group stage", r16: "the Round of 16", qf: "the quarter-finals", sf: "the semi-finals", final: "the final", title: "champions" },
+  es: { group: "la fase de grupos", r16: "los octavos", qf: "los cuartos", sf: "las semifinales", final: "la final", title: "campeones" },
+};
+const RSHORT = {
+  en: { group: "Group stage", r16: "Round of 16", qf: "Quarter-finals", sf: "Semi-finals", final: "Final", title: "Champions" },
+  es: { group: "Fase de grupos", r16: "Octavos", qf: "Cuartos", sf: "Semifinales", final: "Final", title: "Campeones" },
+};
+const I18N = {
+  en: {
+    back: "← AI World Cup 2026 forecast",
+    h1: "Is the model any good?",
+    tagline: "The honest test: the <b style='color:var(--sim)'>exact same engine, frozen</b>, replayed through the 2022 World Cup using only what was known <i>before</i> it kicked off — the pre-tournament FIFA ratings and the real draw. No hindsight, no tuning.",
+    verdict: "Across <b>{n}</b> pre-tournament predictions, the model scored a Brier of <b>{brier}</b> — better than the <b>{base}</b> base-rate baseline. In plain terms: <b>when it said X%, about X% happened.</b>",
+    sBrier: "Brier (lower better)", sBase: "naive baseline", sMatch: "per-match Brier", sChamp: "called the champion?",
+    champYes: "Argentina — its #{rank} pick", relHead: "Reliability — predicted vs what happened",
+    relSub: "Each dot is a bucket of predictions. On the dashed line = perfectly calibrated. Dot size = how many predictions fell in that bucket (the high-confidence buckets are sparse — small-sample noise).",
+    relPerfect: "perfect calibration", relModel: "model (predicted → observed)",
+    xAxis: "predicted probability", yAxis: "observed frequency",
+    recHead: "The receipts — notable 2022 calls", recSub: "A few concrete predictions vs what actually happened.",
+    mktHead: "Model vs the betting market", mktSub: "Pre-tournament title odds: the model's vs the de-vigged market ({book}, {date}). Only the outright market is shown — clean per-match 2022 odds aren't honestly sourceable.",
+    cTeam: "Team", cModel: "Model", cMarket: "Market", cResult: "2022 result",
+    rChampion: "Our #{rank} pick at <b>{p}%</b> to win it all — and they did. The model's favourites rarely top ~18%, because one team beating seven knockout opponents is genuinely hard.",
+    rFavouriteFell: "The model's pre-tournament <b>favourite</b> at <b>{p}%</b>. Out in {round}. Even a favourite is far likelier to fall than to win — and did.",
+    rDarkHorse: "Given just <b>{p}%</b> to even reach the semis. They reached {round} — the run almost nobody, model or market, saw coming.",
+    rOverrated: "The model said <b>{model}%</b> (it trusted FIFA's #2 ranking); the market said just <b>{market}%</b>. Out in {round}. Here the market's skepticism beat the model.",
+    methodTitle: "How this stays honest.",
+    method: "This is the <b>same engine</b> behind the 2026 forecast — <span class='em'>identical constants</span> (Poisson-from-Elo, divisor 600), <b>not re-tuned</b> for 2022. It starts from the genuine <b>pre-tournament</b> FIFA ranking (released 6 Oct 2022, the last before Qatar 2022 — Brazil #1, Belgium #2, Morocco #22), the real groups and bracket, then runs the same {sims}-sim Monte Carlo. Predictions are scored against what actually happened. Calibration on a single 64-match tournament is inherently noisy, especially in the high-confidence buckets (few predictions land there) — read the trend, not any single dot.",
+    methodSrc: "Sources — ratings: FIFA/Coca-Cola Men's World Ranking (6 Oct 2022); results: openfootball (public domain); market odds: ",
+  },
+  es: {
+    back: "← Pronóstico Mundial 2026 con IA",
+    h1: "¿Es bueno el modelo?",
+    tagline: "La prueba honesta: el <b style='color:var(--sim)'>mismo motor, congelado</b>, repetido sobre el Mundial 2022 usando solo lo que se sabía <i>antes</i> de empezar — el ranking FIFA previo y el sorteo real. Sin ventaja del diario, sin ajustes.",
+    verdict: "En <b>{n}</b> predicciones previas al torneo, el modelo logró un Brier de <b>{brier}</b> — mejor que el <b>{base}</b> de la base ingenua. En claro: <b>cuando dijo X%, ocurrió cerca del X%.</b>",
+    sBrier: "Brier (menor = mejor)", sBase: "base ingenua", sMatch: "Brier por partido", sChamp: "¿acertó al campeón?",
+    champYes: "Argentina — su candidato #{rank}", relHead: "Fiabilidad — predicho vs lo ocurrido",
+    relSub: "Cada punto es un grupo de predicciones. Sobre la línea = perfectamente calibrado. El tamaño del punto = cuántas predicciones cayeron ahí (los grupos de alta confianza son escasos — ruido de muestra pequeña).",
+    relPerfect: "calibración perfecta", relModel: "modelo (predicho → observado)",
+    xAxis: "probabilidad predicha", yAxis: "frecuencia observada",
+    recHead: "Las pruebas — predicciones de 2022", recSub: "Algunas predicciones concretas frente a lo que pasó.",
+    mktHead: "Modelo vs el mercado de apuestas", mktSub: "Probabilidad de título previa: la del modelo vs el mercado sin margen ({book}, {date}). Solo se muestra el mercado de campeón — no hay cuotas por partido de 2022 con fuente fiable.",
+    cTeam: "Selección", cModel: "Modelo", cMarket: "Mercado", cResult: "Resultado 2022",
+    rChampion: "Nuestro candidato #{rank} con <b>{p}%</b> para ganarlo todo — y lo hicieron. Los favoritos del modelo rara vez superan ~18%, porque ganar siete eliminatorias es genuinamente difícil.",
+    rFavouriteFell: "El <b>favorito</b> previo del modelo con <b>{p}%</b>. Eliminado en {round}. Hasta un favorito es mucho más probable que caiga a que gane — y cayó.",
+    rDarkHorse: "Solo <b>{p}%</b> de siquiera llegar a semis. Llegaron a {round} — la sorpresa que casi nadie, ni modelo ni mercado, vio venir.",
+    rOverrated: "El modelo dijo <b>{model}%</b> (confió en el #2 de la FIFA); el mercado solo <b>{market}%</b>. Eliminado en {round}. Aquí el escepticismo del mercado le ganó al modelo.",
+    methodTitle: "Cómo se mantiene honesto.",
+    method: "Es el <b>mismo motor</b> del pronóstico 2026 — <span class='em'>constantes idénticas</span> (Poisson desde Elo, divisor 600), <b>sin reajustar</b> para 2022. Parte del ranking FIFA <b>genuinamente previo</b> (publicado el 6 oct 2022, el último antes de Catar 2022 — Brasil #1, Bélgica #2, Marruecos #22), los grupos y el cuadro reales, y corre el mismo Monte Carlo de {sims} simulaciones. Las predicciones se evalúan contra lo ocurrido. La calibración sobre un solo torneo de 64 partidos es ruidosa, sobre todo en los grupos de alta confianza (caen pocas predicciones ahí) — mira la tendencia, no un punto suelto.",
+    methodSrc: "Fuentes — valoraciones: Ranking Mundial FIFA/Coca-Cola (6 oct 2022); resultados: openfootball (dominio público); cuotas: ",
+  },
+};
+const t = (k, p) => { let s = (I18N[LANG] && I18N[LANG][k] != null) ? I18N[LANG][k] : (I18N.en[k] || k); if (p) for (const key in p) s = s.split("{" + key + "}").join(p[key]); return s; };
+const rl = (r) => ROUND[LANG][r] || r;
+
+let chart = null;
+function render() {
+  const m = A.meta, cal = A.calibration;
+  document.querySelectorAll("#langToggle button").forEach(b => b.classList.toggle("active", b.dataset.lang === LANG));
+  const lp = LANG === "es" ? "?lang=es" : "";
+  document.getElementById("backlink").textContent = t('back');
+  document.getElementById("backlink").href = "index.html" + lp;
+  document.getElementById("h1").textContent = t('h1');
+  document.getElementById("tagline").innerHTML = t('tagline');
+
+  document.getElementById("verdict").innerHTML = t('verdict', { n: cal.n, brier: cal.brier.toFixed(3), base: cal.brierBaseline.toFixed(3) });
+  const champedRank = A.receipts.find(r => r.kind === "champion")?.rank;
+  document.getElementById("scores").innerHTML =
+    `<div class="s good"><div class="n">${cal.brier.toFixed(3)}</div><div class="l">${t('sBrier')}</div></div>` +
+    `<div class="s"><div class="n">${cal.brierBaseline.toFixed(3)}</div><div class="l">${t('sBase')}</div></div>` +
+    `<div class="s"><div class="n">${cal.matchBrier.toFixed(3)}</div><div class="l">${t('sMatch')}</div></div>` +
+    `<div class="s good"><div class="n">✓</div><div class="l">${t('champYes', { rank: champedRank })}</div></div>`;
+
+  // ---- reliability chart ----
+  document.getElementById("relHead").textContent = t('relHead');
+  document.getElementById("relSub").textContent = t('relSub');
+  const bins = cal.reliability.filter(b => b.n > 0);
+  const maxN = Math.max(...bins.map(b => b.n));
+  if (chart) chart.destroy();
+  chart = new Chart(document.getElementById("relChart"), {
+    data: {
+      datasets: [
+        { type: "line", label: t('relPerfect'), data: [{ x: 0, y: 0 }, { x: 100, y: 100 }], borderColor: "rgba(233,241,234,.35)", borderDash: [5, 5], borderWidth: 1.5, pointRadius: 0, fill: false },
+        { type: "scatter", label: t('relModel'), data: bins.map(b => ({ x: b.meanP * 100, y: b.obs * 100, n: b.n })),
+          backgroundColor: "rgba(68,196,172,.7)", borderColor: "#44c4ac",
+          pointRadius: ctx => 4 + 12 * (ctx.raw.n / maxN), pointHoverRadius: ctx => 6 + 12 * (ctx.raw.n / maxN) },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        x: { type: "linear", min: 0, max: 100, title: { display: true, text: t('xAxis'), color: "#82998c", font: { size: 11 } }, grid: { color: "rgba(255,255,255,.05)" }, ticks: { color: "#82998c", callback: v => v + "%" } },
+        y: { type: "linear", min: 0, max: 100, title: { display: true, text: t('yAxis'), color: "#82998c", font: { size: 11 } }, grid: { color: "rgba(255,255,255,.05)" }, ticks: { color: "#82998c", callback: v => v + "%" } },
+      },
+      plugins: {
+        legend: { labels: { color: "#e9f1ea", font: { size: 11 }, usePointStyle: true, filter: i => i.text } },
+        tooltip: { callbacks: { label: c => c.raw.n != null ? `predicted ${c.parsed.x.toFixed(0)}% → observed ${c.parsed.y.toFixed(0)}% (n=${c.raw.n})` : "" } },
+      },
+    },
+  });
+
+  // ---- receipts ----
+  document.getElementById("recHead").textContent = t('recHead');
+  document.getElementById("recSub").textContent = t('recSub');
+  document.getElementById("receipts").innerHTML = A.receipts.map(r => {
+    let body = "";
+    if (r.kind === "champion") body = t('rChampion', { rank: r.rank, p: pc(r.titlePct) });
+    else if (r.kind === "favouriteFell") body = t('rFavouriteFell', { p: pc(r.titlePct), round: rl(r.reached) });
+    else if (r.kind === "darkHorse") body = t('rDarkHorse', { p: pc(r.sfPct), round: rl(r.reached) });
+    else if (r.kind === "overrated") body = t('rOverrated', { model: pc(r.model), market: pc(r.market), round: rl(r.reached) });
+    return `<div class="rcard ${r.kind}">
+      <img class="flag" src="${FLAG(r.code)}" alt="">
+      <div><span class="tag">${RSHORT[LANG][r.reached === undefined ? 'title' : r.reached] || ""}</span>
+        <div class="nm">${teamName(r.name)}</div><p>${body}</p></div>
+    </div>`;
+  }).join("");
+
+  // ---- market table ----
+  document.getElementById("mktHead").textContent = t('mktHead');
+  document.getElementById("mktSub").textContent = t('mktSub', { book: m.sources.odds.book, date: m.sources.odds.date });
+  document.getElementById("cTeam").textContent = t('cTeam'); document.getElementById("cModel").textContent = t('cModel');
+  document.getElementById("cMarket").textContent = t('cMarket'); document.getElementById("cResult").textContent = t('cResult');
+  document.getElementById("market").innerHTML = A.market.slice(0, 12).map(x => `
+    <tr>
+      <td class="team"><img class="flag" src="${FLAG(x.code)}" alt="">${teamName(x.name)}</td>
+      <td class="model">${pc1(x.model)}%</td>
+      <td class="market">${pc1(x.market)}%</td>
+      <td class="res ${['sf','final','title'].includes(x.reached) ? 'deep' : ''}">${RSHORT[LANG][x.reached]}</td>
+    </tr>`).join("");
+
+  // ---- method ----
+  document.getElementById("method").innerHTML =
+    `<b>${t('methodTitle')}</b> ${t('method', { sims: (m.sims || 0).toLocaleString(LANG === "es" ? "es-ES" : "en-US") })}<br><br>` +
+    `<span style="font-family:var(--mono);font-size:11px">${t('methodSrc')}<a href="${m.sources.odds.url}" target="_blank" rel="noopener">${m.sources.odds.book}</a> (${m.sources.odds.date}).</span>`;
+}
+document.querySelectorAll("#langToggle button").forEach(b => b.onclick = () => {
+  if (b.dataset.lang === LANG) return;
+  LANG = b.dataset.lang; localStorage.setItem("wc_lang", LANG); document.documentElement.lang = LANG; render();
+});
+render();
+</script>
+</body>
+</html>

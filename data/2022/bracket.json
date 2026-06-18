@@ -1,0 +1,230 @@
+{
+  "tournament": "FIFA World Cup 2022 — knockout stage",
+  "source": "Official 2022 bracket; wiring verified against actual openfootball matchups.",
+  "knockout": [
+    {
+      "id": "M89",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "A",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "B",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M90",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "C",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "D",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M91",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "E",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "F",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M92",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "G",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "H",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M93",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "B",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "A",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M94",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "D",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "C",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M95",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "F",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "E",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M96",
+      "round": "R16",
+      "home": {
+        "source": "group",
+        "group": "H",
+        "pos": "winner"
+      },
+      "away": {
+        "source": "group",
+        "group": "G",
+        "pos": "runnerup"
+      }
+    },
+    {
+      "id": "M97",
+      "round": "QF",
+      "home": {
+        "source": "match",
+        "match": "M89",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M90",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M98",
+      "round": "QF",
+      "home": {
+        "source": "match",
+        "match": "M91",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M92",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M99",
+      "round": "QF",
+      "home": {
+        "source": "match",
+        "match": "M93",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M94",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M100",
+      "round": "QF",
+      "home": {
+        "source": "match",
+        "match": "M95",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M96",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M101",
+      "round": "SF",
+      "home": {
+        "source": "match",
+        "match": "M97",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M98",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M102",
+      "round": "SF",
+      "home": {
+        "source": "match",
+        "match": "M99",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M100",
+        "take": "winner"
+      }
+    },
+    {
+      "id": "M103",
+      "round": "3rd_place",
+      "home": {
+        "source": "match",
+        "match": "M101",
+        "take": "loser"
+      },
+      "away": {
+        "source": "match",
+        "match": "M102",
+        "take": "loser"
+      }
+    },
+    {
+      "id": "M104",
+      "round": "final",
+      "home": {
+        "source": "match",
+        "match": "M101",
+        "take": "winner"
+      },
+      "away": {
+        "source": "match",
+        "match": "M102",
+        "take": "winner"
+      }
+    }
+  ]
+}

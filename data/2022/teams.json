@@ -1,0 +1,297 @@
+{
+  "tournament": "FIFA World Cup 2022",
+  "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
+  "ratingSnapshot": "6 October 2022",
+  "ratingNote": "Pre-tournament (last release before Qatar 2022). strength = FIFA points, used directly (model divisor 600). fieldRank = 1-32 within this field.",
+  "rankBasis": "fieldRank (1-32) primary; worldRank is the global FIFA rank (flavor).",
+  "teams": [
+    {
+      "name": "Brazil",
+      "code": "br",
+      "group": "G",
+      "worldRank": 1,
+      "fifaPoints": 1841.3,
+      "strength": 1841.3,
+      "fieldRank": 1
+    },
+    {
+      "name": "Belgium",
+      "code": "be",
+      "group": "F",
+      "worldRank": 2,
+      "fifaPoints": 1816.71,
+      "strength": 1816.71,
+      "fieldRank": 2
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "group": "C",
+      "worldRank": 3,
+      "fifaPoints": 1773.88,
+      "strength": 1773.88,
+      "fieldRank": 3
+    },
+    {
+      "name": "France",
+      "code": "fr",
+      "group": "D",
+      "worldRank": 4,
+      "fifaPoints": 1759.78,
+      "strength": 1759.78,
+      "fieldRank": 4
+    },
+    {
+      "name": "England",
+      "code": "gb-eng",
+      "group": "B",
+      "worldRank": 5,
+      "fifaPoints": 1728.47,
+      "strength": 1728.47,
+      "fieldRank": 5
+    },
+    {
+      "name": "Spain",
+      "code": "es",
+      "group": "E",
+      "worldRank": 7,
+      "fifaPoints": 1715.22,
+      "strength": 1715.22,
+      "fieldRank": 6
+    },
+    {
+      "name": "Netherlands",
+      "code": "nl",
+      "group": "A",
+      "worldRank": 8,
+      "fifaPoints": 1694.51,
+      "strength": 1694.51,
+      "fieldRank": 7
+    },
+    {
+      "name": "Portugal",
+      "code": "pt",
+      "group": "H",
+      "worldRank": 9,
+      "fifaPoints": 1676.56,
+      "strength": 1676.56,
+      "fieldRank": 8
+    },
+    {
+      "name": "Denmark",
+      "code": "dk",
+      "group": "D",
+      "worldRank": 10,
+      "fifaPoints": 1666.57,
+      "strength": 1666.57,
+      "fieldRank": 9
+    },
+    {
+      "name": "Germany",
+      "code": "de",
+      "group": "E",
+      "worldRank": 11,
+      "fifaPoints": 1650.21,
+      "strength": 1650.21,
+      "fieldRank": 10
+    },
+    {
+      "name": "Croatia",
+      "code": "hr",
+      "group": "F",
+      "worldRank": 12,
+      "fifaPoints": 1645.64,
+      "strength": 1645.64,
+      "fieldRank": 11
+    },
+    {
+      "name": "Mexico",
+      "code": "mx",
+      "group": "C",
+      "worldRank": 13,
+      "fifaPoints": 1644.89,
+      "strength": 1644.89,
+      "fieldRank": 12
+    },
+    {
+      "name": "Uruguay",
+      "code": "uy",
+      "group": "H",
+      "worldRank": 14,
+      "fifaPoints": 1638.71,
+      "strength": 1638.71,
+      "fieldRank": 13
+    },
+    {
+      "name": "Switzerland",
+      "code": "ch",
+      "group": "G",
+      "worldRank": 15,
+      "fifaPoints": 1635.92,
+      "strength": 1635.92,
+      "fieldRank": 14
+    },
+    {
+      "name": "USA",
+      "code": "us",
+      "group": "B",
+      "worldRank": 16,
+      "fifaPoints": 1627.48,
+      "strength": 1627.48,
+      "fieldRank": 15
+    },
+    {
+      "name": "Senegal",
+      "code": "sn",
+      "group": "A",
+      "worldRank": 18,
+      "fifaPoints": 1584.38,
+      "strength": 1584.38,
+      "fieldRank": 16
+    },
+    {
+      "name": "Wales",
+      "code": "gb-wls",
+      "group": "B",
+      "worldRank": 19,
+      "fifaPoints": 1569.82,
+      "strength": 1569.82,
+      "fieldRank": 17
+    },
+    {
+      "name": "Iran",
+      "code": "ir",
+      "group": "B",
+      "worldRank": 20,
+      "fifaPoints": 1564.61,
+      "strength": 1564.61,
+      "fieldRank": 18
+    },
+    {
+      "name": "Serbia",
+      "code": "rs",
+      "group": "G",
+      "worldRank": 21,
+      "fifaPoints": 1563.62,
+      "strength": 1563.62,
+      "fieldRank": 19
+    },
+    {
+      "name": "Morocco",
+      "code": "ma",
+      "group": "F",
+      "worldRank": 22,
+      "fifaPoints": 1563.5,
+      "strength": 1563.5,
+      "fieldRank": 20
+    },
+    {
+      "name": "Japan",
+      "code": "jp",
+      "group": "E",
+      "worldRank": 24,
+      "fifaPoints": 1559.54,
+      "strength": 1559.54,
+      "fieldRank": 21
+    },
+    {
+      "name": "Poland",
+      "code": "pl",
+      "group": "C",
+      "worldRank": 26,
+      "fifaPoints": 1548.59,
+      "strength": 1548.59,
+      "fieldRank": 22
+    },
+    {
+      "name": "South Korea",
+      "code": "kr",
+      "group": "H",
+      "worldRank": 28,
+      "fifaPoints": 1530.3,
+      "strength": 1530.3,
+      "fieldRank": 23
+    },
+    {
+      "name": "Tunisia",
+      "code": "tn",
+      "group": "D",
+      "worldRank": 30,
+      "fifaPoints": 1507.54,
+      "strength": 1507.54,
+      "fieldRank": 24
+    },
+    {
+      "name": "Costa Rica",
+      "code": "cr",
+      "group": "E",
+      "worldRank": 31,
+      "fifaPoints": 1503.59,
+      "strength": 1503.59,
+      "fieldRank": 25
+    },
+    {
+      "name": "Australia",
+      "code": "au",
+      "group": "D",
+      "worldRank": 38,
+      "fifaPoints": 1488.72,
+      "strength": 1488.72,
+      "fieldRank": 26
+    },
+    {
+      "name": "Canada",
+      "code": "ca",
+      "group": "F",
+      "worldRank": 41,
+      "fifaPoints": 1475,
+      "strength": 1475,
+      "fieldRank": 27
+    },
+    {
+      "name": "Cameroon",
+      "code": "cm",
+      "group": "G",
+      "worldRank": 43,
+      "fifaPoints": 1471.44,
+      "strength": 1471.44,
+      "fieldRank": 28
+    },
+    {
+      "name": "Ecuador",
+      "code": "ec",
+      "group": "A",
+      "worldRank": 44,
+      "fifaPoints": 1464.39,
+      "strength": 1464.39,
+      "fieldRank": 29
+    },
+    {
+      "name": "Qatar",
+      "code": "qa",
+      "group": "A",
+      "worldRank": 50,
+      "fifaPoints": 1439.89,
+      "strength": 1439.89,
+      "fieldRank": 30
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "group": "C",
+      "worldRank": 51,
+      "fifaPoints": 1437.78,
+      "strength": 1437.78,
+      "fieldRank": 31
+    },
+    {
+      "name": "Ghana",
+      "code": "gh",
+      "group": "H",
+      "worldRank": 61,
+      "fifaPoints": 1393,
+      "strength": 1393,
+      "fieldRank": 32
+    }
+  ]
+}

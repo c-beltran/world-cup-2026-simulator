@@ -1,0 +1,203 @@
+{
+  "source": "FIFA / Coca-Cola Men's World Ranking",
+  "release": "2022-10-06",
+  "note": "The LAST official ranking before the 2022 World Cup (20 Nov 2022). Genuinely pre-tournament — NOT the post-event Dec 2022 ranking. No hindsight.",
+  "endpoint": "https://inside.fifa.com/api/ranking-overview?locale=en&dateId=id13792",
+  "dateId": "id13792",
+  "retrievedVia": "inside.fifa.com ranking API",
+  "verification": "Order cross-checked vs independent reporting of the 6 Oct 2022 release (Brazil 1, Belgium 2, Argentina 3, France 4, England 5, Italy 6, Spain 7, Netherlands 8, Portugal 9, Denmark 10; Morocco 22).",
+  "teams": [
+    {
+      "name": "Brazil",
+      "fifaName": "Brazil",
+      "worldRank": 1,
+      "points": 1841.3
+    },
+    {
+      "name": "Belgium",
+      "fifaName": "Belgium",
+      "worldRank": 2,
+      "points": 1816.71
+    },
+    {
+      "name": "Argentina",
+      "fifaName": "Argentina",
+      "worldRank": 3,
+      "points": 1773.88
+    },
+    {
+      "name": "France",
+      "fifaName": "France",
+      "worldRank": 4,
+      "points": 1759.78
+    },
+    {
+      "name": "England",
+      "fifaName": "England",
+      "worldRank": 5,
+      "points": 1728.47
+    },
+    {
+      "name": "Spain",
+      "fifaName": "Spain",
+      "worldRank": 7,
+      "points": 1715.22
+    },
+    {
+      "name": "Netherlands",
+      "fifaName": "Netherlands",
+      "worldRank": 8,
+      "points": 1694.51
+    },
+    {
+      "name": "Portugal",
+      "fifaName": "Portugal",
+      "worldRank": 9,
+      "points": 1676.56
+    },
+    {
+      "name": "Denmark",
+      "fifaName": "Denmark",
+      "worldRank": 10,
+      "points": 1666.57
+    },
+    {
+      "name": "Germany",
+      "fifaName": "Germany",
+      "worldRank": 11,
+      "points": 1650.21
+    },
+    {
+      "name": "Croatia",
+      "fifaName": "Croatia",
+      "worldRank": 12,
+      "points": 1645.64
+    },
+    {
+      "name": "Mexico",
+      "fifaName": "Mexico",
+      "worldRank": 13,
+      "points": 1644.89
+    },
+    {
+      "name": "Uruguay",
+      "fifaName": "Uruguay",
+      "worldRank": 14,
+      "points": 1638.71
+    },
+    {
+      "name": "Switzerland",
+      "fifaName": "Switzerland",
+      "worldRank": 15,
+      "points": 1635.92
+    },
+    {
+      "name": "USA",
+      "fifaName": "USA",
+      "worldRank": 16,
+      "points": 1627.48
+    },
+    {
+      "name": "Senegal",
+      "fifaName": "Senegal",
+      "worldRank": 18,
+      "points": 1584.38
+    },
+    {
+      "name": "Wales",
+      "fifaName": "Wales",
+      "worldRank": 19,
+      "points": 1569.82
+    },
+    {
+      "name": "Iran",
+      "fifaName": "IR Iran",
+      "worldRank": 20,
+      "points": 1564.61
+    },
+    {
+      "name": "Serbia",
+      "fifaName": "Serbia",
+      "worldRank": 21,
+      "points": 1563.62
+    },
+    {
+      "name": "Morocco",
+      "fifaName": "Morocco",
+      "worldRank": 22,
+      "points": 1563.5
+    },
+    {
+      "name": "Japan",
+      "fifaName": "Japan",
+      "worldRank": 24,
+      "points": 1559.54
+    },
+    {
+      "name": "Poland",
+      "fifaName": "Poland",
+      "worldRank": 26,
+      "points": 1548.59
+    },
+    {
+      "name": "South Korea",
+      "fifaName": "Korea Republic",
+      "worldRank": 28,
+      "points": 1530.3
+    },
+    {
+      "name": "Tunisia",
+      "fifaName": "Tunisia",
+      "worldRank": 30,
+      "points": 1507.54
+    },
+    {
+      "name": "Costa Rica",
+      "fifaName": "Costa Rica",
+      "worldRank": 31,
+      "points": 1503.59
+    },
+    {
+      "name": "Australia",
+      "fifaName": "Australia",
+      "worldRank": 38,
+      "points": 1488.72
+    },
+    {
+      "name": "Canada",
+      "fifaName": "Canada",
+      "worldRank": 41,
+      "points": 1475
+    },
+    {
+      "name": "Cameroon",
+      "fifaName": "Cameroon",
+      "worldRank": 43,
+      "points": 1471.44
+    },
+    {
+      "name": "Ecuador",
+      "fifaName": "Ecuador",
+      "worldRank": 44,
+      "points": 1464.39
+    },
+    {
+      "name": "Qatar",
+      "fifaName": "Qatar",
+      "worldRank": 50,
+      "points": 1439.89
+    },
+    {
+      "name": "Saudi Arabia",
+      "fifaName": "Saudi Arabia",
+      "worldRank": 51,
+      "points": 1437.78
+    },
+    {
+      "name": "Ghana",
+      "fifaName": "Ghana",
+      "worldRank": 61,
+      "points": 1393
+    }
+  ]
+}

@@ -14,6 +14,9 @@
     "simulate:live": "node simulateLive.js",
     "build:live": "node buildLive.js",
     "live": "node fetchResults.js && node simulateLive.js && node buildLive.js",
-    "validate:live": "node validateLive.js"
+    "validate:live": "node validateLive.js",
+    "init:2022": "node init2022.js",
+    "backtest": "node backtest2022.js && node buildBacktest.js",
+    "validate:backtest": "node validateBacktest.js"
   }
 }

@@ -153,11 +153,13 @@ export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MOD
     thirds.push({ group: g.id, team: t3.team, pts: t3.pts, gd: t3.gd, gf: t3.gf });
   }
 
-  // --- Best 8 third-place teams (points -> GD -> goals -> rating) ---
+  // --- Best third-place teams (points -> GD -> goals -> rating) ---
+  // How many advance is defined by the bracket's third-place slots: 8 for the 48-team
+  // 2026 format, 0 for the classic 32-team format (where thirds go home). Format-agnostic.
   thirds.sort(
     (a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || b.team.strength - a.team.strength,
   );
-  const qualifyingThirds = thirds.slice(0, 8);
+  const qualifyingThirds = thirds.slice(0, bracket.thirdSlots.length);
   const qualGroupIds = qualifyingThirds.map((t) => t.group);
   const slotToGroup = assignThirds(qualGroupIds, bracket.thirdSlots);
 

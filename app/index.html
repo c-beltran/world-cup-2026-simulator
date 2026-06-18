@@ -80,6 +80,8 @@
   .livelink:hover { background: rgba(242,205,92,.18); border-color: var(--gold); }
   .livelink .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--upset); box-shadow: 0 0 0 0 rgba(255,122,92,.6); animation: lpulse 2s infinite; }
   @keyframes lpulse { 0%{box-shadow:0 0 0 0 rgba(255,122,92,.5);} 70%{box-shadow:0 0 0 7px rgba(255,122,92,0);} 100%{box-shadow:0 0 0 0 rgba(255,122,92,0);} }
+  .livelink.alt { border-color: var(--line); color: var(--muted); background: transparent; }
+  .livelink.alt:hover { color: var(--ink); border-color: var(--ai); background: rgba(183,148,246,.10); }
 
   .layout { display: grid; grid-template-columns: 340px 1fr; gap: 26px; margin-top: 24px; align-items: start; }
   .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
@@ -269,6 +271,7 @@
         <button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button>
       </div>
       <a class="livelink" id="liveLink" href="live.html"><span class="live-dot"></span> Live re-forecast →</a>
+      <a class="livelink alt" id="accLink" href="accuracy.html">◷ Model accuracy →</a>
       <div class="method" id="method"></div>
     </div>
   </header>
@@ -339,7 +342,7 @@ const I18N = {
   en: {
     h1:"AI World Cup 2026 — Journey Tree",
     tagline:`An honest Monte Carlo of the real 2026 World Cup, narrated by an LLM. Two engines: the <b style="color:var(--sim)">math</b> decides who wins, the <b style="color:var(--ai)">story</b> is written by Claude — constrained to the simulation's actual result.`,
-    liveLink:"Live re-forecast →",
+    liveLink:"Live re-forecast →", accLink:"◷ Model accuracy →",
     mSim:"SIMULATION", mRuns:"runs", mSeed:"seed", mNarr:"NARRATION", mPrebaked:"pre-baked LLM", mConstrained:"constrained to actual results",
     mRatings:"Ratings:", mFifa:"FIFA pts,", mNeutral:"neutral venue (no host bump)",
     sGoals:"goals / game", sUpsets:"knockout shocks", sDraws:"group draws", sCind:"have a Cinderella",
@@ -368,7 +371,7 @@ const I18N = {
   es: {
     h1:"Mundial 2026 con IA — Árbol del Camino",
     tagline:`Un Monte Carlo honesto del Mundial 2026 real, narrado por una IA. Dos motores: las <b style="color:var(--sim)">matemáticas</b> deciden quién gana, la <b style="color:var(--ai)">historia</b> la escribe Claude — ceñida al resultado real de la simulación.`,
-    liveLink:"Pronóstico en vivo →",
+    liveLink:"Pronóstico en vivo →", accLink:"◷ Precisión del modelo →",
     mSim:"SIMULACIÓN", mRuns:"corridas", mSeed:"semilla", mNarr:"NARRACIÓN", mPrebaked:"IA pre-generada", mConstrained:"ceñida a los resultados reales",
     mRatings:"Valoraciones:", mFifa:"pts FIFA,", mNeutral:"sede neutral (sin ventaja local)",
     sGoals:"goles / partido", sUpsets:"sorpresas en eliminatorias", sDraws:"empates en grupos", sCind:"tienen una Cenicienta",
@@ -473,6 +476,7 @@ function renderChrome() {   // static HTML labels: header, panel titles, nationb
   $("lclose").title = t('endNarr'); $("lclose").setAttribute("aria-label", t('endNarr'));
   const tag = document.querySelector('#lower .tag'); if (tag) tag.textContent = t('aiTake');
   const ll = $("liveLink"); if (ll) { ll.innerHTML = `<span class="live-dot"></span> ${t('liveLink')}`; ll.href = "live.html" + (LANG === "es" ? "?lang=es" : ""); }
+  const al = $("accLink"); if (al) { al.textContent = t('accLink'); al.href = "accuracy.html" + (LANG === "es" ? "?lang=es" : ""); }
 }
 
 const topC = s.champions.slice(0, 10);
