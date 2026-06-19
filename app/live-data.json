@@ -2,8 +2,8 @@
   "meta": {
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-19",
-    "asOfDate": "2026-06-18",
-    "fetchedAt": "2026-06-19T19:44:10.803Z",
+    "asOfDate": "2026-06-19",
+    "fetchedAt": "2026-06-19T23:31:00.927Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,8 +24,8 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 28,
-    "groupPlayedCount": 28,
+    "playedCount": 29,
+    "groupPlayedCount": 29,
     "groupTotal": 72,
     "teamNamesEs": {
       "France": "Francia",
@@ -88,361 +88,343 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 7939,
-      "pct": 15.878,
+      "count": 8101,
+      "pct": 16.202,
       "basePct": 14.31,
-      "delta": 1.5679999999999996
+      "delta": 1.8920000000000012
     },
     {
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "count": 7578,
-      "pct": 15.156,
+      "count": 7844,
+      "pct": 15.688,
       "basePct": 13.208,
-      "delta": 1.9480000000000004
+      "delta": 2.4800000000000004
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "count": 5480,
-      "pct": 10.96,
+      "count": 5253,
+      "pct": 10.506,
       "basePct": 9.396,
-      "delta": 1.564
+      "delta": 1.1099999999999994
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 5178,
-      "pct": 10.356,
+      "count": 5108,
+      "pct": 10.216,
       "basePct": 13.04,
-      "delta": -2.6839999999999993
-    },
-    {
-      "name": "Morocco",
-      "code": "ma",
-      "fieldRank": 8,
-      "count": 2173,
-      "pct": 4.346,
-      "basePct": 4.72,
-      "delta": -0.37399999999999967
+      "delta": -2.824
     },
     {
       "name": "Brazil",
       "code": "br",
       "fieldRank": 6,
-      "count": 2171,
-      "pct": 4.342,
+      "count": 2253,
+      "pct": 4.506,
       "basePct": 4.964,
-      "delta": -0.6220000000000008
+      "delta": -0.4580000000000002
     },
     {
-      "name": "Germany",
-      "code": "de",
-      "fieldRank": 10,
-      "count": 2018,
-      "pct": 4.036,
-      "basePct": 3.632,
-      "delta": 0.40399999999999947
+      "name": "Morocco",
+      "code": "ma",
+      "fieldRank": 8,
+      "count": 2067,
+      "pct": 4.134,
+      "basePct": 4.72,
+      "delta": -0.5859999999999994
     },
     {
       "name": "Portugal",
       "code": "pt",
       "fieldRank": 5,
-      "count": 1976,
-      "pct": 3.952,
+      "count": 1950,
+      "pct": 3.9,
       "basePct": 4.952,
-      "delta": -1
+      "delta": -1.052
     },
     {
-      "name": "Netherlands",
-      "code": "nl",
-      "fieldRank": 7,
-      "count": 1891,
-      "pct": 3.782,
-      "basePct": 4.546,
-      "delta": -0.7640000000000002
-    },
-    {
-      "name": "Belgium",
-      "code": "be",
-      "fieldRank": 9,
-      "count": 1760,
-      "pct": 3.52,
-      "basePct": 4.088,
-      "delta": -0.5680000000000001
-    },
-    {
-      "name": "Mexico",
-      "code": "mx",
-      "fieldRank": 14,
-      "count": 1546,
-      "pct": 3.092,
-      "basePct": 2.154,
-      "delta": 0.9380000000000002
-    },
-    {
-      "name": "Colombia",
-      "code": "co",
-      "fieldRank": 12,
-      "count": 1504,
-      "pct": 3.008,
-      "basePct": 2.098,
-      "delta": 0.9100000000000001
+      "name": "Germany",
+      "code": "de",
+      "fieldRank": 10,
+      "count": 1934,
+      "pct": 3.868,
+      "basePct": 3.632,
+      "delta": 0.23599999999999977
     },
     {
       "name": "United States",
       "code": "us",
       "fieldRank": 15,
-      "count": 1352,
-      "pct": 2.704,
+      "count": 1920,
+      "pct": 3.84,
       "basePct": 1.686,
-      "delta": 1.0180000000000002
+      "delta": 2.154
+    },
+    {
+      "name": "Netherlands",
+      "code": "nl",
+      "fieldRank": 7,
+      "count": 1873,
+      "pct": 3.746,
+      "basePct": 4.546,
+      "delta": -0.8000000000000003
+    },
+    {
+      "name": "Belgium",
+      "code": "be",
+      "fieldRank": 9,
+      "count": 1615,
+      "pct": 3.23,
+      "basePct": 4.088,
+      "delta": -0.8580000000000001
+    },
+    {
+      "name": "Mexico",
+      "code": "mx",
+      "fieldRank": 14,
+      "count": 1539,
+      "pct": 3.078,
+      "basePct": 2.154,
+      "delta": 0.9239999999999999
+    },
+    {
+      "name": "Colombia",
+      "code": "co",
+      "fieldRank": 12,
+      "count": 1466,
+      "pct": 2.932,
+      "basePct": 2.098,
+      "delta": 0.8340000000000001
     },
     {
       "name": "Croatia",
       "code": "hr",
       "fieldRank": 11,
-      "count": 1003,
-      "pct": 2.006,
+      "count": 914,
+      "pct": 1.828,
       "basePct": 3.128,
-      "delta": -1.1220000000000003
+      "delta": -1.3
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
-      "count": 886,
-      "pct": 1.772,
+      "count": 890,
+      "pct": 1.78,
       "basePct": 1.418,
-      "delta": 0.3540000000000001
+      "delta": 0.3620000000000001
     },
     {
       "name": "Senegal",
       "code": "sn",
       "fieldRank": 13,
-      "count": 691,
-      "pct": 1.382,
+      "count": 662,
+      "pct": 1.324,
       "basePct": 2.186,
-      "delta": -0.804
+      "delta": -0.8619999999999999
     },
     {
       "name": "Japan",
       "code": "jp",
       "fieldRank": 17,
-      "count": 645,
-      "pct": 1.29,
+      "count": 652,
+      "pct": 1.304,
       "basePct": 1.438,
-      "delta": -0.1479999999999999
+      "delta": -0.1339999999999999
     },
     {
       "name": "Uruguay",
       "code": "uy",
       "fieldRank": 16,
-      "count": 623,
-      "pct": 1.246,
+      "count": 620,
+      "pct": 1.24,
       "basePct": 1.782,
-      "delta": -0.536
-    },
-    {
-      "name": "Australia",
-      "code": "au",
-      "fieldRank": 24,
-      "count": 486,
-      "pct": 0.972,
-      "basePct": 0.528,
-      "delta": 0.44399999999999995
+      "delta": -0.542
     },
     {
       "name": "Austria",
       "code": "at",
       "fieldRank": 22,
-      "count": 480,
-      "pct": 0.96,
+      "count": 430,
+      "pct": 0.86,
       "basePct": 0.558,
-      "delta": 0.4019999999999999
+      "delta": 0.30199999999999994
     },
     {
       "name": "Canada",
       "code": "ca",
       "fieldRank": 27,
-      "count": 343,
-      "pct": 0.686,
+      "count": 340,
+      "pct": 0.68,
       "basePct": 0.464,
-      "delta": 0.22200000000000003
+      "delta": 0.21600000000000003
     },
     {
-      "name": "Korea Republic",
-      "code": "kr",
-      "fieldRank": 23,
-      "count": 312,
-      "pct": 0.624,
-      "basePct": 0.676,
-      "delta": -0.052000000000000046
+      "name": "Australia",
+      "code": "au",
+      "fieldRank": 24,
+      "count": 316,
+      "pct": 0.632,
+      "basePct": 0.528,
+      "delta": 0.10399999999999998
     },
     {
       "name": "Iran",
       "code": "ir",
       "fieldRank": 19,
-      "count": 293,
-      "pct": 0.586,
+      "count": 307,
+      "pct": 0.614,
       "basePct": 0.98,
-      "delta": -0.394
+      "delta": -0.366
     },
     {
       "name": "Norway",
       "code": "no",
       "fieldRank": 28,
-      "count": 284,
-      "pct": 0.568,
+      "count": 288,
+      "pct": 0.576,
       "basePct": 0.258,
-      "delta": 0.30999999999999994
+      "delta": 0.31799999999999995
+    },
+    {
+      "name": "Korea Republic",
+      "code": "kr",
+      "fieldRank": 23,
+      "count": 279,
+      "pct": 0.558,
+      "basePct": 0.676,
+      "delta": -0.118
     },
     {
       "name": "Egypt",
       "code": "eg",
       "fieldRank": 26,
-      "count": 249,
-      "pct": 0.498,
+      "count": 251,
+      "pct": 0.502,
       "basePct": 0.508,
-      "delta": -0.010000000000000009
+      "delta": -0.006000000000000005
     },
     {
       "name": "Côte d'Ivoire",
       "code": "ci",
       "fieldRank": 30,
-      "count": 241,
-      "pct": 0.482,
+      "count": 231,
+      "pct": 0.462,
       "basePct": 0.282,
-      "delta": 0.2
-    },
-    {
-      "name": "Sweden",
-      "code": "se",
-      "fieldRank": 31,
-      "count": 162,
-      "pct": 0.324,
-      "basePct": 0.142,
-      "delta": 0.18200000000000002
+      "delta": 0.18000000000000005
     },
     {
       "name": "Ecuador",
       "code": "ec",
       "fieldRank": 21,
-      "count": 133,
-      "pct": 0.266,
+      "count": 165,
+      "pct": 0.33,
       "basePct": 0.668,
-      "delta": -0.402
+      "delta": -0.338
+    },
+    {
+      "name": "Sweden",
+      "code": "se",
+      "fieldRank": 31,
+      "count": 151,
+      "pct": 0.302,
+      "basePct": 0.142,
+      "delta": 0.16
     },
     {
       "name": "Algeria",
       "code": "dz",
       "fieldRank": 25,
-      "count": 116,
-      "pct": 0.232,
+      "count": 120,
+      "pct": 0.24,
       "basePct": 0.366,
-      "delta": -0.13399999999999998
+      "delta": -0.126
     },
     {
       "name": "Türkiye",
       "code": "tr",
       "fieldRank": 20,
-      "count": 116,
-      "pct": 0.232,
+      "count": 108,
+      "pct": 0.216,
       "basePct": 0.57,
-      "delta": -0.33799999999999997
+      "delta": -0.354
     },
     {
       "name": "Scotland",
       "code": "gb-sct",
       "fieldRank": 34,
-      "count": 106,
-      "pct": 0.212,
+      "count": 99,
+      "pct": 0.198,
       "basePct": 0.146,
-      "delta": 0.066
+      "delta": 0.05200000000000002
     },
     {
       "name": "Congo DR",
       "code": "cd",
       "fieldRank": 36,
-      "count": 56,
-      "pct": 0.112,
+      "count": 66,
+      "pct": 0.132,
       "basePct": 0.086,
-      "delta": 0.02600000000000001
-    },
-    {
-      "name": "Panama",
-      "code": "pa",
-      "fieldRank": 29,
-      "count": 28,
-      "pct": 0.056,
-      "basePct": 0.312,
-      "delta": -0.256
-    },
-    {
-      "name": "Saudi Arabia",
-      "code": "sa",
-      "fieldRank": 41,
-      "count": 27,
-      "pct": 0.054,
-      "basePct": 0.024,
-      "delta": 0.03
+      "delta": 0.04600000000000001
     },
     {
       "name": "Paraguay",
       "code": "py",
       "fieldRank": 32,
-      "count": 27,
-      "pct": 0.054,
+      "count": 31,
+      "pct": 0.062,
       "basePct": 0.13,
-      "delta": -0.07600000000000001
+      "delta": -0.068
+    },
+    {
+      "name": "Panama",
+      "code": "pa",
+      "fieldRank": 29,
+      "count": 30,
+      "pct": 0.06,
+      "basePct": 0.312,
+      "delta": -0.252
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "fieldRank": 41,
+      "count": 17,
+      "pct": 0.034,
+      "basePct": 0.024,
+      "delta": 0.010000000000000002
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
-      "count": 22,
-      "pct": 0.044,
+      "count": 15,
+      "pct": 0.03,
       "basePct": 0.006,
-      "delta": 0.038
-    },
-    {
-      "name": "Czechia",
-      "code": "cz",
-      "fieldRank": 33,
-      "count": 18,
-      "pct": 0.036,
-      "basePct": 0.136,
-      "delta": -0.1
-    },
-    {
-      "name": "Qatar",
-      "code": "qa",
-      "fieldRank": 38,
-      "count": 17,
-      "pct": 0.034,
-      "basePct": 0.076,
-      "delta": -0.041999999999999996
-    },
-    {
-      "name": "Tunisia",
-      "code": "tn",
-      "fieldRank": 35,
-      "count": 16,
-      "pct": 0.032,
-      "basePct": 0.108,
-      "delta": -0.076
+      "delta": 0.024
     },
     {
       "name": "Uzbekistan",
       "code": "uz",
       "fieldRank": 37,
-      "count": 15,
-      "pct": 0.03,
+      "count": 14,
+      "pct": 0.028,
       "basePct": 0.072,
-      "delta": -0.041999999999999996
+      "delta": -0.044
+    },
+    {
+      "name": "Qatar",
+      "code": "qa",
+      "fieldRank": 38,
+      "count": 13,
+      "pct": 0.026,
+      "basePct": 0.076,
+      "delta": -0.05
     },
     {
       "name": "South Africa",
@@ -457,46 +439,73 @@
       "name": "Cabo Verde",
       "code": "cv",
       "fieldRank": 44,
-      "count": 9,
-      "pct": 0.018,
+      "count": 11,
+      "pct": 0.022,
       "basePct": 0.008,
-      "delta": 0.009999999999999998
+      "delta": 0.013999999999999999
     },
     {
       "name": "Bosnia and Herzegovina",
       "code": "ba",
       "fieldRank": 43,
-      "count": 6,
-      "pct": 0.012,
+      "count": 11,
+      "pct": 0.022,
       "basePct": 0.036,
-      "delta": -0.023999999999999997
+      "delta": -0.013999999999999999
+    },
+    {
+      "name": "Czechia",
+      "code": "cz",
+      "fieldRank": 33,
+      "count": 10,
+      "pct": 0.02,
+      "basePct": 0.136,
+      "delta": -0.116
     },
     {
       "name": "Iraq",
       "code": "iq",
       "fieldRank": 39,
-      "count": 5,
-      "pct": 0.01,
+      "count": 10,
+      "pct": 0.02,
       "basePct": 0.05,
-      "delta": -0.04
+      "delta": -0.030000000000000002
     },
     {
-      "name": "New Zealand",
-      "code": "nz",
-      "fieldRank": 48,
-      "count": 4,
-      "pct": 0.008,
-      "basePct": 0.002,
-      "delta": 0.006
+      "name": "Tunisia",
+      "code": "tn",
+      "fieldRank": 35,
+      "count": 9,
+      "pct": 0.018,
+      "basePct": 0.108,
+      "delta": -0.09
     },
     {
       "name": "Jordan",
       "code": "jo",
       "fieldRank": 42,
-      "count": 4,
-      "pct": 0.008,
+      "count": 3,
+      "pct": 0.006,
       "basePct": 0.014,
-      "delta": -0.006
+      "delta": -0.008
+    },
+    {
+      "name": "New Zealand",
+      "code": "nz",
+      "fieldRank": 48,
+      "count": 2,
+      "pct": 0.004,
+      "basePct": 0.002,
+      "delta": 0.002
+    },
+    {
+      "name": "Haiti",
+      "code": "ht",
+      "fieldRank": 47,
+      "count": 1,
+      "pct": 0.002,
+      "basePct": 0,
+      "delta": 0.002
     }
   ],
   "reach": [
@@ -504,160 +513,176 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "r32": 49870,
-      "r16": 38219,
-      "qf": 27261,
-      "sf": 19152,
-      "final": 12578,
-      "title": 7939,
-      "advancePct": 99.74,
+      "r32": 49876,
+      "r16": 38370,
+      "qf": 27457,
+      "sf": 19269,
+      "final": 12740,
+      "title": 8101,
+      "advancePct": 99.752,
       "baseAdvancePct": 94.822,
-      "advanceDelta": 4.917999999999992,
-      "titlePct": 15.878,
+      "advanceDelta": 4.929999999999993,
+      "titlePct": 16.202,
       "baseTitlePct": 14.31
     },
     {
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "r32": 49916,
-      "r16": 36010,
-      "qf": 26660,
-      "sf": 19183,
-      "final": 12190,
-      "title": 7578,
-      "advancePct": 99.832,
+      "r32": 49918,
+      "r16": 35929,
+      "qf": 27291,
+      "sf": 19565,
+      "final": 12544,
+      "title": 7844,
+      "advancePct": 99.836,
       "baseAdvancePct": 96.008,
-      "advanceDelta": 3.823999999999998,
-      "titlePct": 15.156,
+      "advanceDelta": 3.828000000000003,
+      "titlePct": 15.688,
       "baseTitlePct": 13.208
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "r32": 49799,
-      "r16": 36656,
-      "qf": 24272,
-      "sf": 15716,
-      "final": 9318,
-      "title": 5480,
-      "advancePct": 99.598,
+      "r32": 49795,
+      "r16": 36743,
+      "qf": 24245,
+      "sf": 15665,
+      "final": 9249,
+      "title": 5253,
+      "advancePct": 99.59,
       "baseAdvancePct": 93.732,
-      "advanceDelta": 5.866,
-      "titlePct": 10.96,
+      "advanceDelta": 5.858000000000004,
+      "titlePct": 10.506,
       "baseTitlePct": 9.396
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "r32": 45606,
-      "r16": 29408,
-      "qf": 20265,
-      "sf": 14319,
-      "final": 8780,
-      "title": 5178,
-      "advancePct": 91.212,
+      "r32": 45615,
+      "r16": 29652,
+      "qf": 20500,
+      "sf": 14100,
+      "final": 8596,
+      "title": 5108,
+      "advancePct": 91.23,
       "baseAdvancePct": 96.662,
-      "advanceDelta": -5.450000000000003,
-      "titlePct": 10.356,
+      "advanceDelta": -5.432000000000002,
+      "titlePct": 10.216,
       "baseTitlePct": 13.04
-    },
-    {
-      "name": "Morocco",
-      "code": "ma",
-      "fieldRank": 8,
-      "r32": 46645,
-      "r16": 27230,
-      "qf": 16792,
-      "sf": 8370,
-      "final": 4374,
-      "title": 2173,
-      "advancePct": 93.29,
-      "baseAdvancePct": 91.708,
-      "advanceDelta": 1.5820000000000078,
-      "titlePct": 4.346,
-      "baseTitlePct": 4.72
     },
     {
       "name": "Brazil",
       "code": "br",
       "fieldRank": 6,
-      "r32": 46622,
-      "r16": 27518,
-      "qf": 16968,
-      "sf": 8694,
-      "final": 4512,
-      "title": 2171,
-      "advancePct": 93.244,
+      "r32": 46644,
+      "r16": 27547,
+      "qf": 17123,
+      "sf": 8728,
+      "final": 4645,
+      "title": 2253,
+      "advancePct": 93.288,
       "baseAdvancePct": 92.148,
-      "advanceDelta": 1.0960000000000036,
-      "titlePct": 4.342,
+      "advanceDelta": 1.1400000000000006,
+      "titlePct": 4.506,
       "baseTitlePct": 4.964
     },
     {
-      "name": "Germany",
-      "code": "de",
-      "fieldRank": 10,
-      "r32": 49844,
-      "r16": 32749,
-      "qf": 15498,
-      "sf": 8467,
-      "final": 4344,
-      "title": 2018,
-      "advancePct": 99.688,
-      "baseAdvancePct": 92.528,
-      "advanceDelta": 7.159999999999997,
-      "titlePct": 4.036,
-      "baseTitlePct": 3.632
+      "name": "Morocco",
+      "code": "ma",
+      "fieldRank": 8,
+      "r32": 46656,
+      "r16": 27310,
+      "qf": 16816,
+      "sf": 8485,
+      "final": 4387,
+      "title": 2067,
+      "advancePct": 93.312,
+      "baseAdvancePct": 91.708,
+      "advanceDelta": 1.6039999999999992,
+      "titlePct": 4.134,
+      "baseTitlePct": 4.72
     },
     {
       "name": "Portugal",
       "code": "pt",
       "fieldRank": 5,
-      "r32": 42312,
-      "r16": 26485,
-      "qf": 15397,
-      "sf": 8439,
-      "final": 4230,
-      "title": 1976,
-      "advancePct": 84.624,
+      "r32": 42228,
+      "r16": 26355,
+      "qf": 15130,
+      "sf": 8048,
+      "final": 4082,
+      "title": 1950,
+      "advancePct": 84.456,
       "baseAdvancePct": 90.948,
-      "advanceDelta": -6.323999999999998,
-      "titlePct": 3.952,
+      "advanceDelta": -6.49199999999999,
+      "titlePct": 3.9,
       "baseTitlePct": 4.952
+    },
+    {
+      "name": "Germany",
+      "code": "de",
+      "fieldRank": 10,
+      "r32": 49833,
+      "r16": 32922,
+      "qf": 15387,
+      "sf": 8491,
+      "final": 4282,
+      "title": 1934,
+      "advancePct": 99.666,
+      "baseAdvancePct": 92.528,
+      "advanceDelta": 7.137999999999991,
+      "titlePct": 3.868,
+      "baseTitlePct": 3.632
+    },
+    {
+      "name": "United States",
+      "code": "us",
+      "fieldRank": 15,
+      "r32": 50000,
+      "r16": 35060,
+      "qf": 20372,
+      "sf": 9784,
+      "final": 4412,
+      "title": 1920,
+      "advancePct": 100,
+      "baseAdvancePct": 82.212,
+      "advanceDelta": 17.787999999999997,
+      "titlePct": 3.84,
+      "baseTitlePct": 1.686
     },
     {
       "name": "Netherlands",
       "code": "nl",
       "fieldRank": 7,
-      "r32": 44676,
-      "r16": 24562,
-      "qf": 15260,
-      "sf": 7612,
-      "final": 3905,
-      "title": 1891,
-      "advancePct": 89.352,
+      "r32": 44696,
+      "r16": 24594,
+      "qf": 15157,
+      "sf": 7507,
+      "final": 3844,
+      "title": 1873,
+      "advancePct": 89.392,
       "baseAdvancePct": 89.94,
-      "advanceDelta": -0.5879999999999939,
-      "titlePct": 3.782,
+      "advanceDelta": -0.5480000000000018,
+      "titlePct": 3.746,
       "baseTitlePct": 4.546
     },
     {
       "name": "Belgium",
       "code": "be",
       "fieldRank": 9,
-      "r32": 44810,
-      "r16": 28971,
-      "qf": 15897,
-      "sf": 7991,
-      "final": 3828,
-      "title": 1760,
-      "advancePct": 89.62,
+      "r32": 44753,
+      "r16": 29505,
+      "qf": 15282,
+      "sf": 7849,
+      "final": 3649,
+      "title": 1615,
+      "advancePct": 89.506,
       "baseAdvancePct": 92.134,
-      "advanceDelta": -2.513999999999996,
-      "titlePct": 3.52,
+      "advanceDelta": -2.628,
+      "titlePct": 3.23,
       "baseTitlePct": 4.088
     },
     {
@@ -665,63 +690,47 @@
       "code": "mx",
       "fieldRank": 14,
       "r32": 50000,
-      "r16": 31385,
-      "qf": 14177,
-      "sf": 7308,
-      "final": 3488,
-      "title": 1546,
+      "r16": 31267,
+      "qf": 14319,
+      "sf": 7362,
+      "final": 3393,
+      "title": 1539,
       "advancePct": 100,
       "baseAdvancePct": 87.904,
       "advanceDelta": 12.096000000000004,
-      "titlePct": 3.092,
+      "titlePct": 3.078,
       "baseTitlePct": 2.154
     },
     {
       "name": "Colombia",
       "code": "co",
       "fieldRank": 12,
-      "r32": 48616,
-      "r16": 29785,
-      "qf": 16861,
-      "sf": 7952,
-      "final": 3516,
-      "title": 1504,
-      "advancePct": 97.232,
+      "r32": 48641,
+      "r16": 30015,
+      "qf": 16881,
+      "sf": 7881,
+      "final": 3556,
+      "title": 1466,
+      "advancePct": 97.282,
       "baseAdvancePct": 84.388,
-      "advanceDelta": 12.843999999999994,
-      "titlePct": 3.008,
+      "advanceDelta": 12.893999999999991,
+      "titlePct": 2.932,
       "baseTitlePct": 2.098
-    },
-    {
-      "name": "United States",
-      "code": "us",
-      "fieldRank": 15,
-      "r32": 49317,
-      "r16": 31470,
-      "qf": 16048,
-      "sf": 7472,
-      "final": 3261,
-      "title": 1352,
-      "advancePct": 98.634,
-      "baseAdvancePct": 82.212,
-      "advanceDelta": 16.421999999999997,
-      "titlePct": 2.704,
-      "baseTitlePct": 1.686
     },
     {
       "name": "Croatia",
       "code": "hr",
       "fieldRank": 11,
-      "r32": 38288,
-      "r16": 20755,
-      "qf": 10223,
-      "sf": 5377,
-      "final": 2434,
-      "title": 1003,
-      "advancePct": 76.576,
+      "r32": 38290,
+      "r16": 20741,
+      "qf": 10330,
+      "sf": 5095,
+      "final": 2229,
+      "title": 914,
+      "advancePct": 76.58,
       "baseAdvancePct": 86.764,
-      "advanceDelta": -10.188000000000002,
-      "titlePct": 2.006,
+      "advanceDelta": -10.183999999999997,
+      "titlePct": 1.828,
       "baseTitlePct": 3.128
     },
     {
@@ -729,95 +738,79 @@
       "code": "ch",
       "fieldRank": 18,
       "r32": 50000,
-      "r16": 29472,
-      "qf": 13824,
-      "sf": 5388,
+      "r16": 29597,
+      "qf": 13935,
+      "sf": 5454,
       "final": 2263,
-      "title": 886,
+      "title": 890,
       "advancePct": 100,
       "baseAdvancePct": 88.42,
       "advanceDelta": 11.579999999999998,
-      "titlePct": 1.772,
+      "titlePct": 1.78,
       "baseTitlePct": 1.418
     },
     {
       "name": "Senegal",
       "code": "sn",
       "fieldRank": 13,
-      "r32": 35175,
-      "r16": 19049,
-      "qf": 9071,
-      "sf": 3960,
-      "final": 1735,
-      "title": 691,
-      "advancePct": 70.35,
+      "r32": 35300,
+      "r16": 19080,
+      "qf": 8966,
+      "sf": 3917,
+      "final": 1677,
+      "title": 662,
+      "advancePct": 70.6,
       "baseAdvancePct": 79.68,
-      "advanceDelta": -9.330000000000013,
-      "titlePct": 1.382,
+      "advanceDelta": -9.080000000000013,
+      "titlePct": 1.324,
       "baseTitlePct": 2.186
     },
     {
       "name": "Japan",
       "code": "jp",
       "fieldRank": 17,
-      "r32": 41947,
-      "r16": 19443,
-      "qf": 10095,
-      "sf": 4165,
-      "final": 1803,
-      "title": 645,
-      "advancePct": 83.894,
+      "r32": 41908,
+      "r16": 19262,
+      "qf": 10013,
+      "sf": 4132,
+      "final": 1752,
+      "title": 652,
+      "advancePct": 83.816,
       "baseAdvancePct": 79.386,
-      "advanceDelta": 4.50800000000001,
-      "titlePct": 1.29,
+      "advanceDelta": 4.430000000000007,
+      "titlePct": 1.304,
       "baseTitlePct": 1.438
     },
     {
       "name": "Uruguay",
       "code": "uy",
       "fieldRank": 16,
-      "r32": 37493,
-      "r16": 15552,
-      "qf": 7983,
-      "sf": 4011,
-      "final": 1617,
-      "title": 623,
-      "advancePct": 74.986,
+      "r32": 37299,
+      "r16": 15497,
+      "qf": 8043,
+      "sf": 3975,
+      "final": 1618,
+      "title": 620,
+      "advancePct": 74.598,
       "baseAdvancePct": 85.02,
-      "advanceDelta": -10.033999999999992,
-      "titlePct": 1.246,
+      "advanceDelta": -10.421999999999997,
+      "titlePct": 1.24,
       "baseTitlePct": 1.782
-    },
-    {
-      "name": "Australia",
-      "code": "au",
-      "fieldRank": 24,
-      "r32": 48111,
-      "r16": 25673,
-      "qf": 9992,
-      "sf": 4022,
-      "final": 1447,
-      "title": 486,
-      "advancePct": 96.222,
-      "baseAdvancePct": 67.472,
-      "advanceDelta": 28.75,
-      "titlePct": 0.972,
-      "baseTitlePct": 0.528
     },
     {
       "name": "Austria",
       "code": "at",
       "fieldRank": 22,
-      "r32": 47192,
-      "r16": 19282,
-      "qf": 9009,
-      "sf": 3996,
-      "final": 1444,
-      "title": 480,
-      "advancePct": 94.384,
+      "r32": 47286,
+      "r16": 19085,
+      "qf": 8731,
+      "sf": 3728,
+      "final": 1311,
+      "title": 430,
+      "advancePct": 94.572,
       "baseAdvancePct": 70.478,
-      "advanceDelta": 23.906000000000006,
-      "titlePct": 0.96,
+      "advanceDelta": 24.09400000000001,
+      "titlePct": 0.86,
       "baseTitlePct": 0.558
     },
     {
@@ -825,448 +818,464 @@
       "code": "ca",
       "fieldRank": 27,
       "r32": 50000,
-      "r16": 25255,
-      "qf": 9751,
-      "sf": 3127,
-      "final": 1050,
-      "title": 343,
+      "r16": 25164,
+      "qf": 9920,
+      "sf": 3170,
+      "final": 1081,
+      "title": 340,
       "advancePct": 100,
       "baseAdvancePct": 77,
       "advanceDelta": 23,
-      "titlePct": 0.686,
+      "titlePct": 0.68,
       "baseTitlePct": 0.464
     },
     {
-      "name": "Korea Republic",
-      "code": "kr",
-      "fieldRank": 23,
-      "r32": 44745,
-      "r16": 21019,
-      "qf": 8312,
-      "sf": 2807,
-      "final": 1006,
-      "title": 312,
-      "advancePct": 89.49,
-      "baseAdvancePct": 76.266,
-      "advanceDelta": 13.22399999999999,
-      "titlePct": 0.624,
-      "baseTitlePct": 0.676
+      "name": "Australia",
+      "code": "au",
+      "fieldRank": 24,
+      "r32": 44975,
+      "r16": 20912,
+      "qf": 6639,
+      "sf": 2823,
+      "final": 983,
+      "title": 316,
+      "advancePct": 89.95,
+      "baseAdvancePct": 67.472,
+      "advanceDelta": 22.47800000000001,
+      "titlePct": 0.632,
+      "baseTitlePct": 0.528
     },
     {
       "name": "Iran",
       "code": "ir",
       "fieldRank": 19,
-      "r32": 31160,
-      "r16": 15725,
-      "qf": 6433,
-      "sf": 2461,
-      "final": 900,
-      "title": 293,
-      "advancePct": 62.32,
+      "r32": 31194,
+      "r16": 16428,
+      "qf": 6329,
+      "sf": 2476,
+      "final": 891,
+      "title": 307,
+      "advancePct": 62.388,
       "baseAdvancePct": 81.392,
-      "advanceDelta": -19.071999999999996,
-      "titlePct": 0.586,
+      "advanceDelta": -19.003999999999998,
+      "titlePct": 0.614,
       "baseTitlePct": 0.98
     },
     {
       "name": "Norway",
       "code": "no",
       "fieldRank": 28,
-      "r32": 47036,
-      "r16": 21422,
-      "qf": 8299,
-      "sf": 2915,
-      "final": 941,
-      "title": 284,
-      "advancePct": 94.072,
+      "r32": 47214,
+      "r16": 21183,
+      "qf": 8203,
+      "sf": 2788,
+      "final": 908,
+      "title": 288,
+      "advancePct": 94.428,
       "baseAdvancePct": 55.432,
-      "advanceDelta": 38.64,
-      "titlePct": 0.568,
+      "advanceDelta": 38.995999999999995,
+      "titlePct": 0.576,
       "baseTitlePct": 0.258
+    },
+    {
+      "name": "Korea Republic",
+      "code": "kr",
+      "fieldRank": 23,
+      "r32": 44916,
+      "r16": 21053,
+      "qf": 8229,
+      "sf": 2690,
+      "final": 933,
+      "title": 279,
+      "advancePct": 89.832,
+      "baseAdvancePct": 76.266,
+      "advanceDelta": 13.565999999999988,
+      "titlePct": 0.558,
+      "baseTitlePct": 0.676
     },
     {
       "name": "Egypt",
       "code": "eg",
       "fieldRank": 26,
-      "r32": 40046,
-      "r16": 18993,
-      "qf": 7232,
-      "sf": 2532,
-      "final": 814,
-      "title": 249,
-      "advancePct": 80.092,
+      "r32": 40113,
+      "r16": 19906,
+      "qf": 7157,
+      "sf": 2483,
+      "final": 816,
+      "title": 251,
+      "advancePct": 80.226,
       "baseAdvancePct": 73.494,
-      "advanceDelta": 6.597999999999999,
-      "titlePct": 0.498,
+      "advanceDelta": 6.731999999999999,
+      "titlePct": 0.502,
       "baseTitlePct": 0.508
     },
     {
       "name": "Côte d'Ivoire",
       "code": "ci",
       "fieldRank": 30,
-      "r32": 48081,
-      "r16": 20871,
-      "qf": 7121,
-      "sf": 2402,
-      "final": 789,
-      "title": 241,
-      "advancePct": 96.162,
+      "r32": 48022,
+      "r16": 20799,
+      "qf": 7116,
+      "sf": 2392,
+      "final": 781,
+      "title": 231,
+      "advancePct": 96.044,
       "baseAdvancePct": 70.628,
-      "advanceDelta": 25.534000000000006,
-      "titlePct": 0.482,
+      "advanceDelta": 25.415999999999997,
+      "titlePct": 0.462,
       "baseTitlePct": 0.282
-    },
-    {
-      "name": "Sweden",
-      "code": "se",
-      "fieldRank": 31,
-      "r32": 47413,
-      "r16": 16066,
-      "qf": 6277,
-      "sf": 1892,
-      "final": 617,
-      "title": 162,
-      "advancePct": 94.826,
-      "baseAdvancePct": 52.748,
-      "advanceDelta": 42.077999999999996,
-      "titlePct": 0.324,
-      "baseTitlePct": 0.142
     },
     {
       "name": "Ecuador",
       "code": "ec",
       "fieldRank": 21,
-      "r32": 30814,
-      "r16": 12118,
-      "qf": 4656,
-      "sf": 1510,
-      "final": 460,
-      "title": 133,
-      "advancePct": 61.628,
+      "r32": 31247,
+      "r16": 12295,
+      "qf": 4718,
+      "sf": 1651,
+      "final": 515,
+      "title": 165,
+      "advancePct": 62.494,
       "baseAdvancePct": 80.036,
-      "advanceDelta": -18.408,
-      "titlePct": 0.266,
+      "advanceDelta": -17.542,
+      "titlePct": 0.33,
       "baseTitlePct": 0.668
+    },
+    {
+      "name": "Sweden",
+      "code": "se",
+      "fieldRank": 31,
+      "r32": 47494,
+      "r16": 16132,
+      "qf": 6267,
+      "sf": 1873,
+      "final": 596,
+      "title": 151,
+      "advancePct": 94.988,
+      "baseAdvancePct": 52.748,
+      "advanceDelta": 42.24,
+      "titlePct": 0.302,
+      "baseTitlePct": 0.142
     },
     {
       "name": "Algeria",
       "code": "dz",
       "fieldRank": 25,
-      "r32": 25735,
-      "r16": 9170,
-      "qf": 3782,
-      "sf": 1363,
-      "final": 425,
-      "title": 116,
-      "advancePct": 51.47,
+      "r32": 25799,
+      "r16": 8727,
+      "qf": 3491,
+      "sf": 1276,
+      "final": 391,
+      "title": 120,
+      "advancePct": 51.598,
       "baseAdvancePct": 65.878,
-      "advanceDelta": -14.408000000000001,
-      "titlePct": 0.232,
+      "advanceDelta": -14.280000000000001,
+      "titlePct": 0.24,
       "baseTitlePct": 0.366
     },
     {
       "name": "Türkiye",
       "code": "tr",
       "fieldRank": 20,
-      "r32": 22695,
-      "r16": 9204,
-      "qf": 3087,
-      "sf": 1185,
-      "final": 390,
-      "title": 116,
-      "advancePct": 45.39,
+      "r32": 22411,
+      "r16": 8866,
+      "qf": 3061,
+      "sf": 1181,
+      "final": 396,
+      "title": 108,
+      "advancePct": 44.822,
       "baseAdvancePct": 70.88,
-      "advanceDelta": -25.489999999999995,
-      "titlePct": 0.232,
+      "advanceDelta": -26.057999999999993,
+      "titlePct": 0.216,
       "baseTitlePct": 0.57
     },
     {
       "name": "Scotland",
       "code": "gb-sct",
       "fieldRank": 34,
-      "r32": 40285,
-      "r16": 12707,
-      "qf": 4673,
-      "sf": 1357,
-      "final": 403,
-      "title": 106,
-      "advancePct": 80.57,
+      "r32": 40394,
+      "r16": 12754,
+      "qf": 4567,
+      "sf": 1374,
+      "final": 384,
+      "title": 99,
+      "advancePct": 80.788,
       "baseAdvancePct": 58.58,
-      "advanceDelta": 21.989999999999995,
-      "titlePct": 0.212,
+      "advanceDelta": 22.208,
+      "titlePct": 0.198,
       "baseTitlePct": 0.146
     },
     {
       "name": "Congo DR",
       "code": "cd",
       "fieldRank": 36,
-      "r32": 29521,
-      "r16": 9850,
-      "qf": 3136,
-      "sf": 961,
-      "final": 225,
-      "title": 56,
-      "advancePct": 59.042,
+      "r32": 29313,
+      "r16": 9759,
+      "qf": 3112,
+      "sf": 968,
+      "final": 249,
+      "title": 66,
+      "advancePct": 58.626,
       "baseAdvancePct": 46.826,
-      "advanceDelta": 12.216000000000001,
-      "titlePct": 0.112,
+      "advanceDelta": 11.799999999999997,
+      "titlePct": 0.132,
       "baseTitlePct": 0.086
-    },
-    {
-      "name": "Panama",
-      "code": "pa",
-      "fieldRank": 29,
-      "r32": 10540,
-      "r16": 3537,
-      "qf": 1220,
-      "sf": 379,
-      "final": 102,
-      "title": 28,
-      "advancePct": 21.08,
-      "baseAdvancePct": 60.662,
-      "advanceDelta": -39.582,
-      "titlePct": 0.056,
-      "baseTitlePct": 0.312
     },
     {
       "name": "Paraguay",
       "code": "py",
       "fieldRank": 32,
-      "r32": 14568,
-      "r16": 4836,
-      "qf": 1358,
-      "sf": 398,
-      "final": 104,
-      "title": 27,
-      "advancePct": 29.136,
+      "r32": 15658,
+      "r16": 5364,
+      "qf": 1381,
+      "sf": 450,
+      "final": 105,
+      "title": 31,
+      "advancePct": 31.316,
       "baseAdvancePct": 51.5,
-      "advanceDelta": -22.364,
-      "titlePct": 0.054,
+      "advanceDelta": -20.184,
+      "titlePct": 0.062,
       "baseTitlePct": 0.13
+    },
+    {
+      "name": "Panama",
+      "code": "pa",
+      "fieldRank": 29,
+      "r32": 10547,
+      "r16": 3560,
+      "qf": 1297,
+      "sf": 383,
+      "final": 106,
+      "title": 30,
+      "advancePct": 21.094,
+      "baseAdvancePct": 60.662,
+      "advanceDelta": -39.568,
+      "titlePct": 0.06,
+      "baseTitlePct": 0.312
     },
     {
       "name": "Saudi Arabia",
       "code": "sa",
       "fieldRank": 41,
-      "r32": 25960,
-      "r16": 5799,
-      "qf": 1683,
-      "sf": 444,
-      "final": 101,
-      "title": 27,
-      "advancePct": 51.92,
+      "r32": 25915,
+      "r16": 5725,
+      "qf": 1717,
+      "sf": 481,
+      "final": 90,
+      "title": 17,
+      "advancePct": 51.83,
       "baseAdvancePct": 44.178,
-      "advanceDelta": 7.742000000000004,
-      "titlePct": 0.054,
+      "advanceDelta": 7.652000000000001,
+      "titlePct": 0.034,
       "baseTitlePct": 0.024
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
-      "r32": 34715,
-      "r16": 8396,
-      "qf": 2039,
-      "sf": 437,
-      "final": 94,
-      "title": 22,
-      "advancePct": 69.43,
+      "r32": 34784,
+      "r16": 8373,
+      "qf": 2037,
+      "sf": 450,
+      "final": 86,
+      "title": 15,
+      "advancePct": 69.568,
       "baseAdvancePct": 24.174,
-      "advanceDelta": 45.25600000000001,
-      "titlePct": 0.044,
+      "advanceDelta": 45.394,
+      "titlePct": 0.03,
       "baseTitlePct": 0.006
-    },
-    {
-      "name": "Czechia",
-      "code": "cz",
-      "fieldRank": 33,
-      "r32": 9665,
-      "r16": 3368,
-      "qf": 1174,
-      "sf": 329,
-      "final": 90,
-      "title": 18,
-      "advancePct": 19.33,
-      "baseAdvancePct": 60.008,
-      "advanceDelta": -40.678000000000004,
-      "titlePct": 0.036,
-      "baseTitlePct": 0.136
-    },
-    {
-      "name": "Qatar",
-      "code": "qa",
-      "fieldRank": 38,
-      "r32": 21280,
-      "r16": 6048,
-      "qf": 1757,
-      "sf": 435,
-      "final": 99,
-      "title": 17,
-      "advancePct": 42.56,
-      "baseAdvancePct": 59.252,
-      "advanceDelta": -16.692,
-      "titlePct": 0.034,
-      "baseTitlePct": 0.076
-    },
-    {
-      "name": "Tunisia",
-      "code": "tn",
-      "fieldRank": 35,
-      "r32": 7280,
-      "r16": 2106,
-      "qf": 668,
-      "sf": 160,
-      "final": 42,
-      "title": 16,
-      "advancePct": 14.56,
-      "baseAdvancePct": 46.41,
-      "advanceDelta": -31.849999999999994,
-      "titlePct": 0.032,
-      "baseTitlePct": 0.108
     },
     {
       "name": "Uzbekistan",
       "code": "uz",
       "fieldRank": 37,
-      "r32": 14235,
-      "r16": 3896,
-      "qf": 1086,
-      "sf": 313,
-      "final": 78,
-      "title": 15,
-      "advancePct": 28.47,
+      "r32": 14430,
+      "r16": 3907,
+      "qf": 1087,
+      "sf": 290,
+      "final": 63,
+      "title": 14,
+      "advancePct": 28.86,
       "baseAdvancePct": 44.176,
-      "advanceDelta": -15.706000000000003,
-      "titlePct": 0.03,
+      "advanceDelta": -15.316000000000003,
+      "titlePct": 0.028,
       "baseTitlePct": 0.072
     },
     {
-      "name": "South Africa",
-      "code": "za",
-      "fieldRank": 40,
-      "r32": 11406,
-      "r16": 3524,
-      "qf": 914,
-      "sf": 191,
-      "final": 54,
-      "title": 11,
-      "advancePct": 22.812,
-      "baseAdvancePct": 45.406,
-      "advanceDelta": -22.593999999999998,
-      "titlePct": 0.022,
-      "baseTitlePct": 0.04
+      "name": "Qatar",
+      "code": "qa",
+      "fieldRank": 38,
+      "r32": 21300,
+      "r16": 5429,
+      "qf": 1532,
+      "sf": 381,
+      "final": 85,
+      "title": 13,
+      "advancePct": 42.6,
+      "baseAdvancePct": 59.252,
+      "advanceDelta": -16.652,
+      "titlePct": 0.026,
+      "baseTitlePct": 0.076
     },
     {
       "name": "Cabo Verde",
       "code": "cv",
       "fieldRank": 44,
-      "r32": 24034,
-      "r16": 4632,
-      "qf": 1260,
-      "sf": 315,
-      "final": 59,
-      "title": 9,
-      "advancePct": 48.068,
+      "r32": 24287,
+      "r16": 4654,
+      "qf": 1146,
+      "sf": 270,
+      "final": 57,
+      "title": 11,
+      "advancePct": 48.574,
       "baseAdvancePct": 33.618,
-      "advanceDelta": 14.449999999999996,
-      "titlePct": 0.018,
+      "advanceDelta": 14.955999999999996,
+      "titlePct": 0.022,
       "baseTitlePct": 0.008
+    },
+    {
+      "name": "South Africa",
+      "code": "za",
+      "fieldRank": 40,
+      "r32": 11391,
+      "r16": 3570,
+      "qf": 911,
+      "sf": 185,
+      "final": 53,
+      "title": 11,
+      "advancePct": 22.782,
+      "baseAdvancePct": 45.406,
+      "advanceDelta": -22.624,
+      "titlePct": 0.022,
+      "baseTitlePct": 0.04
     },
     {
       "name": "Bosnia and Herzegovina",
       "code": "ba",
       "fieldRank": 43,
-      "r32": 15202,
-      "r16": 3620,
-      "qf": 831,
-      "sf": 175,
-      "final": 30,
-      "title": 6,
-      "advancePct": 30.404,
+      "r32": 15214,
+      "r16": 3285,
+      "qf": 771,
+      "sf": 164,
+      "final": 37,
+      "title": 11,
+      "advancePct": 30.428,
       "baseAdvancePct": 44.31,
-      "advanceDelta": -13.906000000000002,
-      "titlePct": 0.012,
+      "advanceDelta": -13.882000000000001,
+      "titlePct": 0.022,
       "baseTitlePct": 0.036
+    },
+    {
+      "name": "Czechia",
+      "code": "cz",
+      "fieldRank": 33,
+      "r32": 9672,
+      "r16": 3257,
+      "qf": 999,
+      "sf": 265,
+      "final": 60,
+      "title": 10,
+      "advancePct": 19.344,
+      "baseAdvancePct": 60.008,
+      "advanceDelta": -40.664,
+      "titlePct": 0.02,
+      "baseTitlePct": 0.136
     },
     {
       "name": "Iraq",
       "code": "iq",
       "fieldRank": 39,
-      "r32": 5304,
-      "r16": 1508,
-      "qf": 375,
-      "sf": 66,
-      "final": 14,
-      "title": 5,
-      "advancePct": 10.608,
+      "r32": 5321,
+      "r16": 1554,
+      "qf": 421,
+      "sf": 100,
+      "final": 25,
+      "title": 10,
+      "advancePct": 10.642,
       "baseAdvancePct": 34.51,
-      "advanceDelta": -23.901999999999997,
-      "titlePct": 0.01,
+      "advanceDelta": -23.868,
+      "titlePct": 0.02,
       "baseTitlePct": 0.05
+    },
+    {
+      "name": "Tunisia",
+      "code": "tn",
+      "fieldRank": 35,
+      "r32": 7319,
+      "r16": 2059,
+      "qf": 628,
+      "sf": 185,
+      "final": 44,
+      "title": 9,
+      "advancePct": 14.638,
+      "baseAdvancePct": 46.41,
+      "advanceDelta": -31.772,
+      "titlePct": 0.018,
+      "baseTitlePct": 0.108
     },
     {
       "name": "Jordan",
       "code": "jo",
       "fieldRank": 42,
-      "r32": 7928,
-      "r16": 1807,
-      "qf": 458,
-      "sf": 98,
-      "final": 21,
-      "title": 4,
-      "advancePct": 15.856,
+      "r32": 8085,
+      "r16": 1749,
+      "qf": 413,
+      "sf": 89,
+      "final": 20,
+      "title": 3,
+      "advancePct": 16.17,
       "baseAdvancePct": 31.526,
-      "advanceDelta": -15.67,
-      "titlePct": 0.008,
+      "advanceDelta": -15.355999999999998,
+      "titlePct": 0.006,
       "baseTitlePct": 0.014
     },
     {
       "name": "New Zealand",
       "code": "nz",
       "fieldRank": 48,
-      "r32": 14068,
-      "r16": 3100,
-      "qf": 536,
-      "sf": 98,
-      "final": 17,
-      "title": 4,
-      "advancePct": 28.136,
+      "r32": 14073,
+      "r16": 3265,
+      "qf": 587,
+      "sf": 88,
+      "final": 11,
+      "title": 2,
+      "advancePct": 28.146,
       "baseAdvancePct": 22.148,
-      "advanceDelta": 5.9879999999999995,
-      "titlePct": 0.008,
+      "advanceDelta": 5.998000000000001,
+      "titlePct": 0.004,
       "baseTitlePct": 0.002
-    },
-    {
-      "name": "Curaçao",
-      "code": "cw",
-      "fieldRank": 46,
-      "r32": 5558,
-      "r16": 1030,
-      "qf": 202,
-      "sf": 33,
-      "final": 5,
-      "title": 0,
-      "advancePct": 11.116,
-      "baseAdvancePct": 24.874,
-      "advanceDelta": -13.758,
-      "titlePct": 0,
-      "baseTitlePct": 0.008
     },
     {
       "name": "Haiti",
       "code": "ht",
       "fieldRank": 47,
-      "r32": 4487,
-      "r16": 719,
-      "qf": 127,
-      "sf": 23,
+      "r32": 4570,
+      "r16": 689,
+      "qf": 101,
+      "sf": 14,
+      "final": 2,
+      "title": 1,
+      "advancePct": 9.14,
+      "baseAdvancePct": 21.734,
+      "advanceDelta": -12.594000000000001,
+      "titlePct": 0.002,
+      "baseTitlePct": 0
+    },
+    {
+      "name": "Curaçao",
+      "code": "cw",
+      "fieldRank": 46,
+      "r32": 5604,
+      "r16": 1051,
+      "qf": 185,
+      "sf": 25,
       "final": 3,
       "title": 0,
-      "advancePct": 8.974,
-      "baseAdvancePct": 21.734,
-      "advanceDelta": -12.760000000000002,
+      "advancePct": 11.208,
+      "baseAdvancePct": 24.874,
+      "advanceDelta": -13.665999999999999,
       "titlePct": 0,
-      "baseTitlePct": 0
+      "baseTitlePct": 0.008
     }
   ],
   "standings": [
@@ -1309,7 +1318,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 89.49,
+          "advancePct": 89.832,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1332,7 +1341,7 @@
           "gd": -1,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 19.33,
+          "advancePct": 19.344,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1355,7 +1364,7 @@
           "gd": -2,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 22.812,
+          "advancePct": 22.782,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1429,7 +1438,7 @@
           "gd": -3,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 30.404,
+          "advancePct": 30.428,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1452,7 +1461,7 @@
           "gd": -6,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 42.56,
+          "advancePct": 42.6,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1480,7 +1489,7 @@
           "gd": 1,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 80.57,
+          "advancePct": 80.788,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1503,7 +1512,7 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 93.244,
+          "advancePct": 93.288,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
@@ -1526,7 +1535,7 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 93.29,
+          "advancePct": 93.312,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1549,7 +1558,7 @@
           "gd": -1,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 8.974,
+          "advancePct": 9.14,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1568,46 +1577,46 @@
           "pos": 1,
           "name": "United States",
           "code": "us",
-          "p": 1,
-          "w": 1,
+          "p": 2,
+          "w": 2,
           "d": 0,
           "l": 0,
-          "gf": 4,
+          "gf": 6,
           "ga": 1,
-          "gd": 3,
-          "pts": 3,
-          "remaining": 2,
-          "advancePct": 98.634,
+          "gd": 5,
+          "pts": 6,
+          "remaining": 1,
+          "advancePct": 100,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.606,
-            0.287,
-            0.099,
-            0.008
+            0.984,
+            0.015,
+            0.001,
+            0
           ]
         },
         {
           "pos": 2,
           "name": "Australia",
           "code": "au",
-          "p": 1,
+          "p": 2,
           "w": 1,
           "d": 0,
-          "l": 0,
+          "l": 1,
           "gf": 2,
-          "ga": 0,
-          "gd": 2,
+          "ga": 2,
+          "gd": 0,
           "pts": 3,
-          "remaining": 2,
-          "advancePct": 96.222,
+          "remaining": 1,
+          "advancePct": 89.95,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.356,
-            0.478,
-            0.148,
-            0.018
+            0.007,
+            0.679,
+            0.268,
+            0.046
           ]
         },
         {
@@ -1623,14 +1632,14 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 45.39,
+          "advancePct": 44.822,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.025,
-            0.139,
-            0.459,
-            0.377
+            0.009,
+            0.144,
+            0.464,
+            0.383
           ]
         },
         {
@@ -1646,14 +1655,14 @@
           "gd": -3,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 29.136,
+          "advancePct": 31.316,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
-            0.014,
-            0.096,
-            0.294,
-            0.597
+            0,
+            0.162,
+            0.267,
+            0.571
           ]
         }
       ]
@@ -1674,13 +1683,13 @@
           "gd": 6,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 99.688,
+          "advancePct": 99.666,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
             0.704,
             0.221,
-            0.074,
+            0.073,
             0.002
           ]
         },
@@ -1697,13 +1706,13 @@
           "gd": 1,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 96.162,
+          "advancePct": 96.044,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.273,
-            0.554,
-            0.164,
+            0.272,
+            0.553,
+            0.166,
             0.009
           ]
         },
@@ -1720,14 +1729,14 @@
           "gd": -1,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 61.628,
+          "advancePct": 62.494,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
             0.02,
-            0.188,
-            0.606,
-            0.187
+            0.189,
+            0.601,
+            0.189
           ]
         },
         {
@@ -1743,14 +1752,14 @@
           "gd": -6,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 11.116,
+          "advancePct": 11.208,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.003,
             0.037,
-            0.157,
-            0.803
+            0.161,
+            0.8
           ]
         }
       ]
@@ -1771,12 +1780,12 @@
           "gd": 4,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 94.826,
+          "advancePct": 94.988,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
             0.317,
-            0.269,
+            0.268,
             0.382,
             0.032
           ]
@@ -1794,14 +1803,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 89.352,
+          "advancePct": 89.392,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.388,
+            0.387,
             0.346,
-            0.197,
-            0.069
+            0.199,
+            0.068
           ]
         },
         {
@@ -1817,14 +1826,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 83.894,
+          "advancePct": 83.816,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.277,
-            0.353,
-            0.261,
-            0.109
+            0.279,
+            0.355,
+            0.256,
+            0.11
           ]
         },
         {
@@ -1840,13 +1849,13 @@
           "gd": -4,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 14.56,
+          "advancePct": 14.638,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
-            0.018,
-            0.032,
-            0.16,
+            0.017,
+            0.031,
+            0.162,
             0.79
           ]
         }
@@ -1868,14 +1877,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 62.32,
+          "advancePct": 62.388,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.212,
-            0.239,
-            0.364,
-            0.185
+            0.216,
+            0.235,
+            0.361,
+            0.188
           ]
         },
         {
@@ -1891,14 +1900,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 28.136,
+          "advancePct": 28.146,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
-            0.048,
+            0.046,
             0.111,
-            0.246,
-            0.594
+            0.251,
+            0.591
           ]
         },
         {
@@ -1914,14 +1923,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 89.62,
+          "advancePct": 89.506,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.475,
-            0.298,
-            0.154,
-            0.072
+            0.474,
+            0.296,
+            0.157,
+            0.073
           ]
         },
         {
@@ -1937,13 +1946,13 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 80.092,
+          "advancePct": 80.226,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.265,
-            0.352,
-            0.235,
+            0.264,
+            0.357,
+            0.231,
             0.148
           ]
         }
@@ -1965,14 +1974,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 74.986,
+          "advancePct": 74.598,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.258,
-            0.323,
-            0.271,
-            0.148
+            0.255,
+            0.324,
+            0.272,
+            0.149
           ]
         },
         {
@@ -1988,14 +1997,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 51.92,
+          "advancePct": 51.83,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
             0.1,
-            0.222,
-            0.316,
-            0.362
+            0.218,
+            0.315,
+            0.367
           ]
         },
         {
@@ -2011,13 +2020,13 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 91.212,
+          "advancePct": 91.23,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.566,
-            0.242,
-            0.143,
+            0.57,
+            0.24,
+            0.141,
             0.049
           ]
         },
@@ -2034,14 +2043,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 48.068,
+          "advancePct": 48.574,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.075,
-            0.214,
-            0.271,
-            0.44
+            0.217,
+            0.272,
+            0.435
           ]
         }
       ]
@@ -2062,13 +2071,13 @@
           "gd": 3,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 94.072,
+          "advancePct": 94.428,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
             0.171,
-            0.456,
-            0.359,
+            0.457,
+            0.358,
             0.014
           ]
         },
@@ -2085,12 +2094,12 @@
           "gd": 2,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 99.74,
+          "advancePct": 99.752,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.797,
-            0.171,
+            0.795,
+            0.173,
             0.031,
             0.002
           ]
@@ -2108,13 +2117,13 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 70.35,
+          "advancePct": 70.6,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.03,
-            0.349,
-            0.471,
+            0.031,
+            0.346,
+            0.474,
             0.15
           ]
         },
@@ -2131,14 +2140,14 @@
           "gd": -3,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 10.608,
+          "advancePct": 10.642,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.003,
-            0.024,
-            0.139,
-            0.834
+            0.025,
+            0.138,
+            0.835
           ]
         }
       ]
@@ -2159,12 +2168,12 @@
           "gd": 3,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 99.832,
+          "advancePct": 99.836,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.813,
-            0.169,
+            0.815,
+            0.166,
             0.018,
             0.001
           ]
@@ -2182,13 +2191,13 @@
           "gd": 2,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 94.384,
+          "advancePct": 94.572,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.172,
-            0.588,
-            0.23,
+            0.17,
+            0.59,
+            0.229,
             0.011
           ]
         },
@@ -2205,12 +2214,12 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 15.856,
+          "advancePct": 16.17,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.003,
-            0.03,
+            0.032,
             0.274,
             0.692
           ]
@@ -2228,13 +2237,13 @@
           "gd": -3,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 51.47,
+          "advancePct": 51.598,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
             0.012,
             0.213,
-            0.478,
+            0.48,
             0.296
           ]
         }
@@ -2256,13 +2265,13 @@
           "gd": 2,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 97.232,
+          "advancePct": 97.282,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.576,
-            0.278,
-            0.129,
+            0.579,
+            0.277,
+            0.128,
             0.017
           ]
         },
@@ -2279,14 +2288,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 84.624,
+          "advancePct": 84.456,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
-            0.31,
-            0.387,
-            0.22,
-            0.083
+            0.309,
+            0.385,
+            0.221,
+            0.085
           ]
         },
         {
@@ -2302,14 +2311,14 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 59.042,
+          "advancePct": 58.626,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.096,
-            0.238,
-            0.382,
-            0.283
+            0.094,
+            0.24,
+            0.379,
+            0.287
           ]
         },
         {
@@ -2325,14 +2334,14 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 28.47,
+          "advancePct": 28.86,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.018,
-            0.096,
-            0.269,
-            0.617
+            0.098,
+            0.272,
+            0.612
           ]
         }
       ]
@@ -2353,12 +2362,12 @@
           "gd": 2,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 99.598,
+          "advancePct": 99.59,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.884,
-            0.091,
+            0.881,
+            0.094,
             0.022,
             0.003
           ]
@@ -2376,14 +2385,14 @@
           "gd": 1,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 69.43,
+          "advancePct": 69.568,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
-            0.056,
-            0.285,
-            0.541,
-            0.118
+            0.059,
+            0.286,
+            0.54,
+            0.115
           ]
         },
         {
@@ -2399,14 +2408,14 @@
           "gd": -1,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 21.08,
+          "advancePct": 21.094,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
             0.011,
-            0.088,
+            0.085,
             0.181,
-            0.721
+            0.723
           ]
         },
         {
@@ -2422,14 +2431,14 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 76.576,
+          "advancePct": 76.58,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
             0.049,
-            0.536,
-            0.256,
-            0.158
+            0.535,
+            0.257,
+            0.159
           ]
         }
       ]
@@ -2462,16 +2471,16 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9981692964867928,
-          "ifLoss": 0.6727542787698748,
+          "ifDraw": 0.9989538837067388,
+          "ifLoss": 0.6761300340951288,
           "nWin": 8906,
           "nDraw": 11471,
           "nLoss": 29623
         },
         "away": {
-          "ifWin": 0.9999662424467475,
-          "ifDraw": 0.8968703687559934,
-          "ifLoss": 0.7562317538737929,
+          "ifWin": 1,
+          "ifDraw": 0.8986138959114288,
+          "ifLoss": 0.7551089153379744,
           "nWin": 29623,
           "nDraw": 11471,
           "nLoss": 8906
@@ -2503,60 +2512,19 @@
       "cond": {
         "home": {
           "ifWin": 0.9999727051887436,
-          "ifDraw": 0.8157635467980295,
-          "ifLoss": 0.5993377483443708,
+          "ifDraw": 0.8183908045977012,
+          "ifLoss": 0.5988647114474929,
           "nWin": 36637,
           "nDraw": 9135,
           "nLoss": 4228
         },
         "away": {
-          "ifWin": 0.5669347209082308,
-          "ifDraw": 0.0896551724137931,
-          "ifLoss": 0.034691705106859184,
+          "ifWin": 0.5804162724692526,
+          "ifDraw": 0.08954570333880679,
+          "ifLoss": 0.03542866501078145,
           "nWin": 4228,
           "nDraw": 9135,
           "nLoss": 36637
-        }
-      }
-    },
-    {
-      "date": "2026-06-19",
-      "time": "12:00 UTC-7",
-      "kickoff": "2026-06-19T12:00:00-07:00",
-      "group": "D",
-      "home": "United States",
-      "homeCode": "us",
-      "away": "Australia",
-      "awayCode": "au",
-      "round": "group",
-      "pHome": 0.4485290573927359,
-      "pDraw": 0.2584000802446187,
-      "pAway": 0.29307034801235804,
-      "advanceHome": 0.583902459762338,
-      "expHome": 1.477234993464943,
-      "expAway": 1.1427650065350572,
-      "likely": {
-        "home": 1,
-        "away": 1,
-        "p": 0.12290087569865751
-      },
-      "knockout": false,
-      "cond": {
-        "home": {
-          "ifWin": 1,
-          "ifDraw": 0.9997687148253797,
-          "ifLoss": 0.9538513742789277,
-          "nWin": 22294,
-          "nDraw": 12971,
-          "nLoss": 14735
-        },
-        "away": {
-          "ifWin": 1,
-          "ifDraw": 0.9987664790686916,
-          "ifLoss": 0.9159863640441375,
-          "nWin": 14735,
-          "nDraw": 12971,
-          "nLoss": 22294
         }
       }
     },
@@ -2584,20 +2552,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.804070796460177,
-          "ifDraw": 0.2667648654934491,
-          "ifLoss": 0.07461554375560306,
-          "nWin": 22600,
-          "nDraw": 12899,
-          "nLoss": 14501
+          "ifWin": 0.7986157327299348,
+          "ifDraw": 0.2548928238583411,
+          "ifLoss": 0.0774082961947206,
+          "nWin": 22539,
+          "nDraw": 12876,
+          "nLoss": 14585
         },
         "away": {
-          "ifWin": 0.7188469760706159,
-          "ifDraw": 0.24870144972478486,
-          "ifLoss": 0.04141592920353982,
-          "nWin": 14501,
-          "nDraw": 12899,
-          "nLoss": 22600
+          "ifWin": 0.725128556736373,
+          "ifDraw": 0.273609816713265,
+          "ifLoss": 0.0691689959625538,
+          "nWin": 14585,
+          "nDraw": 12876,
+          "nLoss": 22539
         }
       }
     },
@@ -2627,18 +2595,18 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9859484777517564,
-          "nWin": 26689,
-          "nDraw": 12209,
-          "nLoss": 11102
+          "ifLoss": 0.9847418912745546,
+          "nWin": 26797,
+          "nDraw": 12258,
+          "nLoss": 10945
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9998361864198542,
-          "ifLoss": 0.9281726554011016,
-          "nWin": 11102,
-          "nDraw": 12209,
-          "nLoss": 26689
+          "ifDraw": 0.9998368412465328,
+          "ifLoss": 0.9262604022838378,
+          "nWin": 10945,
+          "nDraw": 12258,
+          "nLoss": 26797
         }
       }
     },
@@ -2666,20 +2634,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.8783473850825338,
-          "ifDraw": 0.23879272081668887,
-          "ifLoss": 0.11995371560812548,
-          "nWin": 30957,
-          "nDraw": 11265,
-          "nLoss": 7778
+          "ifWin": 0.88731533039364,
+          "ifDraw": 0.2458004176881867,
+          "ifLoss": 0.12275827229098257,
+          "nWin": 31069,
+          "nDraw": 11013,
+          "nLoss": 7918
         },
         "away": {
-          "ifWin": 0.4958858318333762,
-          "ifDraw": 0.14762538837106082,
-          "ifLoss": 0.0012275091255612625,
-          "nWin": 7778,
-          "nDraw": 11265,
-          "nLoss": 30957
+          "ifWin": 0.49052791108865873,
+          "ifDraw": 0.15218378280214293,
+          "ifLoss": 0.0014162026457240336,
+          "nWin": 7918,
+          "nDraw": 11013,
+          "nLoss": 31069
         }
       }
     },
@@ -2707,20 +2675,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9999648839414265,
-          "ifDraw": 0.8199529727914008,
-          "ifLoss": 0.6693707748309933,
-          "nWin": 28477,
-          "nDraw": 11908,
-          "nLoss": 9615
+          "ifWin": 1,
+          "ifDraw": 0.8319016338217955,
+          "ifLoss": 0.6609613610741006,
+          "nWin": 28369,
+          "nDraw": 11874,
+          "nLoss": 9757
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9091547564701338,
-          "nWin": 9615,
-          "nDraw": 11908,
-          "nLoss": 28477
+          "ifLoss": 0.9116641404349819,
+          "nWin": 9757,
+          "nDraw": 11874,
+          "nLoss": 28369
         }
       }
     },
@@ -2748,20 +2716,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.48298233356622416,
-          "ifDraw": 0.1517115320704553,
-          "ifLoss": 0.02200751476113795,
-          "nWin": 10019,
-          "nDraw": 12036,
-          "nLoss": 27945
+          "ifWin": 0.4900279218189071,
+          "ifDraw": 0.1482962592685162,
+          "ifLoss": 0.022346168972791305,
+          "nWin": 10028,
+          "nDraw": 12003,
+          "nLoss": 27969
         },
         "away": {
-          "ifWin": 0.9998568616926105,
-          "ifDraw": 0.75008308408109,
-          "ifLoss": 0.4968559736500649,
-          "nWin": 27945,
-          "nDraw": 12036,
-          "nLoss": 10019
+          "ifWin": 0.999928492259287,
+          "ifDraw": 0.7506456719153545,
+          "ifLoss": 0.4917231751096929,
+          "nWin": 27969,
+          "nDraw": 12003,
+          "nLoss": 10028
         }
       }
     },
@@ -2789,20 +2757,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9968796189850551,
-          "ifDraw": 0.8911654721096915,
-          "ifLoss": 0.709790755777639,
-          "nWin": 24356,
-          "nDraw": 12836,
-          "nLoss": 12808
+          "ifWin": 0.9974162326210885,
+          "ifDraw": 0.8964478274659055,
+          "ifLoss": 0.7018069973087274,
+          "nWin": 24383,
+          "nDraw": 12612,
+          "nLoss": 13005
         },
         "away": {
-          "ifWin": 0.9928169893816364,
-          "ifDraw": 0.6624337799937675,
-          "ifLoss": 0.4081540482837904,
-          "nWin": 12808,
-          "nDraw": 12836,
-          "nLoss": 24356
+          "ifWin": 0.9929257977700884,
+          "ifDraw": 0.670313986679353,
+          "ifLoss": 0.4030266989295821,
+          "nWin": 13005,
+          "nDraw": 12612,
+          "nLoss": 24383
         }
       }
     },
@@ -2830,20 +2798,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9728104247588022,
-          "ifDraw": 0.299408074918279,
-          "ifLoss": 0.09495114006514659,
-          "nWin": 7981,
-          "nDraw": 11319,
-          "nLoss": 30700
+          "ifWin": 0.9716887004240459,
+          "ifDraw": 0.29459916362665717,
+          "ifLoss": 0.09663988550239079,
+          "nWin": 8018,
+          "nDraw": 11239,
+          "nLoss": 30743
         },
         "away": {
-          "ifWin": 0.994657980456026,
-          "ifDraw": 0.6025267249757046,
-          "ifLoss": 0.3370504949254479,
-          "nWin": 30700,
-          "nDraw": 11319,
-          "nLoss": 7981
+          "ifWin": 0.9946003968383047,
+          "ifDraw": 0.6103745884865202,
+          "ifLoss": 0.33374906460463954,
+          "nWin": 30743,
+          "nDraw": 11239,
+          "nLoss": 8018
         }
       }
     },
@@ -2871,20 +2839,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9980175587652224,
-          "ifDraw": 0.7824618847846107,
-          "ifLoss": 0.5529794590197274,
-          "nWin": 35310,
-          "nDraw": 9773,
-          "nLoss": 4917
+          "ifWin": 0.9980025881955775,
+          "ifDraw": 0.7807570977917981,
+          "ifLoss": 0.5491504854368932,
+          "nWin": 35546,
+          "nDraw": 9510,
+          "nLoss": 4944
         },
         "away": {
-          "ifWin": 0.9713239780353874,
-          "ifDraw": 0.6681673999795354,
-          "ifLoss": 0.4150099122061739,
-          "nWin": 4917,
-          "nDraw": 9773,
-          "nLoss": 35310
+          "ifWin": 0.970873786407767,
+          "ifDraw": 0.6801261829652997,
+          "ifLoss": 0.41205761548416137,
+          "nWin": 4944,
+          "nDraw": 9510,
+          "nLoss": 35546
         }
       }
     },
@@ -2912,20 +2880,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9954981405363085,
-          "ifDraw": 0.4625546806649169,
-          "ifLoss": 0.21349166245578574,
-          "nWin": 30654,
-          "nDraw": 11430,
-          "nLoss": 7916
+          "ifWin": 0.9948994605198627,
+          "ifDraw": 0.45463388751326494,
+          "ifLoss": 0.21327248057234488,
+          "nWin": 30585,
+          "nDraw": 11308,
+          "nLoss": 8107
         },
         "away": {
-          "ifWin": 0.9762506316321374,
-          "ifDraw": 0.5727034120734908,
-          "ifLoss": 0.31839237946108173,
-          "nWin": 7916,
-          "nDraw": 11430,
-          "nLoss": 30654
+          "ifWin": 0.9759467127174047,
+          "ifDraw": 0.5738415281216838,
+          "ifLoss": 0.32323034167075365,
+          "nWin": 8107,
+          "nDraw": 11308,
+          "nLoss": 30585
         }
       }
     },
@@ -2955,18 +2923,18 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.971245299712453,
-          "nWin": 36373,
-          "nDraw": 9106,
-          "nLoss": 4521
+          "ifLoss": 0.9726027397260274,
+          "nWin": 36223,
+          "nDraw": 9251,
+          "nLoss": 4526
         },
         "away": {
-          "ifWin": 0.40809555408095555,
-          "ifDraw": 0.18273665714913245,
-          "ifLoss": 0.049349792428449675,
-          "nWin": 4521,
-          "nDraw": 9106,
-          "nLoss": 36373
+          "ifWin": 0.4041095890410959,
+          "ifDraw": 0.1793319641119879,
+          "ifLoss": 0.05060320790657869,
+          "nWin": 4526,
+          "nDraw": 9251,
+          "nLoss": 36223
         }
       }
     },
@@ -2995,19 +2963,19 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9999218627910611,
-          "ifLoss": 0.8727725535660612,
-          "nWin": 13913,
-          "nDraw": 12798,
-          "nLoss": 23289
+          "ifDraw": 0.9998431003373343,
+          "ifLoss": 0.8810510574663534,
+          "nWin": 13848,
+          "nDraw": 12747,
+          "nLoss": 23405
         },
         "away": {
-          "ifWin": 0.9215938855253554,
-          "ifDraw": 0.5991561181434599,
-          "ifLoss": 0.4344138575433048,
-          "nWin": 23289,
-          "nDraw": 12798,
-          "nLoss": 13913
+          "ifWin": 0.9227942747276223,
+          "ifDraw": 0.600219659527732,
+          "ifLoss": 0.4369584055459272,
+          "nWin": 23405,
+          "nDraw": 12747,
+          "nLoss": 13848
         }
       }
     },
@@ -3037,18 +3005,18 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9894459102902374,
-          "nWin": 30763,
-          "nDraw": 11278,
-          "nLoss": 7959
+          "ifLoss": 0.989666036546944,
+          "nWin": 30958,
+          "nDraw": 11107,
+          "nLoss": 7935
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9996453271856712,
-          "ifLoss": 0.9088515424373436,
-          "nWin": 7959,
-          "nDraw": 11278,
-          "nLoss": 30763
+          "ifDraw": 0.9995498334383722,
+          "ifLoss": 0.9124943471800504,
+          "nWin": 7935,
+          "nDraw": 11107,
+          "nLoss": 30958
         }
       }
     },
@@ -3076,20 +3044,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.5999267935578331,
-          "ifDraw": 0.07804917502426399,
-          "ifLoss": 0.015238879736408566,
-          "nWin": 10928,
-          "nDraw": 12364,
-          "nLoss": 26708
+          "ifWin": 0.6111010009099181,
+          "ifDraw": 0.07850937728342941,
+          "ifLoss": 0.015060128123478065,
+          "nWin": 10990,
+          "nDraw": 12317,
+          "nLoss": 26693
         },
         "away": {
-          "ifWin": 0.7830612550546653,
-          "ifDraw": 0.3155936590100291,
-          "ifLoss": 0.08409590043923865,
-          "nWin": 26708,
-          "nDraw": 12364,
-          "nLoss": 10928
+          "ifWin": 0.7875847600494512,
+          "ifDraw": 0.31501177234716243,
+          "ifLoss": 0.08152866242038216,
+          "nWin": 26693,
+          "nDraw": 12317,
+          "nLoss": 10990
         }
       }
     },
@@ -3117,20 +3085,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9998420919656392,
-          "ifDraw": 0.691599014868193,
-          "ifLoss": 0.41651973416519733,
-          "nWin": 31664,
-          "nDraw": 10963,
-          "nLoss": 7373
+          "ifWin": 0.9999365220427207,
+          "ifDraw": 0.688051688051688,
+          "ifLoss": 0.42137526652452023,
+          "nWin": 31507,
+          "nDraw": 10989,
+          "nLoss": 7504
         },
         "away": {
-          "ifWin": 0.7367421673674217,
-          "ifDraw": 0.3380461552494755,
-          "ifLoss": 0.16097145022738757,
-          "nWin": 7373,
-          "nDraw": 10963,
-          "nLoss": 31664
+          "ifWin": 0.7376066098081023,
+          "ifDraw": 0.3426153426153426,
+          "ifLoss": 0.16282096042149363,
+          "nWin": 7504,
+          "nDraw": 10989,
+          "nLoss": 31507
         }
       }
     },
@@ -3159,19 +3127,19 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9999149008595013,
-          "ifLoss": 0.8577745783628137,
-          "nWin": 28525,
-          "nDraw": 11751,
-          "nLoss": 9724
+          "ifDraw": 1,
+          "ifLoss": 0.8599835153513291,
+          "nWin": 28585,
+          "nDraw": 11709,
+          "nLoss": 9706
         },
         "away": {
-          "ifWin": 0.9998971616618676,
-          "ifDraw": 0.6339885967151732,
-          "ifLoss": 0.4328834355828221,
-          "nWin": 9724,
-          "nDraw": 11751,
-          "nLoss": 28525
+          "ifWin": 0.9995878837832268,
+          "ifDraw": 0.634298402937911,
+          "ifLoss": 0.4262375371698443,
+          "nWin": 9706,
+          "nDraw": 11709,
+          "nLoss": 28585
         }
       }
     },
@@ -3200,19 +3168,19 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.99967277486911,
-          "ifLoss": 0.9550918575640734,
-          "nWin": 36423,
-          "nDraw": 9168,
-          "nLoss": 4409
+          "ifDraw": 0.9995637949836423,
+          "ifLoss": 0.9555997349237906,
+          "nWin": 36303,
+          "nDraw": 9170,
+          "nLoss": 4527
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9858202443280978,
-          "ifLoss": 0.5839167558959998,
-          "nWin": 4409,
-          "nDraw": 9168,
-          "nLoss": 36423
+          "ifDraw": 0.9858233369683751,
+          "ifLoss": 0.5844420571302648,
+          "nWin": 4527,
+          "nDraw": 9170,
+          "nLoss": 36303
         }
       }
     },
@@ -3240,20 +3208,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.7172251061821614,
-          "ifDraw": 0.1416134648868253,
-          "ifLoss": 0.04509215915740199,
-          "nWin": 10595,
-          "nDraw": 12061,
-          "nLoss": 27344
+          "ifWin": 0.7221110793560065,
+          "ifDraw": 0.13936852491366553,
+          "ifLoss": 0.04652353608134304,
+          "nWin": 10497,
+          "nDraw": 12162,
+          "nLoss": 27341
         },
         "away": {
-          "ifWin": 0.958857519016969,
-          "ifDraw": 0.6443910123538679,
-          "ifLoss": 0.40556866446437,
-          "nWin": 27344,
-          "nDraw": 12061,
-          "nLoss": 10595
+          "ifWin": 0.9588895797520208,
+          "ifDraw": 0.64027298141753,
+          "ifLoss": 0.4083071353720111,
+          "nWin": 27341,
+          "nDraw": 12162,
+          "nLoss": 10497
         }
       }
     },
@@ -3282,8 +3250,8 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.052351070231238715,
-          "ifLoss": 0.00006822911336267186,
+          "ifDraw": 0.052866844322186884,
+          "ifLoss": 0.00010234367004400778,
           "nWin": 9054,
           "nDraw": 11633,
           "nLoss": 29313
@@ -3322,8 +3290,8 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.999823305945755,
-          "ifDraw": 0.007228132867700804,
+          "ifWin": 0.9997349589186324,
+          "ifDraw": 0.006091123203118655,
           "ifLoss": 0,
           "nWin": 11319,
           "nDraw": 12313,
@@ -3332,7 +3300,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.5357363724710663,
+          "ifLoss": 0.5508437141090202,
           "nWin": 26368,
           "nDraw": 12313,
           "nLoss": 11319
@@ -3404,15 +3372,15 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9940847847518895,
-          "ifDraw": 0.0058373133196876655,
+          "ifWin": 0.9952678278015117,
+          "ifDraw": 0.00538245773633538,
           "ifLoss": 0,
           "nWin": 15215,
           "nDraw": 13191,
           "nLoss": 21594
         },
         "away": {
-          "ifWin": 0.9854589237751227,
+          "ifWin": 0.9863851069741595,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 21594,
@@ -3446,16 +3414,16 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9985257132945972,
-          "ifLoss": 0.6714101782205055,
+          "ifDraw": 0.9987858815367271,
+          "ifLoss": 0.6750016941112692,
           "nWin": 8955,
           "nDraw": 11531,
           "nLoss": 29514
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.896106148642789,
-          "ifLoss": 0.7565605806811837,
+          "ifDraw": 0.8987078310640881,
+          "ifLoss": 0.7556672250139587,
           "nWin": 29514,
           "nDraw": 11531,
           "nLoss": 8955
@@ -3487,16 +3455,16 @@
       "cond": {
         "home": {
           "ifWin": 0.9999453073725662,
-          "ifDraw": 0.8198384984722829,
+          "ifDraw": 0.8210388476647752,
           "ifLoss": 0.6012183692596064,
           "nWin": 36568,
           "nDraw": 9164,
           "nLoss": 4268
         },
         "away": {
-          "ifWin": 0.5693533270852859,
-          "ifDraw": 0.0907900480139677,
-          "ifLoss": 0.03349923430321593,
+          "ifWin": 0.5756794751640113,
+          "ifDraw": 0.09068092536010476,
+          "ifLoss": 0.03505797418507985,
           "nWin": 4268,
           "nDraw": 9164,
           "nLoss": 36568
@@ -3513,34 +3481,34 @@
       "away": "United States",
       "awayCode": "us",
       "round": "group",
-      "pHome": 0.26539896710141814,
-      "pDraw": 0.254429933614076,
-      "pAway": 0.4801703580084116,
-      "advanceHome": 0.3841794161321409,
-      "expHome": 1.0779454473161092,
-      "expAway": 1.542054552683891,
+      "pHome": 0.24888943967975352,
+      "pDraw": 0.25137341239746214,
+      "pAway": 0.49973621367300464,
+      "advanceHome": 0.3648100862718766,
+      "expHome": 1.0380443600050908,
+      "expAway": 1.5819556399949093,
       "likely": {
         "home": 1,
         "away": 1,
-        "p": 0.12101660857419251
+        "p": 0.11955250261871393
       },
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.7870342771982116,
-          "ifDraw": 0.46070057205548154,
-          "ifLoss": 0.26256349972710863,
-          "nWin": 13420,
-          "nDraw": 12761,
-          "nLoss": 23819
+          "ifWin": 0.7973454192295241,
+          "ifDraw": 0.45643775132066544,
+          "ifLoss": 0.27122310804855576,
+          "nWin": 12356,
+          "nDraw": 12683,
+          "nLoss": 24961
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9491058122205663,
-          "nWin": 23819,
-          "nDraw": 12761,
-          "nLoss": 13420
+          "ifLoss": 1,
+          "nWin": 24961,
+          "nDraw": 12683,
+          "nLoss": 12356
         }
       }
     },
@@ -3554,34 +3522,34 @@
       "away": "Australia",
       "awayCode": "au",
       "round": "group",
-      "pHome": 0.26293399592895855,
-      "pDraw": 0.2540073904740502,
-      "pAway": 0.48305784660941986,
-      "advanceHome": 0.3813032847575298,
-      "expHome": 1.0720508413303356,
-      "expAway": 1.5479491586696645,
+      "pHome": 0.2800543038378226,
+      "pDraw": 0.2567060680593318,
+      "pAway": 0.4632390201263058,
+      "advanceHome": 0.40116716916993517,
+      "expHome": 1.1125711613830664,
+      "expAway": 1.5074288386169337,
       "likely": {
         "home": 1,
         "away": 1,
-        "p": 0.12081490921171477
+        "p": 0.122099272258532
       },
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.6031134285498375,
-          "ifDraw": 0.2918550241890713,
-          "ifLoss": 0.12033280900736816,
-          "nWin": 13233,
-          "nDraw": 12609,
-          "nLoss": 24158
+          "ifWin": 0.6592090069284064,
+          "ifDraw": 0.290211970074813,
+          "ifLoss": 0.12010981468771448,
+          "nWin": 13856,
+          "nDraw": 12832,
+          "nLoss": 23312
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.8572508123630318,
-          "nWin": 24158,
-          "nDraw": 12609,
-          "nLoss": 13233
+          "ifLoss": 0.6373412240184757,
+          "nWin": 23312,
+          "nDraw": 12832,
+          "nLoss": 13856
         }
       }
     },
@@ -3609,20 +3577,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.37090594487702383,
-          "ifDraw": 0.14619725880139747,
-          "ifLoss": 0.030085214336824304,
-          "nWin": 8091,
-          "nDraw": 11163,
-          "nLoss": 30746
+          "ifWin": 0.373058282589785,
+          "ifDraw": 0.15154224407688868,
+          "ifLoss": 0.029478679147165888,
+          "nWin": 8047,
+          "nDraw": 11185,
+          "nLoss": 30768
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9992833467705814,
-          "ifLoss": 0.7638116425658139,
-          "nWin": 30746,
-          "nDraw": 11163,
-          "nLoss": 8091
+          "ifDraw": 0.9994635672776039,
+          "ifLoss": 0.7549397290915869,
+          "nWin": 30768,
+          "nDraw": 11185,
+          "nLoss": 8047
         }
       }
     },
@@ -3650,20 +3618,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9283533848087628,
-          "ifDraw": 0.6337993822142741,
-          "ifLoss": 0.47729668674698794,
-          "nWin": 11138,
-          "nDraw": 12302,
-          "nLoss": 26560
+          "ifWin": 0.9275066548358474,
+          "ifDraw": 0.643655489809336,
+          "ifLoss": 0.48799036217152325,
+          "nWin": 11270,
+          "nDraw": 12168,
+          "nLoss": 26562
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9859938947746454,
-          "nWin": 26560,
-          "nDraw": 12302,
-          "nLoss": 11138
+          "ifLoss": 0.9851818988464951,
+          "nWin": 26562,
+          "nDraw": 12168,
+          "nLoss": 11270
         }
       }
     },
@@ -3691,20 +3659,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 1,
-          "ifDraw": 0.7701020162262029,
-          "ifLoss": 0.597846296870158,
-          "nWin": 24643,
-          "nDraw": 12449,
-          "nLoss": 12908
+          "ifWin": 0.9999592153024185,
+          "ifDraw": 0.7728853754940711,
+          "ifLoss": 0.5933286571584444,
+          "nWin": 24519,
+          "nDraw": 12650,
+          "nLoss": 12831
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9999196722628324,
-          "ifLoss": 0.8950614779044759,
-          "nWin": 12908,
-          "nDraw": 12449,
-          "nLoss": 24643
+          "ifDraw": 1,
+          "ifLoss": 0.8977935478608426,
+          "nWin": 12831,
+          "nDraw": 12650,
+          "nLoss": 24519
         }
       }
     },
@@ -3732,20 +3700,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.5257513570766583,
-          "ifDraw": 0.20133381398702235,
-          "ifLoss": 0.034289177378712,
-          "nWin": 7553,
-          "nDraw": 11096,
-          "nLoss": 31351
+          "ifWin": 0.515196342119419,
+          "ifDraw": 0.20280908928251923,
+          "ifLoss": 0.03890269546931753,
+          "nWin": 7436,
+          "nDraw": 11178,
+          "nLoss": 31386
         },
         "away": {
-          "ifWin": 0.9999681030908105,
-          "ifDraw": 0.8077685652487383,
-          "ifLoss": 0.5776512643982523,
-          "nWin": 31351,
-          "nDraw": 11096,
-          "nLoss": 7553
+          "ifWin": 0.9999681386605493,
+          "ifDraw": 0.8030059044551798,
+          "ifLoss": 0.5829747175901022,
+          "nWin": 31386,
+          "nDraw": 11178,
+          "nLoss": 7436
         }
       }
     },
@@ -3773,20 +3741,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9946442234123948,
-          "ifDraw": 0.8293198460028686,
-          "ifLoss": 0.6153223357959721,
-          "nWin": 16991,
-          "nDraw": 13247,
-          "nLoss": 19762
+          "ifWin": 0.993350203024775,
+          "ifDraw": 0.8280884461550072,
+          "ifLoss": 0.6205709657825471,
+          "nWin": 16993,
+          "nDraw": 13251,
+          "nLoss": 19756
         },
         "away": {
-          "ifWin": 0.993016901123368,
-          "ifDraw": 0.5279685966633955,
-          "ifLoss": 0.2673179918780531,
-          "nWin": 19762,
-          "nDraw": 13247,
-          "nLoss": 16991
+          "ifWin": 0.9934703381251265,
+          "ifDraw": 0.5269790959172893,
+          "ifLoss": 0.2697581357029365,
+          "nWin": 19756,
+          "nDraw": 13251,
+          "nLoss": 16993
         }
       }
     },
@@ -3814,20 +3782,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9467634603750756,
-          "ifDraw": 0.3910813357060609,
-          "ifLoss": 0.15884242560865644,
-          "nWin": 4959,
-          "nDraw": 9553,
-          "nLoss": 35488
+          "ifWin": 0.9477309562398704,
+          "ifDraw": 0.38571731748726656,
+          "ifLoss": 0.16161616161616163,
+          "nWin": 4936,
+          "nDraw": 9424,
+          "nLoss": 35640
         },
         "away": {
-          "ifWin": 0.997914788097385,
-          "ifDraw": 0.7325447503402073,
-          "ifLoss": 0.48356523492639647,
-          "nWin": 35488,
-          "nDraw": 9553,
-          "nLoss": 4959
+          "ifWin": 0.9967452300785634,
+          "ifDraw": 0.7265492359932089,
+          "ifLoss": 0.48257698541329014,
+          "nWin": 35640,
+          "nDraw": 9424,
+          "nLoss": 4936
         }
       }
     },
@@ -3855,20 +3823,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.984665801026402,
-          "ifDraw": 0.37822765469824293,
-          "ifLoss": 0.15228818054684862,
-          "nWin": 16173,
-          "nDraw": 13090,
-          "nLoss": 20737
+          "ifWin": 0.9848205506391348,
+          "ifDraw": 0.3833765837276752,
+          "ifLoss": 0.15703481043343354,
+          "nWin": 16272,
+          "nDraw": 13102,
+          "nLoss": 20626
         },
         "away": {
-          "ifWin": 0.9893427207407051,
-          "ifDraw": 0.29770817417876244,
-          "ifLoss": 0.09565324924256477,
-          "nWin": 20737,
-          "nDraw": 13090,
-          "nLoss": 16173
+          "ifWin": 0.9892853679821585,
+          "ifDraw": 0.3027018775759426,
+          "ifLoss": 0.09488692232055064,
+          "nWin": 20626,
+          "nDraw": 13102,
+          "nLoss": 16272
         }
       }
     },
@@ -3896,20 +3864,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9949416342412452,
-          "ifDraw": 0.8405,
-          "ifLoss": 0.6197330447330447,
-          "nWin": 10280,
-          "nDraw": 12000,
-          "nLoss": 27720
+          "ifWin": 0.9953092934623278,
+          "ifDraw": 0.8366262659804085,
+          "ifLoss": 0.6145521445835287,
+          "nWin": 10233,
+          "nDraw": 12046,
+          "nLoss": 27721
         },
         "away": {
-          "ifWin": 0.9983044733044732,
-          "ifDraw": 0.88625,
-          "ifLoss": 0.7099221789883269,
-          "nWin": 27720,
-          "nDraw": 12000,
-          "nLoss": 10280
+          "ifWin": 0.9981963132643122,
+          "ifDraw": 0.8858542254690354,
+          "ifLoss": 0.7107397635102121,
+          "nWin": 27721,
+          "nDraw": 12046,
+          "nLoss": 10233
         }
       }
     },
@@ -3938,19 +3906,19 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9997184948859904,
-          "ifLoss": 0.9091773510827557,
-          "nWin": 6741,
-          "nDraw": 10657,
-          "nLoss": 32602
+          "ifDraw": 0.9998124179328456,
+          "ifLoss": 0.9141694413614503,
+          "nWin": 6902,
+          "nDraw": 10662,
+          "nLoss": 32436
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 1,
-          "ifLoss": 0.9807150274439994,
-          "nWin": 32602,
-          "nDraw": 10657,
-          "nLoss": 6741
+          "ifDraw": 0.9998124179328456,
+          "ifLoss": 0.982323964068386,
+          "nWin": 32436,
+          "nDraw": 10662,
+          "nLoss": 6902
         }
       }
     },
@@ -3978,20 +3946,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9253646078365482,
-          "ifDraw": 0.4719928983577452,
-          "ifLoss": 0.25854962682410604,
-          "nWin": 29758,
-          "nDraw": 11265,
-          "nLoss": 8977
+          "ifWin": 0.9283275296663174,
+          "ifDraw": 0.4764499121265378,
+          "ifLoss": 0.26755889835195223,
+          "nWin": 29579,
+          "nDraw": 11380,
+          "nLoss": 9041
         },
         "away": {
-          "ifWin": 0.4758828116297204,
-          "ifDraw": 0.08078118064802485,
-          "ifLoss": 0.004099737885610592,
-          "nWin": 8977,
-          "nDraw": 11265,
-          "nLoss": 29758
+          "ifWin": 0.4728459241234377,
+          "ifDraw": 0.08268892794376098,
+          "ifLoss": 0.003549815747658812,
+          "nWin": 9041,
+          "nDraw": 11380,
+          "nLoss": 29579
         }
       }
     },
@@ -4019,20 +3987,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.8365815200252287,
-          "ifDraw": 0.5341065160994964,
-          "ifLoss": 0.2600408764675127,
-          "nWin": 15855,
-          "nDraw": 13106,
-          "nLoss": 21039
+          "ifWin": 0.8328069732187974,
+          "ifDraw": 0.5315041422816752,
+          "ifLoss": 0.26752653372043217,
+          "nWin": 15832,
+          "nDraw": 13157,
+          "nLoss": 21011
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9997710972073859,
-          "ifLoss": 0.8230842005676443,
-          "nWin": 21039,
-          "nDraw": 13106,
-          "nLoss": 15855
+          "ifDraw": 0.9999239948316485,
+          "ifLoss": 0.8286382011116725,
+          "nWin": 21011,
+          "nDraw": 13157,
+          "nLoss": 15832
         }
       }
     },
@@ -4060,20 +4028,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.5685714285714286,
-          "ifDraw": 0.2260127931769723,
-          "ifLoss": 0.10002953892424608,
-          "nWin": 3850,
-          "nDraw": 8911,
-          "nLoss": 37239
+          "ifWin": 0.5687228052213975,
+          "ifDraw": 0.22763128239801667,
+          "ifLoss": 0.10325371450065826,
+          "nWin": 3907,
+          "nDraw": 8874,
+          "nLoss": 37219
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9781818181818182,
-          "nWin": 37239,
-          "nDraw": 8911,
-          "nLoss": 3850
+          "ifLoss": 0.9790120296902994,
+          "nWin": 37219,
+          "nDraw": 8874,
+          "nLoss": 3907
         }
       }
     },
@@ -4102,19 +4070,19 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9999234713400168,
-          "ifLoss": 0.9321792859945076,
-          "nWin": 16541,
-          "nDraw": 13067,
-          "nLoss": 20392
+          "ifDraw": 1,
+          "ifLoss": 0.9332481949015178,
+          "nWin": 16590,
+          "nDraw": 13051,
+          "nLoss": 20359
         },
         "away": {
-          "ifWin": 0.9999509611612397,
-          "ifDraw": 0.8324022346368715,
-          "ifLoss": 0.6676742639501844,
-          "nWin": 20392,
-          "nDraw": 13067,
-          "nLoss": 16541
+          "ifWin": 0.9999508816739525,
+          "ifDraw": 0.8334227262278753,
+          "ifLoss": 0.6626280892103676,
+          "nWin": 20359,
+          "nDraw": 13051,
+          "nLoss": 16590
         }
       }
     },
@@ -4142,20 +4110,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9993688094775685,
-          "ifDraw": 0.44276407631456494,
-          "ifLoss": 0.19557843731072078,
-          "nWin": 20596,
-          "nDraw": 12894,
-          "nLoss": 16510
+          "ifWin": 0.999315838342374,
+          "ifDraw": 0.43739398612181957,
+          "ifLoss": 0.19261181867568056,
+          "nWin": 20463,
+          "nDraw": 12970,
+          "nLoss": 16567
         },
         "away": {
-          "ifWin": 0.6754088431253785,
-          "ifDraw": 0.15518845974872034,
-          "ifLoss": 0.052583025830258305,
-          "nWin": 16510,
-          "nDraw": 12894,
-          "nLoss": 20596
+          "ifWin": 0.6796040321120299,
+          "ifDraw": 0.1592906707787201,
+          "ifLoss": 0.05399990226262034,
+          "nWin": 16567,
+          "nDraw": 12970,
+          "nLoss": 20463
         }
       }
     },
@@ -4183,20 +4151,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.6347072879330944,
-          "ifDraw": 0.22091812588736393,
-          "ifLoss": 0.12083447875622347,
-          "nWin": 6696,
-          "nDraw": 10565,
-          "nLoss": 32739
+          "ifWin": 0.6473636086558976,
+          "ifDraw": 0.22090598938589842,
+          "ifLoss": 0.12065924709602871,
+          "nWin": 6562,
+          "nDraw": 10552,
+          "nLoss": 32886
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9699820788530465,
-          "nWin": 32739,
-          "nDraw": 10565,
-          "nLoss": 6696
+          "ifLoss": 0.9687595245352026,
+          "nWin": 32886,
+          "nDraw": 10552,
+          "nLoss": 6562
         }
       }
     },
@@ -4224,25 +4192,33 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9200260885769302,
-          "ifDraw": 0.5536628502280555,
-          "ifLoss": 0.3848987108655617,
-          "nWin": 32198,
-          "nDraw": 10743,
-          "nLoss": 7059
+          "ifWin": 0.920739679970114,
+          "ifDraw": 0.5509565857247977,
+          "ifLoss": 0.38880959177847557,
+          "nWin": 32122,
+          "nDraw": 10872,
+          "nLoss": 7006
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9977659871544261,
-          "ifLoss": 0.5260264612708864,
-          "nWin": 7059,
-          "nDraw": 10743,
-          "nLoss": 32198
+          "ifDraw": 0.9971486387049301,
+          "ifLoss": 0.5272710292011705,
+          "nWin": 7006,
+          "nDraw": 10872,
+          "nLoss": 32122
         }
       }
     }
   ],
   "movers": [
+    {
+      "name": "United States",
+      "code": "us",
+      "from": 1673.13,
+      "to": 1711.2866601808294,
+      "delta": 38.15666018082925,
+      "played": 2
+    },
     {
       "name": "Mexico",
       "code": "mx",
@@ -4281,14 +4257,6 @@
       "from": 1594.78,
       "to": 1566.829239900008,
       "delta": -27.950760099992067,
-      "played": 1
-    },
-    {
-      "name": "Australia",
-      "code": "au",
-      "from": 1580.67,
-      "to": 1606.5508537209907,
-      "delta": 25.88085372099067,
       "played": 1
     },
     {
@@ -4369,14 +4337,6 @@
       "from": 1366.13,
       "to": 1384.9470824296895,
       "delta": 18.817082429689435,
-      "played": 1
-    },
-    {
-      "name": "United States",
-      "code": "us",
-      "from": 1673.13,
-      "to": 1690.2684457395185,
-      "delta": 17.138445739518374,
       "played": 1
     },
     {
@@ -4585,6 +4545,14 @@
       "from": 1649.4,
       "to": 1654.4581277225168,
       "delta": 5.058127722516701,
+      "played": 2
+    },
+    {
+      "name": "Australia",
+      "code": "au",
+      "from": 1580.67,
+      "to": 1585.5326392796799,
+      "delta": 4.862639279679797,
       "played": 2
     },
     {
@@ -5132,6 +5100,24 @@
       "awayGoals": 0,
       "decidedBy": "REG",
       "winner": "Canada"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-19T12:00:00-07:00",
+      "round": "group",
+      "rawRound": "Matchday 9",
+      "group": "D",
+      "home": "United States",
+      "away": "Australia",
+      "rawHome": "USA",
+      "rawAway": "Australia",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "United States"
     }
   ]
 }
