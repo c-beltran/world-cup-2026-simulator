@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-20T19:19:30.199Z",
+  "fetchedAt": "2026-06-20T22:41:20.929Z",
   "asOfDate": "2026-06-20",
   "matchCount": 104,
-  "playedCount": 33,
-  "groupPlayedCount": 33,
+  "playedCount": 34,
+  "groupPlayedCount": 34,
   "groupTotal": 72,
   "matches": [
     {
@@ -598,7 +598,11 @@
       "rawHome": "Germany",
       "rawAway": "Ivory Coast",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Germany"
     },
     {
       "date": "2026-06-20",
