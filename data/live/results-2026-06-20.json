@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-20T02:55:56.043Z",
+  "fetchedAt": "2026-06-20T08:48:57.974Z",
   "asOfDate": "2026-06-19",
   "matchCount": 104,
-  "playedCount": 31,
-  "groupPlayedCount": 31,
+  "playedCount": 32,
+  "groupPlayedCount": 32,
   "groupTotal": 72,
   "matches": [
     {
@@ -580,7 +580,11 @@
       "rawHome": "Turkey",
       "rawAway": "Paraguay",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 0,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Paraguay"
     },
     {
       "date": "2026-06-20",
