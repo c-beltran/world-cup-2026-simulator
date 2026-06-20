@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-20T13:52:53.170Z",
-  "asOfDate": "2026-06-19",
+  "fetchedAt": "2026-06-20T19:19:30.199Z",
+  "asOfDate": "2026-06-20",
   "matchCount": 104,
-  "playedCount": 32,
-  "groupPlayedCount": 32,
+  "playedCount": 33,
+  "groupPlayedCount": 33,
   "groupTotal": 72,
   "matches": [
     {
@@ -626,7 +626,11 @@
       "rawHome": "Netherlands",
       "rawAway": "Sweden",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 5,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Netherlands"
     },
     {
       "date": "2026-06-20",
