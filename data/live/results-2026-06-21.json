@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-21T03:41:59.736Z",
+  "fetchedAt": "2026-06-21T09:43:35.222Z",
   "asOfDate": "2026-06-20",
   "matchCount": 104,
-  "playedCount": 35,
-  "groupPlayedCount": 35,
+  "playedCount": 36,
+  "groupPlayedCount": 36,
   "groupTotal": 72,
   "matches": [
     {
@@ -652,7 +652,11 @@
       "rawHome": "Tunisia",
       "rawAway": "Japan",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 0,
+      "awayGoals": 4,
+      "decidedBy": "REG",
+      "winner": "Japan"
     },
     {
       "date": "2026-06-21",
