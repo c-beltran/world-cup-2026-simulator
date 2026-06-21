@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-21T14:00:31.532Z",
-  "asOfDate": "2026-06-20",
+  "fetchedAt": "2026-06-21T19:24:53.932Z",
+  "asOfDate": "2026-06-21",
   "matchCount": 104,
-  "playedCount": 36,
-  "groupPlayedCount": 36,
+  "playedCount": 37,
+  "groupPlayedCount": 37,
   "groupTotal": 72,
   "matches": [
     {
@@ -698,7 +698,11 @@
       "rawHome": "Spain",
       "rawAway": "Saudi Arabia",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 4,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Spain"
     },
     {
       "date": "2026-06-21",
