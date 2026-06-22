@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-22T19:07:03.541Z",
-  "asOfDate": "2026-06-21",
+  "fetchedAt": "2026-06-22T19:30:47.560Z",
+  "asOfDate": "2026-06-22",
   "matchCount": 104,
-  "playedCount": 40,
-  "groupPlayedCount": 40,
+  "playedCount": 41,
+  "groupPlayedCount": 41,
   "groupTotal": 72,
   "matches": [
     {
@@ -770,7 +770,11 @@
       "rawHome": "Argentina",
       "rawAway": "Austria",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Argentina"
     },
     {
       "date": "2026-06-22",
