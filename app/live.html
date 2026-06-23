@@ -168,6 +168,11 @@
   .result .rs .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .result .sc { font-family: var(--mono); font-weight: 800; font-size: 14px; }
   .result .win { font-weight: 700; } .result .meta { font-family: var(--mono); font-size: 9px; color: var(--muted); text-align: center; }
+  .result .scorers { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: -2px; }
+  .result .scorers .gh { text-align: right; } .result .scorers .ga { text-align: left; }
+  .result .scorers .g { font-size: 10.5px; color: var(--muted); line-height: 1.5; }
+  .result .scorers .g .mn { font-family: var(--mono); font-size: 9px; opacity: .8; margin-left: 3px; }
+  .result .scorers .g .mk { font-style: italic; opacity: .7; }
 
   .method { margin-top: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); font-size: 12px; color: var(--muted); line-height: 1.65; }
   .method b { color: var(--ink); } .method .em { color: var(--sim); font-weight: 600; }
@@ -277,6 +282,7 @@ const I18N = {
     moversHead:"Rating movers", moversSub:"Biggest FIFA-points swings, earned on the pitch — {rule}",
     nextHead:"Next matches — model prediction", nextSub:"Closed-form from the same Poisson model on the updated ratings. Win / draw / loss + most-likely scoreline. No separate model, no hand-tuning.",
     resHead:"Results so far", resSub:"The real, finished matches clamped into the simulation ({n} of {tot} group games).",
+    pen:"pen", og:"o.g.",
     win:"W", draw:"D", loss:"L", likely:"likely", adv:"adv.",
     nextUp:"NEXT UP", noNext:"No upcoming fixtures with both teams decided yet — they appear once the groups resolve.",
     fxMatches:"matches", showAll:"Show all {n} remaining fixtures  ▾", showLess:"Show next matchday only  ▴", grp:"Group",
@@ -301,6 +307,7 @@ const I18N = {
     moversHead:"Cambios de valoración", moversSub:"Mayores variaciones de puntos FIFA, ganadas en el campo — {rule}",
     nextHead:"Próximos partidos — predicción del modelo", nextSub:"Forma cerrada del mismo modelo de Poisson sobre las valoraciones actualizadas. Victoria / empate / derrota + marcador más probable. Sin modelo aparte, sin ajustes manuales.",
     resHead:"Resultados hasta ahora", resSub:"Los partidos reales ya jugados, fijados en la simulación ({n} de {tot} de grupos).",
+    pen:"pen", og:"p.p.",
     win:"V", draw:"E", loss:"D", likely:"probable", adv:"avanza",
     nextUp:"PRÓXIMO", noNext:"Aún no hay próximos partidos con ambos rivales definidos — aparecerán cuando se resuelvan los grupos.",
     fxMatches:"partidos", showAll:"Ver los {n} partidos restantes  ▾", showLess:"Solo la próxima jornada  ▴", grp:"Grupo",
@@ -504,6 +511,17 @@ function render() {
   document.getElementById("resHead").textContent = t('resHead');
   document.getElementById("resSub").textContent = t('resSub', { n: m.groupPlayedCount, tot: m.groupTotal });
   const res = [...(L.results || [])].reverse(); // most recent first
+  // Real scorers (display-only; openfootball). Rendered only when the per-side counts
+  // reconcile with the scoreline — otherwise score-only, never a partial list.
+  const scorerLine = s => {
+    const mk = s.og ? ` <span class="mk">(${t('og')})</span>` : s.pen ? ` <span class="mk">(${t('pen')})</span>` : "";
+    return `<span class="g">${s.name||""}${s.minute?`<span class="mn">${s.minute}'</span>`:""}${mk}</span>`;
+  };
+  const scorersHTML = r => {
+    if (!r.scorersComplete || !Array.isArray(r.scorers) || !r.scorers.length) return "";
+    const col = side => r.scorers.filter(s => s.side===side).map(scorerLine).join("<br>");
+    return `<div class="scorers"><div class="gh">${col("home")}</div><div class="ga">${col("away")}</div></div>`;
+  };
   document.getElementById("results").innerHTML = res.map(r => {
     const hw = r.winner === r.home, aw = r.winner === r.away;
     const tag = r.decidedBy && r.decidedBy !== "REG" ? (r.decidedBy === "PENS" ? "pens" : "a.e.t.") : "";
@@ -511,6 +529,7 @@ function render() {
       <div class="rs h"><img class="flag" src="${FLAG((L.reach.find(x=>x.name===r.home)||{}).code)}" alt=""><span class="nm ${hw?"win":""}">${teamName(r.home)}</span></div>
       <div style="text-align:center"><span class="sc">${r.homeGoals}–${r.awayGoals}</span><div class="meta">${fmtDate(r.date)}${tag?" · "+tag:""}</div></div>
       <div class="rs a"><span class="nm ${aw?"win":""}">${teamName(r.away)}</span><img class="flag" src="${FLAG((L.reach.find(x=>x.name===r.away)||{}).code)}" alt=""></div>
+      ${scorersHTML(r)}
     </div>`;
   }).join("");
 

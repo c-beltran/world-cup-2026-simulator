@@ -253,7 +253,12 @@ const standings = groupsDoc.groups.map((g) => {
   const teamObjs = g.teams.map((t) => teamsByName.get(t.name));
   const gp = played.filter((m) => m.round === 'group' && m.group === g.id);
   const rows = groupTable(teamObjs, gp);
-  const flags = clinchFlags(rows);
+  // Remaining (unplayed) group fixtures, so the clinch test knows which chasers must
+  // still play each other (two of them can't both win their head-to-head).
+  const remaining = live.matches
+    .filter((m) => m.round === 'group' && m.group === g.id && !m.finished && m.home && m.away)
+    .map((m) => ({ home: m.home, away: m.away }));
+  const flags = clinchFlags(rows, remaining);
   const proj = projectGroup(g.id);
   return {
     id: g.id,

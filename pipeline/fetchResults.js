@@ -50,6 +50,32 @@ function outcome(m) {
   return { homeGoals: hg, awayGoals: ag, decidedBy, winner };
 }
 
+// Real goal events (display-only — they never reach the model, which clamps a result
+// by its scoreline alone). openfootball lists each goal in the array of the side it
+// counted FOR: goals1 → home, goals2 → away. An own goal therefore appears in the
+// BENEFITING side's array, flagged owngoal:true with the opposing player's name.
+// Shootout penalties are NOT here, so the per-side counts reconcile against the
+// regulation/ET scoreline (homeGoals/awayGoals) exactly. `scorersComplete` is false on
+// any mismatch (data lag, parsing) so the app falls back to score-only rather than
+// showing a partial, misleading list. minute is a string incl. stoppage time ("90+4").
+const baseMinute = (s) => {
+  const mm = s && /^(\d+)(?:\+(\d+))?$/.exec(s);
+  return mm ? Number(mm[1]) * 100 + (mm[2] ? Number(mm[2]) : 0) : Infinity;
+};
+function normalizeGoals(m, home, away, hg, ag) {
+  const sideGoals = (arr, side, team) => (Array.isArray(arr) ? arr : []).map((g) => ({
+    side, team, name: g.name || null,
+    minute: g.minute != null ? String(g.minute) : null,
+    pen: !!g.penalty, og: !!g.owngoal,
+  }));
+  const scorers = [...sideGoals(m.goals1, 'home', home), ...sideGoals(m.goals2, 'away', away)]
+    .sort((a, b) => baseMinute(a.minute) - baseMinute(b.minute));
+  const homeCount = scorers.filter((s) => s.side === 'home').length;
+  const awayCount = scorers.filter((s) => s.side === 'away').length;
+  const scorersComplete = scorers.length > 0 && homeCount === hg && awayCount === ag;
+  return { scorers, scorersComplete };
+}
+
 // openfootball kickoff time is venue-local with a UTC offset, e.g. "13:00 UTC-6".
 // Keep the raw string (we display venue-local time + offset) and also derive an
 // absolute ISO instant, so the app could localize later without re-fetching.
@@ -77,6 +103,7 @@ for (const m of raw) {
   if (!CANON_ROUNDS.includes(round)) unmappedRounds.add(m.round);
 
   const o = outcome(m);
+  const g = o ? normalizeGoals(m, home, away, o.homeGoals, o.awayGoals) : null;
   matches.push({
     date: m.date || null,
     time: m.time || null, // venue-local, e.g. "13:00 UTC-6"
@@ -90,7 +117,8 @@ for (const m of raw) {
     finished: !!o,
     ...(o
       ? { homeGoals: o.homeGoals, awayGoals: o.awayGoals, decidedBy: o.decidedBy,
-          winner: o.winner === 'home' ? home : o.winner === 'away' ? away : null }
+          winner: o.winner === 'home' ? home : o.winner === 'away' ? away : null,
+          scorers: g.scorers, scorersComplete: g.scorersComplete }
       : {}),
   });
 }

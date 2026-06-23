@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-23",
     "asOfDate": "2026-06-23",
-    "fetchedAt": "2026-06-23T20:10:47.726Z",
+    "fetchedAt": "2026-06-23T22:31:32.565Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,8 +24,8 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 45,
-    "groupPlayedCount": 45,
+    "playedCount": 46,
+    "groupPlayedCount": 46,
     "groupTotal": 72,
     "teamNamesEs": {
       "France": "Francia",
@@ -88,271 +88,271 @@
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "count": 8855,
-      "pct": 17.71,
+      "count": 8736,
+      "pct": 17.472,
       "basePct": 13.208,
-      "delta": 4.502000000000001
+      "delta": 4.264000000000001
     },
     {
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 7594,
-      "pct": 15.188,
+      "count": 7781,
+      "pct": 15.562,
       "basePct": 14.31,
-      "delta": 0.8780000000000001
+      "delta": 1.251999999999999
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 5828,
-      "pct": 11.656,
+      "count": 6017,
+      "pct": 12.034,
       "basePct": 13.04,
-      "delta": -1.3839999999999986
+      "delta": -1.0059999999999985
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "count": 5038,
-      "pct": 10.076,
+      "count": 4368,
+      "pct": 8.736,
       "basePct": 9.396,
-      "delta": 0.6799999999999997
+      "delta": -0.6600000000000001
     },
     {
       "name": "Portugal",
       "code": "pt",
       "fieldRank": 5,
-      "count": 2480,
-      "pct": 4.96,
+      "count": 2485,
+      "pct": 4.97,
       "basePct": 4.952,
-      "delta": 0.008000000000000007
+      "delta": 0.017999999999999794
     },
     {
       "name": "Morocco",
       "code": "ma",
       "fieldRank": 8,
-      "count": 2324,
-      "pct": 4.648,
+      "count": 2400,
+      "pct": 4.8,
       "basePct": 4.72,
-      "delta": -0.07200000000000006
+      "delta": 0.08000000000000007
     },
     {
       "name": "Brazil",
       "code": "br",
       "fieldRank": 6,
-      "count": 2225,
-      "pct": 4.45,
+      "count": 2275,
+      "pct": 4.55,
       "basePct": 4.964,
-      "delta": -0.5140000000000002
-    },
-    {
-      "name": "Germany",
-      "code": "de",
-      "fieldRank": 10,
-      "count": 2191,
-      "pct": 4.382,
-      "basePct": 3.632,
-      "delta": 0.7499999999999996
+      "delta": -0.4140000000000006
     },
     {
       "name": "Netherlands",
       "code": "nl",
       "fieldRank": 7,
-      "count": 2121,
-      "pct": 4.242,
+      "count": 2162,
+      "pct": 4.324,
       "basePct": 4.546,
-      "delta": -0.30400000000000027
+      "delta": -0.22200000000000042
+    },
+    {
+      "name": "Germany",
+      "code": "de",
+      "fieldRank": 10,
+      "count": 2123,
+      "pct": 4.246,
+      "basePct": 3.632,
+      "delta": 0.6140000000000003
     },
     {
       "name": "United States",
       "code": "us",
       "fieldRank": 15,
-      "count": 1698,
-      "pct": 3.396,
+      "count": 1784,
+      "pct": 3.568,
       "basePct": 1.686,
-      "delta": 1.71
-    },
-    {
-      "name": "Colombia",
-      "code": "co",
-      "fieldRank": 12,
-      "count": 1344,
-      "pct": 2.688,
-      "basePct": 2.098,
-      "delta": 0.5900000000000003
+      "delta": 1.8820000000000001
     },
     {
       "name": "Mexico",
       "code": "mx",
       "fieldRank": 14,
-      "count": 1328,
-      "pct": 2.656,
+      "count": 1417,
+      "pct": 2.834,
       "basePct": 2.154,
-      "delta": 0.5020000000000002
+      "delta": 0.6800000000000002
+    },
+    {
+      "name": "Colombia",
+      "code": "co",
+      "fieldRank": 12,
+      "count": 1412,
+      "pct": 2.824,
+      "basePct": 2.098,
+      "delta": 0.726
     },
     {
       "name": "Belgium",
       "code": "be",
       "fieldRank": 9,
-      "count": 1281,
-      "pct": 2.562,
+      "count": 1344,
+      "pct": 2.688,
       "basePct": 4.088,
-      "delta": -1.5260000000000002
-    },
-    {
-      "name": "Croatia",
-      "code": "hr",
-      "fieldRank": 11,
-      "count": 826,
-      "pct": 1.652,
-      "basePct": 3.128,
-      "delta": -1.4760000000000002
+      "delta": -1.4
     },
     {
       "name": "Japan",
       "code": "jp",
       "fieldRank": 17,
-      "count": 820,
-      "pct": 1.64,
+      "count": 836,
+      "pct": 1.672,
       "basePct": 1.438,
-      "delta": 0.20199999999999996
+      "delta": 0.23399999999999999
+    },
+    {
+      "name": "Croatia",
+      "code": "hr",
+      "fieldRank": 11,
+      "count": 774,
+      "pct": 1.548,
+      "basePct": 3.128,
+      "delta": -1.58
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
-      "count": 710,
-      "pct": 1.42,
+      "count": 669,
+      "pct": 1.338,
       "basePct": 1.418,
-      "delta": 0.0020000000000000018
+      "delta": -0.07999999999999985
     },
     {
       "name": "Norway",
       "code": "no",
       "fieldRank": 28,
-      "count": 422,
-      "pct": 0.844,
+      "count": 400,
+      "pct": 0.8,
       "basePct": 0.258,
-      "delta": 0.586
+      "delta": 0.542
     },
     {
       "name": "Egypt",
       "code": "eg",
       "fieldRank": 26,
-      "count": 312,
-      "pct": 0.624,
+      "count": 331,
+      "pct": 0.662,
       "basePct": 0.508,
-      "delta": 0.11599999999999999
-    },
-    {
-      "name": "Uruguay",
-      "code": "uy",
-      "fieldRank": 16,
-      "count": 300,
-      "pct": 0.6,
-      "basePct": 1.782,
-      "delta": -1.182
+      "delta": 0.15400000000000003
     },
     {
       "name": "Iran",
       "code": "ir",
       "fieldRank": 19,
-      "count": 291,
-      "pct": 0.582,
+      "count": 326,
+      "pct": 0.652,
       "basePct": 0.98,
-      "delta": -0.398
+      "delta": -0.32799999999999996
     },
     {
       "name": "Senegal",
       "code": "sn",
       "fieldRank": 13,
-      "count": 270,
-      "pct": 0.54,
+      "count": 304,
+      "pct": 0.608,
       "basePct": 2.186,
-      "delta": -1.646
+      "delta": -1.5779999999999998
     },
     {
-      "name": "Canada",
-      "code": "ca",
-      "fieldRank": 27,
-      "count": 269,
-      "pct": 0.538,
-      "basePct": 0.464,
-      "delta": 0.07400000000000001
-    },
-    {
-      "name": "Austria",
-      "code": "at",
-      "fieldRank": 22,
-      "count": 250,
-      "pct": 0.5,
-      "basePct": 0.558,
-      "delta": -0.05800000000000005
+      "name": "Uruguay",
+      "code": "uy",
+      "fieldRank": 16,
+      "count": 277,
+      "pct": 0.554,
+      "basePct": 1.782,
+      "delta": -1.228
     },
     {
       "name": "Korea Republic",
       "code": "kr",
       "fieldRank": 23,
-      "count": 239,
-      "pct": 0.478,
+      "count": 276,
+      "pct": 0.552,
       "basePct": 0.676,
-      "delta": -0.19800000000000006
+      "delta": -0.124
+    },
+    {
+      "name": "Canada",
+      "code": "ca",
+      "fieldRank": 27,
+      "count": 267,
+      "pct": 0.534,
+      "basePct": 0.464,
+      "delta": 0.07
+    },
+    {
+      "name": "Austria",
+      "code": "at",
+      "fieldRank": 22,
+      "count": 258,
+      "pct": 0.516,
+      "basePct": 0.558,
+      "delta": -0.04200000000000004
     },
     {
       "name": "Australia",
       "code": "au",
       "fieldRank": 24,
-      "count": 220,
-      "pct": 0.44,
+      "count": 216,
+      "pct": 0.432,
       "basePct": 0.528,
-      "delta": -0.08800000000000002
+      "delta": -0.09600000000000003
     },
     {
       "name": "Algeria",
       "code": "dz",
       "fieldRank": 25,
-      "count": 183,
-      "pct": 0.366,
+      "count": 172,
+      "pct": 0.344,
       "basePct": 0.366,
-      "delta": 0
+      "delta": -0.02200000000000002
     },
     {
       "name": "Côte d'Ivoire",
       "code": "ci",
       "fieldRank": 30,
-      "count": 131,
-      "pct": 0.262,
+      "count": 132,
+      "pct": 0.264,
       "basePct": 0.282,
-      "delta": -0.019999999999999962
+      "delta": -0.01799999999999996
     },
     {
       "name": "Sweden",
       "code": "se",
       "fieldRank": 31,
-      "count": 105,
-      "pct": 0.21,
+      "count": 108,
+      "pct": 0.216,
       "basePct": 0.142,
-      "delta": 0.068
-    },
-    {
-      "name": "Paraguay",
-      "code": "py",
-      "fieldRank": 32,
-      "count": 83,
-      "pct": 0.166,
-      "basePct": 0.13,
-      "delta": 0.036000000000000004
+      "delta": 0.07400000000000001
     },
     {
       "name": "Scotland",
       "code": "gb-sct",
       "fieldRank": 34,
-      "count": 64,
-      "pct": 0.128,
+      "count": 69,
+      "pct": 0.138,
       "basePct": 0.146,
-      "delta": -0.017999999999999988
+      "delta": -0.00799999999999998
+    },
+    {
+      "name": "Paraguay",
+      "code": "py",
+      "fieldRank": 32,
+      "count": 61,
+      "pct": 0.122,
+      "basePct": 0.13,
+      "delta": -0.008000000000000007
     },
     {
       "name": "Congo DR",
@@ -367,37 +367,37 @@
       "name": "Ecuador",
       "code": "ec",
       "fieldRank": 21,
-      "count": 30,
-      "pct": 0.06,
+      "count": 44,
+      "pct": 0.088,
       "basePct": 0.668,
-      "delta": -0.6080000000000001
-    },
-    {
-      "name": "Panama",
-      "code": "pa",
-      "fieldRank": 29,
-      "count": 19,
-      "pct": 0.038,
-      "basePct": 0.312,
-      "delta": -0.274
-    },
-    {
-      "name": "Saudi Arabia",
-      "code": "sa",
-      "fieldRank": 41,
-      "count": 16,
-      "pct": 0.032,
-      "basePct": 0.024,
-      "delta": 0.008
+      "delta": -0.5800000000000001
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
+      "count": 24,
+      "pct": 0.048,
+      "basePct": 0.006,
+      "delta": 0.042
+    },
+    {
+      "name": "Czechia",
+      "code": "cz",
+      "fieldRank": 33,
       "count": 15,
       "pct": 0.03,
-      "basePct": 0.006,
-      "delta": 0.024
+      "basePct": 0.136,
+      "delta": -0.10600000000000001
+    },
+    {
+      "name": "Panama",
+      "code": "pa",
+      "fieldRank": 29,
+      "count": 15,
+      "pct": 0.03,
+      "basePct": 0.312,
+      "delta": -0.28200000000000003
     },
     {
       "name": "Türkiye",
@@ -412,55 +412,55 @@
       "name": "Qatar",
       "code": "qa",
       "fieldRank": 38,
-      "count": 12,
-      "pct": 0.024,
+      "count": 14,
+      "pct": 0.028,
       "basePct": 0.076,
-      "delta": -0.052
-    },
-    {
-      "name": "Czechia",
-      "code": "cz",
-      "fieldRank": 33,
-      "count": 11,
-      "pct": 0.022,
-      "basePct": 0.136,
-      "delta": -0.11400000000000002
-    },
-    {
-      "name": "South Africa",
-      "code": "za",
-      "fieldRank": 40,
-      "count": 8,
-      "pct": 0.016,
-      "basePct": 0.04,
-      "delta": -0.024
+      "delta": -0.048
     },
     {
       "name": "Cabo Verde",
       "code": "cv",
       "fieldRank": 44,
-      "count": 7,
-      "pct": 0.014,
+      "count": 11,
+      "pct": 0.022,
       "basePct": 0.008,
-      "delta": 0.006
+      "delta": 0.013999999999999999
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "fieldRank": 41,
+      "count": 9,
+      "pct": 0.018,
+      "basePct": 0.024,
+      "delta": -0.006000000000000002
     },
     {
       "name": "Iraq",
       "code": "iq",
       "fieldRank": 39,
+      "count": 7,
+      "pct": 0.014,
+      "basePct": 0.05,
+      "delta": -0.036000000000000004
+    },
+    {
+      "name": "South Africa",
+      "code": "za",
+      "fieldRank": 40,
       "count": 5,
       "pct": 0.01,
-      "basePct": 0.05,
-      "delta": -0.04
+      "basePct": 0.04,
+      "delta": -0.03
     },
     {
       "name": "Bosnia and Herzegovina",
       "code": "ba",
       "fieldRank": 43,
-      "count": 4,
-      "pct": 0.008,
+      "count": 3,
+      "pct": 0.006,
       "basePct": 0.036,
-      "delta": -0.027999999999999997
+      "delta": -0.03
     },
     {
       "name": "Uzbekistan",
@@ -470,6 +470,15 @@
       "pct": 0.006,
       "basePct": 0.072,
       "delta": -0.06599999999999999
+    },
+    {
+      "name": "Curaçao",
+      "code": "cw",
+      "fieldRank": 46,
+      "count": 2,
+      "pct": 0.004,
+      "basePct": 0.008,
+      "delta": -0.004
     }
   ],
   "reach": [
@@ -478,15 +487,15 @@
       "code": "ar",
       "fieldRank": 3,
       "r32": 50000,
-      "r16": 40632,
-      "qf": 30601,
-      "sf": 22187,
-      "final": 14352,
-      "title": 8855,
+      "r16": 40585,
+      "qf": 30422,
+      "sf": 21905,
+      "final": 14320,
+      "title": 8736,
       "advancePct": 100,
       "baseAdvancePct": 96.008,
       "advanceDelta": 3.9920000000000044,
-      "titlePct": 17.71,
+      "titlePct": 17.472,
       "baseTitlePct": 13.208
     },
     {
@@ -494,15 +503,15 @@
       "code": "fr",
       "fieldRank": 1,
       "r32": 50000,
-      "r16": 39773,
-      "qf": 27332,
-      "sf": 18805,
-      "final": 12315,
-      "title": 7594,
+      "r16": 39874,
+      "qf": 27511,
+      "sf": 19064,
+      "final": 12423,
+      "title": 7781,
       "advancePct": 100,
       "baseAdvancePct": 94.822,
       "advanceDelta": 5.177999999999997,
-      "titlePct": 15.188,
+      "titlePct": 15.562,
       "baseTitlePct": 14.31
     },
     {
@@ -510,31 +519,31 @@
       "code": "es",
       "fieldRank": 2,
       "r32": 50000,
-      "r16": 35595,
-      "qf": 24050,
-      "sf": 16971,
-      "final": 10093,
-      "title": 5828,
+      "r16": 35733,
+      "qf": 24093,
+      "sf": 17090,
+      "final": 10162,
+      "title": 6017,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 11.656,
+      "titlePct": 12.034,
       "baseTitlePct": 13.04
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "r32": 49836,
-      "r16": 36874,
-      "qf": 24682,
-      "sf": 15694,
-      "final": 8831,
-      "title": 5038,
-      "advancePct": 99.672,
+      "r32": 49987,
+      "r16": 35757,
+      "qf": 23089,
+      "sf": 14338,
+      "final": 7992,
+      "title": 4368,
+      "advancePct": 99.974,
       "baseAdvancePct": 93.732,
-      "advanceDelta": 5.939999999999998,
-      "titlePct": 10.076,
+      "advanceDelta": 6.242000000000004,
+      "titlePct": 8.736,
       "baseTitlePct": 9.396
     },
     {
@@ -542,15 +551,15 @@
       "code": "pt",
       "fieldRank": 5,
       "r32": 50000,
-      "r16": 33446,
-      "qf": 19909,
-      "sf": 10258,
-      "final": 5064,
-      "title": 2480,
+      "r16": 33767,
+      "qf": 20147,
+      "sf": 10425,
+      "final": 5230,
+      "title": 2485,
       "advancePct": 100,
       "baseAdvancePct": 90.948,
       "advanceDelta": 9.052000000000007,
-      "titlePct": 4.96,
+      "titlePct": 4.97,
       "baseTitlePct": 4.952
     },
     {
@@ -558,15 +567,15 @@
       "code": "ma",
       "fieldRank": 8,
       "r32": 50000,
-      "r16": 28124,
-      "qf": 18627,
-      "sf": 9174,
-      "final": 4813,
-      "title": 2324,
+      "r16": 28194,
+      "qf": 18680,
+      "sf": 9516,
+      "final": 4926,
+      "title": 2400,
       "advancePct": 100,
       "baseAdvancePct": 91.708,
       "advanceDelta": 8.292000000000002,
-      "titlePct": 4.648,
+      "titlePct": 4.8,
       "baseTitlePct": 4.72
     },
     {
@@ -574,159 +583,159 @@
       "code": "br",
       "fieldRank": 6,
       "r32": 50000,
-      "r16": 28030,
-      "qf": 18023,
-      "sf": 9312,
-      "final": 4681,
-      "title": 2225,
+      "r16": 27938,
+      "qf": 18213,
+      "sf": 9710,
+      "final": 4841,
+      "title": 2275,
       "advancePct": 100,
       "baseAdvancePct": 92.148,
       "advanceDelta": 7.852000000000004,
-      "titlePct": 4.45,
+      "titlePct": 4.55,
       "baseTitlePct": 4.964
-    },
-    {
-      "name": "Germany",
-      "code": "de",
-      "fieldRank": 10,
-      "r32": 50000,
-      "r16": 36457,
-      "qf": 16429,
-      "sf": 9184,
-      "final": 4810,
-      "title": 2191,
-      "advancePct": 100,
-      "baseAdvancePct": 92.528,
-      "advanceDelta": 7.471999999999994,
-      "titlePct": 4.382,
-      "baseTitlePct": 3.632
     },
     {
       "name": "Netherlands",
       "code": "nl",
       "fieldRank": 7,
       "r32": 50000,
-      "r16": 26311,
-      "qf": 17427,
-      "sf": 8497,
-      "final": 4343,
-      "title": 2121,
+      "r16": 26083,
+      "qf": 17456,
+      "sf": 8688,
+      "final": 4423,
+      "title": 2162,
       "advancePct": 100,
       "baseAdvancePct": 89.94,
       "advanceDelta": 10.060000000000002,
-      "titlePct": 4.242,
+      "titlePct": 4.324,
       "baseTitlePct": 4.546
+    },
+    {
+      "name": "Germany",
+      "code": "de",
+      "fieldRank": 10,
+      "r32": 50000,
+      "r16": 36307,
+      "qf": 16190,
+      "sf": 8993,
+      "final": 4609,
+      "title": 2123,
+      "advancePct": 100,
+      "baseAdvancePct": 92.528,
+      "advanceDelta": 7.471999999999994,
+      "titlePct": 4.246,
+      "baseTitlePct": 3.632
     },
     {
       "name": "United States",
       "code": "us",
       "fieldRank": 15,
       "r32": 50000,
-      "r16": 35272,
-      "qf": 21408,
-      "sf": 9776,
-      "final": 4232,
-      "title": 1698,
+      "r16": 35516,
+      "qf": 21566,
+      "sf": 9696,
+      "final": 4201,
+      "title": 1784,
       "advancePct": 100,
       "baseAdvancePct": 82.212,
       "advanceDelta": 17.787999999999997,
-      "titlePct": 3.396,
+      "titlePct": 3.568,
       "baseTitlePct": 1.686
-    },
-    {
-      "name": "Colombia",
-      "code": "co",
-      "fieldRank": 12,
-      "r32": 49606,
-      "r16": 29746,
-      "qf": 15922,
-      "sf": 7313,
-      "final": 3225,
-      "title": 1344,
-      "advancePct": 99.212,
-      "baseAdvancePct": 84.388,
-      "advanceDelta": 14.823999999999998,
-      "titlePct": 2.688,
-      "baseTitlePct": 2.098
     },
     {
       "name": "Mexico",
       "code": "mx",
       "fieldRank": 14,
       "r32": 50000,
-      "r16": 32415,
-      "qf": 14489,
-      "sf": 7204,
-      "final": 3109,
-      "title": 1328,
+      "r16": 32519,
+      "qf": 15579,
+      "sf": 7850,
+      "final": 3400,
+      "title": 1417,
       "advancePct": 100,
       "baseAdvancePct": 87.904,
       "advanceDelta": 12.096000000000004,
-      "titlePct": 2.656,
+      "titlePct": 2.834,
       "baseTitlePct": 2.154
+    },
+    {
+      "name": "Colombia",
+      "code": "co",
+      "fieldRank": 12,
+      "r32": 49514,
+      "r16": 30100,
+      "qf": 16121,
+      "sf": 7489,
+      "final": 3389,
+      "title": 1412,
+      "advancePct": 99.028,
+      "baseAdvancePct": 84.388,
+      "advanceDelta": 14.64,
+      "titlePct": 2.824,
+      "baseTitlePct": 2.098
     },
     {
       "name": "Belgium",
       "code": "be",
       "fieldRank": 9,
-      "r32": 45068,
-      "r16": 29374,
-      "qf": 12853,
-      "sf": 6530,
-      "final": 3002,
-      "title": 1281,
-      "advancePct": 90.136,
+      "r32": 45017,
+      "r16": 29549,
+      "qf": 12993,
+      "sf": 6588,
+      "final": 3096,
+      "title": 1344,
+      "advancePct": 90.034,
       "baseAdvancePct": 92.134,
-      "advanceDelta": -1.9980000000000047,
-      "titlePct": 2.562,
+      "advanceDelta": -2.0999999999999943,
+      "titlePct": 2.688,
       "baseTitlePct": 4.088
-    },
-    {
-      "name": "Croatia",
-      "code": "hr",
-      "fieldRank": 11,
-      "r32": 38994,
-      "r16": 19652,
-      "qf": 9625,
-      "sf": 4783,
-      "final": 2044,
-      "title": 826,
-      "advancePct": 77.988,
-      "baseAdvancePct": 86.764,
-      "advanceDelta": -8.775999999999996,
-      "titlePct": 1.652,
-      "baseTitlePct": 3.128
     },
     {
       "name": "Japan",
       "code": "jp",
       "fieldRank": 17,
       "r32": 50000,
-      "r16": 21398,
-      "qf": 11770,
-      "sf": 4965,
-      "final": 2062,
-      "title": 820,
+      "r16": 21667,
+      "qf": 12038,
+      "sf": 5091,
+      "final": 2120,
+      "title": 836,
       "advancePct": 100,
       "baseAdvancePct": 79.386,
       "advanceDelta": 20.614000000000004,
-      "titlePct": 1.64,
+      "titlePct": 1.672,
       "baseTitlePct": 1.438
+    },
+    {
+      "name": "Croatia",
+      "code": "hr",
+      "fieldRank": 11,
+      "r32": 36809,
+      "r16": 18906,
+      "qf": 9660,
+      "sf": 4491,
+      "final": 1926,
+      "title": 774,
+      "advancePct": 73.618,
+      "baseAdvancePct": 86.764,
+      "advanceDelta": -13.146,
+      "titlePct": 1.548,
+      "baseTitlePct": 3.128
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
       "r32": 50000,
-      "r16": 29437,
-      "qf": 12732,
-      "sf": 4585,
-      "final": 1911,
-      "title": 710,
+      "r16": 29403,
+      "qf": 12678,
+      "sf": 4526,
+      "final": 1828,
+      "title": 669,
       "advancePct": 100,
       "baseAdvancePct": 88.42,
       "advanceDelta": 11.579999999999998,
-      "titlePct": 1.42,
+      "titlePct": 1.338,
       "baseTitlePct": 1.418
     },
     {
@@ -734,15 +743,15 @@
       "code": "no",
       "fieldRank": 28,
       "r32": 50000,
-      "r16": 29100,
-      "qf": 10595,
-      "sf": 3847,
-      "final": 1309,
-      "title": 422,
+      "r16": 29142,
+      "qf": 10633,
+      "sf": 3963,
+      "final": 1316,
+      "title": 400,
       "advancePct": 100,
       "baseAdvancePct": 55.432,
       "advanceDelta": 44.568,
-      "titlePct": 0.844,
+      "titlePct": 0.8,
       "baseTitlePct": 0.258
     },
     {
@@ -750,222 +759,222 @@
       "code": "eg",
       "fieldRank": 26,
       "r32": 50000,
-      "r16": 25056,
-      "qf": 9730,
-      "sf": 3271,
-      "final": 1073,
-      "title": 312,
+      "r16": 24774,
+      "qf": 9633,
+      "sf": 3219,
+      "final": 1058,
+      "title": 331,
       "advancePct": 100,
       "baseAdvancePct": 73.494,
       "advanceDelta": 26.506,
-      "titlePct": 0.624,
+      "titlePct": 0.662,
       "baseTitlePct": 0.508
-    },
-    {
-      "name": "Uruguay",
-      "code": "uy",
-      "fieldRank": 16,
-      "r32": 23624,
-      "r16": 10497,
-      "qf": 4978,
-      "sf": 2203,
-      "final": 860,
-      "title": 300,
-      "advancePct": 47.248,
-      "baseAdvancePct": 85.02,
-      "advanceDelta": -37.772,
-      "titlePct": 0.6,
-      "baseTitlePct": 1.782
     },
     {
       "name": "Iran",
       "code": "ir",
       "fieldRank": 19,
-      "r32": 33985,
-      "r16": 17547,
-      "qf": 6806,
-      "sf": 2498,
-      "final": 862,
-      "title": 291,
-      "advancePct": 67.97,
+      "r32": 33932,
+      "r16": 17687,
+      "qf": 6983,
+      "sf": 2508,
+      "final": 879,
+      "title": 326,
+      "advancePct": 67.864,
       "baseAdvancePct": 81.392,
-      "advanceDelta": -13.421999999999997,
-      "titlePct": 0.582,
+      "advanceDelta": -13.527999999999992,
+      "titlePct": 0.652,
       "baseTitlePct": 0.98
     },
     {
       "name": "Senegal",
       "code": "sn",
       "fieldRank": 13,
-      "r32": 26277,
-      "r16": 11776,
-      "qf": 5502,
-      "sf": 2178,
-      "final": 787,
-      "title": 270,
-      "advancePct": 52.554,
+      "r32": 25297,
+      "r16": 11470,
+      "qf": 5345,
+      "sf": 2180,
+      "final": 863,
+      "title": 304,
+      "advancePct": 50.594,
       "baseAdvancePct": 79.68,
-      "advanceDelta": -27.126000000000005,
-      "titlePct": 0.54,
+      "advanceDelta": -29.086000000000006,
+      "titlePct": 0.608,
       "baseTitlePct": 2.186
+    },
+    {
+      "name": "Uruguay",
+      "code": "uy",
+      "fieldRank": 16,
+      "r32": 23585,
+      "r16": 10574,
+      "qf": 4957,
+      "sf": 2278,
+      "final": 841,
+      "title": 277,
+      "advancePct": 47.17,
+      "baseAdvancePct": 85.02,
+      "advanceDelta": -37.849999999999994,
+      "titlePct": 0.554,
+      "baseTitlePct": 1.782
+    },
+    {
+      "name": "Korea Republic",
+      "code": "kr",
+      "fieldRank": 23,
+      "r32": 45908,
+      "r16": 21738,
+      "qf": 7770,
+      "sf": 2441,
+      "final": 884,
+      "title": 276,
+      "advancePct": 91.816,
+      "baseAdvancePct": 76.266,
+      "advanceDelta": 15.549999999999997,
+      "titlePct": 0.552,
+      "baseTitlePct": 0.676
     },
     {
       "name": "Canada",
       "code": "ca",
       "fieldRank": 27,
       "r32": 50000,
-      "r16": 24864,
-      "qf": 8886,
-      "sf": 2554,
-      "final": 850,
-      "title": 269,
+      "r16": 24815,
+      "qf": 8783,
+      "sf": 2495,
+      "final": 828,
+      "title": 267,
       "advancePct": 100,
       "baseAdvancePct": 77,
       "advanceDelta": 23,
-      "titlePct": 0.538,
+      "titlePct": 0.534,
       "baseTitlePct": 0.464
     },
     {
       "name": "Austria",
       "code": "at",
       "fieldRank": 22,
-      "r32": 47310,
-      "r16": 15238,
-      "qf": 6409,
-      "sf": 2548,
-      "final": 841,
-      "title": 250,
-      "advancePct": 94.62,
+      "r32": 46686,
+      "r16": 15033,
+      "qf": 6240,
+      "sf": 2439,
+      "final": 802,
+      "title": 258,
+      "advancePct": 93.372,
       "baseAdvancePct": 70.478,
-      "advanceDelta": 24.14200000000001,
-      "titlePct": 0.5,
+      "advanceDelta": 22.894000000000005,
+      "titlePct": 0.516,
       "baseTitlePct": 0.558
-    },
-    {
-      "name": "Korea Republic",
-      "code": "kr",
-      "fieldRank": 23,
-      "r32": 46364,
-      "r16": 21727,
-      "qf": 7897,
-      "sf": 2512,
-      "final": 837,
-      "title": 239,
-      "advancePct": 92.728,
-      "baseAdvancePct": 76.266,
-      "advanceDelta": 16.46199999999999,
-      "titlePct": 0.478,
-      "baseTitlePct": 0.676
     },
     {
       "name": "Australia",
       "code": "au",
       "fieldRank": 24,
-      "r32": 46750,
-      "r16": 18922,
-      "qf": 5511,
-      "sf": 2189,
-      "final": 731,
-      "title": 220,
-      "advancePct": 93.5,
+      "r32": 46113,
+      "r16": 18439,
+      "qf": 5304,
+      "sf": 2137,
+      "final": 707,
+      "title": 216,
+      "advancePct": 92.226,
       "baseAdvancePct": 67.472,
-      "advanceDelta": 26.028000000000006,
-      "titlePct": 0.44,
+      "advanceDelta": 24.754000000000005,
+      "titlePct": 0.432,
       "baseTitlePct": 0.528
     },
     {
       "name": "Algeria",
       "code": "dz",
       "fieldRank": 25,
-      "r32": 40763,
-      "r16": 13457,
-      "qf": 5505,
-      "sf": 1910,
-      "final": 621,
-      "title": 183,
-      "advancePct": 81.526,
+      "r32": 40054,
+      "r16": 13343,
+      "qf": 5436,
+      "sf": 1895,
+      "final": 600,
+      "title": 172,
+      "advancePct": 80.108,
       "baseAdvancePct": 65.878,
-      "advanceDelta": 15.647999999999996,
-      "titlePct": 0.366,
+      "advanceDelta": 14.230000000000004,
+      "titlePct": 0.344,
       "baseTitlePct": 0.366
     },
     {
       "name": "Côte d'Ivoire",
       "code": "ci",
       "fieldRank": 30,
-      "r32": 46990,
-      "r16": 18559,
-      "qf": 5862,
-      "sf": 1826,
-      "final": 492,
-      "title": 131,
-      "advancePct": 93.98,
+      "r32": 46653,
+      "r16": 18393,
+      "qf": 5695,
+      "sf": 1813,
+      "final": 507,
+      "title": 132,
+      "advancePct": 93.306,
       "baseAdvancePct": 70.628,
-      "advanceDelta": 23.352000000000004,
-      "titlePct": 0.262,
+      "advanceDelta": 22.677999999999997,
+      "titlePct": 0.264,
       "baseTitlePct": 0.282
     },
     {
       "name": "Sweden",
       "code": "se",
       "fieldRank": 31,
-      "r32": 47159,
-      "r16": 14361,
-      "qf": 4912,
-      "sf": 1362,
-      "final": 389,
-      "title": 105,
-      "advancePct": 94.318,
+      "r32": 46558,
+      "r16": 14054,
+      "qf": 4893,
+      "sf": 1391,
+      "final": 390,
+      "title": 108,
+      "advancePct": 93.116,
       "baseAdvancePct": 52.748,
-      "advanceDelta": 41.57,
-      "titlePct": 0.21,
+      "advanceDelta": 40.368,
+      "titlePct": 0.216,
       "baseTitlePct": 0.142
-    },
-    {
-      "name": "Paraguay",
-      "code": "py",
-      "fieldRank": 32,
-      "r32": 37638,
-      "r16": 11537,
-      "qf": 3079,
-      "sf": 973,
-      "final": 274,
-      "title": 83,
-      "advancePct": 75.276,
-      "baseAdvancePct": 51.5,
-      "advanceDelta": 23.775999999999996,
-      "titlePct": 0.166,
-      "baseTitlePct": 0.13
     },
     {
       "name": "Scotland",
       "code": "gb-sct",
       "fieldRank": 34,
-      "r32": 42428,
-      "r16": 10829,
-      "qf": 3370,
-      "sf": 968,
-      "final": 249,
-      "title": 64,
-      "advancePct": 84.856,
+      "r32": 41218,
+      "r16": 10478,
+      "qf": 3349,
+      "sf": 938,
+      "final": 262,
+      "title": 69,
+      "advancePct": 82.436,
       "baseAdvancePct": 58.58,
-      "advanceDelta": 26.275999999999996,
-      "titlePct": 0.128,
+      "advanceDelta": 23.85600000000001,
+      "titlePct": 0.138,
       "baseTitlePct": 0.146
+    },
+    {
+      "name": "Paraguay",
+      "code": "py",
+      "fieldRank": 32,
+      "r32": 36889,
+      "r16": 11108,
+      "qf": 2774,
+      "sf": 878,
+      "final": 246,
+      "title": 61,
+      "advancePct": 73.778,
+      "baseAdvancePct": 51.5,
+      "advanceDelta": 22.278000000000006,
+      "titlePct": 0.122,
+      "baseTitlePct": 0.13
     },
     {
       "name": "Congo DR",
       "code": "cd",
       "fieldRank": 36,
-      "r32": 30341,
-      "r16": 9009,
-      "qf": 2795,
-      "sf": 855,
-      "final": 228,
+      "r32": 30305,
+      "r16": 9667,
+      "qf": 2895,
+      "sf": 893,
+      "final": 221,
       "title": 54,
-      "advancePct": 60.682,
+      "advancePct": 60.61,
       "baseAdvancePct": 46.826,
-      "advanceDelta": 13.856000000000002,
+      "advanceDelta": 13.783999999999999,
       "titlePct": 0.108,
       "baseTitlePct": 0.086
     },
@@ -973,191 +982,191 @@
       "name": "Ecuador",
       "code": "ec",
       "fieldRank": 21,
-      "r32": 10583,
-      "r16": 3964,
-      "qf": 1384,
-      "sf": 423,
-      "final": 124,
-      "title": 30,
-      "advancePct": 21.166,
+      "r32": 10596,
+      "r16": 3951,
+      "qf": 1411,
+      "sf": 448,
+      "final": 133,
+      "title": 44,
+      "advancePct": 21.192,
       "baseAdvancePct": 80.036,
-      "advanceDelta": -58.870000000000005,
-      "titlePct": 0.06,
+      "advanceDelta": -58.844,
+      "titlePct": 0.088,
       "baseTitlePct": 0.668
-    },
-    {
-      "name": "Panama",
-      "code": "pa",
-      "fieldRank": 29,
-      "r32": 11618,
-      "r16": 3503,
-      "qf": 1202,
-      "sf": 348,
-      "final": 94,
-      "title": 19,
-      "advancePct": 23.236,
-      "baseAdvancePct": 60.662,
-      "advanceDelta": -37.426,
-      "titlePct": 0.038,
-      "baseTitlePct": 0.312
-    },
-    {
-      "name": "Saudi Arabia",
-      "code": "sa",
-      "fieldRank": 41,
-      "r32": 19764,
-      "r16": 3090,
-      "qf": 820,
-      "sf": 229,
-      "final": 48,
-      "title": 16,
-      "advancePct": 39.528,
-      "baseAdvancePct": 44.178,
-      "advanceDelta": -4.649999999999999,
-      "titlePct": 0.032,
-      "baseTitlePct": 0.024
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
-      "r32": 37261,
-      "r16": 8288,
-      "qf": 2012,
-      "sf": 415,
-      "final": 71,
-      "title": 15,
-      "advancePct": 74.522,
+      "r32": 49393,
+      "r16": 11335,
+      "qf": 2769,
+      "sf": 604,
+      "final": 118,
+      "title": 24,
+      "advancePct": 98.786,
       "baseAdvancePct": 24.174,
-      "advanceDelta": 50.348000000000006,
-      "titlePct": 0.03,
+      "advanceDelta": 74.612,
+      "titlePct": 0.048,
       "baseTitlePct": 0.006
     },
     {
-      "name": "Türkiye",
-      "code": "tr",
-      "fieldRank": 20,
-      "r32": 5067,
-      "r16": 1395,
-      "qf": 481,
-      "sf": 163,
-      "final": 60,
-      "title": 14,
-      "advancePct": 10.134,
-      "baseAdvancePct": 70.88,
-      "advanceDelta": -60.745999999999995,
-      "titlePct": 0.028,
-      "baseTitlePct": 0.57
-    },
-    {
-      "name": "Qatar",
-      "code": "qa",
-      "fieldRank": 38,
-      "r32": 21573,
-      "r16": 5124,
-      "qf": 1562,
-      "sf": 368,
-      "final": 78,
-      "title": 12,
-      "advancePct": 43.146,
-      "baseAdvancePct": 59.252,
-      "advanceDelta": -16.106,
-      "titlePct": 0.024,
-      "baseTitlePct": 0.076
+      "name": "Panama",
+      "code": "pa",
+      "fieldRank": 29,
+      "r32": 9031,
+      "r16": 2921,
+      "qf": 1057,
+      "sf": 259,
+      "final": 65,
+      "title": 15,
+      "advancePct": 18.062,
+      "baseAdvancePct": 60.662,
+      "advanceDelta": -42.599999999999994,
+      "titlePct": 0.03,
+      "baseTitlePct": 0.312
     },
     {
       "name": "Czechia",
       "code": "cz",
       "fieldRank": 33,
-      "r32": 9720,
-      "r16": 3456,
-      "qf": 1027,
-      "sf": 255,
-      "final": 66,
-      "title": 11,
-      "advancePct": 19.44,
+      "r32": 9708,
+      "r16": 3517,
+      "qf": 1002,
+      "sf": 231,
+      "final": 58,
+      "title": 15,
+      "advancePct": 19.416,
       "baseAdvancePct": 60.008,
-      "advanceDelta": -40.568,
-      "titlePct": 0.022,
+      "advanceDelta": -40.592,
+      "titlePct": 0.03,
       "baseTitlePct": 0.136
+    },
+    {
+      "name": "Qatar",
+      "code": "qa",
+      "fieldRank": 38,
+      "r32": 21555,
+      "r16": 5113,
+      "qf": 1601,
+      "sf": 380,
+      "final": 87,
+      "title": 14,
+      "advancePct": 43.11,
+      "baseAdvancePct": 59.252,
+      "advanceDelta": -16.142000000000003,
+      "titlePct": 0.028,
+      "baseTitlePct": 0.076
+    },
+    {
+      "name": "Türkiye",
+      "code": "tr",
+      "fieldRank": 20,
+      "r32": 4796,
+      "r16": 1367,
+      "qf": 459,
+      "sf": 149,
+      "final": 51,
+      "title": 14,
+      "advancePct": 9.592,
+      "baseAdvancePct": 70.88,
+      "advanceDelta": -61.288,
+      "titlePct": 0.028,
+      "baseTitlePct": 0.57
+    },
+    {
+      "name": "Cabo Verde",
+      "code": "cv",
+      "fieldRank": 44,
+      "r32": 30488,
+      "r16": 4711,
+      "qf": 1219,
+      "sf": 308,
+      "final": 68,
+      "title": 11,
+      "advancePct": 60.976,
+      "baseAdvancePct": 33.618,
+      "advanceDelta": 27.357999999999997,
+      "titlePct": 0.022,
+      "baseTitlePct": 0.008
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "fieldRank": 41,
+      "r32": 19767,
+      "r16": 3101,
+      "qf": 860,
+      "sf": 219,
+      "final": 50,
+      "title": 9,
+      "advancePct": 39.534,
+      "baseAdvancePct": 44.178,
+      "advanceDelta": -4.643999999999998,
+      "titlePct": 0.018,
+      "baseTitlePct": 0.024
+    },
+    {
+      "name": "Iraq",
+      "code": "iq",
+      "fieldRank": 39,
+      "r32": 3511,
+      "r16": 833,
+      "qf": 251,
+      "sf": 55,
+      "final": 15,
+      "title": 7,
+      "advancePct": 7.022,
+      "baseAdvancePct": 34.51,
+      "advanceDelta": -27.488,
+      "titlePct": 0.014,
+      "baseTitlePct": 0.05
     },
     {
       "name": "South Africa",
       "code": "za",
       "fieldRank": 40,
       "r32": 11395,
-      "r16": 3424,
+      "r16": 3452,
       "qf": 773,
-      "sf": 169,
-      "final": 40,
-      "title": 8,
+      "sf": 144,
+      "final": 31,
+      "title": 5,
       "advancePct": 22.79,
       "baseAdvancePct": 45.406,
       "advanceDelta": -22.616,
-      "titlePct": 0.016,
-      "baseTitlePct": 0.04
-    },
-    {
-      "name": "Cabo Verde",
-      "code": "cv",
-      "fieldRank": 44,
-      "r32": 30518,
-      "r16": 4713,
-      "qf": 1262,
-      "sf": 336,
-      "final": 61,
-      "title": 7,
-      "advancePct": 61.036,
-      "baseAdvancePct": 33.618,
-      "advanceDelta": 27.418,
-      "titlePct": 0.014,
-      "baseTitlePct": 0.008
-    },
-    {
-      "name": "Iraq",
-      "code": "iq",
-      "fieldRank": 39,
-      "r32": 3802,
-      "r16": 929,
-      "qf": 228,
-      "sf": 58,
-      "final": 18,
-      "title": 5,
-      "advancePct": 7.604,
-      "baseAdvancePct": 34.51,
-      "advanceDelta": -26.906,
       "titlePct": 0.01,
-      "baseTitlePct": 0.05
+      "baseTitlePct": 0.04
     },
     {
       "name": "Bosnia and Herzegovina",
       "code": "ba",
       "fieldRank": 43,
-      "r32": 15274,
-      "r16": 3009,
-      "qf": 773,
-      "sf": 158,
-      "final": 25,
-      "title": 4,
-      "advancePct": 30.548,
+      "r32": 15273,
+      "r16": 2931,
+      "qf": 709,
+      "sf": 135,
+      "final": 15,
+      "title": 3,
+      "advancePct": 30.546,
       "baseAdvancePct": 44.31,
-      "advanceDelta": -13.762000000000004,
-      "titlePct": 0.008,
+      "advanceDelta": -13.764000000000003,
+      "titlePct": 0.006,
       "baseTitlePct": 0.036
     },
     {
       "name": "Uzbekistan",
       "code": "uz",
       "fieldRank": 37,
-      "r32": 4459,
-      "r16": 839,
-      "qf": 225,
-      "sf": 54,
-      "final": 12,
+      "r32": 4251,
+      "r16": 927,
+      "qf": 262,
+      "sf": 46,
+      "final": 7,
       "title": 3,
-      "advancePct": 8.918,
+      "advancePct": 8.502,
       "baseAdvancePct": 44.176,
-      "advanceDelta": -35.258,
+      "advanceDelta": -35.674,
       "titlePct": 0.006,
       "baseTitlePct": 0.072
     },
@@ -1165,31 +1174,31 @@
       "name": "Curaçao",
       "code": "cw",
       "fieldRank": 46,
-      "r32": 8792,
-      "r16": 1740,
-      "qf": 284,
-      "sf": 42,
-      "final": 7,
-      "title": 0,
-      "advancePct": 17.584,
+      "r32": 8787,
+      "r16": 1737,
+      "qf": 272,
+      "sf": 44,
+      "final": 6,
+      "title": 2,
+      "advancePct": 17.574,
       "baseAdvancePct": 24.874,
-      "advanceDelta": -7.289999999999999,
-      "titlePct": 0,
+      "advanceDelta": -7.299999999999997,
+      "titlePct": 0.004,
       "baseTitlePct": 0.008
     },
     {
       "name": "New Zealand",
       "code": "nz",
       "fieldRank": 48,
-      "r32": 5000,
-      "r16": 1101,
-      "qf": 152,
-      "sf": 32,
-      "final": 3,
+      "r32": 5007,
+      "r16": 1108,
+      "qf": 146,
+      "sf": 36,
+      "final": 5,
       "title": 0,
-      "advancePct": 10,
+      "advancePct": 10.014,
       "baseAdvancePct": 22.148,
-      "advanceDelta": -12.148,
+      "advanceDelta": -12.134,
       "titlePct": 0,
       "baseTitlePct": 0.002
     },
@@ -1197,15 +1206,15 @@
       "name": "Jordan",
       "code": "jo",
       "fieldRank": 42,
-      "r32": 1627,
-      "r16": 365,
-      "qf": 94,
-      "sf": 17,
-      "final": 3,
+      "r32": 1527,
+      "r16": 330,
+      "qf": 74,
+      "sf": 13,
+      "final": 1,
       "title": 0,
-      "advancePct": 3.254,
+      "advancePct": 3.054,
       "baseAdvancePct": 31.526,
-      "advanceDelta": -28.272,
+      "advanceDelta": -28.472,
       "titlePct": 0,
       "baseTitlePct": 0.014
     },
@@ -1213,15 +1222,15 @@
       "name": "Haiti",
       "code": "ht",
       "fieldRank": 47,
-      "r32": 413,
-      "r16": 45,
-      "qf": 5,
+      "r32": 389,
+      "r16": 53,
+      "qf": 9,
       "sf": 1,
       "final": 0,
       "title": 0,
-      "advancePct": 0.826,
+      "advancePct": 0.778,
       "baseAdvancePct": 21.734,
-      "advanceDelta": -20.908,
+      "advanceDelta": -20.956000000000003,
       "titlePct": 0,
       "baseTitlePct": 0
     },
@@ -1282,7 +1291,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 92.728,
+          "advancePct": 91.816,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1305,7 +1314,7 @@
           "gd": -1,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 19.44,
+          "advancePct": 19.416,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1402,7 +1411,7 @@
           "gd": -3,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 30.548,
+          "advancePct": 30.546,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1425,7 +1434,7 @@
           "gd": -6,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 43.146,
+          "advancePct": 43.11,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1499,7 +1508,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 84.856,
+          "advancePct": 82.436,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1522,7 +1531,7 @@
           "gd": -4,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 0.826,
+          "advancePct": 0.778,
           "status": "third",
           "projectedPos": 4,
           "posDist": [
@@ -1551,7 +1560,7 @@
           "pts": 6,
           "remaining": 1,
           "advancePct": 100,
-          "status": "live",
+          "status": "through",
           "projectedPos": 1,
           "posDist": [
             0.994,
@@ -1573,7 +1582,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 93.5,
+          "advancePct": 92.226,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1596,7 +1605,7 @@
           "gd": -2,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 75.276,
+          "advancePct": 73.778,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1619,8 +1628,8 @@
           "gd": -3,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 10.134,
-          "status": "live",
+          "advancePct": 9.592,
+          "status": "third",
           "projectedPos": 4,
           "posDist": [
             0,
@@ -1670,7 +1679,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 93.98,
+          "advancePct": 93.306,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1693,7 +1702,7 @@
           "gd": -1,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 21.166,
+          "advancePct": 21.192,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1716,7 +1725,7 @@
           "gd": -6,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 17.584,
+          "advancePct": 17.574,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1790,7 +1799,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 94.318,
+          "advancePct": 93.116,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1864,7 +1873,7 @@
           "gd": 0,
           "pts": 2,
           "remaining": 1,
-          "advancePct": 67.97,
+          "advancePct": 67.864,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -1887,7 +1896,7 @@
           "gd": 0,
           "pts": 2,
           "remaining": 1,
-          "advancePct": 90.136,
+          "advancePct": 90.034,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1910,7 +1919,7 @@
           "gd": -2,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 10,
+          "advancePct": 10.014,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -1961,7 +1970,7 @@
           "gd": 0,
           "pts": 2,
           "remaining": 1,
-          "advancePct": 47.248,
+          "advancePct": 47.17,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -1984,7 +1993,7 @@
           "gd": 0,
           "pts": 2,
           "remaining": 1,
-          "advancePct": 61.036,
+          "advancePct": 60.976,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -2007,7 +2016,7 @@
           "gd": -4,
           "pts": 1,
           "remaining": 1,
-          "advancePct": 39.528,
+          "advancePct": 39.534,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
@@ -2081,7 +2090,7 @@
           "gd": -3,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 52.554,
+          "advancePct": 50.594,
           "status": "third",
           "projectedPos": 3,
           "posDist": [
@@ -2104,7 +2113,7 @@
           "gd": -6,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 7.604,
+          "advancePct": 7.022,
           "status": "third",
           "projectedPos": 4,
           "posDist": [
@@ -2133,7 +2142,7 @@
           "pts": 6,
           "remaining": 1,
           "advancePct": 100,
-          "status": "live",
+          "status": "through",
           "projectedPos": 1,
           "posDist": [
             0.998,
@@ -2155,7 +2164,7 @@
           "gd": 0,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 94.62,
+          "advancePct": 93.372,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -2178,7 +2187,7 @@
           "gd": -2,
           "pts": 3,
           "remaining": 1,
-          "advancePct": 81.526,
+          "advancePct": 80.108,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -2201,8 +2210,8 @@
           "gd": -3,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 3.254,
-          "status": "live",
+          "advancePct": 3.054,
+          "status": "third",
           "projectedPos": 4,
           "posDist": [
             0,
@@ -2252,7 +2261,7 @@
           "gd": 2,
           "pts": 3,
           "remaining": 2,
-          "advancePct": 99.212,
+          "advancePct": 99.028,
           "status": "live",
           "projectedPos": 2,
           "posDist": [
@@ -2275,7 +2284,7 @@
           "gd": 0,
           "pts": 1,
           "remaining": 2,
-          "advancePct": 60.682,
+          "advancePct": 60.61,
           "status": "live",
           "projectedPos": 3,
           "posDist": [
@@ -2298,8 +2307,8 @@
           "gd": -7,
           "pts": 0,
           "remaining": 1,
-          "advancePct": 8.918,
-          "status": "live",
+          "advancePct": 8.502,
+          "status": "third",
           "projectedPos": 4,
           "posDist": [
             0,
@@ -2317,46 +2326,46 @@
           "pos": 1,
           "name": "England",
           "code": "gb-eng",
-          "p": 1,
+          "p": 2,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 0,
           "gf": 4,
           "ga": 2,
           "gd": 2,
-          "pts": 3,
-          "remaining": 2,
-          "advancePct": 99.672,
+          "pts": 4,
+          "remaining": 1,
+          "advancePct": 99.974,
           "status": "live",
           "projectedPos": 1,
           "posDist": [
-            0.888,
-            0.088,
-            0.021,
-            0.003
+            0.767,
+            0.209,
+            0.024,
+            0
           ]
         },
         {
           "pos": 2,
           "name": "Ghana",
           "code": "gh",
-          "p": 1,
+          "p": 2,
           "w": 1,
-          "d": 0,
+          "d": 1,
           "l": 0,
           "gf": 1,
           "ga": 0,
           "gd": 1,
-          "pts": 3,
-          "remaining": 2,
-          "advancePct": 74.522,
+          "pts": 4,
+          "remaining": 1,
+          "advancePct": 98.786,
           "status": "live",
-          "projectedPos": 3,
+          "projectedPos": 2,
           "posDist": [
-            0.055,
-            0.286,
-            0.542,
-            0.117
+            0.079,
+            0.433,
+            0.477,
+            0.012
           ]
         },
         {
@@ -2372,14 +2381,14 @@
           "gd": -1,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 23.236,
+          "advancePct": 18.062,
           "status": "live",
           "projectedPos": 4,
           "posDist": [
-            0.01,
-            0.09,
-            0.181,
-            0.719
+            0.027,
+            0.042,
+            0.15,
+            0.78
           ]
         },
         {
@@ -2395,14 +2404,14 @@
           "gd": -2,
           "pts": 0,
           "remaining": 2,
-          "advancePct": 77.988,
+          "advancePct": 73.618,
           "status": "live",
-          "projectedPos": 2,
+          "projectedPos": 3,
           "posDist": [
-            0.047,
-            0.536,
-            0.257,
-            0.161
+            0.127,
+            0.316,
+            0.349,
+            0.208
           ]
         }
       ]
@@ -2436,59 +2445,18 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.95920480430731,
+          "ifLoss": 0.949679022571961,
           "nWin": 28354,
           "nDraw": 11988,
           "nLoss": 9658
         },
         "away": {
-          "ifWin": 1,
-          "ifDraw": 0.6811811811811812,
-          "ifLoss": 0.44145446850532555,
+          "ifWin": 0.999896458894181,
+          "ifDraw": 0.6792625959292626,
+          "ifLoss": 0.44103124779572545,
           "nWin": 9658,
           "nDraw": 11988,
           "nLoss": 28354
-        }
-      }
-    },
-    {
-      "date": "2026-06-23",
-      "time": "16:00 UTC-4",
-      "kickoff": "2026-06-23T16:00:00-04:00",
-      "group": "L",
-      "home": "England",
-      "homeCode": "gb-eng",
-      "away": "Ghana",
-      "awayCode": "gh",
-      "round": "group",
-      "pHome": 0.726082593423824,
-      "pDraw": 0.18458580535080107,
-      "pAway": 0.08932076890847329,
-      "advanceHome": 0.8381188455081751,
-      "expHome": 2.0587219594161184,
-      "expAway": 0.5612780405838815,
-      "likely": {
-        "home": 2,
-        "away": 0,
-        "p": 0.15428150107747302
-      },
-      "knockout": false,
-      "cond": {
-        "home": {
-          "ifWin": 1,
-          "ifDraw": 0.9995688726018539,
-          "ifLoss": 0.963302752293578,
-          "nWin": 36362,
-          "nDraw": 9278,
-          "nLoss": 4360
-        },
-        "away": {
-          "ifWin": 1,
-          "ifDraw": 0.9881439965509808,
-          "ifLoss": 0.6526868709091909,
-          "nWin": 4360,
-          "nDraw": 9278,
-          "nLoss": 36362
         }
       }
     },
@@ -2516,20 +2484,20 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.7991930186731726,
-          "ifDraw": 0.13472516718316752,
-          "ifLoss": 0.053506148222000664,
-          "nWin": 10657,
-          "nDraw": 12262,
-          "nLoss": 27081
+          "ifWin": 0.6810576923076923,
+          "ifDraw": 0.1422163150024921,
+          "ifLoss": 0.008562513605688993,
+          "nWin": 10400,
+          "nDraw": 12038,
+          "nLoss": 27562
         },
         "away": {
-          "ifWin": 0.9744470292825228,
-          "ifDraw": 0.647447398466808,
-          "ifLoss": 0.4378342873228864,
-          "nWin": 27081,
-          "nDraw": 12262,
-          "nLoss": 10657
+          "ifWin": 0.9753283506276758,
+          "ifDraw": 0.6086559229107825,
+          "ifLoss": 0.25,
+          "nWin": 27562,
+          "nDraw": 12038,
+          "nLoss": 10400
         }
       }
     },
@@ -2558,7 +2526,7 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.057250924095246285,
+          "ifDraw": 0.05621937591334995,
           "ifLoss": 0,
           "nWin": 9054,
           "nDraw": 11633,
@@ -2608,7 +2576,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.6787702093824542,
+          "ifLoss": 0.6384839650145773,
           "nWin": 26368,
           "nDraw": 12313,
           "nLoss": 11319
@@ -2680,7 +2648,7 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9999342753861321,
+          "ifWin": 0.9998685507722642,
           "ifDraw": 0.004548555833522857,
           "ifLoss": 0,
           "nWin": 15215,
@@ -2688,7 +2656,7 @@
           "nLoss": 21594
         },
         "away": {
-          "ifWin": 0.9990275076410114,
+          "ifWin": 0.9981939427618783,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 21594,
@@ -2723,7 +2691,7 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.7508718826084095,
+          "ifLoss": 0.7110613936961242,
           "nWin": 8139,
           "nDraw": 11467,
           "nLoss": 30394
@@ -2770,7 +2738,7 @@
           "nLoss": 4019
         },
         "away": {
-          "ifWin": 0.10276188106494152,
+          "ifWin": 0.09679024632993281,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 4019,
@@ -2803,7 +2771,7 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.44940133037694013,
+          "ifWin": 0.4253658536585366,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 11275,
@@ -2845,8 +2813,8 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9993027579795476,
-          "ifLoss": 0.43222870800202234,
+          "ifDraw": 0.9989928726371242,
+          "ifLoss": 0.39798685480535,
           "nWin": 15335,
           "nDraw": 12908,
           "nLoss": 21757
@@ -2854,7 +2822,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.7880665145092924,
+          "ifLoss": 0.7465275513531138,
           "nWin": 21757,
           "nDraw": 12908,
           "nLoss": 15335
@@ -2885,7 +2853,7 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9998862731718412,
+          "ifWin": 0.9993176390310474,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 8793,
@@ -2895,7 +2863,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.6576822472421244,
+          "ifLoss": 0.6193563061526214,
           "nWin": 29736,
           "nDraw": 11471,
           "nLoss": 8793
@@ -2927,7 +2895,7 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.02953551687154525,
+          "ifDraw": 0.030608035640623713,
           "ifLoss": 0,
           "nWin": 10225,
           "nDraw": 12121,
@@ -2977,7 +2945,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.890410430489122,
+          "ifLoss": 0.8672272797407807,
           "nWin": 11720,
           "nDraw": 12356,
           "nLoss": 25924
@@ -3058,8 +3026,8 @@
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9927552810188363,
-          "ifLoss": 0.0768873941783602,
+          "ifDraw": 0.9877221078319225,
+          "ifLoss": 0.07764119216050099,
           "nWin": 19641,
           "nDraw": 13113,
           "nLoss": 17246
@@ -3091,7 +3059,7 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.005333333333333333,
+          "ifDraw": 0.00608,
           "ifLoss": 0,
           "nWin": 4950,
           "nDraw": 9375,
@@ -3099,8 +3067,8 @@
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9941333333333333,
-          "ifLoss": 0.014747474747474747,
+          "ifDraw": 0.9889066666666667,
+          "ifLoss": 0.014343434343434344,
           "nWin": 35675,
           "nDraw": 9375,
           "nLoss": 4950
@@ -3132,15 +3100,15 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9949297073058309,
-          "ifLoss": 0.017955591522937638,
+          "ifDraw": 0.9922409157255896,
+          "ifLoss": 0.018208487178190277,
           "nWin": 17212,
           "nDraw": 13017,
           "nLoss": 19771
         },
         "away": {
-          "ifWin": 0.9996459460826463,
-          "ifDraw": 0,
+          "ifWin": 0.9997471043447473,
+          "ifDraw": 0.00007682261657832066,
           "ifLoss": 0,
           "nWin": 19771,
           "nDraw": 13017,
@@ -3173,8 +3141,8 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9931944211056966,
-          "ifLoss": 0.0728792045694944,
+          "ifDraw": 0.9879011930767938,
+          "ifLoss": 0.07372540723503279,
           "nWin": 9736,
           "nDraw": 11902,
           "nLoss": 28362
@@ -3254,7 +3222,7 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9157344485101934,
+          "ifWin": 0.8815821571702387,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 28695,
@@ -3262,7 +3230,7 @@
           "nLoss": 9408
         },
         "away": {
-          "ifWin": 0.40412414965986393,
+          "ifWin": 0.3731930272108844,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 9408,
@@ -3296,8 +3264,8 @@
       "cond": {
         "home": {
           "ifWin": 1,
-          "ifDraw": 0.9995448338643604,
-          "ifLoss": 0.5323471300471149,
+          "ifDraw": 0.999468972841754,
+          "ifLoss": 0.49647905162368916,
           "nWin": 17079,
           "nDraw": 13182,
           "nLoss": 19739
@@ -3305,7 +3273,7 @@
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.8424966332923474,
+          "ifLoss": 0.8059605363311669,
           "nWin": 19739,
           "nDraw": 13182,
           "nLoss": 17079
@@ -3336,7 +3304,7 @@
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.4323677916555939,
+          "ifWin": 0.40579325006643635,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 3763,
@@ -3379,7 +3347,7 @@
         "home": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9812479177573652,
+          "ifLoss": 0.9768692589595926,
           "nWin": 15820,
           "nDraw": 13169,
           "nLoss": 21011
@@ -3419,14 +3387,14 @@
       "cond": {
         "home": {
           "ifWin": 0.9999049158505278,
-          "ifDraw": 0.4751411118843269,
-          "ifLoss": 0.19734298010353646,
+          "ifDraw": 0.4724348565684683,
+          "ifLoss": 0.19728060874446454,
           "nWin": 21034,
           "nDraw": 12933,
           "nLoss": 16033
         },
         "away": {
-          "ifWin": 0.2781138901016653,
+          "ifWin": 0.26514064741470716,
           "ifDraw": 0,
           "ifLoss": 0,
           "nWin": 16033,
@@ -3445,34 +3413,34 @@
       "away": "England",
       "awayCode": "gb-eng",
       "round": "group",
-      "pHome": 0.13077379910248194,
-      "pDraw": 0.2103806363906255,
-      "pAway": 0.6588401143514445,
-      "advanceHome": 0.2179098625083449,
-      "expHome": 0.7092803439785589,
-      "expAway": 1.9107196560214412,
+      "pHome": 0.13841232619633326,
+      "pDraw": 0.21430676858929587,
+      "pAway": 0.6472760734364266,
+      "advanceHome": 0.22792867282961768,
+      "expHome": 0.7339133722082958,
+      "expAway": 1.8860866277917043,
       "likely": {
         "home": 0,
         "away": 1,
-        "p": 0.1391058610190139
+        "p": 0.13731250604378
       },
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.6846706212925382,
-          "ifDraw": 0.22735813603908306,
-          "ifLoss": 0.14603945371775418,
-          "nWin": 6406,
-          "nDraw": 10644,
-          "nLoss": 32950
+          "ifWin": 0.47955115901373097,
+          "ifDraw": 0.2166620587964243,
+          "ifLoss": 0.10600444773906598,
+          "nWin": 6773,
+          "nDraw": 10851,
+          "nLoss": 32376
         },
         "away": {
           "ifWin": 1,
           "ifDraw": 1,
-          "ifLoss": 0.9743990009366219,
-          "nWin": 32950,
-          "nDraw": 10644,
-          "nLoss": 6406
+          "ifLoss": 0.9980806142034548,
+          "nWin": 32376,
+          "nDraw": 10851,
+          "nLoss": 6773
         }
       }
     },
@@ -3486,34 +3454,34 @@
       "away": "Ghana",
       "awayCode": "gh",
       "round": "group",
-      "pHome": 0.6444265957353074,
-      "pDraw": 0.21525149255313944,
-      "pAway": 0.14031722186660087,
-      "advanceHome": 0.7695813701555227,
-      "expHome": 1.880045743005604,
-      "expAway": 0.7399542569943962,
+      "pHome": 0.6322006941203822,
+      "pDraw": 0.21920318806766836,
+      "pAway": 0.14859199392413563,
+      "advanceHome": 0.7588452171534346,
+      "expHome": 1.8542462039270107,
+      "expAway": 0.7657537960729893,
       "likely": {
         "home": 1,
         "away": 0,
-        "p": 0.1368727123373412
+        "p": 0.13499443203279135
       },
       "knockout": false,
       "cond": {
         "home": {
-          "ifWin": 0.9281422288298333,
-          "ifDraw": 0.5521518511557978,
-          "ifLoss": 0.4457013574660634,
-          "nWin": 32286,
-          "nDraw": 10642,
-          "nLoss": 7072
+          "ifWin": 0.8623075702269482,
+          "ifDraw": 0.5660647237618451,
+          "ifLoss": 0.4528663291831988,
+          "nWin": 31505,
+          "nDraw": 11186,
+          "nLoss": 7309
         },
         "away": {
           "ifWin": 1,
-          "ifDraw": 0.9999060327006202,
-          "ifLoss": 0.605463668463111,
-          "nWin": 7072,
-          "nDraw": 10642,
-          "nLoss": 32286
+          "ifDraw": 1,
+          "ifLoss": 0.9807332169496905,
+          "nWin": 7309,
+          "nDraw": 11186,
+          "nLoss": 31505
         }
       }
     }
@@ -3525,6 +3493,14 @@
       "from": 1599.04,
       "to": 1544.0334966140838,
       "delta": -55.006503385916176,
+      "played": 2
+    },
+    {
+      "name": "Ghana",
+      "code": "gh",
+      "from": 1346.31,
+      "to": 1398.0495169822332,
+      "delta": 51.739516982233226,
       "played": 2
     },
     {
@@ -3574,14 +3550,6 @@
       "to": 1715.77333459665,
       "delta": 34.74333459665013,
       "played": 2
-    },
-    {
-      "name": "Ghana",
-      "code": "gh",
-      "from": 1346.31,
-      "to": 1380.2228036628019,
-      "delta": 33.912803662801934,
-      "played": 1
     },
     {
       "name": "Panama",
@@ -3686,14 +3654,6 @@
       "to": 1680.6744114406788,
       "delta": 20.244411440678732,
       "played": 2
-    },
-    {
-      "name": "England",
-      "code": "gb-eng",
-      "from": 1825.97,
-      "to": 1845.8207387852108,
-      "delta": 19.85073878521075,
-      "played": 1
     },
     {
       "name": "Croatia",
@@ -3872,6 +3832,14 @@
       "played": 2
     },
     {
+      "name": "England",
+      "code": "gb-eng",
+      "from": 1825.97,
+      "to": 1827.9940254657795,
+      "delta": 2.0240254657794594,
+      "played": 2
+    },
+    {
       "name": "Scotland",
       "code": "gb-sct",
       "from": 1498.35,
@@ -3921,7 +3889,26 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Mexico"
+      "winner": "Mexico",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Julián Quiñones",
+          "minute": "9",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Raúl Jiménez",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-11",
@@ -3939,7 +3926,34 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Korea Republic"
+      "winner": "Korea Republic",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Czechia",
+          "name": "Ladislav Krejcí",
+          "minute": "59",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Korea Republic",
+          "name": "Hwang In-Beom",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Korea Republic",
+          "name": "Oh Hyeon-Gyu",
+          "minute": "80",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-12",
@@ -3957,7 +3971,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Bosnia and Herzegovina",
+          "name": "Jovo Lukić",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Cyle Larin",
+          "minute": "78",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-12",
@@ -3975,7 +4008,50 @@
       "homeGoals": 4,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "United States"
+      "winner": "United States",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Damian Bobadilla",
+          "minute": "7",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Folarin Balogun",
+          "minute": "31",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Folarin Balogun",
+          "minute": "45+5",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Paraguay",
+          "name": "Mauricio",
+          "minute": "73",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Giovanni Reyna",
+          "minute": "90+8",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-13",
@@ -3993,7 +4069,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Switzerland",
+          "name": "Breel Embolo",
+          "minute": "17",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Qatar",
+          "name": "Miro Muheim",
+          "minute": "90+4",
+          "pen": false,
+          "og": true
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-13",
@@ -4011,7 +4106,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Morocco",
+          "name": "Ismael Saibari",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Vinícius Júnior",
+          "minute": "32",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-13",
@@ -4029,7 +4143,18 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Scotland"
+      "winner": "Scotland",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Scotland",
+          "name": "John McGinn",
+          "minute": "28",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-13",
@@ -4047,7 +4172,26 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Australia"
+      "winner": "Australia",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Australia",
+          "name": "Nestory Irankunda",
+          "minute": "27",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Australia",
+          "name": "Connor Metcalfe",
+          "minute": "75",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-14",
@@ -4065,7 +4209,74 @@
       "homeGoals": 7,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Germany"
+      "winner": "Germany",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Felix Nmecha",
+          "minute": "6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Curaçao",
+          "name": "Livano Comenencia",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Nico Schlotterbeck",
+          "minute": "38",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Kai Havertz",
+          "minute": "45+5",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Jamal Musiala",
+          "minute": "47",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Nathaniel Brown",
+          "minute": "68",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Deniz Undav",
+          "minute": "78",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Kai Havertz",
+          "minute": "88",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-14",
@@ -4083,7 +4294,18 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Côte d'Ivoire"
+      "winner": "Côte d'Ivoire",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Côte d'Ivoire",
+          "name": "Amad Diallo",
+          "minute": "90",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-14",
@@ -4101,7 +4323,42 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Virgil van Dijk",
+          "minute": "51",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Keito Nakamura",
+          "minute": "57",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Crysencio Summerville",
+          "minute": "64",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Daichi Kamada",
+          "minute": "88",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-14",
@@ -4119,7 +4376,58 @@
       "homeGoals": 5,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Sweden"
+      "winner": "Sweden",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Sweden",
+          "name": "Yasin Ayari",
+          "minute": "7",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Sweden",
+          "name": "Alexander Isak",
+          "minute": "30",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Tunisia",
+          "name": "Omar Rekik",
+          "minute": "43",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Sweden",
+          "name": "Viktor Gyökeres",
+          "minute": "59",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Sweden",
+          "name": "Mattias Svanberg",
+          "minute": "84",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Sweden",
+          "name": "Yasin Ayari",
+          "minute": "90+6",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-15",
@@ -4137,7 +4445,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Emam Ashour",
+          "minute": "19",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Belgium",
+          "name": "Mohamed Hany",
+          "minute": "66",
+          "pen": false,
+          "og": true
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-15",
@@ -4155,7 +4482,42 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "New Zealand",
+          "name": "Elijah Just",
+          "minute": "7",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Iran",
+          "name": "Ramin Rezaeian",
+          "minute": "32",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "New Zealand",
+          "name": "Elijah Just",
+          "minute": "54",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Iran",
+          "name": "Mohammad Mohebbi",
+          "minute": "64",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-15",
@@ -4173,7 +4535,9 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [],
+      "scorersComplete": false
     },
     {
       "date": "2026-06-15",
@@ -4191,7 +4555,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Saudi Arabia",
+          "name": "Abdulelah Al-Amri",
+          "minute": "41",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Uruguay",
+          "name": "Maxi Araújo",
+          "minute": "80",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-16",
@@ -4209,7 +4592,42 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "France"
+      "winner": "France",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "66",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Bradley Barcola",
+          "minute": "82",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Senegal",
+          "name": "Ibrahim Mbaye",
+          "minute": "90+5",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "90+6",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-16",
@@ -4227,7 +4645,50 @@
       "homeGoals": 1,
       "awayGoals": 4,
       "decidedBy": "REG",
-      "winner": "Norway"
+      "winner": "Norway",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Norway",
+          "name": "Erling Haaland",
+          "minute": "29",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Iraq",
+          "name": "Aymen Hussein",
+          "minute": "39",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Norway",
+          "name": "Erling Haaland",
+          "minute": "43",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Norway",
+          "name": "Leo Østigard",
+          "minute": "76",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Norway",
+          "name": "Aymen Hussein",
+          "minute": "90+6",
+          "pen": false,
+          "og": true
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-16",
@@ -4245,7 +4706,34 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Argentina"
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "17",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "60",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "76",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-16",
@@ -4263,7 +4751,42 @@
       "homeGoals": 3,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Austria"
+      "winner": "Austria",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Austria",
+          "name": "Romano Schmid",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Jordan",
+          "name": "Ali Olwan",
+          "minute": "50",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Austria",
+          "name": "Yazan Al-Arab",
+          "minute": "76",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "home",
+          "team": "Austria",
+          "name": "Marko Arnautovic",
+          "minute": "90+12",
+          "pen": true,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-17",
@@ -4281,7 +4804,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "João Neves",
+          "minute": "6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Congo DR",
+          "name": "Yoane Wissa",
+          "minute": "45+5",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-17",
@@ -4299,7 +4841,42 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "decidedBy": "REG",
-      "winner": "Colombia"
+      "winner": "Colombia",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Colombia",
+          "name": "Daniel Muñoz",
+          "minute": "40",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Uzbekistan",
+          "name": "Abbosbek Fayzullaev",
+          "minute": "60",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Colombia",
+          "name": "Luis Díaz",
+          "minute": "65",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Colombia",
+          "name": "Jáminton Campaz",
+          "minute": "90+9",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-17",
@@ -4317,7 +4894,58 @@
       "homeGoals": 4,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": "England"
+      "winner": "England",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Harry Kane",
+          "minute": "12",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Croatia",
+          "name": "Martin Baturina",
+          "minute": "36",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Harry Kane",
+          "minute": "42",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Croatia",
+          "name": "Petar Musa",
+          "minute": "45+5",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "47",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Marcus Rashford",
+          "minute": "85",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-17",
@@ -4335,7 +4963,18 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Ghana"
+      "winner": "Ghana",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Ghana",
+          "name": "Caleb Yirenkyi",
+          "minute": "90+5",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-18",
@@ -4353,7 +4992,26 @@
       "homeGoals": 1,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Czechia",
+          "name": "Michal Sadílek",
+          "minute": "6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "South Africa",
+          "name": "Teboho Mokoena",
+          "minute": "83",
+          "pen": true,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-18",
@@ -4371,7 +5029,18 @@
       "homeGoals": 1,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Mexico"
+      "winner": "Mexico",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Luis Romo",
+          "minute": "50",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-18",
@@ -4389,7 +5058,50 @@
       "homeGoals": 4,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Switzerland"
+      "winner": "Switzerland",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Johan Manzambi",
+          "minute": "74",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Rubén Vargas",
+          "minute": "84",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Johan Manzambi",
+          "minute": "90",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Bosnia and Herzegovina",
+          "name": "Ermin Mahmic",
+          "minute": "90+3",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Granit Xhaka",
+          "minute": "90+7",
+          "pen": true,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-18",
@@ -4407,7 +5119,58 @@
       "homeGoals": 6,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Canada"
+      "winner": "Canada",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Cyle Larin",
+          "minute": "16",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Jonathan David",
+          "minute": "29",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Jonathan David",
+          "minute": "45+3",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Nathan Saliba",
+          "minute": "64",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Mohamed Manai",
+          "minute": "75",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "home",
+          "team": "Canada",
+          "name": "Jonathan David",
+          "minute": "90+2",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-19",
@@ -4425,7 +5188,18 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Morocco"
+      "winner": "Morocco",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Morocco",
+          "name": "Ismael Saibari",
+          "minute": "2",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-19",
@@ -4443,7 +5217,34 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Brazil"
+      "winner": "Brazil",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Matheus Cunha",
+          "minute": "23",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Matheus Cunha",
+          "minute": "36",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Vinícius Júnior",
+          "minute": "45+3",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-19",
@@ -4461,7 +5262,26 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "United States"
+      "winner": "United States",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Cameron Burgess",
+          "minute": "11",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "home",
+          "team": "United States",
+          "name": "Alex Freeman",
+          "minute": "43",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-19",
@@ -4479,7 +5299,18 @@
       "homeGoals": 0,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Paraguay"
+      "winner": "Paraguay",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Paraguay",
+          "name": "Matías Galarza",
+          "minute": "2",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-20",
@@ -4497,7 +5328,34 @@
       "homeGoals": 2,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Germany"
+      "winner": "Germany",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Côte d'Ivoire",
+          "name": "Franck Kessié",
+          "minute": "30",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Deniz Undav",
+          "minute": "68",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Germany",
+          "name": "Deniz Undav",
+          "minute": "90+4",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-20",
@@ -4515,7 +5373,9 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [],
+      "scorersComplete": false
     },
     {
       "date": "2026-06-20",
@@ -4533,7 +5393,58 @@
       "homeGoals": 5,
       "awayGoals": 1,
       "decidedBy": "REG",
-      "winner": "Netherlands"
+      "winner": "Netherlands",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Brian Brobbey",
+          "minute": "5",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Brian Brobbey",
+          "minute": "17",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Cody Gakpo",
+          "minute": "47",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Cody Gakpo",
+          "minute": "54",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Sweden",
+          "name": "Anthony Elanga",
+          "minute": "59",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Netherlands",
+          "name": "Crysencio Summerville",
+          "minute": "89",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-20",
@@ -4551,7 +5462,42 @@
       "homeGoals": 0,
       "awayGoals": 4,
       "decidedBy": "REG",
-      "winner": "Japan"
+      "winner": "Japan",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Daichi Kamada",
+          "minute": "4",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Ayase Ueda",
+          "minute": "31",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Junya Ito",
+          "minute": "69",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Ayase Ueda",
+          "minute": "83",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-21",
@@ -4569,7 +5515,9 @@
       "homeGoals": 0,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [],
+      "scorersComplete": false
     },
     {
       "date": "2026-06-21",
@@ -4587,7 +5535,42 @@
       "homeGoals": 1,
       "awayGoals": 3,
       "decidedBy": "REG",
-      "winner": "Egypt"
+      "winner": "Egypt",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "New Zealand",
+          "name": "Finn Surman",
+          "minute": "15",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Mostafa Zico",
+          "minute": "58",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Mohamed Salah",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Trézéguet",
+          "minute": "82",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-21",
@@ -4605,7 +5588,42 @@
       "homeGoals": 4,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Spain"
+      "winner": "Spain",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Lamine Yamal",
+          "minute": "10",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Mikel Oyarzabal",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Mikel Oyarzabal",
+          "minute": "24",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Hassan Al-Tambakti",
+          "minute": "49",
+          "pen": false,
+          "og": true
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-21",
@@ -4623,7 +5641,42 @@
       "homeGoals": 2,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": null
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Cabo Verde",
+          "name": "Kevin Pina",
+          "minute": "21",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Uruguay",
+          "name": "Maxi Araújo",
+          "minute": "44",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Uruguay",
+          "name": "Agustín Cano",
+          "minute": "45+6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Cabo Verde",
+          "name": "Hélio Varela",
+          "minute": "61",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-22",
@@ -4641,7 +5694,34 @@
       "homeGoals": 3,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "France"
+      "winner": "France",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "14",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "54",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Ousmane Dembélé",
+          "minute": "66",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-22",
@@ -4659,7 +5739,50 @@
       "homeGoals": 3,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": "Norway"
+      "winner": "Norway",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Norway",
+          "name": "Marcus Holmgren Pedersen",
+          "minute": "43",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Norway",
+          "name": "Erling Haaland",
+          "minute": "48",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Senegal",
+          "name": "Ismaïla Sarr",
+          "minute": "53",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Norway",
+          "name": "Erling Haaland",
+          "minute": "58",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Senegal",
+          "name": "Ismaïla Sarr",
+          "minute": "90+3",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-22",
@@ -4677,7 +5800,26 @@
       "homeGoals": 2,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Argentina"
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "38",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "90+5",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-22",
@@ -4695,7 +5837,34 @@
       "homeGoals": 1,
       "awayGoals": 2,
       "decidedBy": "REG",
-      "winner": "Algeria"
+      "winner": "Algeria",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Jordan",
+          "name": "Nizar Al-Rashdan",
+          "minute": "36",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Algeria",
+          "name": "Nadhir Benbouali",
+          "minute": "69",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Algeria",
+          "name": "Amine Gouiri",
+          "minute": "82",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-23",
@@ -4713,7 +5882,70 @@
       "homeGoals": 5,
       "awayGoals": 0,
       "decidedBy": "REG",
-      "winner": "Portugal"
+      "winner": "Portugal",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "Cristiano Ronaldo",
+          "minute": "6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "Nuno Mendes",
+          "minute": "17",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "Cristiano Ronaldo",
+          "minute": "39",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "Abduvohid Nematov",
+          "minute": "60",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "home",
+          "team": "Portugal",
+          "name": "Rafael Leão",
+          "minute": "87",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-06-23",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-06-23T16:00:00-04:00",
+      "round": "group",
+      "rawRound": "Matchday 13",
+      "group": "L",
+      "home": "England",
+      "away": "Ghana",
+      "rawHome": "England",
+      "rawAway": "Ghana",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": null,
+      "scorers": [],
+      "scorersComplete": false
     }
   ]
 }

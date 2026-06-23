@@ -143,15 +143,32 @@ console.log('\n[6] Group standings match the played results');
     }
     ok(mismatch === 0, `every team's pts + games-played match a fresh recompute (${mismatch} off)`);
     ok(posBad === 0, `all 12 groups ordered 1-4 by points (${posBad} anomalies)`);
-    // clinch honesty: a "through" team must be mathematically unreachable from 3rd
+    // clinch honesty: a "through" team must finish top 2 in EVERY completion of the
+    // remaining group fixtures. Derived independently here (all 6 pairings minus the
+    // played ones) and enumerated — fixture-aware, so two chasers who must still play
+    // each other count as one, matching the production clinch rule.
     let clinchBad = 0;
-    for (const g of ld.standings) for (const r of g.rows) {
-      if (r.status === 'through') {
-        const ceilOthers = g.rows.filter((u) => u !== r).map((u) => u.pts + 3 * u.remaining);
-        if (ceilOthers.filter((c) => c >= r.pts).length > 1) clinchBad++; // >1 rival can reach them → not clinched
+    const playedPair = new Set(ld.results.filter((m) => m.round === 'group').map((m) => [m.home, m.away].sort().join('|')));
+    for (const g of ld.standings) {
+      const names = g.rows.map((r) => r.name);
+      const remaining = [];
+      for (let i = 0; i < names.length; i++) for (let j = i + 1; j < names.length; j++) {
+        if (!playedPair.has([names[i], names[j]].sort().join('|'))) remaining.push([names[i], names[j]]);
+      }
+      const base = Object.fromEntries(g.rows.map((r) => [r.name, r.pts]));
+      for (const r of g.rows) {
+        if (r.status !== 'through') continue;
+        for (let mask = 0; mask < 3 ** remaining.length; mask++) {
+          const pts = { ...base };
+          let m = mask;
+          for (const [a, b] of remaining) { const o = m % 3; m = (m - o) / 3; if (o === 0) pts[a] += 3; else if (o === 1) { pts[a]++; pts[b]++; } else pts[b] += 3; }
+          let geq = 0;
+          for (const u of g.rows) if (u.name !== r.name && pts[u.name] >= pts[r.name]) geq++;
+          if (geq >= 2) { clinchBad++; break; } // a completion exists where 2+ teams catch them → not clinched
+        }
       }
     }
-    ok(clinchBad === 0, `no team flagged "through" that could still be caught by 2+ rivals (${clinchBad})`);
+    ok(clinchBad === 0, `every "through" team is mathematically top-2 across all remaining fixtures (${clinchBad})`);
   }
 }
 
