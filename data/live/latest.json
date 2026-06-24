@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-24T19:41:28.980Z",
-  "asOfDate": "2026-06-23",
+  "fetchedAt": "2026-06-24T22:15:05.069Z",
+  "asOfDate": "2026-06-24",
   "matchCount": 104,
-  "playedCount": 48,
-  "groupPlayedCount": 48,
+  "playedCount": 50,
+  "groupPlayedCount": 50,
   "groupTotal": 72,
   "matches": [
     {
@@ -2182,7 +2182,38 @@
       "rawHome": "Switzerland",
       "rawAway": "Canada",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Switzerland",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Rubén Vargas",
+          "minute": "46",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Johan Manzambi",
+          "minute": "57",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Canada",
+          "name": "Promise David",
+          "minute": "76",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-24",
@@ -2196,7 +2227,46 @@
       "rawHome": "Bosnia & Herzegovina",
       "rawAway": "Qatar",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Bosnia and Herzegovina",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Bosnia and Herzegovina",
+          "name": "Kerim Alajbegovic",
+          "minute": "29",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Bosnia and Herzegovina",
+          "name": "Mahmoud Abunada",
+          "minute": "34",
+          "pen": false,
+          "og": true
+        },
+        {
+          "side": "away",
+          "team": "Qatar",
+          "name": "Hassan Al-Haydos",
+          "minute": "42",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Bosnia and Herzegovina",
+          "name": "Ermin Mahmic",
+          "minute": "80",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-24",
