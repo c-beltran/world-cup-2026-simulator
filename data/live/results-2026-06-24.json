@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-24T02:50:18.016Z",
+  "fetchedAt": "2026-06-24T09:21:44.000Z",
   "asOfDate": "2026-06-23",
   "matchCount": 104,
-  "playedCount": 47,
-  "groupPlayedCount": 47,
+  "playedCount": 48,
+  "groupPlayedCount": 48,
   "groupTotal": 72,
   "matches": [
     {
@@ -2076,7 +2076,22 @@
       "rawHome": "Colombia",
       "rawAway": "DR Congo",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Colombia",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Colombia",
+          "name": "Daniel Muñoz",
+          "minute": "76",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-23",
