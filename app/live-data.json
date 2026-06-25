@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-25",
     "asOfDate": "2026-06-24",
-    "fetchedAt": "2026-06-25T14:22:57.571Z",
+    "fetchedAt": "2026-06-25T19:53:07.837Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -3072,6 +3072,29 @@
           "nLoss": 32243
         }
       }
+    },
+    {
+      "date": "2026-06-28",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-06-28T12:00:00-07:00",
+      "group": null,
+      "home": "South Africa",
+      "homeCode": "za",
+      "away": "Canada",
+      "awayCode": "ca",
+      "round": "R32",
+      "pHome": 0.28210089102506564,
+      "pDraw": 0.2569924655327981,
+      "pAway": 0.4609060516251368,
+      "advanceHome": 0.4035243996799782,
+      "expHome": 1.1173520611673848,
+      "expAway": 1.5026479388326153,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12223504362649999
+      },
+      "knockout": true
     }
   ],
   "movers": [
