@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-26",
     "asOfDate": "2026-06-25",
-    "fetchedAt": "2026-06-26T08:57:35.490Z",
+    "fetchedAt": "2026-06-26T14:15:09.335Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -2772,6 +2772,52 @@
         "home": 1,
         "away": 1,
         "p": 0.12223504362649999
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-06-29",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-29T19:00:00-06:00",
+      "group": null,
+      "home": "Netherlands",
+      "homeCode": "nl",
+      "away": "Morocco",
+      "awayCode": "ma",
+      "round": "R32",
+      "pHome": 0.37145858402737564,
+      "pDraw": 0.26273096504847054,
+      "pAway": 0.3658101550910255,
+      "advanceHome": 0.5030510520887647,
+      "expHome": 1.3160476265513024,
+      "expAway": 1.3039523734486977,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12493433022177118
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-06-29",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-06-29T12:00:00-05:00",
+      "group": null,
+      "home": "Brazil",
+      "homeCode": "br",
+      "away": "Japan",
+      "awayCode": "jp",
+      "round": "R32",
+      "pHome": 0.471103184471044,
+      "pDraw": 0.25569188815811295,
+      "pAway": 0.2732042610753373,
+      "advanceHome": 0.6067486811448196,
+      "expHome": 1.5235260080260058,
+      "expAway": 1.0964739919739943,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.1216176660479151
       },
       "knockout": true
     }
