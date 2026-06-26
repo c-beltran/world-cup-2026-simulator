@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-26T02:55:17.943Z",
+  "fetchedAt": "2026-06-26T08:57:35.490Z",
   "asOfDate": "2026-06-25",
   "matchCount": 104,
-  "playedCount": 58,
-  "groupPlayedCount": 58,
+  "playedCount": 60,
+  "groupPlayedCount": 60,
   "groupTotal": 72,
   "matches": [
     {
@@ -2440,7 +2440,54 @@
       "rawHome": "Turkey",
       "rawAway": "USA",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 2,
+      "decidedBy": "REG",
+      "winner": "Türkiye",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "United States",
+          "name": "Auston Trusty",
+          "minute": "3",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Türkiye",
+          "name": "Arda Güler",
+          "minute": "10",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Türkiye",
+          "name": "Baris Alper Yilmaz",
+          "minute": "31",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "United States",
+          "name": "Sebastian Berhalter",
+          "minute": "49",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Türkiye",
+          "name": "Kaan Ayhan",
+          "minute": "90+8",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-25",
@@ -2454,7 +2501,13 @@
       "rawHome": "Paraguay",
       "rawAway": "Australia",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 0,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": null,
+      "scorers": [],
+      "scorersComplete": false
     },
     {
       "date": "2026-06-25",
