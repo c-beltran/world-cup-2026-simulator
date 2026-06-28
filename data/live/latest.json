@@ -3,7 +3,7 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-28T08:46:26.099Z",
+  "fetchedAt": "2026-06-28T13:27:41.575Z",
   "asOfDate": "2026-06-27",
   "matchCount": 104,
   "playedCount": 72,
