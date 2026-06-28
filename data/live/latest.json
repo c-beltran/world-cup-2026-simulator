@@ -3,11 +3,11 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-28T03:24:25.463Z",
+  "fetchedAt": "2026-06-28T08:46:26.099Z",
   "asOfDate": "2026-06-27",
   "matchCount": 104,
-  "playedCount": 70,
-  "groupPlayedCount": 70,
+  "playedCount": 72,
+  "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
     {
@@ -2970,7 +2970,62 @@
       "rawHome": "Algeria",
       "rawAway": "Austria",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 3,
+      "decidedBy": "REG",
+      "winner": null,
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Austria",
+          "name": "Marko Arnautovic",
+          "minute": "28",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Algeria",
+          "name": "Rafik Belghali",
+          "minute": "45",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Austria",
+          "name": "Marcel Sabitzer",
+          "minute": "55",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Algeria",
+          "name": "Riyad Mahrez",
+          "minute": "60",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Algeria",
+          "name": "Riyad Mahrez",
+          "minute": "90+3",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Austria",
+          "name": "Sasa Kalajdzic",
+          "minute": "90+6",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-27",
@@ -2984,7 +3039,46 @@
       "rawHome": "Jordan",
       "rawAway": "Argentina",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 1,
+      "awayGoals": 3,
+      "decidedBy": "REG",
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Argentina",
+          "name": "Giovani Lo Celso",
+          "minute": "19",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Argentina",
+          "name": "Lautaro Martínez",
+          "minute": "31",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Jordan",
+          "name": "Mousa Al-Tamari",
+          "minute": "55",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "80",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-27",
@@ -3163,10 +3257,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "Germany",
-      "away": null,
+      "away": "Paraguay",
       "rawHome": "Germany",
-      "rawAway": "3A/B/C/D/F",
-      "undetermined": true,
+      "rawAway": "Paraguay",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3204,11 +3298,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1I",
-      "rawAway": "3C/D/F/G/H",
-      "undetermined": true,
+      "home": "France",
+      "away": "Sweden",
+      "rawHome": "France",
+      "rawAway": "Sweden",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3219,10 +3313,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "Côte d'Ivoire",
-      "away": null,
+      "away": "Norway",
       "rawHome": "Ivory Coast",
-      "rawAway": "2I",
-      "undetermined": true,
+      "rawAway": "Norway",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3233,10 +3327,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "Mexico",
-      "away": null,
+      "away": "Ecuador",
       "rawHome": "Mexico",
-      "rawAway": "3C/E/F/H/I",
-      "undetermined": true,
+      "rawAway": "Ecuador",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3246,11 +3340,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1L",
-      "rawAway": "3E/H/I/J/K",
-      "undetermined": true,
+      "home": "England",
+      "away": "Congo DR",
+      "rawHome": "England",
+      "rawAway": "DR Congo",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3261,10 +3355,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "United States",
-      "away": null,
+      "away": "Bosnia and Herzegovina",
       "rawHome": "USA",
-      "rawAway": "3B/E/F/I/J",
-      "undetermined": true,
+      "rawAway": "Bosnia & Herzegovina",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3274,11 +3368,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1G",
-      "rawAway": "3A/E/H/I/J",
-      "undetermined": true,
+      "home": "Belgium",
+      "away": "Senegal",
+      "rawHome": "Belgium",
+      "rawAway": "Senegal",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3288,11 +3382,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "2K",
-      "rawAway": "2L",
-      "undetermined": true,
+      "home": "Portugal",
+      "away": "Croatia",
+      "rawHome": "Portugal",
+      "rawAway": "Croatia",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3302,11 +3396,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1H",
-      "rawAway": "2J",
-      "undetermined": true,
+      "home": "Spain",
+      "away": "Austria",
+      "rawHome": "Spain",
+      "rawAway": "Austria",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3317,10 +3411,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "Switzerland",
-      "away": null,
+      "away": "Algeria",
       "rawHome": "Switzerland",
-      "rawAway": "3E/F/G/I/J",
-      "undetermined": true,
+      "rawAway": "Algeria",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3330,11 +3424,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1J",
-      "rawAway": "2H",
-      "undetermined": true,
+      "home": "Argentina",
+      "away": "Cabo Verde",
+      "rawHome": "Argentina",
+      "rawAway": "Cape Verde",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3344,11 +3438,11 @@
       "round": "R32",
       "rawRound": "Round of 32",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "1K",
-      "rawAway": "3D/E/I/J/L",
-      "undetermined": true,
+      "home": "Colombia",
+      "away": "Ghana",
+      "rawHome": "Colombia",
+      "rawAway": "Ghana",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3359,10 +3453,10 @@
       "rawRound": "Round of 32",
       "group": null,
       "home": "Australia",
-      "away": null,
+      "away": "Egypt",
       "rawHome": "Australia",
-      "rawAway": "2G",
-      "undetermined": true,
+      "rawAway": "Egypt",
+      "undetermined": false,
       "finished": false
     },
     {
