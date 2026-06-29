@@ -44,6 +44,7 @@ const data = {
   standings: sim.standings,
   nextDate: sim.nextDate,
   projections: sim.projections,
+  projectedBracket: sim.projectedBracket,
   movers: sim.movers,
   results: sim.results,
 };

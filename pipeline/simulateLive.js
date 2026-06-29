@@ -93,6 +93,41 @@ for (const mm of trackPairs) {
   cond.set(pairKey(mm.home, mm.away), { [mm.home]: blank(), [mm.away]: blank() });
 }
 
+// ---- 2c. Real third-place slot assignment (so the projected bracket uses the TRUE R32) ----
+// assignThirds is a disclosed Annex-C APPROXIMATION; once the groups are decided and the real
+// R32 draw is published upstream, derive the true slot→group mapping and pin it, so the
+// knockout projection is built on the REAL bracket — not the approximation (which can swap a
+// couple of thirds). Returns null until the R32 is fully drawn → engine falls back gracefully.
+function deriveThirdOverride() {
+  const r32 = live.matches.filter((mm) => mm.round === 'R32' && mm.home && mm.away);
+  const r32MatchCount = bracketDoc.knockout.filter((mm) => mm.round === 'R32').length;
+  if (r32.length < r32MatchCount) return null;
+  const rowsByGroup = new Map();
+  const where = new Map(); // name -> { group, pos (1-based) } from the final group tables
+  for (const g of groupsDoc.groups) {
+    const rows = groupTable(g.teams.map((t) => teamsByName.get(t.name)), played.filter((mm) => mm.round === 'group' && mm.group === g.id));
+    rowsByGroup.set(g.id, rows);
+    rows.forEach((r) => where.set(r.name, { group: g.id, pos: r.pos }));
+  }
+  const oppOf = new Map();
+  for (const mm of r32) { oppOf.set(mm.home, mm.away); oppOf.set(mm.away, mm.home); }
+  const override = new Map();
+  for (const mm of bracketDoc.knockout) {
+    if (mm.round !== 'R32') continue;
+    const groupSlot = mm.home.source === 'third' ? mm.away : mm.away.source === 'third' ? mm.home : null;
+    if (!groupSlot) continue; // no third-place slot in this match
+    const rows = rowsByGroup.get(groupSlot.group);
+    const groupTeam = rows && rows.find((r) => r.pos === (groupSlot.pos === 'winner' ? 1 : 2));
+    if (!groupTeam) return null;
+    const third = where.get(oppOf.get(groupTeam.name)); // the team really paired here = the third
+    if (!third || third.pos !== 3) return null;
+    override.set(mm.id, third.group);
+  }
+  return override.size === bracketDoc.knockout.filter((mm) => mm.round === 'R32' && (mm.home.source === 'third' || mm.away.source === 'third')).length
+    ? override : null;
+}
+const thirdOverride = deriveThirdOverride();
+
 // ---- 3. Conditional Monte Carlo ----
 const codeOf = (n) => teamsByName.get(n)?.code || '';
 const fieldOf = (n) => teamsByName.get(n)?.fieldRank;
@@ -106,6 +141,10 @@ const reachOf = (n) => {
 const bump = (m, k) => m.set(k, (m.get(k) || 0) + 1);
 const violations = { roundSize: 0, matchingFail: 0 };
 
+// projected-bracket tally: per KO match, who occupies each slot + who advances, across sims.
+const slotTally = new Map(); // matchId -> { home:Map, away:Map, win:Map }
+const slotOf = (id) => { let s = slotTally.get(id); if (!s) slotTally.set(id, (s = { home: new Map(), away: new Map(), win: new Map() })); return s; };
+
 // per-group final-position distribution (for the projected final table)
 const posCount = new Map(); // groupId -> Map(teamName -> [p1,p2,p3,p4])
 for (const g of groupsDoc.groups) {
@@ -118,7 +157,7 @@ const t0 = performance.now();
 for (let i = 0; i < SIMS; i++) {
   let sim;
   try {
-    sim = simulateTournament(teamsByName, groupsDoc, bracket, mulberry32(simSeed(MASTER_SEED, i)), MODEL, clamp, track);
+    sim = simulateTournament(teamsByName, groupsDoc, bracket, mulberry32(simSeed(MASTER_SEED, i)), MODEL, clamp, track, thirdOverride);
   } catch {
     violations.matchingFail++;
     continue;
@@ -131,6 +170,14 @@ for (let i = 0; i < SIMS; i++) {
   for (const t of sim.reach.qf) reachOf(t.name).qf++;
   for (const t of sim.reach.r16) reachOf(t.name).r16++;
   for (const t of sim.reach.r32) reachOf(t.name).r32++;
+
+  // projected-bracket: tally who fills each slot and who advances from each KO match
+  for (const mm of bracketDoc.knockout) {
+    const res = sim.results[mm.id];
+    if (!res) continue;
+    const s = slotOf(mm.id);
+    bump(s.home, res.home.name); bump(s.away, res.away.name); bump(s.win, res.winner.name);
+  }
 
   // tally each team's final position within its group (standings sorted 1st→4th)
   for (const g of groupsDoc.groups) {
@@ -285,6 +332,17 @@ const movers = Object.entries(eloLog)
   .map(([name, l]) => ({ name, code: codeOf(name), from: l.from, to: l.to, delta: l.to - l.from, played: l.played }))
   .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
 
+// ---- projected bracket: top occupants per slot + projected advancer, from the slot tally ----
+// home[0]/away[0] = modal occupant + its MARGINAL probability of reaching that slot (not a
+// joint-pairing claim). With the real third-place override, R32 occupants are deterministic
+// (p≈1); R16+ are projections that converge to the real teams as KO games are clamped.
+const teamRef = (name) => ({ name, code: codeOf(name), fieldRank: fieldOf(name) });
+const topOccupants = (mp, k) => [...mp.entries()].sort((a, b) => b[1] - a[1]).slice(0, k).map(([name, c]) => ({ ...teamRef(name), p: c / N }));
+const projectedBracket = bracketDoc.knockout.map((mm) => {
+  const s = slotTally.get(mm.id) || { home: new Map(), away: new Map(), win: new Map() };
+  return { id: mm.id, round: mm.round, home: topOccupants(s.home, 3), away: topOccupants(s.away, 3), favorite: topOccupants(s.win, 1)[0] || null };
+});
+
 const out = {
   kind: 'live',
   generatedFrom: { source: live.source, sourceUrl: live.sourceUrl, fetchedAt: live.fetchedAt },
@@ -303,6 +361,8 @@ const out = {
   standings,
   nextDate,
   projections,
+  projectedBracket,
+  thirdOverrideApplied: !!thirdOverride,
   movers,
   results: played, // the clamped real results, for display + provenance
 };

@@ -150,6 +150,16 @@
   .tie .foot { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
   .tie .foot b { color: var(--ink); }
   .tie .foot .ml { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-right: 5px; letter-spacing: .5px; }
+  /* projected (not-yet-played) ties — dashed to signal "model projection, not a real draw" */
+  .tie.proj { border-style: dashed; background: rgba(255,255,255,.012); }
+  .tie.proj .tiehead .rnd { color: var(--muted); }
+  .tie.proj .tiehead .ko { color: var(--ai); }
+  .tie.proj .row .adv { color: var(--muted); }
+  /* round sections (R32 → Final) */
+  .roundsection + .roundsection { margin-top: 20px; }
+  .roundhead { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin: 0 0 11px; padding-bottom: 6px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .roundhead .ptag { color: var(--ai); font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+  .roundhead .cnt { color: var(--muted); font-size: 9.5px; font-weight: 400; letter-spacing: .04em; }
 
   /* group standings */
   .groups { display: grid; grid-template-columns: 1fr; gap: 12px; }
@@ -321,7 +331,8 @@ const I18N = {
     deltaFlat:"—",
     phaseKo:"● KNOCKOUTS", matches:"matches played",
     deepHead:"Deep-run odds", deepSub:"Model probability of reaching the FINAL · {sims} conditional sims.",
-    bracketHead:"Knockout bracket — Round of 32", bracketSub:"Win or go home. The bar is each side's chance to ADVANCE (incl. extra time &amp; penalties); the score is the most-likely 90-minute result.",
+    bracketHead:"Knockout bracket", bracketSub:"Win or go home. For decided ties: each side's chance to ADVANCE (incl. extra time &amp; penalties) + the most-likely 90' score. Round of 16 onward is the model's <b style='color:var(--ai)'>projection</b> — each team's chance to reach that slot; it firms up as games are played.",
+    projectedTag:"projected", projOcc:"most-likely to reach this slot",
     standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
     legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
     methodTitle:"How this stays honest.",
@@ -351,7 +362,8 @@ const I18N = {
     deltaFlat:"—",
     phaseKo:"● ELIMINATORIAS", matches:"partidos jugados",
     deepHead:"Probabilidad de avance", deepSub:"Probabilidad del modelo de llegar a la FINAL · {sims} simulaciones condicionales.",
-    bracketHead:"Cuadro final — Dieciseisavos", bracketSub:"Eliminación directa. La barra es la probabilidad de cada lado de AVANZAR (incl. prórroga y penales); el marcador es el resultado más probable de 90 minutos.",
+    bracketHead:"Cuadro final", bracketSub:"Eliminación directa. En llaves definidas: probabilidad de cada lado de AVANZAR (incl. prórroga y penales) + el marcador más probable de 90'. De octavos en adelante es la <b style='color:var(--ai)'>proyección</b> del modelo — la probabilidad de cada equipo de llegar a esa llave; se concreta a medida que se juega.",
+    projectedTag:"proyectado", projOcc:"más probable en esta llave",
     standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
     legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
     methodTitle:"Cómo se mantiene honesto.",
@@ -616,12 +628,39 @@ function render() {
       <div class="foot"><b class="ml">${it.likely.home}–${it.likely.away}</b> ${drawn ? t('etPens') : t('mlScore')}</div>
     </div>`;
   }
+  // Projected (R16→final) tie-card: the two most-likely occupants of a future slot, each with
+  // its MARGINAL probability of reaching that slot. Dashed styling + "projected" label make
+  // clear it isn't a real draw; it converges to the real teams as the feeder games are played.
+  function projTieCard(pm) {
+    const h = pm.home[0], a = pm.away[0];
+    if (!h || !a) return "";
+    const favName = pm.favorite && pm.favorite.name;
+    const prow = o => `<div class="row ${o.name === favName ? "fav" : ""}"><img class="flag" src="${FLAG(o.code)}" alt=""><span class="nm">${teamName(o.name)}<span class="rk">#${o.fieldRank}</span></span><span class="adv">${Math.round(o.p * 100)}%</span></div>`;
+    return `<div class="tie proj">
+      <div class="tiehead"><span class="rnd">${rd(pm.round)}</span><span class="ko">${t('projectedTag')}</span></div>
+      ${prow(h)}${prow(a)}
+      <div class="foot">${t('projOcc')}</div>
+    </div>`;
+  }
+  const byDate = (a, b) => String(a.date).localeCompare(String(b.date)) || String(a.kickoff || a.time || "").localeCompare(String(b.kickoff || b.time || ""));
+  const roundSection = (label, cardsHtml, projected) =>
+    `<div class="roundsection"><div class="roundhead">${label}${projected ? `<span class="ptag">${t('projectedTag')}</span>` : ""}</div><div class="bracketgrid">${cardsHtml}</div></div>`;
   function renderBracket() {
-    const ties = [
-      ...koResults.map(r => ({ kind: "played", ...r })),
-      ...koProj.map(p => ({ kind: "next", ...p })),
-    ].sort((a, b) => String(a.date).localeCompare(String(b.date)) || String(a.kickoff || a.time || "").localeCompare(String(b.kickoff || b.time || "")));
-    fxRoot.innerHTML = ties.length ? `<div class="bracketgrid">${ties.map(tieCard).join("")}</div>` : `<p class="sub">${t('noNext')}</p>`;
+    const sections = [];
+    for (const round of ["R32", "R16", "QF", "SF", "final"]) {
+      // real ties for this round (played + upcoming with both teams known)
+      const real = [
+        ...koResults.filter(r => r.round === round).map(r => ({ kind: "played", ...r })),
+        ...koProj.filter(p => p.round === round).map(p => ({ kind: "next", ...p })),
+      ].sort(byDate);
+      const resolved = new Set(real.map(r => [r.home, r.away].sort().join("|")));
+      // projected ties for slots not yet resolved (excluded once their real pairing exists)
+      const proj = (L.projectedBracket || []).filter(b =>
+        b.round === round && b.home[0] && b.away[0] && !resolved.has([b.home[0].name, b.away[0].name].sort().join("|")));
+      const cards = [...real.map(tieCard), ...proj.map(projTieCard)].join("");
+      if (cards) sections.push(roundSection(rd(round), cards, proj.length > 0));
+    }
+    fxRoot.innerHTML = sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`;
   }
   if (koPhase) renderBracket(); else renderFixtures();
   // In KO phase the bracket is the headline — promote it above the now-settled group tables.

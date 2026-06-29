@@ -225,5 +225,47 @@ console.log('\n[8] Projected group finish is well-formed');
   }
 }
 
+// ---- 9. projected bracket: well-formed, and built on the REAL R32 draw ----
+console.log('\n[9] Projected bracket integrity');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  const live = existsSync(join(ROOT, 'data', 'live', 'latest.json'))
+    ? JSON.parse(readFileSync(join(ROOT, 'data', 'live', 'latest.json'), 'utf8')) : null;
+  if (!existsSync(livePath) || !live) { ok(false, 'app/live-data.json + latest.json exist'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const pb = ld.projectedBracket || [];
+    const koCount = read('bracket.json').knockout.length;
+    ok(pb.length === koCount, `projectedBracket has one entry per KO match (${pb.length}/${koCount})`);
+    let pBad = 0, ordBad = 0, sumBad = 0;
+    for (const b of pb) {
+      for (const slot of [b.home, b.away]) {
+        if (!Array.isArray(slot) || !slot.length) { pBad++; continue; }
+        for (const o of slot) if (o.p < -1e-9 || o.p > 1 + 1e-9) pBad++;
+        for (let i = 1; i < slot.length; i++) if (slot[i].p > slot[i - 1].p + 1e-9) ordBad++; // descending
+        if (slot.reduce((a, o) => a + o.p, 0) > 1 + 1e-9) sumBad++; // top-k marginals can't exceed 1
+      }
+      if (!b.favorite || b.favorite.p < -1e-9 || b.favorite.p > 1 + 1e-9) pBad++;
+    }
+    ok(pBad === 0, `all slot/favorite probabilities in [0,1] (${pBad} bad)`);
+    ok(ordBad === 0, `slot occupants sorted by descending probability (${ordBad} bad)`);
+    ok(sumBad === 0, `per-slot top-k marginals sum to ≤ 1 (${sumBad} bad)`);
+    // Once the R32 draw is complete, its occupants are deterministic and must equal the REAL
+    // upstream pairings (the third-place override, not the Annex-C approximation).
+    const upR32 = live.matches.filter((m) => m.round === 'R32' && m.home && m.away);
+    const r32 = pb.filter((b) => b.round === 'R32');
+    if (upR32.length === r32.length && r32.length) {
+      let detBad = 0, pairBad = 0;
+      const up = new Set(upR32.map((m) => [m.home, m.away].sort().join('|')));
+      for (const b of r32) {
+        if (b.home[0].p < 0.999 || b.away[0].p < 0.999) detBad++;
+        if (!up.has([b.home[0].name, b.away[0].name].sort().join('|'))) pairBad++;
+      }
+      ok(detBad === 0, `settled R32 slot occupants are certain (p≈1) (${detBad} off)`);
+      ok(pairBad === 0, `projected R32 pairings match the REAL upstream draw, not the approximation (${pairBad} mismatched)`);
+    }
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);
