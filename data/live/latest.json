@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-29T15:39:37.553Z",
-  "asOfDate": "2026-06-28",
+  "fetchedAt": "2026-06-29T19:51:04.632Z",
+  "asOfDate": "2026-06-29",
   "matchCount": 104,
-  "playedCount": 73,
+  "playedCount": 74,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -3304,7 +3304,38 @@
       "rawHome": "Brazil",
       "rawAway": "Japan",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Brazil",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Japan",
+          "name": "Kaishu Sano",
+          "minute": "29",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Casemiro",
+          "minute": "56",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Brazil",
+          "name": "Gabriel Martinelli",
+          "minute": "90+5",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-06-30",
