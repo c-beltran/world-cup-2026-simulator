@@ -139,16 +139,17 @@
   .tie .row .flag { width: 24px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; flex: none; }
   .tie .row .nm { font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
   .tie .row .nm .rk { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 5px; font-weight: 400; }
-  .tie .row .adv { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--muted); flex: none; }
-  .tie .row .sc { font-family: var(--mono); font-size: 15px; font-weight: 800; flex: none; }
+  .tie .row .adv { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--muted); flex: none; min-width: 36px; text-align: right; }
+  .tie .row .sc { font-family: var(--mono); font-size: 16px; font-weight: 800; flex: none; min-width: 16px; text-align: right; }
   .tie .row .ck { color: var(--up); font-weight: 700; flex: none; }
   .tie .row.fav .nm { color: var(--ink); } .tie .row.fav .adv { color: var(--gold); }
   .tie .row.lose .nm { color: var(--muted); } .tie .row.lose .flag { opacity: .6; }
   .tie .abar { display: flex; height: 7px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.05); margin: 8px 0 6px; }
   .tie .abar > span { display: block; height: 100%; }
   .tie .abar .ah { background: var(--sim); } .tie .abar .aa { background: var(--gold-dim); }
-  .tie .foot { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+  .tie .foot { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
   .tie .foot b { color: var(--ink); }
+  .tie .foot .ml { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-right: 5px; letter-spacing: .5px; }
 
   /* group standings */
   .groups { display: grid; grid-template-columns: 1fr; gap: 12px; }
@@ -322,7 +323,7 @@ const I18N = {
     deepHead:"Deep-run odds", deepSub:"Model probability of reaching the FINAL · {sims} conditional sims.",
     bracketHead:"Knockout bracket — Round of 32", bracketSub:"Win or go home. The bar is each side's chance to ADVANCE (incl. extra time &amp; penalties); the score is the most-likely 90-minute result.",
     standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
-    legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.",
+    legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
     methodTitle:"How this stays honest.",
     method:"This is a <b>conditional</b> re-run of the exact pre-tournament engine — not a new model. Every finished match is <span class='em'>clamped</span> to its real scoreline (the sim reproduces it and draws no randomness for it) and only the unknown remainder is re-simulated. Team ratings are updated on the pitch by <b>FIFA's own SUM formula</b> (<code>P' = P + I·(W − We)</code>, divisor 600), so a result both fixes the past and shifts the projection for what's left. At zero games played this reproduces the frozen forecast <b>exactly</b> (verified). Neutral venue — no host advantage. Field rank is 1–48 within this field.",
     methodFoot:"{sims} simulations · seed {seed} · ratings: {rs} ({rsnap}) · source: ",
@@ -352,7 +353,7 @@ const I18N = {
     deepHead:"Probabilidad de avance", deepSub:"Probabilidad del modelo de llegar a la FINAL · {sims} simulaciones condicionales.",
     bracketHead:"Cuadro final — Dieciseisavos", bracketSub:"Eliminación directa. La barra es la probabilidad de cada lado de AVANZAR (incl. prórroga y penales); el marcador es el resultado más probable de 90 minutos.",
     standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
-    legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.",
+    legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
     methodTitle:"Cómo se mantiene honesto.",
     method:"Esto es una nueva corrida <b>condicional</b> del mismo motor pre-torneo — no un modelo nuevo. Cada partido jugado se <span class='em'>fija</span> a su marcador real (la simulación lo reproduce y no usa azar para él) y solo se vuelve a simular lo desconocido. Las valoraciones se actualizan en el campo con <b>la propia fórmula SUM de la FIFA</b> (<code>P' = P + I·(W − We)</code>, divisor 600), así un resultado fija el pasado y ajusta la proyección de lo que falta. Con cero partidos jugados esto reproduce el pronóstico congelado <b>exactamente</b> (verificado). Sede neutral — sin ventaja local. El puesto es ranking de campo (1–48) dentro de este grupo.",
     methodFoot:"{sims} simulaciones · semilla {seed} · valoraciones: {rs} ({rsnap}) · fuente: ",
@@ -602,13 +603,17 @@ function render() {
       </div>`;
     }
     const ah = advPct(it.advanceHome), aa = 100 - ah, homeFav = it.advanceHome >= 0.5, next = it.date === L.nextDate;
+    // A level 90' score doesn't end a knockout tie — it goes to extra time, then penalties.
+    // So we show the most-likely 90' scoreline, but flag a draw as heading to ET/pens; the
+    // advance % (which already includes ET & penalties) is who the model expects to go through.
+    const drawn = it.likely.home === it.likely.away;
     const urow = (nm, code, adv, fav) => `<div class="row ${fav ? "fav" : ""}"><img class="flag" src="${FLAG(code)}" alt=""><span class="nm">${teamName(nm)}<span class="rk">#${rankOf(nm)}</span></span><span class="adv">${adv}%</span></div>`;
     return `<div class="tie ${next ? "next" : ""}">
       <div class="tiehead"><span class="rnd">${rnd}</span><span class="ko">${next ? '<span class="star">★ </span>' : ""}${fmtDate(it.date)} · ${fmtKO(it.kickoff, it.time)}</span></div>
       ${urow(it.home, it.homeCode, ah, homeFav)}
       ${urow(it.away, it.awayCode, aa, !homeFav)}
       <div class="abar"><span class="ah" style="width:${ah}%"></span><span class="aa" style="width:${aa}%"></span></div>
-      <div class="foot">${t('likely')} <b>${it.likely.home}–${it.likely.away}</b> · ${t('reg90')}</div>
+      <div class="foot"><b class="ml">${it.likely.home}–${it.likely.away}</b> ${drawn ? t('etPens') : t('mlScore')}</div>
     </div>`;
   }
   function renderBracket() {
