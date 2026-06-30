@@ -126,6 +126,88 @@
   .advrow .done { font-family: var(--mono); font-size: 10.5px; font-weight: 700; flex: none; }
   .advrow .done.through { color: var(--up); } .advrow .done.out { color: var(--down); }
 
+  /* ---- knockout bracket (tie cards) ---- */
+  .bracketgrid { display: flex; flex-direction: column; gap: 11px; }
+  .tie { border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; background: linear-gradient(180deg, rgba(68,196,172,.05), transparent 60%); }
+  .tie.next { border-color: var(--gold-dim); box-shadow: 0 0 18px rgba(242,205,92,.10); }
+  .tie.done { background: rgba(255,255,255,.02); }
+  .tie .tiehead { display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .06em; margin-bottom: 8px; gap: 8px; }
+  .tie .tiehead .rnd { color: var(--sim); font-weight: 700; flex: none; }
+  .tie .tiehead .ko { text-align: right; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .tie .tiehead .ko .tz { color: var(--muted); }
+  .tie .tiehead .star { color: var(--gold); }
+  .tie .row { display: flex; align-items: center; gap: 8px; padding: 3px 0; min-width: 0; }
+  .tie .row .flag { width: 24px; height: 16px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; flex: none; }
+  .tie .row .nm { font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
+  .tie .row .nm .rk { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 5px; font-weight: 400; }
+  .tie .row .adv { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--muted); flex: none; min-width: 36px; text-align: right; }
+  .tie .row .sc { font-family: var(--mono); font-size: 16px; font-weight: 800; flex: none; min-width: 16px; text-align: right; }
+  .tie .row .ck { color: var(--up); font-weight: 700; flex: none; }
+  .tie .row.fav .nm { color: var(--ink); } .tie .row.fav .adv { color: var(--gold); }
+  .tie .row.lose .nm { color: var(--muted); } .tie .row.lose .flag { opacity: .6; }
+  .tie .abar { display: flex; height: 7px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.05); margin: 8px 0 6px; }
+  .tie .abar > span { display: block; height: 100%; }
+  .tie .abar .ah { background: var(--sim); } .tie .abar .aa { background: var(--gold-dim); }
+  .tie .foot { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
+  .tie .foot b { color: var(--ink); }
+  .tie .foot .ml { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-right: 5px; letter-spacing: .5px; }
+  /* a tie on the favourite's road — gold left rail ties it to the road strip above */
+  .tie.path { border-left: 3px solid var(--gold); }
+  .tie .tiehead .road { color: var(--gold); font-weight: 700; flex: none; margin-left: 4px; }
+  /* projected (not-yet-played) ties — dashed to signal "model projection, not a real draw" */
+  .tie.proj { border-style: dashed; background: rgba(255,255,255,.012); }
+  .tie.proj .tiehead .rnd { color: var(--muted); }
+  .tie.proj .tiehead .ko { color: var(--ai); }
+  .tie.proj .row .adv { color: var(--muted); }
+  /* ---- team picker: a swipeable flag strip; the road + bracket follow the selected team ---- */
+  .teampick { margin-bottom: 16px; }
+  .teampick .tp-lbl { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+  .tp-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 7px; scrollbar-width: thin; scrollbar-color: var(--line) transparent; -webkit-overflow-scrolling: touch; }
+  .tp-strip::-webkit-scrollbar { height: 5px; }
+  .tp-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+  .tchip { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: .15s; }
+  .tchip:hover { border-color: var(--gold-dim); color: var(--ink); }
+  .tchip .flag { width: 30px; height: 20px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; }
+  .tchip .tc-nm { font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .tchip .tc-pct { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .02em; }
+  .tchip.on { border-color: var(--gold); background: rgba(242,205,92,.10); color: var(--ink); box-shadow: 0 0 0 1px var(--gold), 0 0 14px rgba(242,205,92,.12); }
+  .tchip.on .tc-pct { color: var(--gold); }
+
+  /* ---- favourite's road to the final (champion path) ---- */
+  .road { border: 1px solid var(--gold-dim); border-radius: 14px; padding: 14px 14px 16px; margin-bottom: 20px;
+    background: linear-gradient(180deg, rgba(242,205,92,.075), rgba(242,205,92,.015) 55%, transparent);
+    box-shadow: 0 0 24px rgba(242,205,92,.06); }
+  .road .roadhead { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .road .roadhead .flag { width: 34px; height: 23px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.5); flex: none; }
+  .road .rh-eyebrow { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+  .road .rh-name { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+  .road .rh-name .rk { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 6px; font-weight: 400; }
+  .road .rh-sub { font-size: 11.5px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
+  .road .rh-sub b { color: var(--ink); }
+  /* stepper: vertical on phones */
+  .roadsteps { display: flex; flex-direction: column; }
+  .rstep { display: flex; align-items: center; gap: 13px; }
+  .rconn { width: 2px; height: 15px; margin-left: 23px; background: linear-gradient(180deg, var(--gold-dim), rgba(242,205,92,.22)); }
+  .rring { width: 48px; height: 48px; border-radius: 50%; flex: none; padding: 3px;
+    background: conic-gradient(var(--gold) calc(var(--p) * 1%), rgba(255,255,255,.08) 0); }
+  .rring > i { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: #0b1a13; font-family: var(--mono); font-size: 13px; font-weight: 800; color: var(--ink); font-style: normal; }
+  .rring > i u { text-decoration: none; font-size: 8px; color: var(--muted); margin-left: 1px; }
+  .rring.tr { background: conic-gradient(var(--gold) calc(var(--p) * 1%), rgba(242,205,92,.16) 0); }
+  .rring.tr > i { font-size: 19px; background: radial-gradient(circle at 50% 38%, #241803, #0b1a13 78%); }
+  .rstep .rlab { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--muted); }
+  .rstep.title .rlab { color: var(--gold); }
+  @media (min-width: 620px) {
+    .roadsteps { flex-direction: row; align-items: flex-start; }
+    .rstep { flex-direction: column; gap: 8px; text-align: center; flex: 0 0 auto; }
+    .rconn { width: auto; height: 2px; flex: 1 1 auto; margin: 23px 5px 0;
+      background: linear-gradient(90deg, var(--gold-dim), rgba(242,205,92,.22)); }
+  }
+
+  /* round sections (R32 → Final) */
+  .roundsection + .roundsection { margin-top: 20px; }
+  .roundhead { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin: 0 0 11px; padding-bottom: 6px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .roundhead .ptag { color: var(--ai); font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+  .roundhead .cnt { color: var(--muted); font-size: 9.5px; font-weight: 400; letter-spacing: .04em; }
+
   /* group standings */
   .groups { display: grid; grid-template-columns: 1fr; gap: 12px; }
   .grp-card { border: 1px solid var(--line); border-radius: 12px; padding: 11px 12px; background: rgba(255,255,255,.02); }
@@ -187,6 +269,7 @@
     .span2 { grid-column: 1 / -1; }
     .fixtures { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .groups { grid-template-columns: 1fr 1fr; }
+    .bracketgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
   }
   @media (min-width: 1040px) {
     .grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -231,7 +314,7 @@
       <div id="movers"></div>
     </div>
 
-    <div class="panel span2" style="grid-column:1/-1">
+    <div class="panel span2" id="panelStandings" style="grid-column:1/-1">
       <h2 id="standHead">Group standings — live</h2>
       <p class="sub" id="standSub"></p>
       <div class="standtoggle" id="standToggle" role="group" aria-label="Standings view">
@@ -241,7 +324,7 @@
       <div class="groups" id="groups"></div>
     </div>
 
-    <div class="panel span2" style="grid-column:1/-1">
+    <div class="panel span2" id="panelBracket" style="grid-column:1/-1">
       <h2 id="nextHead">Next matches — model prediction</h2>
       <p class="sub" id="nextSub"></p>
       <div id="fixtures"></div>
@@ -282,6 +365,7 @@ const I18N = {
     moversHead:"Rating movers", moversSub:"Biggest FIFA-points swings, earned on the pitch — {rule}",
     nextHead:"Next matches — model prediction", nextSub:"Closed-form from the same Poisson model on the updated ratings. Win / draw / loss + most-likely scoreline. No separate model, no hand-tuning.",
     resHead:"Results so far", resSub:"The real, finished matches clamped into the simulation ({n} of {tot} group games).",
+    resSubKo:"The real, finished matches clamped into the simulation — grouped by round ({n} of {tot} played).", showAllGroup:"Show all {n} group results  ▾", hideGroup:"Hide group results  ▴",
     pen:"pen", og:"o.g.",
     win:"W", draw:"D", loss:"L", likely:"likely", adv:"adv.",
     nextUp:"NEXT UP", noNext:"No upcoming fixtures with both teams decided yet — they appear once the groups resolve.",
@@ -293,6 +377,16 @@ const I18N = {
     legThrough:"clinched top 2", legThird:"3rd-place path", legOut:"out", legLive:"in contention",
     advIf:"Reach the Round of 32 if…", advThrough:"✓ through", advOut:"✗ out",
     deltaFlat:"—",
+    phaseKo:"● KNOCKOUTS", matches:"matches played",
+    deepHead:"Deep-run odds", deepSub:"Model probability of reaching the FINAL · {sims} conditional sims.",
+    bracketHead:"Knockout bracket", bracketSub:"Win or go home. For decided ties: each side's chance to ADVANCE (incl. extra time &amp; penalties) + the most-likely 90' score. Round of 16 onward is the model's <b style='color:var(--ai)'>projection</b> — each team's chance to reach that slot; it firms up as games are played.",
+    projectedTag:"projected", projOcc:"most-likely to reach this slot",
+    standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
+    legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
+    roadHead:"Road to the final", roadSub:"Model favourite — <b>{pct}%</b> to lift it. Each ring is the model's chance {name} <b>reaches</b> that round; the climb steepens as the field thins.",
+    roadSubTeam:"<b>{pct}%</b> to lift it — the model's chance {name} <b>reaches</b> each round. Tap any flag above to follow another team's road.",
+    roadPick:"Whose road? — tap a team still in it",
+    stR32:"R32", stR16:"R16", stQF:"QF", stSF:"SF", stFinal:"Final", stTitle:"Title",
     methodTitle:"How this stays honest.",
     method:"This is a <b>conditional</b> re-run of the exact pre-tournament engine — not a new model. Every finished match is <span class='em'>clamped</span> to its real scoreline (the sim reproduces it and draws no randomness for it) and only the unknown remainder is re-simulated. Team ratings are updated on the pitch by <b>FIFA's own SUM formula</b> (<code>P' = P + I·(W − We)</code>, divisor 600), so a result both fixes the past and shifts the projection for what's left. At zero games played this reproduces the frozen forecast <b>exactly</b> (verified). Neutral venue — no host advantage. Field rank is 1–48 within this field.",
     methodFoot:"{sims} simulations · seed {seed} · ratings: {rs} ({rsnap}) · source: ",
@@ -307,6 +401,7 @@ const I18N = {
     moversHead:"Cambios de valoración", moversSub:"Mayores variaciones de puntos FIFA, ganadas en el campo — {rule}",
     nextHead:"Próximos partidos — predicción del modelo", nextSub:"Forma cerrada del mismo modelo de Poisson sobre las valoraciones actualizadas. Victoria / empate / derrota + marcador más probable. Sin modelo aparte, sin ajustes manuales.",
     resHead:"Resultados hasta ahora", resSub:"Los partidos reales ya jugados, fijados en la simulación ({n} de {tot} de grupos).",
+    resSubKo:"Los partidos reales ya jugados, fijados en la simulación — agrupados por ronda ({n} de {tot} jugados).", showAllGroup:"Ver los {n} resultados de grupos  ▾", hideGroup:"Ocultar resultados de grupos  ▴",
     pen:"pen", og:"p.p.",
     win:"V", draw:"E", loss:"D", likely:"probable", adv:"avanza",
     nextUp:"PRÓXIMO", noNext:"Aún no hay próximos partidos con ambos rivales definidos — aparecerán cuando se resuelvan los grupos.",
@@ -318,6 +413,16 @@ const I18N = {
     legThrough:"top 2 asegurado", legThird:"vía mejor 3º", legOut:"fuera", legLive:"en disputa",
     advIf:"Llega a dieciseisavos si…", advThrough:"✓ clasificado", advOut:"✗ fuera",
     deltaFlat:"—",
+    phaseKo:"● ELIMINATORIAS", matches:"partidos jugados",
+    deepHead:"Probabilidad de avance", deepSub:"Probabilidad del modelo de llegar a la FINAL · {sims} simulaciones condicionales.",
+    bracketHead:"Cuadro final", bracketSub:"Eliminación directa. En llaves definidas: probabilidad de cada lado de AVANZAR (incl. prórroga y penales) + el marcador más probable de 90'. De octavos en adelante es la <b style='color:var(--ai)'>proyección</b> del modelo — la probabilidad de cada equipo de llegar a esa llave; se concreta a medida que se juega.",
+    projectedTag:"proyectado", projOcc:"más probable en esta llave",
+    standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
+    legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
+    roadHead:"Camino a la final", roadSub:"Favorito del modelo — <b>{pct}%</b> para levantarla. Cada anillo es la probabilidad de que {name} <b>llegue</b> a esa ronda; la subida se empina al reducirse el cuadro.",
+    roadSubTeam:"<b>{pct}%</b> para levantarla — la probabilidad de que {name} <b>llegue</b> a cada ronda. Toca otra bandera arriba para seguir a otro equipo.",
+    roadPick:"¿El camino de quién? — toca un equipo aún vivo",
+    stR32:"16avos", stR16:"8vos", stQF:"4tos", stSF:"Semi", stFinal:"Final", stTitle:"Título",
     methodTitle:"Cómo se mantiene honesto.",
     method:"Esto es una nueva corrida <b>condicional</b> del mismo motor pre-torneo — no un modelo nuevo. Cada partido jugado se <span class='em'>fija</span> a su marcador real (la simulación lo reproduce y no usa azar para él) y solo se vuelve a simular lo desconocido. Las valoraciones se actualizan en el campo con <b>la propia fórmula SUM de la FIFA</b> (<code>P' = P + I·(W − We)</code>, divisor 600), así un resultado fija el pasado y ajusta la proyección de lo que falta. Con cero partidos jugados esto reproduce el pronóstico congelado <b>exactamente</b> (verificado). Sede neutral — sin ventaja local. El puesto es ranking de campo (1–48) dentro de este grupo.",
     methodFoot:"{sims} simulaciones · semilla {seed} · valoraciones: {rs} ({rsnap}) · fuente: ",
@@ -331,6 +436,8 @@ const fmtDate = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map
 const fmtDay = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m-1, d)).toLocaleDateString(LANG === "es" ? "es-ES" : "en-US", { weekday:"short", month:"short", day:"numeric", timeZone:"UTC" }); };
 let fxExpanded = false; // "Next matches" shows the next matchday by default; toggle reveals the rest
 let standView = "now"; // group standings: "now" (points table) ⇄ "proj" (model's expected final order)
+let resGroupExpanded = false; // "Results so far": in KO phase the 72 group games collapse behind a toggle
+let pickTeam = null; // bracket "Road to the final": which still-alive team to follow (null → model favourite)
 // Kickoff shown in US Eastern. We convert from the absolute ISO instant via the
 // America/New_York zone, which resolves to EDT (UTC−4) in June automatically; we
 // label it "ET" so it's correct year-round. Falls back to the raw venue string.
@@ -363,11 +470,33 @@ function render() {
   document.getElementById("tagline").innerHTML = t('tagline');
   const simsTxt = (m.sims || 0).toLocaleString(LANG === "es" ? "es-ES" : "en-US");
 
-  // as-of stamp
+  // ---- tournament phase: once every group game is played we switch to KNOCKOUT mode ----
+  const koPhase = m.groupPlayedCount >= m.groupTotal;
+  const TOTAL_MATCHES = m.groupTotal + 32; // 72 group + 32 knockout = 104 for WC2026
+  const koResults = (L.results || []).filter(r => r.round && r.round !== "group");
+  const koProj = (L.projections || []).filter(p => p.round && p.round !== "group");
+  // the 32 qualifiers = every team in an R32 tie (played or upcoming) — the source of truth
+  // for "who's through", since the group-stage clinch flags are GD-agnostic and now stale.
+  const qualified = new Set();
+  [...koResults.filter(r => r.round === "R32"), ...koProj.filter(p => p.round === "R32")]
+    .forEach(x => { qualified.add(x.home); qualified.add(x.away); });
+  // Complete name→{code,fieldRank} map. reach[] only carries the 32 KO survivors, so we
+  // seed codes from standings (all 48 teams) and overlay reach for ranks/odds. Used by the
+  // bracket AND the results list (which shows eliminated teams too).
+  const teamMeta = {};
+  for (const g of (L.standings || [])) for (const r of g.rows) teamMeta[r.name] = { code: r.code };
+  for (const r of (L.reach || [])) teamMeta[r.name] = { ...teamMeta[r.name], ...r };
+  const codeOf = n => (teamMeta[n] || {}).code;
+  const rankOf = n => (teamMeta[n] || {}).fieldRank;
+
+  // as-of stamp — group-stage progress during groups, whole-tournament progress in KO
+  const progPct = koPhase ? (100 * m.playedCount / TOTAL_MATCHES) : (100 * m.groupPlayedCount / m.groupTotal);
   document.getElementById("stamp").innerHTML =
     `<span>${t('asOf')} <b>${fmtDate(m.asOfDate)}</b></span>` +
-    `<span><b>${m.groupPlayedCount}</b>/${m.groupTotal} ${t('games')}</span>` +
-    `<span class="prog"><i style="width:${(100*m.groupPlayedCount/m.groupTotal).toFixed(1)}%"></i></span>` +
+    (koPhase
+      ? `<span style="color:var(--gold);font-weight:700">${t('phaseKo')}</span><span><b>${m.playedCount}</b>/${TOTAL_MATCHES} ${t('matches')}</span>`
+      : `<span><b>${m.groupPlayedCount}</b>/${m.groupTotal} ${t('games')}</span>`) +
+    `<span class="prog"><i style="width:${progPct.toFixed(1)}%"></i></span>` +
     `<span>${t('source')}: <a href="${m.sourceUrl}" target="_blank" rel="noopener">openfootball</a></span>`;
 
   // ---- title odds (top 12) ----
@@ -385,19 +514,37 @@ function render() {
       <div><span class="val">${r1(c.pct)}%</span>${deltaChip(c.delta)}</div>
     </div>`).join("");
 
-  // ---- advancement: sort by |advanceDelta|, show top 12 movers ----
-  const adv = [...L.reach].sort((a,b) => Math.abs(b.advanceDelta) - Math.abs(a.advanceDelta)).slice(0, 12);
-  document.getElementById("advHead").textContent = t('advHead');
-  document.getElementById("advSub").textContent = t('advSub');
-  document.getElementById("advOdds").innerHTML = adv.map(c => `
-    <div class="oddsrow">
-      <img class="flag" src="${FLAG(c.code)}" alt="">
-      <div style="min-width:0">
-        <div class="nm">${teamName(c.name)}<span class="rk">#${c.fieldRank}</span></div>
-        <div class="bar"><i style="width:${c.advancePct.toFixed(1)}%"></i></div>
-      </div>
-      <div><span class="val">${r1(c.advancePct)}%</span>${deltaChip(c.advanceDelta)}</div>
-    </div>`).join("");
+  // ---- second panel: group-stage = advancement movers; KO phase = deep-run (reach-final) odds ----
+  if (koPhase) {
+    // groups are settled (advance% all 100), so surface how far each survivor is projected to go.
+    const surv = [...L.reach].filter(c => (c.final || 0) > 0).sort((a, b) => b.final - a.final).slice(0, 12);
+    const maxF = surv.length ? surv[0].final : 1;
+    document.getElementById("advHead").textContent = t('deepHead');
+    document.getElementById("advSub").textContent = t('deepSub', { sims: simsTxt });
+    document.getElementById("advOdds").innerHTML = surv.map(c => `
+      <div class="oddsrow">
+        <img class="flag" src="${FLAG(c.code)}" alt="">
+        <div style="min-width:0">
+          <div class="nm">${teamName(c.name)}<span class="rk">#${c.fieldRank}</span></div>
+          <div class="bar"><i style="width:${(100*c.final/maxF).toFixed(1)}%"></i></div>
+        </div>
+        <div><span class="val">${r1(100*c.final/m.sims)}%</span></div>
+      </div>`).join("");
+  } else {
+    // advancement: sort by |advanceDelta|, show top 12 movers
+    const adv = [...L.reach].sort((a,b) => Math.abs(b.advanceDelta) - Math.abs(a.advanceDelta)).slice(0, 12);
+    document.getElementById("advHead").textContent = t('advHead');
+    document.getElementById("advSub").textContent = t('advSub');
+    document.getElementById("advOdds").innerHTML = adv.map(c => `
+      <div class="oddsrow">
+        <img class="flag" src="${FLAG(c.code)}" alt="">
+        <div style="min-width:0">
+          <div class="nm">${teamName(c.name)}<span class="rk">#${c.fieldRank}</span></div>
+          <div class="bar"><i style="width:${c.advancePct.toFixed(1)}%"></i></div>
+        </div>
+        <div><span class="val">${r1(c.advancePct)}%</span>${deltaChip(c.advanceDelta)}</div>
+      </div>`).join("");
+  }
 
   // ---- rating movers ----
   document.getElementById("moversHead").textContent = t('moversHead');
@@ -412,16 +559,20 @@ function render() {
     </div>`;
   }).join("");
 
-  // ---- group standings (live tables + status; Now ⇄ Projected final order) ----
+  // ---- group standings. During groups: live tables + status + Now⇄Projected toggle.
+  //      In KO phase: settled FINAL tables; status is qualified-based (the 32 R32 entrants),
+  //      the now-no-op toggle is hidden, and the last column shows ✓ / — instead of advance%.
+  const statusOf = r => koPhase ? (qualified.has(r.name) ? "through" : "out") : r.status;
   const statusByName = {};
-  for (const g of (L.standings || [])) for (const r of g.rows) statusByName[r.name] = r.status;
-  document.getElementById("standHead").textContent = t('standHead');
+  for (const g of (L.standings || [])) for (const r of g.rows) statusByName[r.name] = statusOf(r);
+  document.getElementById("standHead").textContent = t(koPhase ? 'standHeadKo' : 'standHead');
+  document.getElementById("standToggle").style.display = koPhase ? "none" : "";
   document.querySelectorAll("#standToggle button").forEach(b => b.textContent = t(b.dataset.view === "now" ? "vNow" : "vProj"));
   const projArrow = r => { const d = r.projectedPos - r.pos; return d < 0 ? '<span class="ar up">▲</span>' : d > 0 ? '<span class="ar dn">▼</span>' : '<span class="ar fl">—</span>'; };
   function renderStandings() {
-    const proj = standView === "proj";
+    const proj = !koPhase && standView === "proj";
     document.querySelectorAll("#standToggle button").forEach(b => b.classList.toggle("active", b.dataset.view === standView));
-    document.getElementById("standSub").textContent = proj ? t('standSubProj') : t('standSub');
+    document.getElementById("standSub").textContent = koPhase ? t('standSubKo', { tot: m.groupTotal }) : (proj ? t('standSubProj') : t('standSub'));
     document.getElementById("groups").innerHTML = (L.standings || []).map(g => {
       const rows = proj ? [...g.rows].sort((a, b) => a.projectedPos - b.projectedPos) : g.rows;
       return `
@@ -429,15 +580,15 @@ function render() {
         <h3>${t('grp')} ${g.id}</h3>
         <table class="stbl">
           <thead><tr><th class="l">${proj ? t('cProj') : "#"}</th><th class="l"></th><th>${t('cPld')}</th><th>${t('cGD')}</th><th>${t('cPts')}</th><th>${t('cAdv')}</th></tr></thead>
-          <tbody>${rows.map(r => `
-            <tr class="${r.status}">
+          <tbody>${rows.map(r => { const st = statusOf(r); return `
+            <tr class="${st}">
               ${proj ? `<td class="num">${r.projectedPos} ${projArrow(r)}</td>` : `<td>${r.pos}</td>`}
-              <td class="team"><span class="tin"><span class="dot ${r.status}"></span><img class="flag" src="${FLAG(r.code)}" alt=""><span class="nm">${teamName(r.name)}</span>${r.status === "through" ? '<span class="ck">✓</span>' : ""}</span></td>
+              <td class="team"><span class="tin"><span class="dot ${st}"></span><img class="flag" src="${FLAG(r.code)}" alt=""><span class="nm">${teamName(r.name)}</span>${st === "through" ? '<span class="ck">✓</span>' : ""}</span></td>
               <td>${r.p}</td>
               <td>${r.gd > 0 ? "+" + r.gd : r.gd}</td>
               <td class="pts">${r.pts}</td>
-              <td class="adv">${r.status === "out" ? "—" : r1(r.advancePct) + "%"}</td>
-            </tr>`).join("")}
+              <td class="adv">${koPhase ? (st === "through" ? '<span class="ck">✓</span>' : "—") : (st === "out" ? "—" : r1(r.advancePct) + "%")}</td>
+            </tr>`; }).join("")}
           </tbody>
         </table>
       </div>`;
@@ -446,12 +597,13 @@ function render() {
   renderStandings();
   document.querySelectorAll("#standToggle button").forEach(b => b.onclick = () => { if (b.dataset.view !== standView) { standView = b.dataset.view; renderStandings(); } });
   document.getElementById("glegend").innerHTML =
-    [["through", t('legThrough')], ["live", t('legLive')], ["third", t('legThird')], ["out", t('legOut')]]
+    (koPhase ? [["through", t('legKoThrough')], ["out", t('legKoOut')]]
+             : [["through", t('legThrough')], ["live", t('legLive')], ["third", t('legThird')], ["out", t('legOut')]])
       .map(([c, lbl]) => `<span class="k"><span class="dot ${c}"></span>${lbl}</span>`).join("");
 
-  // ---- next matches: grouped by date, next matchday shown by default, rest behind a toggle ----
-  document.getElementById("nextHead").textContent = t('nextHead');
-  document.getElementById("nextSub").textContent = t('nextSub');
+  // ---- next matches (groups) / knockout bracket (KO phase) ----
+  document.getElementById("nextHead").textContent = t(koPhase ? 'bracketHead' : 'nextHead');
+  document.getElementById("nextSub").innerHTML = t(koPhase ? 'bracketSub' : 'nextSub');
   const fxRoot = document.getElementById("fixtures");
   const proj = L.projections || [];
   // projections are date-sorted; collapse into one group per matchday
@@ -505,12 +657,170 @@ function render() {
     const tog = document.getElementById("fxToggle");
     if (tog) tog.onclick = () => { fxExpanded = !fxExpanded; renderFixtures(); };
   }
-  renderFixtures();
+  // ---- knockout bracket: real R32 ties as tie-cards with 2-way ADVANCE bars (incl. ET/pens).
+  //      Handles both upcoming ties (from projections) and played ties (from results), so it
+  //      transitions automatically as KO games are clamped. R16+ slots arrive in a later ticket.
+  const advPct = x => Math.round(x * 100);
+  // ---- selectable "road": the path can follow ANY still-alive team, not just the favourite.
+  // pathFor() rebuilds a team's R32→final slot chain from the shipped bracketFeed topology +
+  // its reach counts (reproduces championPath exactly for the favourite). A team occupies one
+  // slot per round, so team-name (real ties) / match-id (projected slots) identifies it cleanly.
+  const koLosers = new Set();
+  for (const r of koResults) if (r.winner) koLosers.add(r.winner === r.home ? r.away : r.home);
+  function aliveTeams() {
+    return (L.reach || [])
+      .filter(r => qualified.has(r.name) && !koLosers.has(r.name))
+      .map(r => ({ name: r.name, code: r.code, fieldRank: r.fieldRank, titlePct: r.titlePct != null ? r.titlePct : 100 * r.title / (r.r32 || 1) }))
+      .sort((a, b) => b.titlePct - a.titlePct || (a.fieldRank || 99) - (b.fieldRank || 99));
+  }
+  const roundOfMatch = {};
+  for (const b of (L.projectedBracket || [])) roundOfMatch[b.id] = b.round;
+  function pathFor(team) {
+    const r = (L.reach || []).find(x => x.name === team), feed = L.bracketFeed;
+    if (!r || !feed || !r.r32 || !L.projectedBracket) return null;
+    const N = r.r32, rb = { R32: 100, R16: 100 * r.r16 / N, QF: 100 * r.qf / N, SF: 100 * r.sf / N, final: 100 * r.final / N };
+    const r32 = L.projectedBracket.find(b => b.round === "R32" && ((b.home[0] && b.home[0].name === team) || (b.away[0] && b.away[0].name === team)));
+    if (!r32) return null;
+    const nodes = []; let cur = r32.id, guard = 0;
+    while (cur && guard++ < 8) { const rnd = roundOfMatch[cur]; nodes.push({ id: cur, round: rnd, reachPct: rb[rnd] ?? 0 }); cur = feed[cur]; }
+    return { name: team, code: r.code, fieldRank: r.fieldRank, titlePct: 100 * r.title / N, nodes };
+  }
+  function resolvePick() {
+    const alive = aliveTeams(), names = new Set(alive.map(a => a.name));
+    if (pickTeam && names.has(pickTeam)) return pickTeam;
+    const qp = (new URLSearchParams(location.search).get("team") || "").toLowerCase();
+    if (qp) { const m = alive.find(a => a.code === qp); if (m) return m.name; }
+    const ls = localStorage.getItem("wc_team");
+    if (ls && names.has(ls)) return ls;
+    if (L.championPath && names.has(L.championPath.name)) return L.championPath.name;
+    return alive.length ? alive[0].name : null;
+  }
+  // active road (refreshed by renderBracket via applyPick); drives the ★ rail + road strip
+  let curPath = null, curPathName = null, curPathIds = new Set();
+  function applyPick() {
+    curPath = pathFor(resolvePick()) || L.championPath || null;
+    curPathName = curPath && curPath.name;
+    curPathIds = new Set(curPath ? curPath.nodes.map(n => n.id) : []);
+  }
+  const roadStar = on => on ? ' <span class="road">★</span>' : "";
+  function tieCard(it) {
+    const rnd = rd(it.round);
+    const onPath = !!curPathName && (it.home === curPathName || it.away === curPathName);
+    if (it.kind === "played") {
+      const hw = it.winner === it.home, aw = it.winner === it.away;
+      const tag = it.decidedBy && it.decidedBy !== "REG" ? (it.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
+      const prow = (nm, goals, win, lose) => `<div class="row ${win ? "fav" : lose ? "lose" : ""}"><img class="flag" src="${FLAG(codeOf(nm))}" alt=""><span class="nm">${teamName(nm)}</span>${win ? '<span class="ck">✓</span>' : ""}<span class="sc">${goals}</span></div>`;
+      return `<div class="tie done${onPath ? " path" : ""}">
+        <div class="tiehead"><span class="rnd">${rnd}${roadStar(onPath)}</span><span class="ko">${fmtDate(it.date)}${tag ? " · " + tag : ""}</span></div>
+        ${prow(it.home, it.homeGoals, hw, aw)}
+        ${prow(it.away, it.awayGoals, aw, hw)}
+      </div>`;
+    }
+    const ah = advPct(it.advanceHome), aa = 100 - ah, homeFav = it.advanceHome >= 0.5, next = it.date === L.nextDate;
+    // A level 90' score doesn't end a knockout tie — it goes to extra time, then penalties.
+    // So we show the most-likely 90' scoreline, but flag a draw as heading to ET/pens; the
+    // advance % (which already includes ET & penalties) is who the model expects to go through.
+    const drawn = it.likely.home === it.likely.away;
+    const urow = (nm, code, adv, fav) => `<div class="row ${fav ? "fav" : ""}"><img class="flag" src="${FLAG(code)}" alt=""><span class="nm">${teamName(nm)}<span class="rk">#${rankOf(nm)}</span></span><span class="adv">${adv}%</span></div>`;
+    return `<div class="tie ${next ? "next" : ""}${onPath ? " path" : ""}">
+      <div class="tiehead"><span class="rnd">${rnd}${roadStar(onPath)}</span><span class="ko">${next ? '<span class="star">★ </span>' : ""}${fmtDate(it.date)} · ${fmtKO(it.kickoff, it.time)}</span></div>
+      ${urow(it.home, it.homeCode, ah, homeFav)}
+      ${urow(it.away, it.awayCode, aa, !homeFav)}
+      <div class="abar"><span class="ah" style="width:${ah}%"></span><span class="aa" style="width:${aa}%"></span></div>
+      <div class="foot"><b class="ml">${it.likely.home}–${it.likely.away}</b> ${drawn ? t('etPens') : t('mlScore')}</div>
+    </div>`;
+  }
+  // Projected (R16→final) tie-card: the two most-likely occupants of a future slot, each with
+  // its MARGINAL probability of reaching that slot. Dashed styling + "projected" label make
+  // clear it isn't a real draw; it converges to the real teams as the feeder games are played.
+  function projTieCard(pm) {
+    const h = pm.home[0], a = pm.away[0];
+    if (!h || !a) return "";
+    const onPath = curPathIds.has(pm.id);
+    const favName = pm.favorite && pm.favorite.name;
+    const prow = o => `<div class="row ${o.name === favName ? "fav" : ""}"><img class="flag" src="${FLAG(o.code)}" alt=""><span class="nm">${teamName(o.name)}<span class="rk">#${o.fieldRank}</span></span><span class="adv">${Math.round(o.p * 100)}%</span></div>`;
+    return `<div class="tie proj${onPath ? " path" : ""}">
+      <div class="tiehead"><span class="rnd">${rd(pm.round)}${roadStar(onPath)}</span><span class="ko">${t('projectedTag')}</span></div>
+      ${prow(h)}${prow(a)}
+      <div class="foot">${t('projOcc')}</div>
+    </div>`;
+  }
+  // Flag-chip picker: the still-alive teams (sorted by title odds); tapping one re-points the
+  // road strip + ★ bracket rail to that team. The strip shrinks as teams are eliminated.
+  function teamPicker() {
+    const alive = aliveTeams();
+    if (!alive.length || !L.bracketFeed) return "";
+    const chip = a => `<button class="tchip ${a.name === curPathName ? "on" : ""}" data-team="${a.code}" data-name="${a.name}">
+      <img class="flag" src="${FLAG(a.code)}" alt=""><span class="tc-nm">${teamName(a.name)}</span><span class="tc-pct">${r1(a.titlePct)}%</span></button>`;
+    return `<div class="teampick"><div class="tp-lbl">${t('roadPick')}</div><div class="tp-strip">${alive.map(chip).join("")}</div></div>`;
+  }
+  // "Road to the final" strip: the SELECTED team's path R32→final as a stepper, each station a
+  // conic ring filled to its MARGINAL reach % for that round (descending as the field thins),
+  // capped by a trophy ring at the title %. Vertical on phones, horizontal ≥620px.
+  function roadStrip() {
+    const cp = curPath;
+    if (!cp || !cp.nodes || !cp.nodes.length) return "";
+    const isFav = L.championPath && cp.name === L.championPath.name;
+    const stLab = { R32: t('stR32'), R16: t('stR16'), QF: t('stQF'), SF: t('stSF'), final: t('stFinal') };
+    const ring = (p, cls, inner) => `<div class="rring ${cls}" style="--p:${(+p).toFixed(1)}"><i>${inner}</i></div>`;
+    const stations = cp.nodes.map(n =>
+      `<div class="rstep">${ring(n.reachPct, "", `${Math.round(n.reachPct)}<u>%</u>`)}<div class="rlab">${stLab[n.round] || rd(n.round)}</div></div>`);
+    stations.push(`<div class="rstep title">${ring(cp.titlePct, "tr", "🏆")}<div class="rlab">${t('stTitle')} ${r1(cp.titlePct)}%</div></div>`);
+    return `<div class="road">
+      <div class="roadhead">
+        <img class="flag" src="${FLAG(cp.code)}" alt="">
+        <div>
+          <div class="rh-eyebrow">${t('roadHead')}</div>
+          <div class="rh-name">${teamName(cp.name)}<span class="rk">#${cp.fieldRank}</span></div>
+          <div class="rh-sub">${t(isFav ? 'roadSub' : 'roadSubTeam', { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
+        </div>
+      </div>
+      <div class="roadsteps">${stations.join('<div class="rconn"></div>')}</div>
+    </div>`;
+  }
+  const byDate = (a, b) => String(a.date).localeCompare(String(b.date)) || String(a.kickoff || a.time || "").localeCompare(String(b.kickoff || b.time || ""));
+  const roundSection = (label, cardsHtml, projected) =>
+    `<div class="roundsection"><div class="roundhead">${label}${projected ? `<span class="ptag">${t('projectedTag')}</span>` : ""}</div><div class="bracketgrid">${cardsHtml}</div></div>`;
+  function renderBracket() {
+    applyPick(); // refresh the active road from the current selection before building cards
+    const sections = [];
+    for (const round of ["R32", "R16", "QF", "SF", "final"]) {
+      // real ties for this round (played + upcoming with both teams known)
+      const real = [
+        ...koResults.filter(r => r.round === round).map(r => ({ kind: "played", ...r })),
+        ...koProj.filter(p => p.round === round).map(p => ({ kind: "next", ...p })),
+      ].sort(byDate);
+      const resolved = new Set(real.map(r => [r.home, r.away].sort().join("|")));
+      // projected ties for slots not yet resolved (excluded once their real pairing exists)
+      const proj = (L.projectedBracket || []).filter(b =>
+        b.round === round && b.home[0] && b.away[0] && !resolved.has([b.home[0].name, b.away[0].name].sort().join("|")));
+      const cards = [...real.map(tieCard), ...proj.map(projTieCard)].join("");
+      if (cards) sections.push(roundSection(rd(round), cards, proj.length > 0));
+    }
+    fxRoot.innerHTML = teamPicker() + roadStrip() + (sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`);
+    fxRoot.querySelectorAll(".tchip").forEach(b => b.onclick = () => {
+      const nm = b.dataset.name;
+      if (nm === curPathName) return;
+      pickTeam = nm;
+      try {
+        localStorage.setItem("wc_team", nm);
+        const u = new URLSearchParams(location.search); u.set("team", b.dataset.team);
+        history.replaceState(null, "", location.pathname + "?" + u.toString());
+      } catch (e) {}
+      renderBracket();
+    });
+  }
+  if (koPhase) renderBracket(); else renderFixtures();
+  // In KO phase the bracket is the headline — promote it above the now-settled group tables.
+  if (koPhase) { const pb = document.getElementById("panelBracket"), ps = document.getElementById("panelStandings"); if (pb && ps) ps.parentNode.insertBefore(pb, ps); }
 
-  // ---- results so far ----
+  // ---- results so far — grouped by round (most recent round first) so knockout results
+  //      don't mix with the 72 group games. In KO phase the long Group-stage list collapses
+  //      behind a toggle; the knockout rounds stay open. ----
   document.getElementById("resHead").textContent = t('resHead');
-  document.getElementById("resSub").textContent = t('resSub', { n: m.groupPlayedCount, tot: m.groupTotal });
-  const res = [...(L.results || [])].reverse(); // most recent first
+  document.getElementById("resSub").textContent = koPhase
+    ? t('resSubKo', { n: m.playedCount, tot: TOTAL_MATCHES })
+    : t('resSub', { n: m.groupPlayedCount, tot: m.groupTotal });
   // Real scorers (display-only; openfootball). Rendered only when the per-side counts
   // reconcile with the scoreline — otherwise score-only, never a partial list.
   const scorerLine = s => {
@@ -522,16 +832,37 @@ function render() {
     const col = side => r.scorers.filter(s => s.side===side).map(scorerLine).join("<br>");
     return `<div class="scorers"><div class="gh">${col("home")}</div><div class="ga">${col("away")}</div></div>`;
   };
-  document.getElementById("results").innerHTML = res.map(r => {
+  const resultCard = r => {
     const hw = r.winner === r.home, aw = r.winner === r.away;
-    const tag = r.decidedBy && r.decidedBy !== "REG" ? (r.decidedBy === "PENS" ? "pens" : "a.e.t.") : "";
+    const tag = r.decidedBy && r.decidedBy !== "REG" ? (r.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
     return `<div class="result">
-      <div class="rs h"><img class="flag" src="${FLAG((L.reach.find(x=>x.name===r.home)||{}).code)}" alt=""><span class="nm ${hw?"win":""}">${teamName(r.home)}</span></div>
+      <div class="rs h"><img class="flag" src="${FLAG(codeOf(r.home))}" alt=""><span class="nm ${hw?"win":""}">${teamName(r.home)}</span></div>
       <div style="text-align:center"><span class="sc">${r.homeGoals}–${r.awayGoals}</span><div class="meta">${fmtDate(r.date)}${tag?" · "+tag:""}</div></div>
-      <div class="rs a"><span class="nm ${aw?"win":""}">${teamName(r.away)}</span><img class="flag" src="${FLAG((L.reach.find(x=>x.name===r.away)||{}).code)}" alt=""></div>
+      <div class="rs a"><span class="nm ${aw?"win":""}">${teamName(r.away)}</span><img class="flag" src="${FLAG(codeOf(r.away))}" alt=""></div>
       ${scorersHTML(r)}
     </div>`;
-  }).join("");
+  };
+  // group by round, newest round first; rows newest-first within each round
+  const RES_ORDER = ["final", "3rd_place", "SF", "QF", "R16", "R32", "group"];
+  const resByRound = {};
+  for (const r of (L.results || [])) (resByRound[r.round || "group"] ||= []).push(r);
+  function renderResults() {
+    const html = RES_ORDER.filter(rnd => resByRound[rnd] && resByRound[rnd].length).map(rnd => {
+      const rows = [...resByRound[rnd]].reverse();
+      const head = `<div class="roundhead">${rd(rnd)}<span class="cnt">${rows.length} ${t('fxMatches')}</span></div>`;
+      const collapsed = koPhase && rnd === "group" && !resGroupExpanded;
+      if (collapsed)
+        return `<div class="roundsection">${head}<button class="fxmore" id="resGroupToggle">${t('showAllGroup', { n: rows.length })}</button></div>`;
+      const body = `<div class="reslist">${rows.map(resultCard).join("")}</div>`;
+      const hideBtn = koPhase && rnd === "group"
+        ? `<button class="fxmore" id="resGroupToggle">${t('hideGroup')}</button>` : "";
+      return `<div class="roundsection">${head}${body}${hideBtn}</div>`;
+    }).join("");
+    document.getElementById("results").innerHTML = html;
+    const tg = document.getElementById("resGroupToggle");
+    if (tg) tg.onclick = () => { resGroupExpanded = !resGroupExpanded; renderResults(); };
+  }
+  renderResults();
 
   // ---- method ----
   document.getElementById("method").innerHTML =

@@ -127,7 +127,12 @@ export function prepareBracket(bracketDoc) {
 // unconditional sim, bit-for-bit (validated against the frozen baseline at 0 games).
 // track (optional): Set<pairKey> of group matches whose sampled goals to report back
 // (returned as `tracked`), so the live forecast can bucket conditional advancement.
-export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL, clamp = null, track = null) {
+// thirdOverride (optional): Map<slotId(matchId), groupId> pinning the real third-place slot
+// assignment. assignThirds is a disclosed Annex-C APPROXIMATION (respects eligibility but can
+// place a third in the wrong slot). Once groups are decided and the real R32 draw is known,
+// pass the true mapping so the knockout projection is built on the REAL bracket. Used only if
+// every overridden group has a qualifying third in this sim; otherwise falls back. Default null.
+export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MODEL, clamp = null, track = null, thirdOverride = null) {
   // --- Group stage ---
   const groups = {};
   const thirds = []; // {group, team, pts, gd, gf}
@@ -161,10 +166,13 @@ export function simulateTournament(teamsByName, groupsDoc, bracket, rng, m = MOD
   );
   const qualifyingThirds = thirds.slice(0, bracket.thirdSlots.length);
   const qualGroupIds = qualifyingThirds.map((t) => t.group);
-  const slotToGroup = assignThirds(qualGroupIds, bracket.thirdSlots);
-
   // slotId -> third-place team object
   const thirdByGroup = new Map(thirds.map((t) => [t.group, t.team]));
+  // Prefer the REAL slot assignment when supplied AND consistent with this sim's qualifiers.
+  const slotToGroup = (thirdOverride && [...thirdOverride.values()].every((gid) => thirdByGroup.has(gid)))
+    ? thirdOverride
+    : assignThirds(qualGroupIds, bracket.thirdSlots);
+
   const thirdSlotTeam = new Map();
   for (const [slotId, groupId] of slotToGroup) thirdSlotTeam.set(slotId, thirdByGroup.get(groupId));
 

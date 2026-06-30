@@ -225,5 +225,184 @@ console.log('\n[8] Projected group finish is well-formed');
   }
 }
 
+// ---- 9. projected bracket: well-formed, and built on the REAL R32 draw ----
+console.log('\n[9] Projected bracket integrity');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  const live = existsSync(join(ROOT, 'data', 'live', 'latest.json'))
+    ? JSON.parse(readFileSync(join(ROOT, 'data', 'live', 'latest.json'), 'utf8')) : null;
+  if (!existsSync(livePath) || !live) { ok(false, 'app/live-data.json + latest.json exist'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const pb = ld.projectedBracket || [];
+    const koCount = read('bracket.json').knockout.length;
+    ok(pb.length === koCount, `projectedBracket has one entry per KO match (${pb.length}/${koCount})`);
+    let pBad = 0, ordBad = 0, sumBad = 0;
+    for (const b of pb) {
+      for (const slot of [b.home, b.away]) {
+        if (!Array.isArray(slot) || !slot.length) { pBad++; continue; }
+        for (const o of slot) if (o.p < -1e-9 || o.p > 1 + 1e-9) pBad++;
+        for (let i = 1; i < slot.length; i++) if (slot[i].p > slot[i - 1].p + 1e-9) ordBad++; // descending
+        if (slot.reduce((a, o) => a + o.p, 0) > 1 + 1e-9) sumBad++; // top-k marginals can't exceed 1
+      }
+      if (!b.favorite || b.favorite.p < -1e-9 || b.favorite.p > 1 + 1e-9) pBad++;
+    }
+    ok(pBad === 0, `all slot/favorite probabilities in [0,1] (${pBad} bad)`);
+    ok(ordBad === 0, `slot occupants sorted by descending probability (${ordBad} bad)`);
+    ok(sumBad === 0, `per-slot top-k marginals sum to ≤ 1 (${sumBad} bad)`);
+    // Once the R32 draw is complete, its occupants are deterministic and must equal the REAL
+    // upstream pairings (the third-place override, not the Annex-C approximation).
+    const upR32 = live.matches.filter((m) => m.round === 'R32' && m.home && m.away);
+    const r32 = pb.filter((b) => b.round === 'R32');
+    if (upR32.length === r32.length && r32.length) {
+      let detBad = 0, pairBad = 0;
+      const up = new Set(upR32.map((m) => [m.home, m.away].sort().join('|')));
+      for (const b of r32) {
+        if (b.home[0].p < 0.999 || b.away[0].p < 0.999) detBad++;
+        if (!up.has([b.home[0].name, b.away[0].name].sort().join('|'))) pairBad++;
+      }
+      ok(detBad === 0, `settled R32 slot occupants are certain (p≈1) (${detBad} off)`);
+      ok(pairBad === 0, `projected R32 pairings match the REAL upstream draw, not the approximation (${pairBad} mismatched)`);
+    }
+  }
+}
+
+console.log('\n[10] Champion path (road to the final) integrity');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const cp = ld.championPath;
+    const koPhase = ld.meta.groupPlayedCount >= ld.meta.groupTotal;
+    if (!koPhase) {
+      ok(true, 'pre-knockout phase: champion path not required (skipped)');
+    } else if (!cp) {
+      ok(false, 'championPath present in knockout phase');
+    } else {
+      const champ = ld.champions[0];
+      ok(cp.name === champ.name, `championPath team is the modal champion (${cp.name})`);
+      ok(Math.abs(cp.titlePct - champ.pct) < 1e-6, `championPath titlePct matches champions[0].pct (${cp.titlePct})`);
+      const rounds = cp.nodes.map((n) => n.round);
+      ok(JSON.stringify(rounds) === JSON.stringify(['R32', 'R16', 'QF', 'SF', 'final']), `path is R32→R16→QF→SF→final (${rounds.join('→')})`);
+      // winner-feed chain: each node's winner must feed the next node in the REAL bracket
+      const ko = read('bracket.json').knockout;
+      const feed = new Map();
+      for (const mm of ko) for (const s of [mm.home, mm.away]) if (s.source === 'match' && s.take === 'winner') feed.set(s.match, mm.id);
+      let chainBad = 0;
+      for (let i = 0; i < cp.nodes.length - 1; i++) if (feed.get(cp.nodes[i].id) !== cp.nodes[i + 1].id) chainBad++;
+      ok(chainBad === 0, `path ids form a real winner-feed chain (${chainBad} broken links)`);
+      // reach% in [0,100], monotonically non-increasing, first ≈ 100 (champion is a real R32 entrant)
+      let monoBad = 0, rangeBad = 0;
+      for (let i = 0; i < cp.nodes.length; i++) {
+        const v = cp.nodes[i].reachPct;
+        if (v < -1e-9 || v > 100 + 1e-9) rangeBad++;
+        if (i > 0 && v > cp.nodes[i - 1].reachPct + 1e-9) monoBad++;
+      }
+      ok(rangeBad === 0, `node reach% all in [0,100] (${rangeBad} bad)`);
+      ok(monoBad === 0, `node reach% monotonically non-increasing (${monoBad} bad)`);
+      ok(Math.abs(cp.nodes[0].reachPct - 100) < 1e-6, `champion in its R32 tie (reach%=${cp.nodes[0].reachPct})`);
+      // reach% reconciles with the champion's reach table (N = its R32 count, since it's clamped in)
+      const rr = ld.reach.find((r) => r.name === cp.name);
+      const N = rr.r32;
+      const expect = { R16: (100 * rr.r16) / N, QF: (100 * rr.qf) / N, SF: (100 * rr.sf) / N, final: (100 * rr.final) / N };
+      let reconBad = 0;
+      for (const n of cp.nodes) if (n.round !== 'R32' && Math.abs(n.reachPct - expect[n.round]) > 1e-6) reconBad++;
+      ok(reconBad === 0, `node reach% reconciles with the champion's reach table (${reconBad} off)`);
+    }
+  }
+}
+
+console.log('\n[11] Results feed integrity (the "Results so far" data, grouped by round)');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const results = ld.results || [];
+    const VALID = new Set(['group', 'R32', 'R16', 'QF', 'SF', '3rd_place', 'final']);
+    const DEC = new Set(['REG', 'ET', 'PENS']);
+    let roundBad = 0, decBad = 0, winnerBad = 0, koConsistBad = 0, scorerBad = 0, groupN = 0;
+    for (const r of results) {
+      if (!VALID.has(r.round)) roundBad++;
+      if (!DEC.has(r.decidedBy)) decBad++;
+      if (r.round === 'group') groupN++;
+      const decisive = r.homeGoals !== r.awayGoals; // a winner on the scoreboard (incl. ET goals)
+      if (decisive) {
+        const byGoals = r.homeGoals > r.awayGoals ? r.home : r.away;
+        if (r.winner !== byGoals) winnerBad++;       // higher score must be the winner
+        if (r.decidedBy === 'PENS') koConsistBad++;  // a decisive scoreline can't be a shootout
+      } else if (r.round === 'group') {
+        if (r.winner) winnerBad++;                   // a group draw has no winner
+      } else {                                       // level knockout → decided on penalties
+        if (r.winner !== r.home && r.winner !== r.away) winnerBad++;
+        if (r.decidedBy !== 'PENS') koConsistBad++;
+      }
+      if (r.scorersComplete) { // display gate: per-side scorer counts must equal the scoreline
+        const hc = r.scorers.filter((s) => s.side === 'home').length;
+        const ac = r.scorers.filter((s) => s.side === 'away').length;
+        if (hc !== r.homeGoals || ac !== r.awayGoals) scorerBad++;
+      }
+    }
+    ok(roundBad === 0, `every result round is valid (${roundBad} bad)`);
+    ok(decBad === 0, `every decidedBy ∈ {REG,ET,PENS} (${decBad} bad)`);
+    ok(groupN === ld.meta.groupPlayedCount, `group results == groupPlayedCount (${groupN}/${ld.meta.groupPlayedCount})`);
+    ok(results.length === ld.meta.playedCount, `total results == playedCount (${results.length}/${ld.meta.playedCount})`);
+    ok(winnerBad === 0, `winner reconciles with the scoreline (decisive→higher, group draw→none, KO level→a team) (${winnerBad} bad)`);
+    ok(koConsistBad === 0, `knockout level↔shootout / decisive↔not-shootout consistent (${koConsistBad} bad)`);
+    ok(scorerBad === 0, `scorersComplete results reconcile per-side counts with the scoreline (${scorerBad} bad)`);
+  }
+}
+
+console.log('\n[12] Bracket-feed topology + selectable-road reproducibility (country selector)');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const feed = ld.bracketFeed || {};
+    const ko = read('bracket.json').knockout;
+    const expect = {}; // recompute winner-feed from the real bracket
+    for (const mm of ko) for (const s of [mm.home, mm.away]) if (s.source === 'match' && s.take === 'winner') expect[s.match] = mm.id;
+    const keys = Object.keys(expect);
+    let edgeBad = 0;
+    for (const k of keys) if (feed[k] !== expect[k]) edgeBad++;
+    ok(Object.keys(feed).length === keys.length, `bracketFeed has one winner-edge per advancing match (${Object.keys(feed).length}/${keys.length})`);
+    ok(edgeBad === 0, `bracketFeed edges match the real bracket (${edgeBad} off)`);
+    // every winner-feed chain converges on the final
+    const finalId = ko.find((mm) => mm.round === 'final').id;
+    let noConverge = 0;
+    for (const k of keys) {
+      let cur = k, last = k, g = 0;
+      while (feed[cur] && g++ < 12) { last = feed[cur]; cur = feed[cur]; }
+      if (last !== finalId) noConverge++;
+    }
+    ok(noConverge === 0, `every winner-feed chain converges on the final (${noConverge} stray)`);
+    // selectable-road reproducibility: client-side pathFor() rebuilt from shipped data
+    if (ld.championPath && ld.projectedBracket && ld.reach) {
+      const roundOf = {}; for (const b of ld.projectedBracket) roundOf[b.id] = b.round;
+      const pathFor = (team) => {
+        const r = ld.reach.find((x) => x.name === team); if (!r || !r.r32) return null;
+        const N = r.r32, rb = { R32: 100, R16: 100 * r.r16 / N, QF: 100 * r.qf / N, SF: 100 * r.sf / N, final: 100 * r.final / N };
+        const r32 = ld.projectedBracket.find((b) => b.round === 'R32' && ((b.home[0] && b.home[0].name === team) || (b.away[0] && b.away[0].name === team)));
+        if (!r32) return null;
+        const nodes = []; let cur = r32.id, g = 0;
+        while (cur && g++ < 8) { const rnd = roundOf[cur]; nodes.push({ id: cur, round: rnd, reachPct: rb[rnd] ?? 0 }); cur = feed[cur]; }
+        return { titlePct: 100 * r.title / N, nodes };
+      };
+      const p = pathFor(ld.championPath.name);
+      const idsEq = p && JSON.stringify(p.nodes.map((n) => n.id)) === JSON.stringify(ld.championPath.nodes.map((n) => n.id));
+      const pctEq = p && p.nodes.every((n, i) => Math.abs(n.reachPct - ld.championPath.nodes[i].reachPct) < 1e-6);
+      const titleEq = p && Math.abs(p.titlePct - ld.championPath.titlePct) < 1e-6;
+      ok(idsEq && pctEq && titleEq, 'client-side pathFor(favourite) reproduces championPath (ids + reach% + title%)');
+      const qualified = new Set();
+      for (const b of ld.projectedBracket) if (b.round === 'R32') { if (b.home[0]) qualified.add(b.home[0].name); if (b.away[0]) qualified.add(b.away[0].name); }
+      let pathBad = 0;
+      for (const nm of qualified) { const x = pathFor(nm); if (!x || x.nodes.length !== 5 || x.nodes[0].round !== 'R32' || x.nodes[4].round !== 'final') pathBad++; }
+      ok(pathBad === 0, `every qualified team resolves to a valid R32→final path (${qualified.size} teams, ${pathBad} bad)`);
+    }
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);
