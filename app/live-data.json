@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-06-30",
     "asOfDate": "2026-06-29",
-    "fetchedAt": "2026-06-30T01:36:04.734Z",
+    "fetchedAt": "2026-06-30T02:00:53.365Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -7160,6 +7160,10 @@
       "awayGoals": 1,
       "decidedBy": "PENS",
       "winner": "Paraguay",
+      "pens": {
+        "home": 3,
+        "away": 4
+      },
       "scorers": [
         {
           "side": "away",
