@@ -141,6 +141,8 @@
   .tie .row .nm .rk { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 5px; font-weight: 400; }
   .tie .row .adv { font-family: var(--mono); font-size: 12.5px; font-weight: 700; color: var(--muted); flex: none; min-width: 36px; text-align: right; }
   .tie .row .sc { font-family: var(--mono); font-size: 16px; font-weight: 800; flex: none; min-width: 16px; text-align: right; }
+  .tie .row .sc .pk { font-size: 12px; font-weight: 700; color: var(--muted); margin-left: 1px; } /* penalty-shootout tally */
+  .tie .row.fav .sc .pk { color: var(--gold); }
   .tie .row .ck { color: var(--up); font-weight: 700; flex: none; }
   .tie .row.fav .nm { color: var(--ink); } .tie .row.fav .adv { color: var(--gold); }
   .tie .row.lose .nm { color: var(--muted); } .tie .row.lose .flag { opacity: .6; }
@@ -383,6 +385,7 @@ const I18N = {
     projectedTag:"projected", projOcc:"most-likely to reach this slot",
     standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
     legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
+    pensFoot:"{team} win <b>{w}–{l}</b> on penalties",
     roadHead:"Road to the final", roadSub:"Model favourite — <b>{pct}%</b> to lift it. Each ring is the model's chance {name} <b>reaches</b> that round; the climb steepens as the field thins.",
     roadSubTeam:"<b>{pct}%</b> to lift it — the model's chance {name} <b>reaches</b> each round. Tap any flag above to follow another team's road.",
     roadPick:"Whose road? — tap a team still in it",
@@ -419,6 +422,7 @@ const I18N = {
     projectedTag:"proyectado", projOcc:"más probable en esta llave",
     standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
     legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
+    pensFoot:"{team} gana <b>{w}–{l}</b> en los penales",
     roadHead:"Camino a la final", roadSub:"Favorito del modelo — <b>{pct}%</b> para levantarla. Cada anillo es la probabilidad de que {name} <b>llegue</b> a esa ronda; la subida se empina al reducirse el cuadro.",
     roadSubTeam:"<b>{pct}%</b> para levantarla — la probabilidad de que {name} <b>llegue</b> a cada ronda. Toca otra bandera arriba para seguir a otro equipo.",
     roadPick:"¿El camino de quién? — toca un equipo aún vivo",
@@ -709,11 +713,17 @@ function render() {
     if (it.kind === "played") {
       const hw = it.winner === it.home, aw = it.winner === it.away;
       const tag = it.decidedBy && it.decidedBy !== "REG" ? (it.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
-      const prow = (nm, goals, win, lose) => `<div class="row ${win ? "fav" : lose ? "lose" : ""}"><img class="flag" src="${FLAG(codeOf(nm))}" alt=""><span class="nm">${teamName(nm)}</span>${win ? '<span class="ck">✓</span>' : ""}<span class="sc">${goals}</span></div>`;
+      // Penalty shootout: openfootball gives only the aggregate (score.p), not per-kick data.
+      // Show it in broadcast parens next to the level score, winner's in gold, + a plain footer.
+      const pens = it.decidedBy === "PENS" && it.pens ? it.pens : null;
+      const pk = side => pens ? ` <span class="pk">(${pens[side]})</span>` : "";
+      const prow = (nm, goals, side, win, lose) => `<div class="row ${win ? "fav" : lose ? "lose" : ""}"><img class="flag" src="${FLAG(codeOf(nm))}" alt=""><span class="nm">${teamName(nm)}</span>${win ? '<span class="ck">✓</span>' : ""}<span class="sc">${goals}${pk(side)}</span></div>`;
+      const foot = pens ? `<div class="foot">${t('pensFoot', { team: teamName(it.winner), w: pens[hw ? "home" : "away"], l: pens[hw ? "away" : "home"] })}</div>` : "";
       return `<div class="tie done${onPath ? " path" : ""}">
         <div class="tiehead"><span class="rnd">${rnd}${roadStar(onPath)}</span><span class="ko">${fmtDate(it.date)}${tag ? " · " + tag : ""}</span></div>
-        ${prow(it.home, it.homeGoals, hw, aw)}
-        ${prow(it.away, it.awayGoals, aw, hw)}
+        ${prow(it.home, it.homeGoals, "home", hw, aw)}
+        ${prow(it.away, it.awayGoals, "away", aw, hw)}
+        ${foot}
       </div>`;
     }
     const ah = advPct(it.advanceHome), aa = 100 - ah, homeFav = it.advanceHome >= 0.5, next = it.date === L.nextDate;
