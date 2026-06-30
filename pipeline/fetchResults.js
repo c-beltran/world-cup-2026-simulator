@@ -36,9 +36,12 @@ function outcome(m) {
   const ft = m.score && m.score.ft;
   if (!Array.isArray(ft)) return null; // not played
   const p = m.score.p, et = m.score.et;
-  let decidedBy = 'REG', hg = ft[0], ag = ft[1], winner = null;
+  let decidedBy = 'REG', hg = ft[0], ag = ft[1], winner = null, pens = null;
   if (Array.isArray(p)) {
     decidedBy = 'PENS';
+    // ET goals count toward the on-field score; the shootout (score.p) only breaks the tie.
+    if (Array.isArray(et)) { hg = et[0]; ag = et[1]; }
+    pens = { home: p[0], away: p[1] }; // shootout aggregate (openfootball has no per-kick data)
     winner = p[0] > p[1] ? 'home' : 'away';
   } else if (Array.isArray(et)) {
     decidedBy = 'ET';
@@ -47,7 +50,7 @@ function outcome(m) {
   } else {
     winner = hg > ag ? 'home' : ag > hg ? 'away' : null;
   }
-  return { homeGoals: hg, awayGoals: ag, decidedBy, winner };
+  return { homeGoals: hg, awayGoals: ag, decidedBy, winner, pens };
 }
 
 // Real goal events (display-only — they never reach the model, which clamps a result
@@ -118,6 +121,7 @@ for (const m of raw) {
     ...(o
       ? { homeGoals: o.homeGoals, awayGoals: o.awayGoals, decidedBy: o.decidedBy,
           winner: o.winner === 'home' ? home : o.winner === 'away' ? away : null,
+          ...(o.pens ? { pens: o.pens } : {}),
           scorers: g.scorers, scorersComplete: g.scorersComplete }
       : {}),
   });

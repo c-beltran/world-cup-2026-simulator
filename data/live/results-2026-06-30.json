@@ -3,7 +3,7 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-06-30T01:36:04.734Z",
+  "fetchedAt": "2026-06-30T02:00:53.365Z",
   "asOfDate": "2026-06-29",
   "matchCount": 104,
   "playedCount": 75,
@@ -3281,6 +3281,10 @@
       "awayGoals": 1,
       "decidedBy": "PENS",
       "winner": "Paraguay",
+      "pens": {
+        "home": 3,
+        "away": 4
+      },
       "scorers": [
         {
           "side": "away",

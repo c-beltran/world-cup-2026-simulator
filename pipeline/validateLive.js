@@ -322,7 +322,7 @@ console.log('\n[11] Results feed integrity (the "Results so far" data, grouped b
     const results = ld.results || [];
     const VALID = new Set(['group', 'R32', 'R16', 'QF', 'SF', '3rd_place', 'final']);
     const DEC = new Set(['REG', 'ET', 'PENS']);
-    let roundBad = 0, decBad = 0, winnerBad = 0, koConsistBad = 0, scorerBad = 0, groupN = 0;
+    let roundBad = 0, decBad = 0, winnerBad = 0, koConsistBad = 0, scorerBad = 0, pensBad = 0, groupN = 0;
     for (const r of results) {
       if (!VALID.has(r.round)) roundBad++;
       if (!DEC.has(r.decidedBy)) decBad++;
@@ -343,6 +343,11 @@ console.log('\n[11] Results feed integrity (the "Results so far" data, grouped b
         const ac = r.scorers.filter((s) => s.side === 'away').length;
         if (hc !== r.homeGoals || ac !== r.awayGoals) scorerBad++;
       }
+      if (r.decidedBy === 'PENS' && r.pens) { // shootout tally is optional (data lag) — validate IF present
+        const p = r.pens;
+        if (!(p.home >= 0) || !(p.away >= 0) || p.home === p.away) pensBad++;
+        else if ((p.home > p.away ? r.home : r.away) !== r.winner) pensBad++;
+      }
     }
     ok(roundBad === 0, `every result round is valid (${roundBad} bad)`);
     ok(decBad === 0, `every decidedBy ∈ {REG,ET,PENS} (${decBad} bad)`);
@@ -351,6 +356,7 @@ console.log('\n[11] Results feed integrity (the "Results so far" data, grouped b
     ok(winnerBad === 0, `winner reconciles with the scoreline (decisive→higher, group draw→none, KO level→a team) (${winnerBad} bad)`);
     ok(koConsistBad === 0, `knockout level↔shootout / decisive↔not-shootout consistent (${koConsistBad} bad)`);
     ok(scorerBad === 0, `scorersComplete results reconcile per-side counts with the scoreline (${scorerBad} bad)`);
+    ok(pensBad === 0, `penalty-shootout tallies, when present, are decisive and winner-consistent (${pensBad} bad)`);
   }
 }
 
