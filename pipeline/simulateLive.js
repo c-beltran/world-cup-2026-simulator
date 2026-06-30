@@ -376,6 +376,14 @@ const championPath = (() => {
   return { name: champ.name, code: champ.code, fieldRank: champ.fieldRank, titlePct: champ.pct, nodes };
 })();
 
+// ---- bracket winner-feed topology: matchId -> the match its winner advances to. 30 edges
+// (the final and the third-place match feed no winner forward). Shipped so the live page can
+// trace ANY team's road (the country selector), not only the favourite's championPath. ----
+const bracketFeed = {};
+for (const mm of bracketDoc.knockout)
+  for (const slot of [mm.home, mm.away])
+    if (slot.source === 'match' && slot.take === 'winner') bracketFeed[slot.match] = mm.id;
+
 const out = {
   kind: 'live',
   generatedFrom: { source: live.source, sourceUrl: live.sourceUrl, fetchedAt: live.fetchedAt },
@@ -396,6 +404,7 @@ const out = {
   projections,
   projectedBracket,
   championPath,
+  bracketFeed,
   thirdOverrideApplied: !!thirdOverride,
   movers,
   results: played, // the clamped real results, for display + provenance

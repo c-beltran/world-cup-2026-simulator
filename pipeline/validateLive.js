@@ -354,5 +354,55 @@ console.log('\n[11] Results feed integrity (the "Results so far" data, grouped b
   }
 }
 
+console.log('\n[12] Bracket-feed topology + selectable-road reproducibility (country selector)');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const feed = ld.bracketFeed || {};
+    const ko = read('bracket.json').knockout;
+    const expect = {}; // recompute winner-feed from the real bracket
+    for (const mm of ko) for (const s of [mm.home, mm.away]) if (s.source === 'match' && s.take === 'winner') expect[s.match] = mm.id;
+    const keys = Object.keys(expect);
+    let edgeBad = 0;
+    for (const k of keys) if (feed[k] !== expect[k]) edgeBad++;
+    ok(Object.keys(feed).length === keys.length, `bracketFeed has one winner-edge per advancing match (${Object.keys(feed).length}/${keys.length})`);
+    ok(edgeBad === 0, `bracketFeed edges match the real bracket (${edgeBad} off)`);
+    // every winner-feed chain converges on the final
+    const finalId = ko.find((mm) => mm.round === 'final').id;
+    let noConverge = 0;
+    for (const k of keys) {
+      let cur = k, last = k, g = 0;
+      while (feed[cur] && g++ < 12) { last = feed[cur]; cur = feed[cur]; }
+      if (last !== finalId) noConverge++;
+    }
+    ok(noConverge === 0, `every winner-feed chain converges on the final (${noConverge} stray)`);
+    // selectable-road reproducibility: client-side pathFor() rebuilt from shipped data
+    if (ld.championPath && ld.projectedBracket && ld.reach) {
+      const roundOf = {}; for (const b of ld.projectedBracket) roundOf[b.id] = b.round;
+      const pathFor = (team) => {
+        const r = ld.reach.find((x) => x.name === team); if (!r || !r.r32) return null;
+        const N = r.r32, rb = { R32: 100, R16: 100 * r.r16 / N, QF: 100 * r.qf / N, SF: 100 * r.sf / N, final: 100 * r.final / N };
+        const r32 = ld.projectedBracket.find((b) => b.round === 'R32' && ((b.home[0] && b.home[0].name === team) || (b.away[0] && b.away[0].name === team)));
+        if (!r32) return null;
+        const nodes = []; let cur = r32.id, g = 0;
+        while (cur && g++ < 8) { const rnd = roundOf[cur]; nodes.push({ id: cur, round: rnd, reachPct: rb[rnd] ?? 0 }); cur = feed[cur]; }
+        return { titlePct: 100 * r.title / N, nodes };
+      };
+      const p = pathFor(ld.championPath.name);
+      const idsEq = p && JSON.stringify(p.nodes.map((n) => n.id)) === JSON.stringify(ld.championPath.nodes.map((n) => n.id));
+      const pctEq = p && p.nodes.every((n, i) => Math.abs(n.reachPct - ld.championPath.nodes[i].reachPct) < 1e-6);
+      const titleEq = p && Math.abs(p.titlePct - ld.championPath.titlePct) < 1e-6;
+      ok(idsEq && pctEq && titleEq, 'client-side pathFor(favourite) reproduces championPath (ids + reach% + title%)');
+      const qualified = new Set();
+      for (const b of ld.projectedBracket) if (b.round === 'R32') { if (b.home[0]) qualified.add(b.home[0].name); if (b.away[0]) qualified.add(b.away[0].name); }
+      let pathBad = 0;
+      for (const nm of qualified) { const x = pathFor(nm); if (!x || x.nodes.length !== 5 || x.nodes[0].round !== 'R32' || x.nodes[4].round !== 'final') pathBad++; }
+      ok(pathBad === 0, `every qualified team resolves to a valid R32→final path (${qualified.size} teams, ${pathBad} bad)`);
+    }
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);

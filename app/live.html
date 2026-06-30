@@ -158,6 +158,20 @@
   .tie.proj .tiehead .rnd { color: var(--muted); }
   .tie.proj .tiehead .ko { color: var(--ai); }
   .tie.proj .row .adv { color: var(--muted); }
+  /* ---- team picker: a swipeable flag strip; the road + bracket follow the selected team ---- */
+  .teampick { margin-bottom: 16px; }
+  .teampick .tp-lbl { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+  .tp-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 7px; scrollbar-width: thin; scrollbar-color: var(--line) transparent; -webkit-overflow-scrolling: touch; }
+  .tp-strip::-webkit-scrollbar { height: 5px; }
+  .tp-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+  .tchip { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); color: var(--muted); cursor: pointer; font-family: var(--sans); transition: .15s; }
+  .tchip:hover { border-color: var(--gold-dim); color: var(--ink); }
+  .tchip .flag { width: 30px; height: 20px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; }
+  .tchip .tc-nm { font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .tchip .tc-pct { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .02em; }
+  .tchip.on { border-color: var(--gold); background: rgba(242,205,92,.10); color: var(--ink); box-shadow: 0 0 0 1px var(--gold), 0 0 14px rgba(242,205,92,.12); }
+  .tchip.on .tc-pct { color: var(--gold); }
+
   /* ---- favourite's road to the final (champion path) ---- */
   .road { border: 1px solid var(--gold-dim); border-radius: 14px; padding: 14px 14px 16px; margin-bottom: 20px;
     background: linear-gradient(180deg, rgba(242,205,92,.075), rgba(242,205,92,.015) 55%, transparent);
@@ -370,6 +384,8 @@ const I18N = {
     standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
     legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
     roadHead:"Road to the final", roadSub:"Model favourite — <b>{pct}%</b> to lift it. Each ring is the model's chance {name} <b>reaches</b> that round; the climb steepens as the field thins.",
+    roadSubTeam:"<b>{pct}%</b> to lift it — the model's chance {name} <b>reaches</b> each round. Tap any flag above to follow another team's road.",
+    roadPick:"Whose road? — tap a team still in it",
     stR32:"R32", stR16:"R16", stQF:"QF", stSF:"SF", stFinal:"Final", stTitle:"Title",
     methodTitle:"How this stays honest.",
     method:"This is a <b>conditional</b> re-run of the exact pre-tournament engine — not a new model. Every finished match is <span class='em'>clamped</span> to its real scoreline (the sim reproduces it and draws no randomness for it) and only the unknown remainder is re-simulated. Team ratings are updated on the pitch by <b>FIFA's own SUM formula</b> (<code>P' = P + I·(W − We)</code>, divisor 600), so a result both fixes the past and shifts the projection for what's left. At zero games played this reproduces the frozen forecast <b>exactly</b> (verified). Neutral venue — no host advantage. Field rank is 1–48 within this field.",
@@ -404,6 +420,8 @@ const I18N = {
     standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
     legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
     roadHead:"Camino a la final", roadSub:"Favorito del modelo — <b>{pct}%</b> para levantarla. Cada anillo es la probabilidad de que {name} <b>llegue</b> a esa ronda; la subida se empina al reducirse el cuadro.",
+    roadSubTeam:"<b>{pct}%</b> para levantarla — la probabilidad de que {name} <b>llegue</b> a cada ronda. Toca otra bandera arriba para seguir a otro equipo.",
+    roadPick:"¿El camino de quién? — toca un equipo aún vivo",
     stR32:"16avos", stR16:"8vos", stQF:"4tos", stSF:"Semi", stFinal:"Final", stTitle:"Título",
     methodTitle:"Cómo se mantiene honesto.",
     method:"Esto es una nueva corrida <b>condicional</b> del mismo motor pre-torneo — no un modelo nuevo. Cada partido jugado se <span class='em'>fija</span> a su marcador real (la simulación lo reproduce y no usa azar para él) y solo se vuelve a simular lo desconocido. Las valoraciones se actualizan en el campo con <b>la propia fórmula SUM de la FIFA</b> (<code>P' = P + I·(W − We)</code>, divisor 600), así un resultado fija el pasado y ajusta la proyección de lo que falta. Con cero partidos jugados esto reproduce el pronóstico congelado <b>exactamente</b> (verificado). Sede neutral — sin ventaja local. El puesto es ranking de campo (1–48) dentro de este grupo.",
@@ -419,6 +437,7 @@ const fmtDay = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map(
 let fxExpanded = false; // "Next matches" shows the next matchday by default; toggle reveals the rest
 let standView = "now"; // group standings: "now" (points table) ⇄ "proj" (model's expected final order)
 let resGroupExpanded = false; // "Results so far": in KO phase the 72 group games collapse behind a toggle
+let pickTeam = null; // bracket "Road to the final": which still-alive team to follow (null → model favourite)
 // Kickoff shown in US Eastern. We convert from the absolute ISO instant via the
 // America/New_York zone, which resolves to EDT (UTC−4) in June automatically; we
 // label it "ET" so it's correct year-round. Falls back to the raw venue string.
@@ -642,16 +661,51 @@ function render() {
   //      Handles both upcoming ties (from projections) and played ties (from results), so it
   //      transitions automatically as KO games are clamped. R16+ slots arrive in a later ticket.
   const advPct = x => Math.round(x * 100);
-  // the modal champion's road through the bracket: used to highlight path nodes (the ★ rail)
-  // and to draw the "Road to the final" strip. A team occupies exactly one slot per round, so
-  // champion-name (real ties) / match-id (projected slots) identifies the path unambiguously.
-  const cp = L.championPath || null;
-  const champName = cp && cp.name;
-  const pathIds = new Set(cp ? cp.nodes.map(n => n.id) : []);
+  // ---- selectable "road": the path can follow ANY still-alive team, not just the favourite.
+  // pathFor() rebuilds a team's R32→final slot chain from the shipped bracketFeed topology +
+  // its reach counts (reproduces championPath exactly for the favourite). A team occupies one
+  // slot per round, so team-name (real ties) / match-id (projected slots) identifies it cleanly.
+  const koLosers = new Set();
+  for (const r of koResults) if (r.winner) koLosers.add(r.winner === r.home ? r.away : r.home);
+  function aliveTeams() {
+    return (L.reach || [])
+      .filter(r => qualified.has(r.name) && !koLosers.has(r.name))
+      .map(r => ({ name: r.name, code: r.code, fieldRank: r.fieldRank, titlePct: r.titlePct != null ? r.titlePct : 100 * r.title / (r.r32 || 1) }))
+      .sort((a, b) => b.titlePct - a.titlePct || (a.fieldRank || 99) - (b.fieldRank || 99));
+  }
+  const roundOfMatch = {};
+  for (const b of (L.projectedBracket || [])) roundOfMatch[b.id] = b.round;
+  function pathFor(team) {
+    const r = (L.reach || []).find(x => x.name === team), feed = L.bracketFeed;
+    if (!r || !feed || !r.r32 || !L.projectedBracket) return null;
+    const N = r.r32, rb = { R32: 100, R16: 100 * r.r16 / N, QF: 100 * r.qf / N, SF: 100 * r.sf / N, final: 100 * r.final / N };
+    const r32 = L.projectedBracket.find(b => b.round === "R32" && ((b.home[0] && b.home[0].name === team) || (b.away[0] && b.away[0].name === team)));
+    if (!r32) return null;
+    const nodes = []; let cur = r32.id, guard = 0;
+    while (cur && guard++ < 8) { const rnd = roundOfMatch[cur]; nodes.push({ id: cur, round: rnd, reachPct: rb[rnd] ?? 0 }); cur = feed[cur]; }
+    return { name: team, code: r.code, fieldRank: r.fieldRank, titlePct: 100 * r.title / N, nodes };
+  }
+  function resolvePick() {
+    const alive = aliveTeams(), names = new Set(alive.map(a => a.name));
+    if (pickTeam && names.has(pickTeam)) return pickTeam;
+    const qp = (new URLSearchParams(location.search).get("team") || "").toLowerCase();
+    if (qp) { const m = alive.find(a => a.code === qp); if (m) return m.name; }
+    const ls = localStorage.getItem("wc_team");
+    if (ls && names.has(ls)) return ls;
+    if (L.championPath && names.has(L.championPath.name)) return L.championPath.name;
+    return alive.length ? alive[0].name : null;
+  }
+  // active road (refreshed by renderBracket via applyPick); drives the ★ rail + road strip
+  let curPath = null, curPathName = null, curPathIds = new Set();
+  function applyPick() {
+    curPath = pathFor(resolvePick()) || L.championPath || null;
+    curPathName = curPath && curPath.name;
+    curPathIds = new Set(curPath ? curPath.nodes.map(n => n.id) : []);
+  }
   const roadStar = on => on ? ' <span class="road">★</span>' : "";
   function tieCard(it) {
     const rnd = rd(it.round);
-    const onPath = !!champName && (it.home === champName || it.away === champName);
+    const onPath = !!curPathName && (it.home === curPathName || it.away === curPathName);
     if (it.kind === "played") {
       const hw = it.winner === it.home, aw = it.winner === it.away;
       const tag = it.decidedBy && it.decidedBy !== "REG" ? (it.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
@@ -682,7 +736,7 @@ function render() {
   function projTieCard(pm) {
     const h = pm.home[0], a = pm.away[0];
     if (!h || !a) return "";
-    const onPath = pathIds.has(pm.id);
+    const onPath = curPathIds.has(pm.id);
     const favName = pm.favorite && pm.favorite.name;
     const prow = o => `<div class="row ${o.name === favName ? "fav" : ""}"><img class="flag" src="${FLAG(o.code)}" alt=""><span class="nm">${teamName(o.name)}<span class="rk">#${o.fieldRank}</span></span><span class="adv">${Math.round(o.p * 100)}%</span></div>`;
     return `<div class="tie proj${onPath ? " path" : ""}">
@@ -691,11 +745,22 @@ function render() {
       <div class="foot">${t('projOcc')}</div>
     </div>`;
   }
-  // "Road to the final" strip: the modal champion's path R32→final as a stepper, each station a
+  // Flag-chip picker: the still-alive teams (sorted by title odds); tapping one re-points the
+  // road strip + ★ bracket rail to that team. The strip shrinks as teams are eliminated.
+  function teamPicker() {
+    const alive = aliveTeams();
+    if (!alive.length || !L.bracketFeed) return "";
+    const chip = a => `<button class="tchip ${a.name === curPathName ? "on" : ""}" data-team="${a.code}" data-name="${a.name}">
+      <img class="flag" src="${FLAG(a.code)}" alt=""><span class="tc-nm">${teamName(a.name)}</span><span class="tc-pct">${r1(a.titlePct)}%</span></button>`;
+    return `<div class="teampick"><div class="tp-lbl">${t('roadPick')}</div><div class="tp-strip">${alive.map(chip).join("")}</div></div>`;
+  }
+  // "Road to the final" strip: the SELECTED team's path R32→final as a stepper, each station a
   // conic ring filled to its MARGINAL reach % for that round (descending as the field thins),
   // capped by a trophy ring at the title %. Vertical on phones, horizontal ≥620px.
   function roadStrip() {
+    const cp = curPath;
     if (!cp || !cp.nodes || !cp.nodes.length) return "";
+    const isFav = L.championPath && cp.name === L.championPath.name;
     const stLab = { R32: t('stR32'), R16: t('stR16'), QF: t('stQF'), SF: t('stSF'), final: t('stFinal') };
     const ring = (p, cls, inner) => `<div class="rring ${cls}" style="--p:${(+p).toFixed(1)}"><i>${inner}</i></div>`;
     const stations = cp.nodes.map(n =>
@@ -707,7 +772,7 @@ function render() {
         <div>
           <div class="rh-eyebrow">${t('roadHead')}</div>
           <div class="rh-name">${teamName(cp.name)}<span class="rk">#${cp.fieldRank}</span></div>
-          <div class="rh-sub">${t('roadSub', { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
+          <div class="rh-sub">${t(isFav ? 'roadSub' : 'roadSubTeam', { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
         </div>
       </div>
       <div class="roadsteps">${stations.join('<div class="rconn"></div>')}</div>
@@ -717,6 +782,7 @@ function render() {
   const roundSection = (label, cardsHtml, projected) =>
     `<div class="roundsection"><div class="roundhead">${label}${projected ? `<span class="ptag">${t('projectedTag')}</span>` : ""}</div><div class="bracketgrid">${cardsHtml}</div></div>`;
   function renderBracket() {
+    applyPick(); // refresh the active road from the current selection before building cards
     const sections = [];
     for (const round of ["R32", "R16", "QF", "SF", "final"]) {
       // real ties for this round (played + upcoming with both teams known)
@@ -731,7 +797,18 @@ function render() {
       const cards = [...real.map(tieCard), ...proj.map(projTieCard)].join("");
       if (cards) sections.push(roundSection(rd(round), cards, proj.length > 0));
     }
-    fxRoot.innerHTML = roadStrip() + (sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`);
+    fxRoot.innerHTML = teamPicker() + roadStrip() + (sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`);
+    fxRoot.querySelectorAll(".tchip").forEach(b => b.onclick = () => {
+      const nm = b.dataset.name;
+      if (nm === curPathName) return;
+      pickTeam = nm;
+      try {
+        localStorage.setItem("wc_team", nm);
+        const u = new URLSearchParams(location.search); u.set("team", b.dataset.team);
+        history.replaceState(null, "", location.pathname + "?" + u.toString());
+      } catch (e) {}
+      renderBracket();
+    });
   }
   if (koPhase) renderBracket(); else renderFixtures();
   // In KO phase the bracket is the headline — promote it above the now-settled group tables.
