@@ -343,6 +343,39 @@ const projectedBracket = bracketDoc.knockout.map((mm) => {
   return { id: mm.id, round: mm.round, home: topOccupants(s.home, 3), away: topOccupants(s.away, 3), favorite: topOccupants(s.win, 1)[0] || null };
 });
 
+// ---- champion's road to the final: the modal champion's path through the bracket, R32 → final.
+// The bracket is a fixed tree, so the champion occupies exactly one slot per round. We follow the
+// winner-feed edges forward from its (clamped, deterministic) R32 match to M104, attaching the
+// champion's MARGINAL reach probability at each node — an honest "odds at each step", not a joint
+// claim. Driven off the champion's own reach counts, so it stays correct even if it isn't the
+// modal occupant of some deep slot on a future re-bake. null if the bracket isn't yet derivable.
+const championPath = (() => {
+  const champ = champions[0];
+  if (!champ) return null;
+  const winnerFeed = new Map(); // matchId -> the match that consumes its winner
+  for (const mm of bracketDoc.knockout)
+    for (const slot of [mm.home, mm.away])
+      if (slot.source === 'match' && slot.take === 'winner') winnerFeed.set(slot.match, mm.id);
+  let cur = null; // the champion's R32 match (its slot tally contains it)
+  for (const mm of bracketDoc.knockout) {
+    if (mm.round !== 'R32') continue;
+    const s = slotTally.get(mm.id);
+    if (s && ((s.home.get(champ.name) || 0) > 0 || (s.away.get(champ.name) || 0) > 0)) { cur = mm.id; break; }
+  }
+  if (!cur) return null;
+  const cr = reach.get(champ.name) || {};
+  const reachByRound = { R32: cr.r32 || 0, R16: cr.r16 || 0, QF: cr.qf || 0, SF: cr.sf || 0, final: cr.final || 0 };
+  const nodes = [];
+  while (cur) {
+    const mm = bracketDoc.knockout.find((x) => x.id === cur);
+    const s = slotTally.get(cur) || { home: new Map(), away: new Map() };
+    const side = (s.home.get(champ.name) || 0) >= (s.away.get(champ.name) || 0) ? 'home' : 'away';
+    nodes.push({ id: cur, round: mm.round, side, reachPct: pct(reachByRound[mm.round] ?? 0) });
+    cur = winnerFeed.get(cur);
+  }
+  return { name: champ.name, code: champ.code, fieldRank: champ.fieldRank, titlePct: champ.pct, nodes };
+})();
+
 const out = {
   kind: 'live',
   generatedFrom: { source: live.source, sourceUrl: live.sourceUrl, fetchedAt: live.fetchedAt },
@@ -362,6 +395,7 @@ const out = {
   nextDate,
   projections,
   projectedBracket,
+  championPath,
   thirdOverrideApplied: !!thirdOverride,
   movers,
   results: played, // the clamped real results, for display + provenance

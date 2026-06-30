@@ -150,11 +150,44 @@
   .tie .foot { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
   .tie .foot b { color: var(--ink); }
   .tie .foot .ml { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-right: 5px; letter-spacing: .5px; }
+  /* a tie on the favourite's road — gold left rail ties it to the road strip above */
+  .tie.path { border-left: 3px solid var(--gold); }
+  .tie .tiehead .road { color: var(--gold); font-weight: 700; flex: none; margin-left: 4px; }
   /* projected (not-yet-played) ties — dashed to signal "model projection, not a real draw" */
   .tie.proj { border-style: dashed; background: rgba(255,255,255,.012); }
   .tie.proj .tiehead .rnd { color: var(--muted); }
   .tie.proj .tiehead .ko { color: var(--ai); }
   .tie.proj .row .adv { color: var(--muted); }
+  /* ---- favourite's road to the final (champion path) ---- */
+  .road { border: 1px solid var(--gold-dim); border-radius: 14px; padding: 14px 14px 16px; margin-bottom: 20px;
+    background: linear-gradient(180deg, rgba(242,205,92,.075), rgba(242,205,92,.015) 55%, transparent);
+    box-shadow: 0 0 24px rgba(242,205,92,.06); }
+  .road .roadhead { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .road .roadhead .flag { width: 34px; height: 23px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.5); flex: none; }
+  .road .rh-eyebrow { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+  .road .rh-name { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+  .road .rh-name .rk { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-left: 6px; font-weight: 400; }
+  .road .rh-sub { font-size: 11.5px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
+  .road .rh-sub b { color: var(--ink); }
+  /* stepper: vertical on phones */
+  .roadsteps { display: flex; flex-direction: column; }
+  .rstep { display: flex; align-items: center; gap: 13px; }
+  .rconn { width: 2px; height: 15px; margin-left: 23px; background: linear-gradient(180deg, var(--gold-dim), rgba(242,205,92,.22)); }
+  .rring { width: 48px; height: 48px; border-radius: 50%; flex: none; padding: 3px;
+    background: conic-gradient(var(--gold) calc(var(--p) * 1%), rgba(255,255,255,.08) 0); }
+  .rring > i { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; background: #0b1a13; font-family: var(--mono); font-size: 13px; font-weight: 800; color: var(--ink); font-style: normal; }
+  .rring > i u { text-decoration: none; font-size: 8px; color: var(--muted); margin-left: 1px; }
+  .rring.tr { background: conic-gradient(var(--gold) calc(var(--p) * 1%), rgba(242,205,92,.16) 0); }
+  .rring.tr > i { font-size: 19px; background: radial-gradient(circle at 50% 38%, #241803, #0b1a13 78%); }
+  .rstep .rlab { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .04em; color: var(--muted); }
+  .rstep.title .rlab { color: var(--gold); }
+  @media (min-width: 620px) {
+    .roadsteps { flex-direction: row; align-items: flex-start; }
+    .rstep { flex-direction: column; gap: 8px; text-align: center; flex: 0 0 auto; }
+    .rconn { width: auto; height: 2px; flex: 1 1 auto; margin: 23px 5px 0;
+      background: linear-gradient(90deg, var(--gold-dim), rgba(242,205,92,.22)); }
+  }
+
   /* round sections (R32 → Final) */
   .roundsection + .roundsection { margin-top: 20px; }
   .roundhead { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin: 0 0 11px; padding-bottom: 6px; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
@@ -335,6 +368,8 @@ const I18N = {
     projectedTag:"projected", projOcc:"most-likely to reach this slot",
     standHeadKo:"Final group standings", standSubKo:"Final tables — all {tot} group games played. ✓ = through to the Round of 32.",
     legKoThrough:"through to R32", legKoOut:"eliminated", reg90:"90'", koPens:"pens", koAet:"a.e.t.", mlScore:"most-likely 90′ score", etPens:"level → extra time / pens",
+    roadHead:"Road to the final", roadSub:"Model favourite — <b>{pct}%</b> to lift it. Each ring is the model's chance {name} <b>reaches</b> that round; the climb steepens as the field thins.",
+    stR32:"R32", stR16:"R16", stQF:"QF", stSF:"SF", stFinal:"Final", stTitle:"Title",
     methodTitle:"How this stays honest.",
     method:"This is a <b>conditional</b> re-run of the exact pre-tournament engine — not a new model. Every finished match is <span class='em'>clamped</span> to its real scoreline (the sim reproduces it and draws no randomness for it) and only the unknown remainder is re-simulated. Team ratings are updated on the pitch by <b>FIFA's own SUM formula</b> (<code>P' = P + I·(W − We)</code>, divisor 600), so a result both fixes the past and shifts the projection for what's left. At zero games played this reproduces the frozen forecast <b>exactly</b> (verified). Neutral venue — no host advantage. Field rank is 1–48 within this field.",
     methodFoot:"{sims} simulations · seed {seed} · ratings: {rs} ({rsnap}) · source: ",
@@ -366,6 +401,8 @@ const I18N = {
     projectedTag:"proyectado", projOcc:"más probable en esta llave",
     standHeadKo:"Tablas finales de grupos", standSubKo:"Tablas finales — {tot} partidos de grupo jugados. ✓ = clasificado a dieciseisavos.",
     legKoThrough:"clasificado a R32", legKoOut:"eliminado", reg90:"90'", koPens:"penales", koAet:"pror.", mlScore:"marcador más probable (90′)", etPens:"empate → prórroga / penales",
+    roadHead:"Camino a la final", roadSub:"Favorito del modelo — <b>{pct}%</b> para levantarla. Cada anillo es la probabilidad de que {name} <b>llegue</b> a esa ronda; la subida se empina al reducirse el cuadro.",
+    stR32:"16avos", stR16:"8vos", stQF:"4tos", stSF:"Semi", stFinal:"Final", stTitle:"Título",
     methodTitle:"Cómo se mantiene honesto.",
     method:"Esto es una nueva corrida <b>condicional</b> del mismo motor pre-torneo — no un modelo nuevo. Cada partido jugado se <span class='em'>fija</span> a su marcador real (la simulación lo reproduce y no usa azar para él) y solo se vuelve a simular lo desconocido. Las valoraciones se actualizan en el campo con <b>la propia fórmula SUM de la FIFA</b> (<code>P' = P + I·(W − We)</code>, divisor 600), así un resultado fija el pasado y ajusta la proyección de lo que falta. Con cero partidos jugados esto reproduce el pronóstico congelado <b>exactamente</b> (verificado). Sede neutral — sin ventaja local. El puesto es ranking de campo (1–48) dentro de este grupo.",
     methodFoot:"{sims} simulaciones · semilla {seed} · valoraciones: {rs} ({rsnap}) · fuente: ",
@@ -602,14 +639,22 @@ function render() {
   //      Handles both upcoming ties (from projections) and played ties (from results), so it
   //      transitions automatically as KO games are clamped. R16+ slots arrive in a later ticket.
   const advPct = x => Math.round(x * 100);
+  // the modal champion's road through the bracket: used to highlight path nodes (the ★ rail)
+  // and to draw the "Road to the final" strip. A team occupies exactly one slot per round, so
+  // champion-name (real ties) / match-id (projected slots) identifies the path unambiguously.
+  const cp = L.championPath || null;
+  const champName = cp && cp.name;
+  const pathIds = new Set(cp ? cp.nodes.map(n => n.id) : []);
+  const roadStar = on => on ? ' <span class="road">★</span>' : "";
   function tieCard(it) {
     const rnd = rd(it.round);
+    const onPath = !!champName && (it.home === champName || it.away === champName);
     if (it.kind === "played") {
       const hw = it.winner === it.home, aw = it.winner === it.away;
       const tag = it.decidedBy && it.decidedBy !== "REG" ? (it.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
       const prow = (nm, goals, win, lose) => `<div class="row ${win ? "fav" : lose ? "lose" : ""}"><img class="flag" src="${FLAG(codeOf(nm))}" alt=""><span class="nm">${teamName(nm)}</span>${win ? '<span class="ck">✓</span>' : ""}<span class="sc">${goals}</span></div>`;
-      return `<div class="tie done">
-        <div class="tiehead"><span class="rnd">${rnd}</span><span class="ko">${fmtDate(it.date)}${tag ? " · " + tag : ""}</span></div>
+      return `<div class="tie done${onPath ? " path" : ""}">
+        <div class="tiehead"><span class="rnd">${rnd}${roadStar(onPath)}</span><span class="ko">${fmtDate(it.date)}${tag ? " · " + tag : ""}</span></div>
         ${prow(it.home, it.homeGoals, hw, aw)}
         ${prow(it.away, it.awayGoals, aw, hw)}
       </div>`;
@@ -620,8 +665,8 @@ function render() {
     // advance % (which already includes ET & penalties) is who the model expects to go through.
     const drawn = it.likely.home === it.likely.away;
     const urow = (nm, code, adv, fav) => `<div class="row ${fav ? "fav" : ""}"><img class="flag" src="${FLAG(code)}" alt=""><span class="nm">${teamName(nm)}<span class="rk">#${rankOf(nm)}</span></span><span class="adv">${adv}%</span></div>`;
-    return `<div class="tie ${next ? "next" : ""}">
-      <div class="tiehead"><span class="rnd">${rnd}</span><span class="ko">${next ? '<span class="star">★ </span>' : ""}${fmtDate(it.date)} · ${fmtKO(it.kickoff, it.time)}</span></div>
+    return `<div class="tie ${next ? "next" : ""}${onPath ? " path" : ""}">
+      <div class="tiehead"><span class="rnd">${rnd}${roadStar(onPath)}</span><span class="ko">${next ? '<span class="star">★ </span>' : ""}${fmtDate(it.date)} · ${fmtKO(it.kickoff, it.time)}</span></div>
       ${urow(it.home, it.homeCode, ah, homeFav)}
       ${urow(it.away, it.awayCode, aa, !homeFav)}
       <div class="abar"><span class="ah" style="width:${ah}%"></span><span class="aa" style="width:${aa}%"></span></div>
@@ -634,12 +679,35 @@ function render() {
   function projTieCard(pm) {
     const h = pm.home[0], a = pm.away[0];
     if (!h || !a) return "";
+    const onPath = pathIds.has(pm.id);
     const favName = pm.favorite && pm.favorite.name;
     const prow = o => `<div class="row ${o.name === favName ? "fav" : ""}"><img class="flag" src="${FLAG(o.code)}" alt=""><span class="nm">${teamName(o.name)}<span class="rk">#${o.fieldRank}</span></span><span class="adv">${Math.round(o.p * 100)}%</span></div>`;
-    return `<div class="tie proj">
-      <div class="tiehead"><span class="rnd">${rd(pm.round)}</span><span class="ko">${t('projectedTag')}</span></div>
+    return `<div class="tie proj${onPath ? " path" : ""}">
+      <div class="tiehead"><span class="rnd">${rd(pm.round)}${roadStar(onPath)}</span><span class="ko">${t('projectedTag')}</span></div>
       ${prow(h)}${prow(a)}
       <div class="foot">${t('projOcc')}</div>
+    </div>`;
+  }
+  // "Road to the final" strip: the modal champion's path R32→final as a stepper, each station a
+  // conic ring filled to its MARGINAL reach % for that round (descending as the field thins),
+  // capped by a trophy ring at the title %. Vertical on phones, horizontal ≥620px.
+  function roadStrip() {
+    if (!cp || !cp.nodes || !cp.nodes.length) return "";
+    const stLab = { R32: t('stR32'), R16: t('stR16'), QF: t('stQF'), SF: t('stSF'), final: t('stFinal') };
+    const ring = (p, cls, inner) => `<div class="rring ${cls}" style="--p:${(+p).toFixed(1)}"><i>${inner}</i></div>`;
+    const stations = cp.nodes.map(n =>
+      `<div class="rstep">${ring(n.reachPct, "", `${Math.round(n.reachPct)}<u>%</u>`)}<div class="rlab">${stLab[n.round] || rd(n.round)}</div></div>`);
+    stations.push(`<div class="rstep title">${ring(cp.titlePct, "tr", "🏆")}<div class="rlab">${t('stTitle')} ${r1(cp.titlePct)}%</div></div>`);
+    return `<div class="road">
+      <div class="roadhead">
+        <img class="flag" src="${FLAG(cp.code)}" alt="">
+        <div>
+          <div class="rh-eyebrow">${t('roadHead')}</div>
+          <div class="rh-name">${teamName(cp.name)}<span class="rk">#${cp.fieldRank}</span></div>
+          <div class="rh-sub">${t('roadSub', { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
+        </div>
+      </div>
+      <div class="roadsteps">${stations.join('<div class="rconn"></div>')}</div>
     </div>`;
   }
   const byDate = (a, b) => String(a.date).localeCompare(String(b.date)) || String(a.kickoff || a.time || "").localeCompare(String(b.kickoff || b.time || ""));
@@ -660,7 +728,7 @@ function render() {
       const cards = [...real.map(tieCard), ...proj.map(projTieCard)].join("");
       if (cards) sections.push(roundSection(rd(round), cards, proj.length > 0));
     }
-    fxRoot.innerHTML = sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`;
+    fxRoot.innerHTML = roadStrip() + (sections.length ? sections.join("") : `<p class="sub">${t('noNext')}</p>`);
   }
   if (koPhase) renderBracket(); else renderFixtures();
   // In KO phase the bracket is the headline — promote it above the now-settled group tables.

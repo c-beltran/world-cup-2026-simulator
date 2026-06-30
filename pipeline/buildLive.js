@@ -45,6 +45,7 @@ const data = {
   nextDate: sim.nextDate,
   projections: sim.projections,
   projectedBracket: sim.projectedBracket,
+  championPath: sim.championPath,
   movers: sim.movers,
   results: sim.results,
 };

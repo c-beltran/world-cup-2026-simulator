@@ -267,5 +267,51 @@ console.log('\n[9] Projected bracket integrity');
   }
 }
 
+console.log('\n[10] Champion path (road to the final) integrity');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const cp = ld.championPath;
+    const koPhase = ld.meta.groupPlayedCount >= ld.meta.groupTotal;
+    if (!koPhase) {
+      ok(true, 'pre-knockout phase: champion path not required (skipped)');
+    } else if (!cp) {
+      ok(false, 'championPath present in knockout phase');
+    } else {
+      const champ = ld.champions[0];
+      ok(cp.name === champ.name, `championPath team is the modal champion (${cp.name})`);
+      ok(Math.abs(cp.titlePct - champ.pct) < 1e-6, `championPath titlePct matches champions[0].pct (${cp.titlePct})`);
+      const rounds = cp.nodes.map((n) => n.round);
+      ok(JSON.stringify(rounds) === JSON.stringify(['R32', 'R16', 'QF', 'SF', 'final']), `path is R32→R16→QF→SF→final (${rounds.join('→')})`);
+      // winner-feed chain: each node's winner must feed the next node in the REAL bracket
+      const ko = read('bracket.json').knockout;
+      const feed = new Map();
+      for (const mm of ko) for (const s of [mm.home, mm.away]) if (s.source === 'match' && s.take === 'winner') feed.set(s.match, mm.id);
+      let chainBad = 0;
+      for (let i = 0; i < cp.nodes.length - 1; i++) if (feed.get(cp.nodes[i].id) !== cp.nodes[i + 1].id) chainBad++;
+      ok(chainBad === 0, `path ids form a real winner-feed chain (${chainBad} broken links)`);
+      // reach% in [0,100], monotonically non-increasing, first ≈ 100 (champion is a real R32 entrant)
+      let monoBad = 0, rangeBad = 0;
+      for (let i = 0; i < cp.nodes.length; i++) {
+        const v = cp.nodes[i].reachPct;
+        if (v < -1e-9 || v > 100 + 1e-9) rangeBad++;
+        if (i > 0 && v > cp.nodes[i - 1].reachPct + 1e-9) monoBad++;
+      }
+      ok(rangeBad === 0, `node reach% all in [0,100] (${rangeBad} bad)`);
+      ok(monoBad === 0, `node reach% monotonically non-increasing (${monoBad} bad)`);
+      ok(Math.abs(cp.nodes[0].reachPct - 100) < 1e-6, `champion in its R32 tie (reach%=${cp.nodes[0].reachPct})`);
+      // reach% reconciles with the champion's reach table (N = its R32 count, since it's clamped in)
+      const rr = ld.reach.find((r) => r.name === cp.name);
+      const N = rr.r32;
+      const expect = { R16: (100 * rr.r16) / N, QF: (100 * rr.qf) / N, SF: (100 * rr.sf) / N, final: (100 * rr.final) / N };
+      let reconBad = 0;
+      for (const n of cp.nodes) if (n.round !== 'R32' && Math.abs(n.reachPct - expect[n.round]) > 1e-6) reconBad++;
+      ok(reconBad === 0, `node reach% reconciles with the champion's reach table (${reconBad} off)`);
+    }
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);
