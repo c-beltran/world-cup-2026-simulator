@@ -313,5 +313,46 @@ console.log('\n[10] Champion path (road to the final) integrity');
   }
 }
 
+console.log('\n[11] Results feed integrity (the "Results so far" data, grouped by round)');
+{
+  const livePath = join(ROOT, 'app', 'live-data.json');
+  if (!existsSync(livePath)) { ok(false, 'app/live-data.json exists'); }
+  else {
+    const ld = JSON.parse(readFileSync(livePath, 'utf8'));
+    const results = ld.results || [];
+    const VALID = new Set(['group', 'R32', 'R16', 'QF', 'SF', '3rd_place', 'final']);
+    const DEC = new Set(['REG', 'ET', 'PENS']);
+    let roundBad = 0, decBad = 0, winnerBad = 0, koConsistBad = 0, scorerBad = 0, groupN = 0;
+    for (const r of results) {
+      if (!VALID.has(r.round)) roundBad++;
+      if (!DEC.has(r.decidedBy)) decBad++;
+      if (r.round === 'group') groupN++;
+      const decisive = r.homeGoals !== r.awayGoals; // a winner on the scoreboard (incl. ET goals)
+      if (decisive) {
+        const byGoals = r.homeGoals > r.awayGoals ? r.home : r.away;
+        if (r.winner !== byGoals) winnerBad++;       // higher score must be the winner
+        if (r.decidedBy === 'PENS') koConsistBad++;  // a decisive scoreline can't be a shootout
+      } else if (r.round === 'group') {
+        if (r.winner) winnerBad++;                   // a group draw has no winner
+      } else {                                       // level knockout → decided on penalties
+        if (r.winner !== r.home && r.winner !== r.away) winnerBad++;
+        if (r.decidedBy !== 'PENS') koConsistBad++;
+      }
+      if (r.scorersComplete) { // display gate: per-side scorer counts must equal the scoreline
+        const hc = r.scorers.filter((s) => s.side === 'home').length;
+        const ac = r.scorers.filter((s) => s.side === 'away').length;
+        if (hc !== r.homeGoals || ac !== r.awayGoals) scorerBad++;
+      }
+    }
+    ok(roundBad === 0, `every result round is valid (${roundBad} bad)`);
+    ok(decBad === 0, `every decidedBy ∈ {REG,ET,PENS} (${decBad} bad)`);
+    ok(groupN === ld.meta.groupPlayedCount, `group results == groupPlayedCount (${groupN}/${ld.meta.groupPlayedCount})`);
+    ok(results.length === ld.meta.playedCount, `total results == playedCount (${results.length}/${ld.meta.playedCount})`);
+    ok(winnerBad === 0, `winner reconciles with the scoreline (decisive→higher, group draw→none, KO level→a team) (${winnerBad} bad)`);
+    ok(koConsistBad === 0, `knockout level↔shootout / decisive↔not-shootout consistent (${koConsistBad} bad)`);
+    ok(scorerBad === 0, `scorersComplete results reconcile per-side counts with the scoreline (${scorerBad} bad)`);
+  }
+}
+
 console.log(`\n${fail === 0 ? 'PASS' : 'FAIL'} — ${pass} checks passed, ${fail} failed.`);
 process.exit(fail === 0 ? 0 : 1);

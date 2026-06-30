@@ -351,6 +351,7 @@ const I18N = {
     moversHead:"Rating movers", moversSub:"Biggest FIFA-points swings, earned on the pitch — {rule}",
     nextHead:"Next matches — model prediction", nextSub:"Closed-form from the same Poisson model on the updated ratings. Win / draw / loss + most-likely scoreline. No separate model, no hand-tuning.",
     resHead:"Results so far", resSub:"The real, finished matches clamped into the simulation ({n} of {tot} group games).",
+    resSubKo:"The real, finished matches clamped into the simulation — grouped by round ({n} of {tot} played).", showAllGroup:"Show all {n} group results  ▾", hideGroup:"Hide group results  ▴",
     pen:"pen", og:"o.g.",
     win:"W", draw:"D", loss:"L", likely:"likely", adv:"adv.",
     nextUp:"NEXT UP", noNext:"No upcoming fixtures with both teams decided yet — they appear once the groups resolve.",
@@ -384,6 +385,7 @@ const I18N = {
     moversHead:"Cambios de valoración", moversSub:"Mayores variaciones de puntos FIFA, ganadas en el campo — {rule}",
     nextHead:"Próximos partidos — predicción del modelo", nextSub:"Forma cerrada del mismo modelo de Poisson sobre las valoraciones actualizadas. Victoria / empate / derrota + marcador más probable. Sin modelo aparte, sin ajustes manuales.",
     resHead:"Resultados hasta ahora", resSub:"Los partidos reales ya jugados, fijados en la simulación ({n} de {tot} de grupos).",
+    resSubKo:"Los partidos reales ya jugados, fijados en la simulación — agrupados por ronda ({n} de {tot} jugados).", showAllGroup:"Ver los {n} resultados de grupos  ▾", hideGroup:"Ocultar resultados de grupos  ▴",
     pen:"pen", og:"p.p.",
     win:"V", draw:"E", loss:"D", likely:"probable", adv:"avanza",
     nextUp:"PRÓXIMO", noNext:"Aún no hay próximos partidos con ambos rivales definidos — aparecerán cuando se resuelvan los grupos.",
@@ -416,6 +418,7 @@ const fmtDate = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map
 const fmtDay = iso => { if (!iso) return ""; const [y,m,d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m-1, d)).toLocaleDateString(LANG === "es" ? "es-ES" : "en-US", { weekday:"short", month:"short", day:"numeric", timeZone:"UTC" }); };
 let fxExpanded = false; // "Next matches" shows the next matchday by default; toggle reveals the rest
 let standView = "now"; // group standings: "now" (points table) ⇄ "proj" (model's expected final order)
+let resGroupExpanded = false; // "Results so far": in KO phase the 72 group games collapse behind a toggle
 // Kickoff shown in US Eastern. We convert from the absolute ISO instant via the
 // America/New_York zone, which resolves to EDT (UTC−4) in June automatically; we
 // label it "ET" so it's correct year-round. Falls back to the raw venue string.
@@ -734,10 +737,13 @@ function render() {
   // In KO phase the bracket is the headline — promote it above the now-settled group tables.
   if (koPhase) { const pb = document.getElementById("panelBracket"), ps = document.getElementById("panelStandings"); if (pb && ps) ps.parentNode.insertBefore(pb, ps); }
 
-  // ---- results so far ----
+  // ---- results so far — grouped by round (most recent round first) so knockout results
+  //      don't mix with the 72 group games. In KO phase the long Group-stage list collapses
+  //      behind a toggle; the knockout rounds stay open. ----
   document.getElementById("resHead").textContent = t('resHead');
-  document.getElementById("resSub").textContent = t('resSub', { n: m.groupPlayedCount, tot: m.groupTotal });
-  const res = [...(L.results || [])].reverse(); // most recent first
+  document.getElementById("resSub").textContent = koPhase
+    ? t('resSubKo', { n: m.playedCount, tot: TOTAL_MATCHES })
+    : t('resSub', { n: m.groupPlayedCount, tot: m.groupTotal });
   // Real scorers (display-only; openfootball). Rendered only when the per-side counts
   // reconcile with the scoreline — otherwise score-only, never a partial list.
   const scorerLine = s => {
@@ -749,7 +755,7 @@ function render() {
     const col = side => r.scorers.filter(s => s.side===side).map(scorerLine).join("<br>");
     return `<div class="scorers"><div class="gh">${col("home")}</div><div class="ga">${col("away")}</div></div>`;
   };
-  document.getElementById("results").innerHTML = res.map(r => {
+  const resultCard = r => {
     const hw = r.winner === r.home, aw = r.winner === r.away;
     const tag = r.decidedBy && r.decidedBy !== "REG" ? (r.decidedBy === "PENS" ? t('koPens') : t('koAet')) : "";
     return `<div class="result">
@@ -758,7 +764,28 @@ function render() {
       <div class="rs a"><span class="nm ${aw?"win":""}">${teamName(r.away)}</span><img class="flag" src="${FLAG(codeOf(r.away))}" alt=""></div>
       ${scorersHTML(r)}
     </div>`;
-  }).join("");
+  };
+  // group by round, newest round first; rows newest-first within each round
+  const RES_ORDER = ["final", "3rd_place", "SF", "QF", "R16", "R32", "group"];
+  const resByRound = {};
+  for (const r of (L.results || [])) (resByRound[r.round || "group"] ||= []).push(r);
+  function renderResults() {
+    const html = RES_ORDER.filter(rnd => resByRound[rnd] && resByRound[rnd].length).map(rnd => {
+      const rows = [...resByRound[rnd]].reverse();
+      const head = `<div class="roundhead">${rd(rnd)}<span class="cnt">${rows.length} ${t('fxMatches')}</span></div>`;
+      const collapsed = koPhase && rnd === "group" && !resGroupExpanded;
+      if (collapsed)
+        return `<div class="roundsection">${head}<button class="fxmore" id="resGroupToggle">${t('showAllGroup', { n: rows.length })}</button></div>`;
+      const body = `<div class="reslist">${rows.map(resultCard).join("")}</div>`;
+      const hideBtn = koPhase && rnd === "group"
+        ? `<button class="fxmore" id="resGroupToggle">${t('hideGroup')}</button>` : "";
+      return `<div class="roundsection">${head}${body}${hideBtn}</div>`;
+    }).join("");
+    document.getElementById("results").innerHTML = html;
+    const tg = document.getElementById("resGroupToggle");
+    if (tg) tg.onclick = () => { resGroupExpanded = !resGroupExpanded; renderResults(); };
+  }
+  renderResults();
 
   // ---- method ----
   document.getElementById("method").innerHTML =
