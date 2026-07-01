@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-01",
     "asOfDate": "2026-06-30",
-    "fetchedAt": "2026-07-01T03:24:29.198Z",
+    "fetchedAt": "2026-07-01T09:38:41.457Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,7 +24,7 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 78,
+    "playedCount": 79,
     "groupPlayedCount": 72,
     "groupTotal": 72,
     "teamNamesEs": {
@@ -88,127 +88,118 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 11505,
-      "pct": 23.01,
+      "count": 11562,
+      "pct": 23.124,
       "basePct": 14.31,
-      "delta": 8.700000000000001
+      "delta": 8.813999999999998
     },
     {
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "count": 9374,
-      "pct": 18.748,
+      "count": 9045,
+      "pct": 18.09,
       "basePct": 13.208,
-      "delta": 5.540000000000001
+      "delta": 4.882
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 5465,
-      "pct": 10.93,
+      "count": 5501,
+      "pct": 11.002,
       "basePct": 13.04,
-      "delta": -2.1099999999999994
+      "delta": -2.0379999999999985
     },
     {
       "name": "Brazil",
       "code": "br",
       "fieldRank": 6,
-      "count": 4579,
-      "pct": 9.158,
+      "count": 4367,
+      "pct": 8.734,
       "basePct": 4.964,
-      "delta": 4.193999999999999
+      "delta": 3.7699999999999996
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "count": 4502,
-      "pct": 9.004,
+      "count": 4076,
+      "pct": 8.152,
       "basePct": 9.396,
-      "delta": -0.39200000000000124
+      "delta": -1.2440000000000015
     },
     {
       "name": "Morocco",
       "code": "ma",
       "fieldRank": 8,
-      "count": 3875,
-      "pct": 7.75,
+      "count": 4013,
+      "pct": 8.026,
       "basePct": 4.72,
-      "delta": 3.0300000000000002
-    },
-    {
-      "name": "Colombia",
-      "code": "co",
-      "fieldRank": 12,
-      "count": 1820,
-      "pct": 3.64,
-      "basePct": 2.098,
-      "delta": 1.5420000000000003
-    },
-    {
-      "name": "Portugal",
-      "code": "pt",
-      "fieldRank": 5,
-      "count": 1309,
-      "pct": 2.618,
-      "basePct": 4.952,
-      "delta": -2.334
+      "delta": 3.306
     },
     {
       "name": "Mexico",
       "code": "mx",
       "fieldRank": 14,
-      "count": 1271,
-      "pct": 2.542,
+      "count": 2336,
+      "pct": 4.672,
       "basePct": 2.154,
-      "delta": 0.3879999999999999
+      "delta": 2.518
+    },
+    {
+      "name": "Colombia",
+      "code": "co",
+      "fieldRank": 12,
+      "count": 1781,
+      "pct": 3.562,
+      "basePct": 2.098,
+      "delta": 1.464
+    },
+    {
+      "name": "Portugal",
+      "code": "pt",
+      "fieldRank": 5,
+      "count": 1297,
+      "pct": 2.594,
+      "basePct": 4.952,
+      "delta": -2.358
     },
     {
       "name": "Belgium",
       "code": "be",
       "fieldRank": 9,
-      "count": 1210,
-      "pct": 2.42,
+      "count": 1260,
+      "pct": 2.52,
       "basePct": 4.088,
-      "delta": -1.6680000000000001
+      "delta": -1.568
     },
     {
       "name": "United States",
       "code": "us",
       "fieldRank": 15,
-      "count": 852,
-      "pct": 1.704,
+      "count": 857,
+      "pct": 1.714,
       "basePct": 1.686,
-      "delta": 0.018000000000000016
+      "delta": 0.028000000000000025
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
-      "count": 844,
-      "pct": 1.688,
+      "count": 837,
+      "pct": 1.674,
       "basePct": 1.418,
-      "delta": 0.27
+      "delta": 0.256
     },
     {
       "name": "Croatia",
       "code": "hr",
       "fieldRank": 11,
-      "count": 844,
-      "pct": 1.688,
+      "count": 811,
+      "pct": 1.622,
       "basePct": 3.128,
-      "delta": -1.4400000000000002
-    },
-    {
-      "name": "Norway",
-      "code": "no",
-      "fieldRank": 28,
-      "count": 567,
-      "pct": 1.134,
-      "basePct": 0.258,
-      "delta": 0.8759999999999999
+      "delta": -1.506
     },
     {
       "name": "Senegal",
@@ -220,103 +211,103 @@
       "delta": -1.27
     },
     {
+      "name": "Norway",
+      "code": "no",
+      "fieldRank": 28,
+      "count": 451,
+      "pct": 0.902,
+      "basePct": 0.258,
+      "delta": 0.644
+    },
+    {
       "name": "Canada",
       "code": "ca",
       "fieldRank": 27,
-      "count": 277,
-      "pct": 0.554,
+      "count": 282,
+      "pct": 0.564,
       "basePct": 0.464,
-      "delta": 0.09000000000000002
-    },
-    {
-      "name": "Egypt",
-      "code": "eg",
-      "fieldRank": 26,
-      "count": 258,
-      "pct": 0.516,
-      "basePct": 0.508,
-      "delta": 0.008000000000000007
+      "delta": 0.09999999999999992
     },
     {
       "name": "Australia",
       "code": "au",
       "fieldRank": 24,
-      "count": 215,
-      "pct": 0.43,
+      "count": 255,
+      "pct": 0.51,
       "basePct": 0.528,
-      "delta": -0.09800000000000003
+      "delta": -0.018000000000000016
+    },
+    {
+      "name": "Egypt",
+      "code": "eg",
+      "fieldRank": 26,
+      "count": 246,
+      "pct": 0.492,
+      "basePct": 0.508,
+      "delta": -0.016000000000000014
     },
     {
       "name": "Paraguay",
       "code": "py",
       "fieldRank": 32,
-      "count": 190,
-      "pct": 0.38,
+      "count": 181,
+      "pct": 0.362,
       "basePct": 0.13,
-      "delta": 0.25
+      "delta": 0.23199999999999998
     },
     {
       "name": "Algeria",
       "code": "dz",
       "fieldRank": 25,
-      "count": 187,
-      "pct": 0.374,
+      "count": 176,
+      "pct": 0.352,
       "basePct": 0.366,
-      "delta": 0.008000000000000007
-    },
-    {
-      "name": "Ecuador",
-      "code": "ec",
-      "fieldRank": 21,
-      "count": 171,
-      "pct": 0.342,
-      "basePct": 0.668,
-      "delta": -0.326
+      "delta": -0.014000000000000012
     },
     {
       "name": "Austria",
       "code": "at",
       "fieldRank": 22,
-      "count": 147,
-      "pct": 0.294,
+      "count": 127,
+      "pct": 0.254,
       "basePct": 0.558,
-      "delta": -0.26400000000000007
+      "delta": -0.30400000000000005
     },
     {
       "name": "Congo DR",
       "code": "cd",
       "fieldRank": 36,
-      "count": 34,
-      "pct": 0.068,
+      "count": 38,
+      "pct": 0.076,
       "basePct": 0.086,
-      "delta": -0.017999999999999988
-    },
-    {
-      "name": "Bosnia and Herzegovina",
-      "code": "ba",
-      "fieldRank": 43,
-      "count": 19,
-      "pct": 0.038,
-      "basePct": 0.036,
-      "delta": 0.0020000000000000018
+      "delta": -0.009999999999999995
     },
     {
       "name": "Cabo Verde",
       "code": "cv",
       "fieldRank": 44,
-      "count": 17,
-      "pct": 0.034,
+      "count": 16,
+      "pct": 0.032,
       "basePct": 0.008,
-      "delta": 0.026000000000000002
+      "delta": 0.024
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "code": "ba",
+      "fieldRank": 43,
+      "count": 14,
+      "pct": 0.028,
+      "basePct": 0.036,
+      "delta": -0.007999999999999997
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
-      "count": 10,
-      "pct": 0.02,
+      "count": 13,
+      "pct": 0.026,
       "basePct": 0.006,
-      "delta": 0.014
+      "delta": 0.019999999999999997
     }
   ],
   "reach": [
@@ -326,14 +317,14 @@
       "fieldRank": 1,
       "r32": 50000,
       "r16": 50000,
-      "qf": 41199,
-      "sf": 28282,
-      "final": 18653,
-      "title": 11505,
+      "qf": 41152,
+      "sf": 28110,
+      "final": 18511,
+      "title": 11562,
       "advancePct": 100,
       "baseAdvancePct": 94.822,
       "advanceDelta": 5.177999999999997,
-      "titlePct": 23.01,
+      "titlePct": 23.124,
       "baseTitlePct": 14.31
     },
     {
@@ -341,15 +332,15 @@
       "code": "ar",
       "fieldRank": 3,
       "r32": 50000,
-      "r16": 43714,
-      "qf": 34636,
-      "sf": 25267,
-      "final": 16199,
-      "title": 9374,
+      "r16": 43662,
+      "qf": 34447,
+      "sf": 25024,
+      "final": 15693,
+      "title": 9045,
       "advancePct": 100,
       "baseAdvancePct": 96.008,
       "advanceDelta": 3.9920000000000044,
-      "titlePct": 18.748,
+      "titlePct": 18.09,
       "baseTitlePct": 13.208
     },
     {
@@ -357,15 +348,15 @@
       "code": "es",
       "fieldRank": 2,
       "r32": 50000,
-      "r16": 38364,
-      "qf": 24786,
-      "sf": 17526,
-      "final": 9425,
-      "title": 5465,
+      "r16": 38519,
+      "qf": 24910,
+      "sf": 17373,
+      "final": 9357,
+      "title": 5501,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 10.93,
+      "titlePct": 11.002,
       "baseTitlePct": 13.04
     },
     {
@@ -374,14 +365,14 @@
       "fieldRank": 6,
       "r32": 50000,
       "r16": 50000,
-      "qf": 34473,
-      "sf": 18744,
-      "final": 9709,
-      "title": 4579,
+      "qf": 34780,
+      "sf": 18260,
+      "final": 9480,
+      "title": 4367,
       "advancePct": 100,
       "baseAdvancePct": 92.148,
       "advanceDelta": 7.852000000000004,
-      "titlePct": 9.158,
+      "titlePct": 8.734,
       "baseTitlePct": 4.964
     },
     {
@@ -389,15 +380,15 @@
       "code": "gb-eng",
       "fieldRank": 4,
       "r32": 50000,
-      "r16": 40057,
-      "qf": 26285,
-      "sf": 15789,
-      "final": 8639,
-      "title": 4502,
+      "r16": 40253,
+      "qf": 24206,
+      "sf": 14471,
+      "final": 8000,
+      "title": 4076,
       "advancePct": 100,
       "baseAdvancePct": 93.732,
       "advanceDelta": 6.268000000000001,
-      "titlePct": 9.004,
+      "titlePct": 8.152,
       "baseTitlePct": 9.396
     },
     {
@@ -406,30 +397,46 @@
       "fieldRank": 8,
       "r32": 50000,
       "r16": 50000,
-      "qf": 35888,
-      "sf": 15284,
-      "final": 8063,
-      "title": 3875,
+      "qf": 36145,
+      "sf": 15555,
+      "final": 8270,
+      "title": 4013,
       "advancePct": 100,
       "baseAdvancePct": 91.708,
       "advanceDelta": 8.292000000000002,
-      "titlePct": 7.75,
+      "titlePct": 8.026,
       "baseTitlePct": 4.72
+    },
+    {
+      "name": "Mexico",
+      "code": "mx",
+      "fieldRank": 14,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 23247,
+      "sf": 11664,
+      "final": 5473,
+      "title": 2336,
+      "advancePct": 100,
+      "baseAdvancePct": 87.904,
+      "advanceDelta": 12.096000000000004,
+      "titlePct": 4.672,
+      "baseTitlePct": 2.154
     },
     {
       "name": "Colombia",
       "code": "co",
       "fieldRank": 12,
       "r32": 50000,
-      "r16": 40093,
-      "qf": 23888,
-      "sf": 10081,
-      "final": 4492,
-      "title": 1820,
+      "r16": 40092,
+      "qf": 23937,
+      "sf": 10121,
+      "final": 4506,
+      "title": 1781,
       "advancePct": 100,
       "baseAdvancePct": 84.388,
       "advanceDelta": 15.611999999999995,
-      "titlePct": 3.64,
+      "titlePct": 3.562,
       "baseTitlePct": 2.098
     },
     {
@@ -437,47 +444,31 @@
       "code": "pt",
       "fieldRank": 5,
       "r32": 50000,
-      "r16": 26931,
-      "qf": 11833,
-      "sf": 6926,
-      "final": 2919,
-      "title": 1309,
+      "r16": 27046,
+      "qf": 11845,
+      "sf": 6949,
+      "final": 2952,
+      "title": 1297,
       "advancePct": 100,
       "baseAdvancePct": 90.948,
       "advanceDelta": 9.052000000000007,
-      "titlePct": 2.618,
+      "titlePct": 2.594,
       "baseTitlePct": 4.952
-    },
-    {
-      "name": "Mexico",
-      "code": "mx",
-      "fieldRank": 14,
-      "r32": 50000,
-      "r16": 32515,
-      "qf": 14838,
-      "sf": 7095,
-      "final": 3211,
-      "title": 1271,
-      "advancePct": 100,
-      "baseAdvancePct": 87.904,
-      "advanceDelta": 12.096000000000004,
-      "titlePct": 2.542,
-      "baseTitlePct": 2.154
     },
     {
       "name": "Belgium",
       "code": "be",
       "fieldRank": 9,
       "r32": 50000,
-      "r16": 28920,
-      "qf": 17663,
-      "sf": 7378,
-      "final": 2877,
-      "title": 1210,
+      "r16": 29036,
+      "qf": 17834,
+      "sf": 7647,
+      "final": 2988,
+      "title": 1260,
       "advancePct": 100,
       "baseAdvancePct": 92.134,
       "advanceDelta": 7.866,
-      "titlePct": 2.42,
+      "titlePct": 2.52,
       "baseTitlePct": 4.088
     },
     {
@@ -485,15 +476,15 @@
       "code": "us",
       "fieldRank": 15,
       "r32": 50000,
-      "r16": 38056,
-      "qf": 18256,
-      "sf": 6936,
-      "final": 2352,
-      "title": 852,
+      "r16": 37754,
+      "qf": 18066,
+      "sf": 6818,
+      "final": 2321,
+      "title": 857,
       "advancePct": 100,
       "baseAdvancePct": 82.212,
       "advanceDelta": 17.787999999999997,
-      "titlePct": 1.704,
+      "titlePct": 1.714,
       "baseTitlePct": 1.686
     },
     {
@@ -501,15 +492,15 @@
       "code": "ch",
       "fieldRank": 18,
       "r32": 50000,
-      "r16": 30771,
-      "qf": 15635,
-      "sf": 5887,
-      "final": 2405,
-      "title": 844,
+      "r16": 30555,
+      "qf": 15671,
+      "sf": 6002,
+      "final": 2444,
+      "title": 837,
       "advancePct": 100,
       "baseAdvancePct": 88.42,
       "advanceDelta": 11.579999999999998,
-      "titlePct": 1.688,
+      "titlePct": 1.674,
       "baseTitlePct": 1.418
     },
     {
@@ -517,42 +508,26 @@
       "code": "hr",
       "fieldRank": 11,
       "r32": 50000,
-      "r16": 23069,
-      "qf": 9340,
-      "sf": 5200,
-      "final": 1991,
-      "title": 844,
+      "r16": 22954,
+      "qf": 9302,
+      "sf": 5116,
+      "final": 1964,
+      "title": 811,
       "advancePct": 100,
       "baseAdvancePct": 86.764,
       "advanceDelta": 13.236000000000004,
-      "titlePct": 1.688,
+      "titlePct": 1.622,
       "baseTitlePct": 3.128
-    },
-    {
-      "name": "Norway",
-      "code": "no",
-      "fieldRank": 28,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 15527,
-      "sf": 5591,
-      "final": 1931,
-      "title": 567,
-      "advancePct": 100,
-      "baseAdvancePct": 55.432,
-      "advanceDelta": 44.568,
-      "titlePct": 1.134,
-      "baseTitlePct": 0.258
     },
     {
       "name": "Senegal",
       "code": "sn",
       "fieldRank": 13,
       "r32": 50000,
-      "r16": 21080,
-      "qf": 11403,
-      "sf": 3935,
-      "final": 1312,
+      "r16": 20964,
+      "qf": 11284,
+      "sf": 4008,
+      "final": 1299,
       "title": 458,
       "advancePct": 100,
       "baseAdvancePct": 79.68,
@@ -561,52 +536,68 @@
       "baseTitlePct": 2.186
     },
     {
+      "name": "Norway",
+      "code": "no",
+      "fieldRank": 28,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 15220,
+      "sf": 4960,
+      "final": 1663,
+      "title": 451,
+      "advancePct": 100,
+      "baseAdvancePct": 55.432,
+      "advanceDelta": 44.568,
+      "titlePct": 0.902,
+      "baseTitlePct": 0.258
+    },
+    {
       "name": "Canada",
       "code": "ca",
       "fieldRank": 27,
       "r32": 50000,
       "r16": 50000,
-      "qf": 14112,
-      "sf": 3577,
-      "final": 1094,
-      "title": 277,
+      "qf": 13855,
+      "sf": 3535,
+      "final": 1058,
+      "title": 282,
       "advancePct": 100,
       "baseAdvancePct": 77,
       "advanceDelta": 23,
-      "titlePct": 0.554,
+      "titlePct": 0.564,
       "baseTitlePct": 0.464
-    },
-    {
-      "name": "Egypt",
-      "code": "eg",
-      "fieldRank": 26,
-      "r32": 50000,
-      "r16": 25166,
-      "qf": 6820,
-      "sf": 2816,
-      "final": 903,
-      "title": 258,
-      "advancePct": 100,
-      "baseAdvancePct": 73.494,
-      "advanceDelta": 26.506,
-      "titlePct": 0.516,
-      "baseTitlePct": 0.508
     },
     {
       "name": "Australia",
       "code": "au",
       "fieldRank": 24,
       "r32": 50000,
-      "r16": 24834,
-      "qf": 6643,
-      "sf": 2776,
-      "final": 845,
-      "title": 215,
+      "r16": 24778,
+      "qf": 6746,
+      "sf": 2771,
+      "final": 873,
+      "title": 255,
       "advancePct": 100,
       "baseAdvancePct": 67.472,
       "advanceDelta": 32.528000000000006,
-      "titlePct": 0.43,
+      "titlePct": 0.51,
       "baseTitlePct": 0.528
+    },
+    {
+      "name": "Egypt",
+      "code": "eg",
+      "fieldRank": 26,
+      "r32": 50000,
+      "r16": 25222,
+      "qf": 6917,
+      "sf": 2862,
+      "final": 873,
+      "title": 246,
+      "advancePct": 100,
+      "baseAdvancePct": 73.494,
+      "advanceDelta": 26.506,
+      "titlePct": 0.492,
+      "baseTitlePct": 0.508
     },
     {
       "name": "Paraguay",
@@ -614,14 +605,14 @@
       "fieldRank": 32,
       "r32": 50000,
       "r16": 50000,
-      "qf": 8801,
-      "sf": 2857,
-      "final": 779,
-      "title": 190,
+      "qf": 8848,
+      "sf": 2800,
+      "final": 777,
+      "title": 181,
       "advancePct": 100,
       "baseAdvancePct": 51.5,
       "advanceDelta": 48.5,
-      "titlePct": 0.38,
+      "titlePct": 0.362,
       "baseTitlePct": 0.13
     },
     {
@@ -629,47 +620,31 @@
       "code": "dz",
       "fieldRank": 25,
       "r32": 50000,
-      "r16": 19229,
-      "qf": 7827,
-      "sf": 2236,
-      "final": 705,
-      "title": 187,
+      "r16": 19445,
+      "qf": 7841,
+      "sf": 2229,
+      "final": 665,
+      "title": 176,
       "advancePct": 100,
       "baseAdvancePct": 65.878,
       "advanceDelta": 34.122,
-      "titlePct": 0.374,
+      "titlePct": 0.352,
       "baseTitlePct": 0.366
-    },
-    {
-      "name": "Ecuador",
-      "code": "ec",
-      "fieldRank": 21,
-      "r32": 50000,
-      "r16": 17485,
-      "qf": 5762,
-      "sf": 1947,
-      "final": 616,
-      "title": 171,
-      "advancePct": 100,
-      "baseAdvancePct": 80.036,
-      "advanceDelta": 19.964,
-      "titlePct": 0.342,
-      "baseTitlePct": 0.668
     },
     {
       "name": "Austria",
       "code": "at",
       "fieldRank": 22,
       "r32": 50000,
-      "r16": 11636,
-      "qf": 4041,
-      "sf": 1619,
-      "final": 452,
-      "title": 147,
+      "r16": 11481,
+      "qf": 3943,
+      "sf": 1612,
+      "final": 414,
+      "title": 127,
       "advancePct": 100,
       "baseAdvancePct": 70.478,
       "advanceDelta": 29.522000000000006,
-      "titlePct": 0.294,
+      "titlePct": 0.254,
       "baseTitlePct": 0.558
     },
     {
@@ -677,63 +652,63 @@
       "code": "cd",
       "fieldRank": 36,
       "r32": 50000,
-      "r16": 9943,
-      "qf": 3115,
-      "sf": 834,
-      "final": 187,
-      "title": 34,
+      "r16": 9747,
+      "qf": 2547,
+      "sf": 645,
+      "final": 162,
+      "title": 38,
       "advancePct": 100,
       "baseAdvancePct": 46.826,
       "advanceDelta": 53.174,
-      "titlePct": 0.068,
+      "titlePct": 0.076,
       "baseTitlePct": 0.086
-    },
-    {
-      "name": "Bosnia and Herzegovina",
-      "code": "ba",
-      "fieldRank": 43,
-      "r32": 50000,
-      "r16": 11944,
-      "qf": 2678,
-      "sf": 480,
-      "final": 83,
-      "title": 19,
-      "advancePct": 100,
-      "baseAdvancePct": 44.31,
-      "advanceDelta": 55.69,
-      "titlePct": 0.038,
-      "baseTitlePct": 0.036
     },
     {
       "name": "Cabo Verde",
       "code": "cv",
       "fieldRank": 44,
       "r32": 50000,
-      "r16": 6286,
-      "qf": 1901,
-      "sf": 474,
-      "final": 79,
-      "title": 17,
+      "r16": 6338,
+      "qf": 1890,
+      "sf": 501,
+      "final": 80,
+      "title": 16,
       "advancePct": 100,
       "baseAdvancePct": 33.618,
       "advanceDelta": 66.382,
-      "titlePct": 0.034,
+      "titlePct": 0.032,
       "baseTitlePct": 0.008
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "code": "ba",
+      "fieldRank": 43,
+      "r32": 50000,
+      "r16": 12246,
+      "qf": 2816,
+      "sf": 477,
+      "final": 89,
+      "title": 14,
+      "advancePct": 100,
+      "baseAdvancePct": 44.31,
+      "advanceDelta": 55.69,
+      "titlePct": 0.028,
+      "baseTitlePct": 0.036
     },
     {
       "name": "Ghana",
       "code": "gh",
       "fieldRank": 45,
       "r32": 50000,
-      "r16": 9907,
-      "qf": 2650,
-      "sf": 463,
-      "final": 79,
-      "title": 10,
+      "r16": 9908,
+      "qf": 2551,
+      "sf": 490,
+      "final": 88,
+      "title": 13,
       "advancePct": 100,
       "baseAdvancePct": 24.174,
       "advanceDelta": 75.826,
-      "titlePct": 0.02,
+      "titlePct": 0.026,
       "baseTitlePct": 0.006
     },
     {
@@ -831,6 +806,22 @@
       "advanceDelta": 29.372,
       "titlePct": 0,
       "baseTitlePct": 0.282
+    },
+    {
+      "name": "Ecuador",
+      "code": "ec",
+      "fieldRank": 21,
+      "r32": 50000,
+      "r16": 0,
+      "qf": 0,
+      "sf": 0,
+      "final": 0,
+      "title": 0,
+      "advancePct": 100,
+      "baseAdvancePct": 80.036,
+      "advanceDelta": 19.964,
+      "titlePct": 0,
+      "baseTitlePct": 0.668
     }
   ],
   "standings": [
@@ -1999,31 +1990,8 @@
       ]
     }
   ],
-  "nextDate": "2026-06-30",
+  "nextDate": "2026-07-01",
   "projections": [
-    {
-      "date": "2026-06-30",
-      "time": "19:00 UTC-6",
-      "kickoff": "2026-06-30T19:00:00-06:00",
-      "group": null,
-      "home": "Mexico",
-      "homeCode": "mx",
-      "away": "Ecuador",
-      "awayCode": "ec",
-      "round": "R32",
-      "pHome": 0.5027062036436507,
-      "pDraw": 0.25087006402922607,
-      "pAway": 0.2464227647209857,
-      "advanceHome": 0.6381045756509446,
-      "expHome": 1.5880059877556418,
-      "expAway": 1.0319940122443583,
-      "likely": {
-        "home": 1,
-        "away": 1,
-        "p": 0.11931025407007799
-      },
-      "knockout": true
-    },
     {
       "date": "2026-07-01",
       "time": "12:00 UTC-4",
@@ -2230,6 +2198,75 @@
         "p": 0.12493436212544659
       },
       "knockout": true
+    },
+    {
+      "date": "2026-07-04",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-04T17:00:00-04:00",
+      "group": null,
+      "home": "Paraguay",
+      "homeCode": "py",
+      "away": "France",
+      "awayCode": "fr",
+      "round": "R16",
+      "pHome": 0.11448758944110192,
+      "pDraw": 0.20121791093105645,
+      "pAway": 0.6842874155999543,
+      "advanceHome": 0.19624894190004383,
+      "expHome": 0.6543266534493108,
+      "expAway": 1.9656733465506893,
+      "likely": {
+        "home": 0,
+        "away": 1,
+        "p": 0.14310664701247608
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-04",
+      "time": "12:00 UTC-5",
+      "kickoff": "2026-07-04T12:00:00-05:00",
+      "group": null,
+      "home": "Canada",
+      "homeCode": "ca",
+      "away": "Morocco",
+      "awayCode": "ma",
+      "round": "R16",
+      "pHome": 0.1918209056426226,
+      "pDraw": 0.23628293472571746,
+      "pAway": 0.5718940146582061,
+      "advanceHome": 0.29581303752719973,
+      "expHome": 0.8908188667414962,
+      "expAway": 1.7291811332585039,
+      "likely": {
+        "home": 0,
+        "away": 1,
+        "p": 0.12588933684840847
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-05",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-07-05T16:00:00-04:00",
+      "group": null,
+      "home": "Brazil",
+      "homeCode": "br",
+      "away": "Norway",
+      "awayCode": "no",
+      "round": "R16",
+      "pHome": 0.544825970093543,
+      "pDraw": 0.24263598581056578,
+      "pAway": 0.21253646397293552,
+      "advanceHome": 0.6787547218466666,
+      "expHome": 1.6738178881009207,
+      "expAway": 0.9461821118990794,
+      "likely": {
+        "home": 1,
+        "away": 0,
+        "p": 0.12185873410551926
+      },
+      "knockout": true
     }
   ],
   "projectedBracket": [
@@ -2412,7 +2449,7 @@
         "name": "Mexico",
         "code": "mx",
         "fieldRank": 14,
-        "p": 0.6503
+        "p": 1
       }
     },
     {
@@ -2438,7 +2475,7 @@
         "name": "England",
         "code": "gb-eng",
         "fieldRank": 4,
-        "p": 0.80114
+        "p": 0.80506
       }
     },
     {
@@ -2464,7 +2501,7 @@
         "name": "United States",
         "code": "us",
         "fieldRank": 15,
-        "p": 0.76112
+        "p": 0.75508
       }
     },
     {
@@ -2490,7 +2527,7 @@
         "name": "Belgium",
         "code": "be",
         "fieldRank": 9,
-        "p": 0.5784
+        "p": 0.58072
       }
     },
     {
@@ -2516,7 +2553,7 @@
         "name": "Portugal",
         "code": "pt",
         "fieldRank": 5,
-        "p": 0.53862
+        "p": 0.54092
       }
     },
     {
@@ -2542,7 +2579,7 @@
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.76728
+        "p": 0.77038
       }
     },
     {
@@ -2568,7 +2605,7 @@
         "name": "Switzerland",
         "code": "ch",
         "fieldRank": 18,
-        "p": 0.61542
+        "p": 0.6111
       }
     },
     {
@@ -2594,7 +2631,7 @@
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.87428
+        "p": 0.87324
       }
     },
     {
@@ -2620,7 +2657,7 @@
         "name": "Colombia",
         "code": "co",
         "fieldRank": 12,
-        "p": 0.80186
+        "p": 0.80184
       }
     },
     {
@@ -2646,7 +2683,7 @@
         "name": "Egypt",
         "code": "eg",
         "fieldRank": 26,
-        "p": 0.50332
+        "p": 0.50444
       }
     },
     {
@@ -2672,7 +2709,7 @@
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.82398
+        "p": 0.82304
       }
     },
     {
@@ -2698,7 +2735,7 @@
         "name": "Morocco",
         "code": "ma",
         "fieldRank": 8,
-        "p": 0.71776
+        "p": 0.7229
       }
     },
     {
@@ -2724,7 +2761,7 @@
         "name": "Brazil",
         "code": "br",
         "fieldRank": 6,
-        "p": 0.68946
+        "p": 0.6956
       }
     },
     {
@@ -2735,13 +2772,7 @@
           "name": "Mexico",
           "code": "mx",
           "fieldRank": 14,
-          "p": 0.6503
-        },
-        {
-          "name": "Ecuador",
-          "code": "ec",
-          "fieldRank": 21,
-          "p": 0.3497
+          "p": 1
         }
       ],
       "away": [
@@ -2749,20 +2780,20 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.80114
+          "p": 0.80506
         },
         {
           "name": "Congo DR",
           "code": "cd",
           "fieldRank": 36,
-          "p": 0.19886
+          "p": 0.19494
         }
       ],
       "favorite": {
         "name": "England",
         "code": "gb-eng",
         "fieldRank": 4,
-        "p": 0.5257
+        "p": 0.48412
       }
     },
     {
@@ -2773,13 +2804,13 @@
           "name": "Portugal",
           "code": "pt",
           "fieldRank": 5,
-          "p": 0.53862
+          "p": 0.54092
         },
         {
           "name": "Croatia",
           "code": "hr",
           "fieldRank": 11,
-          "p": 0.46138
+          "p": 0.45908
         }
       ],
       "away": [
@@ -2787,20 +2818,20 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.76728
+          "p": 0.77038
         },
         {
           "name": "Austria",
           "code": "at",
           "fieldRank": 22,
-          "p": 0.23272
+          "p": 0.22962
         }
       ],
       "favorite": {
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.49572
+        "p": 0.4982
       }
     },
     {
@@ -2811,13 +2842,13 @@
           "name": "United States",
           "code": "us",
           "fieldRank": 15,
-          "p": 0.76112
+          "p": 0.75508
         },
         {
           "name": "Bosnia and Herzegovina",
           "code": "ba",
           "fieldRank": 43,
-          "p": 0.23888
+          "p": 0.24492
         }
       ],
       "away": [
@@ -2825,20 +2856,20 @@
           "name": "Belgium",
           "code": "be",
           "fieldRank": 9,
-          "p": 0.5784
+          "p": 0.58072
         },
         {
           "name": "Senegal",
           "code": "sn",
           "fieldRank": 13,
-          "p": 0.4216
+          "p": 0.41928
         }
       ],
       "favorite": {
         "name": "United States",
         "code": "us",
         "fieldRank": 15,
-        "p": 0.36512
+        "p": 0.36132
       }
     },
     {
@@ -2849,13 +2880,13 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.87428
+          "p": 0.87324
         },
         {
           "name": "Cabo Verde",
           "code": "cv",
           "fieldRank": 44,
-          "p": 0.12572
+          "p": 0.12676
         }
       ],
       "away": [
@@ -2863,20 +2894,20 @@
           "name": "Egypt",
           "code": "eg",
           "fieldRank": 26,
-          "p": 0.50332
+          "p": 0.50444
         },
         {
           "name": "Australia",
           "code": "au",
           "fieldRank": 24,
-          "p": 0.49668
+          "p": 0.49556
         }
       ],
       "favorite": {
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.69272
+        "p": 0.68894
       }
     },
     {
@@ -2887,13 +2918,13 @@
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.61542
+          "p": 0.6111
         },
         {
           "name": "Algeria",
           "code": "dz",
           "fieldRank": 25,
-          "p": 0.38458
+          "p": 0.3889
         }
       ],
       "away": [
@@ -2901,20 +2932,20 @@
           "name": "Colombia",
           "code": "co",
           "fieldRank": 12,
-          "p": 0.80186
+          "p": 0.80184
         },
         {
           "name": "Ghana",
           "code": "gh",
           "fieldRank": 45,
-          "p": 0.19814
+          "p": 0.19816
         }
       ],
       "favorite": {
         "name": "Colombia",
         "code": "co",
         "fieldRank": 12,
-        "p": 0.47776
+        "p": 0.47874
       }
     },
     {
@@ -2925,13 +2956,13 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.82398
+          "p": 0.82304
         },
         {
           "name": "Paraguay",
           "code": "py",
           "fieldRank": 32,
-          "p": 0.17602
+          "p": 0.17696
         }
       ],
       "away": [
@@ -2939,20 +2970,20 @@
           "name": "Morocco",
           "code": "ma",
           "fieldRank": 8,
-          "p": 0.71776
+          "p": 0.7229
         },
         {
           "name": "Canada",
           "code": "ca",
           "fieldRank": 27,
-          "p": 0.28224
+          "p": 0.2771
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.56564
+        "p": 0.5622
       }
     },
     {
@@ -2963,19 +2994,19 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.49572
+          "p": 0.4982
         },
         {
           "name": "Portugal",
           "code": "pt",
           "fieldRank": 5,
-          "p": 0.23666
+          "p": 0.2369
         },
         {
           "name": "Croatia",
           "code": "hr",
           "fieldRank": 11,
-          "p": 0.1868
+          "p": 0.18604
         }
       ],
       "away": [
@@ -2983,26 +3014,26 @@
           "name": "United States",
           "code": "us",
           "fieldRank": 15,
-          "p": 0.36512
+          "p": 0.36132
         },
         {
           "name": "Belgium",
           "code": "be",
           "fieldRank": 9,
-          "p": 0.35326
+          "p": 0.35668
         },
         {
           "name": "Senegal",
           "code": "sn",
           "fieldRank": 13,
-          "p": 0.22806
+          "p": 0.22568
         }
       ],
       "favorite": {
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.35052
+        "p": 0.34746
       }
     },
     {
@@ -3013,13 +3044,13 @@
           "name": "Brazil",
           "code": "br",
           "fieldRank": 6,
-          "p": 0.68946
+          "p": 0.6956
         },
         {
           "name": "Norway",
           "code": "no",
           "fieldRank": 28,
-          "p": 0.31054
+          "p": 0.3044
         }
       ],
       "away": [
@@ -3027,26 +3058,26 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.5257
+          "p": 0.48412
         },
         {
           "name": "Mexico",
           "code": "mx",
           "fieldRank": 14,
-          "p": 0.29676
+          "p": 0.46494
         },
         {
-          "name": "Ecuador",
-          "code": "ec",
-          "fieldRank": 21,
-          "p": 0.11524
+          "name": "Congo DR",
+          "code": "cd",
+          "fieldRank": 36,
+          "p": 0.05094
         }
       ],
       "favorite": {
         "name": "Brazil",
         "code": "br",
         "fieldRank": 6,
-        "p": 0.37488
+        "p": 0.3652
       }
     },
     {
@@ -3057,19 +3088,19 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.69272
+          "p": 0.68894
         },
         {
           "name": "Egypt",
           "code": "eg",
           "fieldRank": 26,
-          "p": 0.1364
+          "p": 0.13834
         },
         {
           "name": "Australia",
           "code": "au",
           "fieldRank": 24,
-          "p": 0.13286
+          "p": 0.13492
         }
       ],
       "away": [
@@ -3077,26 +3108,26 @@
           "name": "Colombia",
           "code": "co",
           "fieldRank": 12,
-          "p": 0.47776
+          "p": 0.47874
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.3127
+          "p": 0.31342
         },
         {
           "name": "Algeria",
           "code": "dz",
           "fieldRank": 25,
-          "p": 0.15654
+          "p": 0.15682
         }
       ],
       "favorite": {
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.50534
+        "p": 0.50048
       }
     },
     {
@@ -3107,19 +3138,19 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.56564
+          "p": 0.5622
         },
         {
           "name": "Morocco",
           "code": "ma",
           "fieldRank": 8,
-          "p": 0.30568
+          "p": 0.3111
         },
         {
           "name": "Canada",
           "code": "ca",
           "fieldRank": 27,
-          "p": 0.07154
+          "p": 0.0707
         }
       ],
       "away": [
@@ -3127,26 +3158,26 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.35052
+          "p": 0.34746
         },
         {
           "name": "Belgium",
           "code": "be",
           "fieldRank": 9,
-          "p": 0.14756
+          "p": 0.15294
         },
         {
-          "name": "United States",
-          "code": "us",
-          "fieldRank": 15,
-          "p": 0.13872
+          "name": "Portugal",
+          "code": "pt",
+          "fieldRank": 5,
+          "p": 0.13898
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.37306
+        "p": 0.37022
       }
     },
     {
@@ -3157,19 +3188,19 @@
           "name": "Brazil",
           "code": "br",
           "fieldRank": 6,
-          "p": 0.37488
+          "p": 0.3652
         },
         {
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.31578
+          "p": 0.28942
         },
         {
           "name": "Mexico",
           "code": "mx",
           "fieldRank": 14,
-          "p": 0.1419
+          "p": 0.23328
         }
       ],
       "away": [
@@ -3177,26 +3208,26 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.50534
+          "p": 0.50048
         },
         {
           "name": "Colombia",
           "code": "co",
           "fieldRank": 12,
-          "p": 0.20162
+          "p": 0.20242
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.11774
+          "p": 0.12004
         }
       ],
       "favorite": {
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.32398
+        "p": 0.31386
       }
     },
     {
@@ -3207,19 +3238,19 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.19258
+          "p": 0.19198
         },
         {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.16202
+          "p": 0.16032
         },
         {
           "name": "Morocco",
           "code": "ma",
           "fieldRank": 8,
-          "p": 0.14442
+          "p": 0.1457
         }
       ],
       "away": [
@@ -3227,26 +3258,26 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.18136
+          "p": 0.18662
         },
         {
           "name": "Brazil",
           "code": "br",
           "fieldRank": 6,
-          "p": 0.1807
+          "p": 0.1756
         },
         {
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.143
+          "p": 0.12942
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.12724
+        "p": 0.12766
       }
     },
     {
@@ -3257,19 +3288,19 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.37306
+          "p": 0.37022
         },
         {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.1885
+          "p": 0.18714
         },
         {
           "name": "Morocco",
           "code": "ma",
           "fieldRank": 8,
-          "p": 0.16126
+          "p": 0.1654
         }
       ],
       "away": [
@@ -3277,26 +3308,26 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.32398
+          "p": 0.31386
         },
         {
           "name": "Brazil",
           "code": "br",
           "fieldRank": 6,
-          "p": 0.19418
+          "p": 0.1896
         },
         {
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.17278
+          "p": 0.16
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.2301
+        "p": 0.23124
       }
     }
   ],
@@ -3304,7 +3335,7 @@
     "name": "France",
     "code": "fr",
     "fieldRank": 1,
-    "titlePct": 23.01,
+    "titlePct": 23.124,
     "nodes": [
       {
         "id": "M77",
@@ -3322,19 +3353,19 @@
         "id": "M97",
         "round": "QF",
         "side": "home",
-        "reachPct": 82.398
+        "reachPct": 82.304
       },
       {
         "id": "M101",
         "round": "SF",
         "side": "home",
-        "reachPct": 56.564
+        "reachPct": 56.22
       },
       {
         "id": "M104",
         "round": "final",
         "side": "home",
-        "reachPct": 37.306
+        "reachPct": 37.022
       }
     ]
   },
@@ -3372,6 +3403,14 @@
   },
   "movers": [
     {
+      "name": "Mexico",
+      "code": "mx",
+      "from": 1681.03,
+      "to": 1748.4569304935699,
+      "delta": 67.4269304935699,
+      "played": 4
+    },
+    {
       "name": "Norway",
       "code": "no",
       "from": 1550.94,
@@ -3401,14 +3440,6 @@
       "from": 1465.34,
       "to": 1415.4059674119244,
       "delta": -49.934032588075524,
-      "played": 3
-    },
-    {
-      "name": "Mexico",
-      "code": "mx",
-      "from": 1681.03,
-      "to": 1730.076120678228,
-      "delta": 49.046120678228135,
       "played": 3
     },
     {
@@ -3556,6 +3587,14 @@
       "played": 3
     },
     {
+      "name": "Ecuador",
+      "code": "ec",
+      "from": 1594.78,
+      "to": 1570.3436500636428,
+      "delta": -24.436349936357146,
+      "played": 4
+    },
+    {
       "name": "Türkiye",
       "code": "tr",
       "from": 1599.04,
@@ -3674,14 +3713,6 @@
       "to": 1520.992323933221,
       "delta": 6.222323933221105,
       "played": 4
-    },
-    {
-      "name": "Ecuador",
-      "code": "ec",
-      "from": 1594.78,
-      "to": 1588.7244598789846,
-      "delta": -6.055540121015383,
-      "played": 3
     },
     {
       "name": "Belgium",
@@ -7222,6 +7253,43 @@
           "team": "Norway",
           "name": "Erling Haaland",
           "minute": "86",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-06-30",
+      "time": "19:00 UTC-6",
+      "kickoff": "2026-06-30T19:00:00-06:00",
+      "round": "R32",
+      "rawRound": "Round of 32",
+      "group": null,
+      "home": "Mexico",
+      "away": "Ecuador",
+      "rawHome": "Mexico",
+      "rawAway": "Ecuador",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Mexico",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Julián Quiñones",
+          "minute": "31",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Raúl Jiménez",
+          "minute": "45+1",
           "pen": false,
           "og": false
         }

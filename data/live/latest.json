@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-01T03:24:29.198Z",
+  "fetchedAt": "2026-07-01T09:38:41.457Z",
   "asOfDate": "2026-06-30",
   "matchCount": 104,
-  "playedCount": 78,
+  "playedCount": 79,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -3493,7 +3493,30 @@
       "rawHome": "Mexico",
       "rawAway": "Ecuador",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Mexico",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Julián Quiñones",
+          "minute": "31",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Raúl Jiménez",
+          "minute": "45+1",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-01",
@@ -3628,11 +3651,11 @@
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "W74",
-      "rawAway": "W77",
-      "undetermined": true,
+      "home": "Paraguay",
+      "away": "France",
+      "rawHome": "Paraguay",
+      "rawAway": "France",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3643,10 +3666,10 @@
       "rawRound": "Round of 16",
       "group": null,
       "home": "Canada",
-      "away": null,
+      "away": "Morocco",
       "rawHome": "Canada",
-      "rawAway": "W75",
-      "undetermined": true,
+      "rawAway": "Morocco",
+      "undetermined": false,
       "finished": false
     },
     {
@@ -3656,11 +3679,11 @@
       "round": "R16",
       "rawRound": "Round of 16",
       "group": null,
-      "home": null,
-      "away": null,
-      "rawHome": "W76",
-      "rawAway": "W78",
-      "undetermined": true,
+      "home": "Brazil",
+      "away": "Norway",
+      "rawHome": "Brazil",
+      "rawAway": "Norway",
+      "undetermined": false,
       "finished": false
     },
     {
