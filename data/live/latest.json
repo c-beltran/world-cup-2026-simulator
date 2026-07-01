@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-01T14:26:24.048Z",
-  "asOfDate": "2026-06-30",
+  "fetchedAt": "2026-07-01T19:47:45.160Z",
+  "asOfDate": "2026-07-01",
   "matchCount": 104,
-  "playedCount": 79,
+  "playedCount": 80,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -3530,7 +3530,38 @@
       "rawHome": "England",
       "rawAway": "DR Congo",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "England",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Congo DR",
+          "name": "Brian Cipenga",
+          "minute": "7",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Harry Kane",
+          "minute": "75",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "England",
+          "name": "Harry Kane",
+          "minute": "86",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-01",
