@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-02",
     "asOfDate": "2026-07-01",
-    "fetchedAt": "2026-07-02T02:51:00.546Z",
+    "fetchedAt": "2026-07-02T08:50:25.419Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -2169,6 +2169,52 @@
         "home": 1,
         "away": 0,
         "p": 0.12185873410551926
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-05",
+      "time": "18:00 UTC-6",
+      "kickoff": "2026-07-05T18:00:00-06:00",
+      "group": null,
+      "home": "Mexico",
+      "homeCode": "mx",
+      "away": "England",
+      "awayCode": "gb-eng",
+      "round": "R16",
+      "pHome": 0.27857196109641835,
+      "pDraw": 0.2564938872168034,
+      "pAway": 0.4649335316507273,
+      "advanceHome": 0.399457540939387,
+      "expHome": 1.1091002946808024,
+      "expAway": 1.5108997053191977,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.1219986190041806
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-06",
+      "time": "17:00 UTC-7",
+      "kickoff": "2026-07-06T17:00:00-07:00",
+      "group": null,
+      "home": "United States",
+      "homeCode": "us",
+      "away": "Belgium",
+      "awayCode": "be",
+      "round": "R16",
+      "pHome": 0.314816398765225,
+      "pDraw": 0.2605780127927225,
+      "pAway": 0.42460518766003,
+      "advanceHome": 0.44071935117154837,
+      "expHome": 1.1921758689414546,
+      "expAway": 1.4278241310585456,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12392630527230007
       },
       "knockout": true
     }
