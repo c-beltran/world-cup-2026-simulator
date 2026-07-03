@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-03",
     "asOfDate": "2026-07-02",
-    "fetchedAt": "2026-07-03T13:53:37.998Z",
+    "fetchedAt": "2026-07-03T19:13:13.197Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -2096,6 +2096,29 @@
         "home": 1,
         "away": 1,
         "p": 0.1219986190041806
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-06",
+      "time": "14:00 UTC-5",
+      "kickoff": "2026-07-06T14:00:00-05:00",
+      "group": null,
+      "home": "Portugal",
+      "homeCode": "pt",
+      "away": "Spain",
+      "awayCode": "es",
+      "round": "R16",
+      "pHome": 0.2721177379019552,
+      "pDraw": 0.2555230685352313,
+      "pAway": 0.4723585173925966,
+      "advanceHome": 0.3919911621560813,
+      "expHome": 1.0939069074625891,
+      "expAway": 1.526093092537411,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12153737406096377
       },
       "knockout": true
     },
