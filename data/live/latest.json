@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-03T02:33:36.065Z",
+  "fetchedAt": "2026-07-03T08:56:30.525Z",
   "asOfDate": "2026-07-02",
   "matchCount": 104,
-  "playedCount": 84,
+  "playedCount": 85,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -3763,7 +3763,30 @@
       "rawHome": "Switzerland",
       "rawAway": "Algeria",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 0,
+      "decidedBy": "REG",
+      "winner": "Switzerland",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Breel Embolo",
+          "minute": "10",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Switzerland",
+          "name": "Dan Ndoye",
+          "minute": "46",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-03",
