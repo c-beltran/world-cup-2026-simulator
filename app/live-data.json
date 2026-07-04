@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-04",
     "asOfDate": "2026-07-03",
-    "fetchedAt": "2026-07-04T08:31:08.936Z",
+    "fetchedAt": "2026-07-04T13:15:25.532Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -2046,6 +2046,52 @@
         "home": 1,
         "away": 1,
         "p": 0.12392630527230007
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-07",
+      "time": "12:00 UTC-4",
+      "kickoff": "2026-07-07T12:00:00-04:00",
+      "group": null,
+      "home": "Argentina",
+      "homeCode": "ar",
+      "away": "Egypt",
+      "awayCode": "eg",
+      "round": "R16",
+      "pHome": 0.6421364499507971,
+      "pDraw": 0.2160042745449974,
+      "pAway": 0.14185469689720637,
+      "advanceHome": 0.7675793433287526,
+      "expHome": 1.8751985035729686,
+      "expAway": 0.7448014964270315,
+      "likely": {
+        "home": 1,
+        "away": 0,
+        "p": 0.13651981942983532
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-07",
+      "time": "13:00 UTC-7",
+      "kickoff": "2026-07-07T13:00:00-07:00",
+      "group": null,
+      "home": "Switzerland",
+      "homeCode": "ch",
+      "away": "Colombia",
+      "awayCode": "co",
+      "round": "R16",
+      "pHome": 0.3314743693292743,
+      "pDraw": 0.2617214680591434,
+      "pAway": 0.4068038184609548,
+      "advanceHome": 0.45931626016065286,
+      "expHome": 1.2292580473277164,
+      "expAway": 1.3907419526722837,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12446237189396442
       },
       "knockout": true
     }
