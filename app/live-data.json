@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-05",
     "asOfDate": "2026-07-04",
-    "fetchedAt": "2026-07-05T13:22:06.890Z",
+    "fetchedAt": "2026-07-05T19:10:27.262Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -2028,6 +2028,29 @@
         "home": 1,
         "away": 1,
         "p": 0.12446237189396442
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-09",
+      "time": "16:00 UTC-4",
+      "kickoff": "2026-07-09T16:00:00-04:00",
+      "group": null,
+      "home": "France",
+      "homeCode": "fr",
+      "away": "Morocco",
+      "awayCode": "ma",
+      "round": "QF",
+      "pHome": 0.48965751748071235,
+      "pDraw": 0.25300439421723,
+      "pAway": 0.2573372590513134,
+      "advanceHome": 0.6252466577076267,
+      "expHome": 1.5614130318759645,
+      "expAway": 1.0585869681240356,
+      "likely": {
+        "home": 1,
+        "away": 1,
+        "p": 0.12033523222603189
       },
       "knockout": true
     }
