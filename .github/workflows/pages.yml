@@ -33,5 +33,24 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: app # publish ONLY the self-contained app folder
+
+      # The Pages backend intermittently returns "Deployment failed, try again
+      # later" — a transient service error that deploy-pages treats as terminal
+      # and does NOT retry. Attempt the deploy up to 3 times, backing off
+      # between tries, so a single backend hiccup doesn't drop the deploy.
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before first deploy retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+      - id: deployment_retry_1
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - name: Wait before second deploy retry
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry_1.outcome == 'failure'
+        run: sleep 60
+      - id: deployment_retry_2
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry_1.outcome == 'failure'
         uses: actions/deploy-pages@v4
