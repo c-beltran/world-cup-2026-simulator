@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-06T02:46:00.988Z",
+  "fetchedAt": "2026-07-06T10:09:48.981Z",
   "asOfDate": "2026-07-05",
   "matchCount": 104,
-  "playedCount": 91,
+  "playedCount": 92,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -4050,7 +4050,54 @@
       "rawHome": "Mexico",
       "rawAway": "England",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 3,
+      "decidedBy": "REG",
+      "winner": "England",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "36",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "38",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Julián Quiñones",
+          "minute": "42",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Harry Kane",
+          "minute": "60",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Mexico",
+          "name": "Raúl Jiménez",
+          "minute": "69",
+          "pen": true,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-06",
