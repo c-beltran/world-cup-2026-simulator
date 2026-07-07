@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-07T14:22:27.242Z",
-  "asOfDate": "2026-07-06",
+  "fetchedAt": "2026-07-07T19:49:13.863Z",
+  "asOfDate": "2026-07-07",
   "matchCount": 104,
-  "playedCount": 94,
+  "playedCount": 95,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -4201,7 +4201,54 @@
       "rawHome": "Argentina",
       "rawAway": "Egypt",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 2,
+      "decidedBy": "REG",
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Yasser Ibrahim",
+          "minute": "15",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Egypt",
+          "name": "Mostafa Zico",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Cristian Romero",
+          "minute": "79",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lionel Messi",
+          "minute": "83",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Enzo Fernández",
+          "minute": "90+2",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-07",
