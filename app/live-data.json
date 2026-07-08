@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-08",
     "asOfDate": "2026-07-07",
-    "fetchedAt": "2026-07-08T08:21:10.876Z",
+    "fetchedAt": "2026-07-08T13:52:57.249Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -1905,6 +1905,29 @@
         "home": 0,
         "away": 1,
         "p": 0.12629646880002307
+      },
+      "knockout": true
+    },
+    {
+      "date": "2026-07-11",
+      "time": "20:00 UTC-5",
+      "kickoff": "2026-07-11T20:00:00-05:00",
+      "group": null,
+      "home": "Argentina",
+      "homeCode": "ar",
+      "away": "Switzerland",
+      "awayCode": "ch",
+      "round": "QF",
+      "pHome": 0.5656479097028269,
+      "pDraw": 0.23782171070736238,
+      "pAway": 0.19652837924772776,
+      "advanceHome": 0.6983652604594386,
+      "expHome": 1.7163778177907179,
+      "expAway": 0.9036221822092821,
+      "likely": {
+        "home": 1,
+        "away": 0,
+        "p": 0.12495721882867088
       },
       "knockout": true
     }
