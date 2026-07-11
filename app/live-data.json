@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "AI World Cup 2026 — Live Re-Forecast",
-    "built": "2026-07-10",
-    "asOfDate": "2026-07-09",
-    "fetchedAt": "2026-07-10T19:22:16.222Z",
+    "built": "2026-07-11",
+    "asOfDate": "2026-07-10",
+    "fetchedAt": "2026-07-11T02:11:46.641Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,7 +24,7 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 97,
+    "playedCount": 98,
     "groupPlayedCount": 72,
     "groupTotal": 72,
     "teamNamesEs": {
@@ -88,64 +88,55 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 17301,
-      "pct": 34.602,
+      "count": 15557,
+      "pct": 31.114,
       "basePct": 14.31,
-      "delta": 20.291999999999994
-    },
-    {
-      "name": "Argentina",
-      "code": "ar",
-      "fieldRank": 3,
-      "count": 11280,
-      "pct": 22.56,
-      "basePct": 13.208,
-      "delta": 9.351999999999999
+      "delta": 16.804000000000002
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 8288,
-      "pct": 16.576,
+      "count": 13619,
+      "pct": 27.238,
       "basePct": 13.04,
-      "delta": 3.5360000000000014
+      "delta": 14.198
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "count": 10498,
+      "pct": 20.996,
+      "basePct": 13.208,
+      "delta": 7.7879999999999985
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "count": 8188,
-      "pct": 16.376,
+      "count": 7905,
+      "pct": 15.81,
       "basePct": 9.396,
-      "delta": 6.98
-    },
-    {
-      "name": "Belgium",
-      "code": "be",
-      "fieldRank": 9,
-      "count": 2308,
-      "pct": 4.616,
-      "basePct": 4.088,
-      "delta": 0.5279999999999996
+      "delta": 6.414
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
-      "count": 1612,
-      "pct": 3.224,
+      "count": 1535,
+      "pct": 3.07,
       "basePct": 1.418,
-      "delta": 1.8060000000000003
+      "delta": 1.652
     },
     {
       "name": "Norway",
       "code": "no",
       "fieldRank": 28,
-      "count": 1023,
-      "pct": 2.046,
+      "count": 886,
+      "pct": 1.772,
       "basePct": 0.258,
-      "delta": 1.7879999999999998
+      "delta": 1.514
     }
   ],
   "reach": [
@@ -157,29 +148,13 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 29487,
-      "title": 17301,
+      "final": 26223,
+      "title": 15557,
       "advancePct": 100,
       "baseAdvancePct": 94.822,
       "advanceDelta": 5.177999999999997,
-      "titlePct": 34.602,
+      "titlePct": 31.114,
       "baseTitlePct": 14.31
-    },
-    {
-      "name": "Argentina",
-      "code": "ar",
-      "fieldRank": 3,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 35891,
-      "final": 22105,
-      "title": 11280,
-      "advancePct": 100,
-      "baseAdvancePct": 96.008,
-      "advanceDelta": 3.9920000000000044,
-      "titlePct": 22.56,
-      "baseTitlePct": 13.208
     },
     {
       "name": "Spain",
@@ -188,14 +163,30 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 32498,
-      "final": 14933,
-      "title": 8288,
+      "sf": 50000,
+      "final": 23777,
+      "title": 13619,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 16.576,
+      "titlePct": 27.238,
       "baseTitlePct": 13.04
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 35588,
+      "final": 21806,
+      "title": 10498,
+      "advancePct": 100,
+      "baseAdvancePct": 96.008,
+      "advanceDelta": 3.9920000000000044,
+      "titlePct": 20.996,
+      "baseTitlePct": 13.208
     },
     {
       "name": "England",
@@ -204,30 +195,14 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 36077,
-      "final": 18332,
-      "title": 8188,
+      "sf": 36167,
+      "final": 18446,
+      "title": 7905,
       "advancePct": 100,
       "baseAdvancePct": 93.732,
       "advanceDelta": 6.268000000000001,
-      "titlePct": 16.376,
+      "titlePct": 15.81,
       "baseTitlePct": 9.396
-    },
-    {
-      "name": "Belgium",
-      "code": "be",
-      "fieldRank": 9,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 17502,
-      "final": 5580,
-      "title": 2308,
-      "advancePct": 100,
-      "baseAdvancePct": 92.134,
-      "advanceDelta": 7.866,
-      "titlePct": 4.616,
-      "baseTitlePct": 4.088
     },
     {
       "name": "Switzerland",
@@ -236,13 +211,13 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 14109,
-      "final": 5470,
-      "title": 1612,
+      "sf": 14412,
+      "final": 5678,
+      "title": 1535,
       "advancePct": 100,
       "baseAdvancePct": 88.42,
       "advanceDelta": 11.579999999999998,
-      "titlePct": 3.224,
+      "titlePct": 3.07,
       "baseTitlePct": 1.418
     },
     {
@@ -252,13 +227,13 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 13923,
-      "final": 4093,
-      "title": 1023,
+      "sf": 13833,
+      "final": 4070,
+      "title": 886,
       "advancePct": 100,
       "baseAdvancePct": 55.432,
       "advanceDelta": 44.568,
-      "titlePct": 2.046,
+      "titlePct": 1.772,
       "baseTitlePct": 0.258
     },
     {
@@ -276,6 +251,22 @@
       "advanceDelta": 8.292000000000002,
       "titlePct": 0,
       "baseTitlePct": 4.72
+    },
+    {
+      "name": "Belgium",
+      "code": "be",
+      "fieldRank": 9,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 0,
+      "final": 0,
+      "title": 0,
+      "advancePct": 100,
+      "baseAdvancePct": 92.134,
+      "advanceDelta": 7.866,
+      "titlePct": 0,
+      "baseTitlePct": 4.088
     },
     {
       "name": "Paraguay",
@@ -1828,31 +1819,8 @@
       ]
     }
   ],
-  "nextDate": "2026-07-10",
+  "nextDate": "2026-07-11",
   "projections": [
-    {
-      "date": "2026-07-10",
-      "time": "12:00 UTC-7",
-      "kickoff": "2026-07-10T12:00:00-07:00",
-      "group": null,
-      "home": "Spain",
-      "homeCode": "es",
-      "away": "Belgium",
-      "awayCode": "be",
-      "round": "QF",
-      "pHome": 0.502209867119,
-      "pDraw": 0.250954899384329,
-      "pAway": 0.24683427154423604,
-      "advanceHome": 0.637617779507238,
-      "expHome": 1.5869949462754138,
-      "expAway": 1.0330050537245863,
-      "likely": {
-        "home": 1,
-        "away": 1,
-        "p": 0.11935110586520878
-      },
-      "knockout": true
-    },
     {
       "date": "2026-07-11",
       "time": "17:00 UTC-4",
@@ -2574,7 +2542,7 @@
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.64996
+        "p": 1
       }
     },
     {
@@ -2600,7 +2568,7 @@
         "name": "England",
         "code": "gb-eng",
         "fieldRank": 4,
-        "p": 0.72154
+        "p": 0.72334
       }
     },
     {
@@ -2626,7 +2594,7 @@
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.71782
+        "p": 0.71176
       }
     },
     {
@@ -2645,20 +2613,14 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.64996
-        },
-        {
-          "name": "Belgium",
-          "code": "be",
-          "fieldRank": 9,
-          "p": 0.35004
+          "p": 1
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.58974
+        "p": 0.52446
       }
     },
     {
@@ -2669,13 +2631,13 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.72154
+          "p": 0.72334
         },
         {
           "name": "Norway",
           "code": "no",
           "fieldRank": 28,
-          "p": 0.27846
+          "p": 0.27666
         }
       ],
       "away": [
@@ -2683,20 +2645,20 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.71782
+          "p": 0.71176
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.28218
+          "p": 0.28824
         }
       ],
       "favorite": {
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.4421
+        "p": 0.43612
       }
     },
     {
@@ -2704,22 +2666,16 @@
       "round": "3rd_place",
       "home": [
         {
-          "name": "France",
-          "code": "fr",
-          "fieldRank": 1,
-          "p": 0.41026
-        },
-        {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.3513
+          "p": 0.52446
         },
         {
-          "name": "Belgium",
-          "code": "be",
-          "fieldRank": 9,
-          "p": 0.23844
+          "name": "France",
+          "code": "fr",
+          "fieldRank": 1,
+          "p": 0.47554
         }
       ],
       "away": [
@@ -2727,26 +2683,26 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.3549
+          "p": 0.35442
         },
         {
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.27572
+          "p": 0.27564
         },
         {
           "name": "Norway",
           "code": "no",
           "fieldRank": 28,
-          "p": 0.1966
+          "p": 0.19526
         }
       ],
       "favorite": {
-        "name": "France",
-        "code": "fr",
-        "fieldRank": 1,
-        "p": 0.25788
+        "name": "Spain",
+        "code": "es",
+        "fieldRank": 2,
+        "p": 0.32356
       }
     },
     {
@@ -2757,19 +2713,13 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.58974
+          "p": 0.52446
         },
         {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.29866
-        },
-        {
-          "name": "Belgium",
-          "code": "be",
-          "fieldRank": 9,
-          "p": 0.1116
+          "p": 0.47554
         }
       ],
       "away": [
@@ -2777,26 +2727,26 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.4421
+          "p": 0.43612
         },
         {
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.36664
+          "p": 0.36892
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.1094
+          "p": 0.11356
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.34602
+        "p": 0.31114
       }
     }
   ],
@@ -2804,7 +2754,7 @@
     "name": "France",
     "code": "fr",
     "fieldRank": 1,
-    "titlePct": 34.602,
+    "titlePct": 31.114,
     "nodes": [
       {
         "id": "M77",
@@ -2834,7 +2784,7 @@
         "id": "M104",
         "round": "final",
         "side": "home",
-        "reachPct": 58.974
+        "reachPct": 52.446
       }
     ]
   },
@@ -2902,6 +2852,14 @@
       "to": 1709.8873717185604,
       "delta": 60.487371718560325,
       "played": 5
+    },
+    {
+      "name": "Spain",
+      "code": "es",
+      "from": 1876.4,
+      "to": 1931.7344110729678,
+      "delta": 55.33441107296767,
+      "played": 6
     },
     {
       "name": "Senegal",
@@ -2992,22 +2950,6 @@
       "played": 3
     },
     {
-      "name": "Belgium",
-      "code": "be",
-      "from": 1734.71,
-      "to": 1772.5173674460118,
-      "delta": 37.80736744601177,
-      "played": 5
-    },
-    {
-      "name": "Spain",
-      "code": "es",
-      "from": 1876.4,
-      "to": 1913.32952884143,
-      "delta": 36.92952884142983,
-      "played": 5
-    },
-    {
       "name": "Korea Republic",
       "code": "kr",
       "from": 1588.66,
@@ -3094,6 +3036,14 @@
       "to": 1576.7921607838432,
       "delta": -22.247839216156763,
       "played": 3
+    },
+    {
+      "name": "Belgium",
+      "code": "be",
+      "from": 1734.71,
+      "to": 1754.112485214474,
+      "delta": 19.402485214473927,
+      "played": 6
     },
     {
       "name": "Croatia",
@@ -7552,6 +7502,51 @@
           "team": "France",
           "name": "Ousmane Dembélé",
           "minute": "66",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-07-10",
+      "time": "12:00 UTC-7",
+      "kickoff": "2026-07-10T12:00:00-07:00",
+      "round": "QF",
+      "rawRound": "Quarter-final",
+      "group": null,
+      "home": "Spain",
+      "away": "Belgium",
+      "rawHome": "Spain",
+      "rawAway": "Belgium",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "decidedBy": "REG",
+      "winner": "Spain",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Fabián Ruiz",
+          "minute": "30",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Belgium",
+          "name": "Charles De Ketelaere",
+          "minute": "41",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Mikel Merino",
+          "minute": "88",
           "pen": false,
           "og": false
         }
