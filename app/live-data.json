@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "AI World Cup 2026 — Live Re-Forecast",
-    "built": "2026-07-11",
-    "asOfDate": "2026-07-10",
-    "fetchedAt": "2026-07-11T18:55:37.467Z",
+    "built": "2026-07-12",
+    "asOfDate": "2026-07-11",
+    "fetchedAt": "2026-07-12T02:22:17.885Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,7 +24,7 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 98,
+    "playedCount": 99,
     "groupPlayedCount": 72,
     "groupTotal": 72,
     "teamNamesEs": {
@@ -88,55 +88,46 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 15557,
-      "pct": 31.114,
+      "count": 14826,
+      "pct": 29.652,
       "basePct": 14.31,
-      "delta": 16.804000000000002
+      "delta": 15.342
     },
     {
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 13619,
-      "pct": 27.238,
+      "count": 13330,
+      "pct": 26.66,
       "basePct": 13.04,
-      "delta": 14.198
-    },
-    {
-      "name": "Argentina",
-      "code": "ar",
-      "fieldRank": 3,
-      "count": 10498,
-      "pct": 20.996,
-      "basePct": 13.208,
-      "delta": 7.7879999999999985
+      "delta": 13.620000000000001
     },
     {
       "name": "England",
       "code": "gb-eng",
       "fieldRank": 4,
-      "count": 7905,
-      "pct": 15.81,
+      "count": 11462,
+      "pct": 22.924,
       "basePct": 9.396,
-      "delta": 6.414
+      "delta": 13.527999999999999
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "count": 9197,
+      "pct": 18.394,
+      "basePct": 13.208,
+      "delta": 5.185999999999998
     },
     {
       "name": "Switzerland",
       "code": "ch",
       "fieldRank": 18,
-      "count": 1535,
-      "pct": 3.07,
+      "count": 1185,
+      "pct": 2.37,
       "basePct": 1.418,
-      "delta": 1.652
-    },
-    {
-      "name": "Norway",
-      "code": "no",
-      "fieldRank": 28,
-      "count": 886,
-      "pct": 1.772,
-      "basePct": 0.258,
-      "delta": 1.514
+      "delta": 0.9520000000000002
     }
   ],
   "reach": [
@@ -148,12 +139,12 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 26223,
-      "title": 15557,
+      "final": 25912,
+      "title": 14826,
       "advancePct": 100,
       "baseAdvancePct": 94.822,
       "advanceDelta": 5.177999999999997,
-      "titlePct": 31.114,
+      "titlePct": 29.652,
       "baseTitlePct": 14.31
     },
     {
@@ -164,29 +155,13 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 23777,
-      "title": 13619,
+      "final": 24088,
+      "title": 13330,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 27.238,
+      "titlePct": 26.66,
       "baseTitlePct": 13.04
-    },
-    {
-      "name": "Argentina",
-      "code": "ar",
-      "fieldRank": 3,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 35588,
-      "final": 21806,
-      "title": 10498,
-      "advancePct": 100,
-      "baseAdvancePct": 96.008,
-      "advanceDelta": 3.9920000000000044,
-      "titlePct": 20.996,
-      "baseTitlePct": 13.208
     },
     {
       "name": "England",
@@ -195,14 +170,30 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 36167,
-      "final": 18446,
-      "title": 7905,
+      "sf": 50000,
+      "final": 26329,
+      "title": 11462,
       "advancePct": 100,
       "baseAdvancePct": 93.732,
       "advanceDelta": 6.268000000000001,
-      "titlePct": 15.81,
+      "titlePct": 22.924,
       "baseTitlePct": 9.396
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 35781,
+      "final": 19249,
+      "title": 9197,
+      "advancePct": 100,
+      "baseAdvancePct": 96.008,
+      "advanceDelta": 3.9920000000000044,
+      "titlePct": 18.394,
+      "baseTitlePct": 13.208
     },
     {
       "name": "Switzerland",
@@ -211,30 +202,14 @@
       "r32": 50000,
       "r16": 50000,
       "qf": 50000,
-      "sf": 14412,
-      "final": 5678,
-      "title": 1535,
+      "sf": 14219,
+      "final": 4422,
+      "title": 1185,
       "advancePct": 100,
       "baseAdvancePct": 88.42,
       "advanceDelta": 11.579999999999998,
-      "titlePct": 3.07,
+      "titlePct": 2.37,
       "baseTitlePct": 1.418
-    },
-    {
-      "name": "Norway",
-      "code": "no",
-      "fieldRank": 28,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 13833,
-      "final": 4070,
-      "title": 886,
-      "advancePct": 100,
-      "baseAdvancePct": 55.432,
-      "advanceDelta": 44.568,
-      "titlePct": 1.772,
-      "baseTitlePct": 0.258
     },
     {
       "name": "Morocco",
@@ -267,6 +242,22 @@
       "advanceDelta": 7.866,
       "titlePct": 0,
       "baseTitlePct": 4.088
+    },
+    {
+      "name": "Norway",
+      "code": "no",
+      "fieldRank": 28,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 0,
+      "final": 0,
+      "title": 0,
+      "advancePct": 100,
+      "baseAdvancePct": 55.432,
+      "advanceDelta": 44.568,
+      "titlePct": 0,
+      "baseTitlePct": 0.258
     },
     {
       "name": "Paraguay",
@@ -1823,29 +1814,6 @@
   "projections": [
     {
       "date": "2026-07-11",
-      "time": "17:00 UTC-4",
-      "kickoff": "2026-07-11T17:00:00-04:00",
-      "group": null,
-      "home": "Norway",
-      "homeCode": "no",
-      "away": "England",
-      "awayCode": "gb-eng",
-      "round": "QF",
-      "pHome": 0.18978074356188132,
-      "pDraw": 0.23559798251577238,
-      "pAway": 0.5746190629102107,
-      "advanceHome": 0.2932831987366924,
-      "expHome": 0.8852266147914647,
-      "expAway": 1.7347733852085354,
-      "likely": {
-        "home": 0,
-        "away": 1,
-        "p": 0.12629646880002307
-      },
-      "knockout": true
-    },
-    {
-      "date": "2026-07-11",
       "time": "20:00 UTC-5",
       "kickoff": "2026-07-11T20:00:00-05:00",
       "group": null,
@@ -2591,7 +2559,7 @@
         "name": "England",
         "code": "gb-eng",
         "fieldRank": 4,
-        "p": 0.72334
+        "p": 1
       }
     },
     {
@@ -2617,7 +2585,7 @@
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.71176
+        "p": 0.71562
       }
     },
     {
@@ -2643,7 +2611,7 @@
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.52446
+        "p": 0.51824
       }
     },
     {
@@ -2654,13 +2622,7 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.72334
-        },
-        {
-          "name": "Norway",
-          "code": "no",
-          "fieldRank": 28,
-          "p": 0.27666
+          "p": 1
         }
       ],
       "away": [
@@ -2668,20 +2630,20 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.71176
+          "p": 0.71562
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.28824
+          "p": 0.28438
         }
       ],
       "favorite": {
-        "name": "Argentina",
-        "code": "ar",
-        "fieldRank": 3,
-        "p": 0.43612
+        "name": "England",
+        "code": "gb-eng",
+        "fieldRank": 4,
+        "p": 0.52658
       }
     },
     {
@@ -2692,13 +2654,13 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.52446
+          "p": 0.51824
         },
         {
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.47554
+          "p": 0.48176
         }
       ],
       "away": [
@@ -2706,26 +2668,26 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.35442
+          "p": 0.47342
         },
         {
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.27564
+          "p": 0.33064
         },
         {
-          "name": "Norway",
-          "code": "no",
-          "fieldRank": 28,
-          "p": 0.19526
+          "name": "Switzerland",
+          "code": "ch",
+          "fieldRank": 18,
+          "p": 0.19594
         }
       ],
       "favorite": {
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.32356
+        "p": 0.2978
       }
     },
     {
@@ -2736,40 +2698,40 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.52446
+          "p": 0.51824
         },
         {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.47554
+          "p": 0.48176
         }
       ],
       "away": [
         {
-          "name": "Argentina",
-          "code": "ar",
-          "fieldRank": 3,
-          "p": 0.43612
-        },
-        {
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.36892
+          "p": 0.52658
+        },
+        {
+          "name": "Argentina",
+          "code": "ar",
+          "fieldRank": 3,
+          "p": 0.38498
         },
         {
           "name": "Switzerland",
           "code": "ch",
           "fieldRank": 18,
-          "p": 0.11356
+          "p": 0.08844
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.31114
+        "p": 0.29652
       }
     }
   ],
@@ -2777,7 +2739,7 @@
     "name": "France",
     "code": "fr",
     "fieldRank": 1,
-    "titlePct": 31.114,
+    "titlePct": 29.652,
     "nodes": [
       {
         "id": "M77",
@@ -2807,7 +2769,7 @@
         "id": "M104",
         "round": "final",
         "side": "home",
-        "reachPct": 52.446
+        "reachPct": 51.824
       }
     ]
   },
@@ -2848,9 +2810,9 @@
       "name": "Norway",
       "code": "no",
       "from": 1550.94,
-      "to": 1646.0190026206997,
-      "delta": 95.07900262069961,
-      "played": 5
+      "to": 1631.1326546494743,
+      "delta": 80.1926546494742,
+      "played": 6
     },
     {
       "name": "France",
@@ -2875,6 +2837,14 @@
       "to": 1709.8873717185604,
       "delta": 60.487371718560325,
       "played": 5
+    },
+    {
+      "name": "England",
+      "code": "gb-eng",
+      "from": 1825.97,
+      "to": 1884.5180513124233,
+      "delta": 58.54805131242324,
+      "played": 6
     },
     {
       "name": "Spain",
@@ -2922,14 +2892,6 @@
       "from": 1681.03,
       "to": 1728.2402568106936,
       "delta": 47.210256810693636,
-      "played": 5
-    },
-    {
-      "name": "England",
-      "code": "gb-eng",
-      "from": 1825.97,
-      "to": 1869.6317033411979,
-      "delta": 43.661703341197835,
       "played": 5
     },
     {
@@ -7570,6 +7532,51 @@
           "team": "Spain",
           "name": "Mikel Merino",
           "minute": "88",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-07-11",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-11T17:00:00-04:00",
+      "round": "QF",
+      "rawRound": "Quarter-final",
+      "group": null,
+      "home": "Norway",
+      "away": "England",
+      "rawHome": "Norway",
+      "rawAway": "England",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 1,
+      "awayGoals": 2,
+      "decidedBy": "ET",
+      "winner": "England",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Norway",
+          "name": "Andreas Schjelderup",
+          "minute": "36",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "45+2",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "93",
           "pen": false,
           "og": false
         }
