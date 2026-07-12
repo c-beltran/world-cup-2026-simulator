@@ -3,7 +3,7 @@
     "title": "AI World Cup 2026 — Live Re-Forecast",
     "built": "2026-07-12",
     "asOfDate": "2026-07-11",
-    "fetchedAt": "2026-07-12T02:22:17.885Z",
+    "fetchedAt": "2026-07-12T08:09:47.838Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,7 +24,7 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 99,
+    "playedCount": 100,
     "groupPlayedCount": 72,
     "groupTotal": 72,
     "teamNamesEs": {
@@ -88,46 +88,37 @@
       "name": "France",
       "code": "fr",
       "fieldRank": 1,
-      "count": 14826,
-      "pct": 29.652,
+      "count": 14164,
+      "pct": 28.328,
       "basePct": 14.31,
-      "delta": 15.342
-    },
-    {
-      "name": "Spain",
-      "code": "es",
-      "fieldRank": 2,
-      "count": 13330,
-      "pct": 26.66,
-      "basePct": 13.04,
-      "delta": 13.620000000000001
-    },
-    {
-      "name": "England",
-      "code": "gb-eng",
-      "fieldRank": 4,
-      "count": 11462,
-      "pct": 22.924,
-      "basePct": 9.396,
-      "delta": 13.527999999999999
+      "delta": 14.017999999999999
     },
     {
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "count": 9197,
-      "pct": 18.394,
+      "count": 13716,
+      "pct": 27.432,
       "basePct": 13.208,
-      "delta": 5.185999999999998
+      "delta": 14.223999999999998
     },
     {
-      "name": "Switzerland",
-      "code": "ch",
-      "fieldRank": 18,
-      "count": 1185,
-      "pct": 2.37,
-      "basePct": 1.418,
-      "delta": 0.9520000000000002
+      "name": "Spain",
+      "code": "es",
+      "fieldRank": 2,
+      "count": 12472,
+      "pct": 24.944,
+      "basePct": 13.04,
+      "delta": 11.904
+    },
+    {
+      "name": "England",
+      "code": "gb-eng",
+      "fieldRank": 4,
+      "count": 9648,
+      "pct": 19.296,
+      "basePct": 9.396,
+      "delta": 9.899999999999999
     }
   ],
   "reach": [
@@ -139,13 +130,29 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 25912,
-      "title": 14826,
+      "final": 26186,
+      "title": 14164,
       "advancePct": 100,
       "baseAdvancePct": 94.822,
       "advanceDelta": 5.177999999999997,
-      "titlePct": 29.652,
+      "titlePct": 28.328,
       "baseTitlePct": 14.31
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 50000,
+      "final": 27793,
+      "title": 13716,
+      "advancePct": 100,
+      "baseAdvancePct": 96.008,
+      "advanceDelta": 3.9920000000000044,
+      "titlePct": 27.432,
+      "baseTitlePct": 13.208
     },
     {
       "name": "Spain",
@@ -155,12 +162,12 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 24088,
-      "title": 13330,
+      "final": 23814,
+      "title": 12472,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 26.66,
+      "titlePct": 24.944,
       "baseTitlePct": 13.04
     },
     {
@@ -171,45 +178,13 @@
       "r16": 50000,
       "qf": 50000,
       "sf": 50000,
-      "final": 26329,
-      "title": 11462,
+      "final": 22207,
+      "title": 9648,
       "advancePct": 100,
       "baseAdvancePct": 93.732,
       "advanceDelta": 6.268000000000001,
-      "titlePct": 22.924,
+      "titlePct": 19.296,
       "baseTitlePct": 9.396
-    },
-    {
-      "name": "Argentina",
-      "code": "ar",
-      "fieldRank": 3,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 35781,
-      "final": 19249,
-      "title": 9197,
-      "advancePct": 100,
-      "baseAdvancePct": 96.008,
-      "advanceDelta": 3.9920000000000044,
-      "titlePct": 18.394,
-      "baseTitlePct": 13.208
-    },
-    {
-      "name": "Switzerland",
-      "code": "ch",
-      "fieldRank": 18,
-      "r32": 50000,
-      "r16": 50000,
-      "qf": 50000,
-      "sf": 14219,
-      "final": 4422,
-      "title": 1185,
-      "advancePct": 100,
-      "baseAdvancePct": 88.42,
-      "advanceDelta": 11.579999999999998,
-      "titlePct": 2.37,
-      "baseTitlePct": 1.418
     },
     {
       "name": "Morocco",
@@ -258,6 +233,22 @@
       "advanceDelta": 44.568,
       "titlePct": 0,
       "baseTitlePct": 0.258
+    },
+    {
+      "name": "Switzerland",
+      "code": "ch",
+      "fieldRank": 18,
+      "r32": 50000,
+      "r16": 50000,
+      "qf": 50000,
+      "sf": 0,
+      "final": 0,
+      "title": 0,
+      "advancePct": 100,
+      "baseAdvancePct": 88.42,
+      "advanceDelta": 11.579999999999998,
+      "titlePct": 0,
+      "baseTitlePct": 1.418
     },
     {
       "name": "Paraguay",
@@ -1810,31 +1801,8 @@
       ]
     }
   ],
-  "nextDate": "2026-07-11",
+  "nextDate": "2026-07-14",
   "projections": [
-    {
-      "date": "2026-07-11",
-      "time": "20:00 UTC-5",
-      "kickoff": "2026-07-11T20:00:00-05:00",
-      "group": null,
-      "home": "Argentina",
-      "homeCode": "ar",
-      "away": "Switzerland",
-      "awayCode": "ch",
-      "round": "QF",
-      "pHome": 0.5656479097028269,
-      "pDraw": 0.23782171070736238,
-      "pAway": 0.19652837924772776,
-      "advanceHome": 0.6983652604594386,
-      "expHome": 1.7163778177907179,
-      "expAway": 0.9036221822092821,
-      "likely": {
-        "home": 1,
-        "away": 0,
-        "p": 0.12495721882867088
-      },
-      "knockout": true
-    },
     {
       "date": "2026-07-14",
       "time": "14:00 UTC-5",
@@ -2585,7 +2553,7 @@
         "name": "Argentina",
         "code": "ar",
         "fieldRank": 3,
-        "p": 0.71562
+        "p": 1
       }
     },
     {
@@ -2611,7 +2579,7 @@
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.51824
+        "p": 0.52372
       }
     },
     {
@@ -2630,20 +2598,14 @@
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.71562
-        },
-        {
-          "name": "Switzerland",
-          "code": "ch",
-          "fieldRank": 18,
-          "p": 0.28438
+          "p": 1
         }
       ],
       "favorite": {
-        "name": "England",
-        "code": "gb-eng",
-        "fieldRank": 4,
-        "p": 0.52658
+        "name": "Argentina",
+        "code": "ar",
+        "fieldRank": 3,
+        "p": 0.55586
       }
     },
     {
@@ -2654,13 +2616,13 @@
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.51824
+          "p": 0.52372
         },
         {
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.48176
+          "p": 0.47628
         }
       ],
       "away": [
@@ -2668,26 +2630,20 @@
           "name": "England",
           "code": "gb-eng",
           "fieldRank": 4,
-          "p": 0.47342
+          "p": 0.55586
         },
         {
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.33064
-        },
-        {
-          "name": "Switzerland",
-          "code": "ch",
-          "fieldRank": 18,
-          "p": 0.19594
+          "p": 0.44414
         }
       ],
       "favorite": {
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.2978
+        "p": 0.27754
       }
     },
     {
@@ -2698,40 +2654,34 @@
           "name": "France",
           "code": "fr",
           "fieldRank": 1,
-          "p": 0.51824
+          "p": 0.52372
         },
         {
           "name": "Spain",
           "code": "es",
           "fieldRank": 2,
-          "p": 0.48176
+          "p": 0.47628
         }
       ],
       "away": [
         {
-          "name": "England",
-          "code": "gb-eng",
-          "fieldRank": 4,
-          "p": 0.52658
-        },
-        {
           "name": "Argentina",
           "code": "ar",
           "fieldRank": 3,
-          "p": 0.38498
+          "p": 0.55586
         },
         {
-          "name": "Switzerland",
-          "code": "ch",
-          "fieldRank": 18,
-          "p": 0.08844
+          "name": "England",
+          "code": "gb-eng",
+          "fieldRank": 4,
+          "p": 0.44414
         }
       ],
       "favorite": {
         "name": "France",
         "code": "fr",
         "fieldRank": 1,
-        "p": 0.29652
+        "p": 0.28328
       }
     }
   ],
@@ -2739,7 +2689,7 @@
     "name": "France",
     "code": "fr",
     "fieldRank": 1,
-    "titlePct": 29.652,
+    "titlePct": 28.328,
     "nodes": [
       {
         "id": "M77",
@@ -2769,7 +2719,7 @@
         "id": "M104",
         "round": "final",
         "side": "home",
-        "reachPct": 51.824
+        "reachPct": 52.372
       }
     ]
   },
@@ -2823,20 +2773,20 @@
       "played": 6
     },
     {
+      "name": "Argentina",
+      "code": "ar",
+      "from": 1874.81,
+      "to": 1937.9975406190383,
+      "delta": 63.18754061903837,
+      "played": 6
+    },
+    {
       "name": "Panama",
       "code": "pa",
       "from": 1540.64,
       "to": 1479.730699915164,
       "delta": -60.909300084836104,
       "played": 3
-    },
-    {
-      "name": "Switzerland",
-      "code": "ch",
-      "from": 1649.4,
-      "to": 1709.8873717185604,
-      "delta": 60.487371718560325,
-      "played": 5
     },
     {
       "name": "England",
@@ -2879,20 +2829,20 @@
       "played": 3
     },
     {
-      "name": "Argentina",
-      "code": "ar",
-      "from": 1874.81,
-      "to": 1922.6732029473887,
-      "delta": 47.8632029473888,
-      "played": 5
-    },
-    {
       "name": "Mexico",
       "code": "mx",
       "from": 1681.03,
       "to": 1728.2402568106936,
       "delta": 47.210256810693636,
       "played": 5
+    },
+    {
+      "name": "Switzerland",
+      "code": "ch",
+      "from": 1649.4,
+      "to": 1694.5630340469108,
+      "delta": 45.16303404691075,
+      "played": 6
     },
     {
       "name": "Iraq",
@@ -7577,6 +7527,59 @@
           "team": "England",
           "name": "Jude Bellingham",
           "minute": "93",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-07-11",
+      "time": "20:00 UTC-5",
+      "kickoff": "2026-07-11T20:00:00-05:00",
+      "round": "QF",
+      "rawRound": "Quarter-final",
+      "group": null,
+      "home": "Argentina",
+      "away": "Switzerland",
+      "rawHome": "Argentina",
+      "rawAway": "Switzerland",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "decidedBy": "ET",
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Alexis Mac Allister",
+          "minute": "10",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Switzerland",
+          "name": "Dan Ndoye",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Julián Álvarez",
+          "minute": "112",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lautaro Martínez",
+          "minute": "120+1",
           "pen": false,
           "og": false
         }

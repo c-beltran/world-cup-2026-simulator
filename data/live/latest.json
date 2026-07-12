@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-12T02:22:17.885Z",
+  "fetchedAt": "2026-07-12T08:09:47.838Z",
   "asOfDate": "2026-07-11",
   "matchCount": 104,
-  "playedCount": 99,
+  "playedCount": 100,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -4413,7 +4413,46 @@
       "rawHome": "Argentina",
       "rawAway": "Switzerland",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 3,
+      "awayGoals": 1,
+      "decidedBy": "ET",
+      "winner": "Argentina",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Alexis Mac Allister",
+          "minute": "10",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "Switzerland",
+          "name": "Dan Ndoye",
+          "minute": "67",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Julián Álvarez",
+          "minute": "112",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "Argentina",
+          "name": "Lautaro Martínez",
+          "minute": "120+1",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     },
     {
       "date": "2026-07-14",
