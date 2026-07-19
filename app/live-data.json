@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "AI World Cup 2026 — Live Re-Forecast",
-    "built": "2026-07-18",
-    "asOfDate": "2026-07-15",
-    "fetchedAt": "2026-07-18T18:57:02.840Z",
+    "built": "2026-07-19",
+    "asOfDate": "2026-07-18",
+    "fetchedAt": "2026-07-19T02:14:02.283Z",
     "source": "openfootball/worldcup.json (public domain)",
     "sourceUrl": "https://github.com/openfootball/worldcup.json",
     "ratingSource": "FIFA / Coca-Cola Men's World Ranking",
@@ -24,7 +24,7 @@
       "sims": 50000,
       "seed": 20260611
     },
-    "playedCount": 102,
+    "playedCount": 103,
     "groupPlayedCount": 72,
     "groupTotal": 72,
     "teamNamesEs": {
@@ -88,19 +88,19 @@
       "name": "Spain",
       "code": "es",
       "fieldRank": 2,
-      "count": 25007,
-      "pct": 50.014,
+      "count": 25032,
+      "pct": 50.064,
       "basePct": 13.04,
-      "delta": 36.974000000000004
+      "delta": 37.024
     },
     {
       "name": "Argentina",
       "code": "ar",
       "fieldRank": 3,
-      "count": 24993,
-      "pct": 49.986,
+      "count": 24968,
+      "pct": 49.936,
       "basePct": 13.208,
-      "delta": 36.778
+      "delta": 36.728
     }
   ],
   "reach": [
@@ -113,11 +113,11 @@
       "qf": 50000,
       "sf": 50000,
       "final": 50000,
-      "title": 25007,
+      "title": 25032,
       "advancePct": 100,
       "baseAdvancePct": 96.662,
       "advanceDelta": 3.337999999999994,
-      "titlePct": 50.014,
+      "titlePct": 50.064,
       "baseTitlePct": 13.04
     },
     {
@@ -129,11 +129,11 @@
       "qf": 50000,
       "sf": 50000,
       "final": 50000,
-      "title": 24993,
+      "title": 24968,
       "advancePct": 100,
       "baseAdvancePct": 96.008,
       "advanceDelta": 3.9920000000000044,
-      "titlePct": 49.986,
+      "titlePct": 49.936,
       "baseTitlePct": 13.208
     },
     {
@@ -1783,31 +1783,8 @@
       ]
     }
   ],
-  "nextDate": "2026-07-18",
+  "nextDate": "2026-07-19",
   "projections": [
-    {
-      "date": "2026-07-18",
-      "time": "17:00 UTC-4",
-      "kickoff": "2026-07-18T17:00:00-04:00",
-      "group": null,
-      "home": "France",
-      "homeCode": "fr",
-      "away": "England",
-      "awayCode": "gb-eng",
-      "round": "3rd_place",
-      "pHome": 0.42766474316068814,
-      "pDraw": 0.2603400375099501,
-      "pAway": 0.3119948065043967,
-      "advanceHome": 0.5624527478574175,
-      "expHome": 1.4341679992884093,
-      "expAway": 1.1858320007115908,
-      "likely": {
-        "home": 1,
-        "away": 1,
-        "p": 0.12381454077892799
-      },
-      "knockout": true
-    },
     {
       "date": "2026-07-19",
       "time": "15:00 UTC-4",
@@ -2633,10 +2610,10 @@
         }
       ],
       "favorite": {
-        "name": "France",
-        "code": "fr",
-        "fieldRank": 1,
-        "p": 0.57086
+        "name": "England",
+        "code": "gb-eng",
+        "fieldRank": 4,
+        "p": 1
       }
     },
     {
@@ -2662,7 +2639,7 @@
         "name": "Spain",
         "code": "es",
         "fieldRank": 2,
-        "p": 0.50014
+        "p": 0.50064
       }
     }
   ],
@@ -2670,7 +2647,7 @@
     "name": "Spain",
     "code": "es",
     "fieldRank": 2,
-    "titlePct": 50.014,
+    "titlePct": 50.064,
     "nodes": [
       {
         "id": "M84",
@@ -2762,6 +2739,14 @@
       "played": 6
     },
     {
+      "name": "England",
+      "code": "gb-eng",
+      "from": 1825.97,
+      "to": 1891.1334746267273,
+      "delta": 65.1634746267273,
+      "played": 8
+    },
+    {
       "name": "Panama",
       "code": "pa",
       "from": 1540.64,
@@ -2810,14 +2795,6 @@
       "played": 6
     },
     {
-      "name": "France",
-      "code": "fr",
-      "from": 1877.32,
-      "to": 1919.5046488148762,
-      "delta": 42.184648814876255,
-      "played": 7
-    },
-    {
       "name": "Iraq",
       "code": "iq",
       "from": 1447.14,
@@ -2864,14 +2841,6 @@
       "to": 1555.7100943788705,
       "delta": -32.949905621129574,
       "played": 3
-    },
-    {
-      "name": "England",
-      "code": "gb-eng",
-      "from": 1825.97,
-      "to": 1857.5858175042013,
-      "delta": 31.61581750420123,
-      "played": 7
     },
     {
       "name": "Germany",
@@ -3040,6 +3009,14 @@
       "to": 1394.7166004859616,
       "delta": 8.876600485961717,
       "played": 4
+    },
+    {
+      "name": "France",
+      "code": "fr",
+      "from": 1877.32,
+      "to": 1885.9569916923501,
+      "delta": 8.636991692350193,
+      "played": 8
     },
     {
       "name": "Japan",
@@ -7643,6 +7620,107 @@
           "team": "Argentina",
           "name": "Lautaro Martínez",
           "minute": "92",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
+    },
+    {
+      "date": "2026-07-18",
+      "time": "17:00 UTC-4",
+      "kickoff": "2026-07-18T17:00:00-04:00",
+      "round": "3rd_place",
+      "rawRound": "Match for third place",
+      "group": null,
+      "home": "France",
+      "away": "England",
+      "rawHome": "France",
+      "rawAway": "England",
+      "undetermined": false,
+      "finished": true,
+      "homeGoals": 4,
+      "awayGoals": 6,
+      "decidedBy": "REG",
+      "winner": "England",
+      "scorers": [
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Declan Rice",
+          "minute": "3",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Ezri Konsa",
+          "minute": "18",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Bukayo Saka",
+          "minute": "37",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Bukayo Saka",
+          "minute": "45+1",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "48",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Bradley Barcola",
+          "minute": "54",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Kylian Mbappé",
+          "minute": "66",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Bukayo Saka",
+          "minute": "87",
+          "pen": true,
+          "og": false
+        },
+        {
+          "side": "home",
+          "team": "France",
+          "name": "Ousmane Dembélé",
+          "minute": "90+6",
+          "pen": false,
+          "og": false
+        },
+        {
+          "side": "away",
+          "team": "England",
+          "name": "Jude Bellingham",
+          "minute": "90+8",
           "pen": false,
           "og": false
         }
