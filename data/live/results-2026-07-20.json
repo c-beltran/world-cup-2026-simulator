@@ -3,10 +3,10 @@
   "sourceUrl": "https://github.com/openfootball/worldcup.json",
   "endpoint": "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json",
   "tournament": "World Cup 2026",
-  "fetchedAt": "2026-07-20T08:50:26.451Z",
-  "asOfDate": "2026-07-18",
+  "fetchedAt": "2026-07-20T13:56:43.554Z",
+  "asOfDate": "2026-07-19",
   "matchCount": 104,
-  "playedCount": 103,
+  "playedCount": 104,
   "groupPlayedCount": 72,
   "groupTotal": 72,
   "matches": [
@@ -4649,7 +4649,22 @@
       "rawHome": "Spain",
       "rawAway": "Argentina",
       "undetermined": false,
-      "finished": false
+      "finished": true,
+      "homeGoals": 1,
+      "awayGoals": 0,
+      "decidedBy": "ET",
+      "winner": "Spain",
+      "scorers": [
+        {
+          "side": "home",
+          "team": "Spain",
+          "name": "Ferran Torres",
+          "minute": "106",
+          "pen": false,
+          "og": false
+        }
+      ],
+      "scorersComplete": true
     }
   ]
 }
