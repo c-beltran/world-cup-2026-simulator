@@ -263,10 +263,74 @@
   .method code { font-family: var(--mono); font-size: 11px; color: var(--ink); }
   .method a { color: var(--sim); text-decoration: none; } .method a:hover { text-decoration: underline; }
 
+  /* ---- champion finale (shown only once the final is played) ---- */
+  .live-dot.done { background: var(--gold); box-shadow: none; animation: none; }
+  .stamp .done-tag { color: var(--gold); font-weight: 700; }
+  .finale { position: relative; overflow: hidden; margin-top: 18px; border: 1px solid var(--gold-dim); border-radius: 18px;
+    padding: 26px 18px 22px; text-align: center;
+    background: radial-gradient(120% 90% at 50% -10%, rgba(242,205,92,.16), rgba(242,205,92,.03) 55%, transparent 75%), rgba(255,255,255,.015);
+    box-shadow: 0 0 40px rgba(242,205,92,.08), inset 0 1px 0 rgba(242,205,92,.14); }
+  .finale::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle at 50% 8%, rgba(242,205,92,.22), transparent 42%);
+    mask: linear-gradient(180deg, #000, transparent 70%); }
+  .finale > * { position: relative; z-index: 1; }
+  .fin-eyebrow { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .fin-trophy { font-size: 42px; line-height: 1; margin: 8px 0 6px; filter: drop-shadow(0 3px 10px rgba(242,205,92,.4)); }
+  .fin-champ { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .fin-champ .flag { width: 46px; height: 31px; border-radius: 4px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.5), 0 2px 10px rgba(0,0,0,.4); }
+  .fin-name { font-size: 34px; font-weight: 900; letter-spacing: -.02em; line-height: 1;
+    background: linear-gradient(180deg, #fff, var(--gold) 92%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .fin-title { font-size: 12.5px; color: var(--ink); font-weight: 700; letter-spacing: .02em; }
+  .fin-final { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 7px; }
+  .fin-final b { color: var(--ink); font-size: 13.5px; letter-spacing: .5px; }
+  .fin-final .aet { color: var(--gold); }
+  /* podium: silver — gold — bronze, gold tallest & centered */
+  .podium { display: flex; justify-content: center; align-items: flex-end; gap: 8px; margin: 18px auto 4px; max-width: 380px; }
+  .pod { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+  .pod .flag { width: 30px; height: 20px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.45); }
+  .pod .pnm { font-size: 12px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .pod .medal { font-size: 15px; line-height: 1; }
+  .pod .block { width: 100%; border-radius: 8px 8px 0 0; display: grid; place-items: center; font-family: var(--mono); font-weight: 800; font-size: 15px; color: #0b1a13; }
+  .pod.p1 .block { height: 62px; background: linear-gradient(180deg, var(--gold), var(--gold-dim)); box-shadow: 0 0 18px rgba(242,205,92,.25); }
+  .pod.p2 .block { height: 44px; background: linear-gradient(180deg, #d7dee6, #97a2ad); }
+  .pod.p3 .block { height: 32px; background: linear-gradient(180deg, #d69a63, #a9713f); }
+  .pod.p1 .pnm { color: var(--gold); }
+  .fin-fourth { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 10px; }
+  .fin-fourth b { color: var(--ink); }
+  .fin-model { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .fin-model b { color: var(--ink); }
+  .fin-model .cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 9px; padding: 8px 15px; border-radius: 999px;
+    border: 1px solid var(--gold-dim); background: rgba(242,205,92,.08); color: var(--gold); font-weight: 700; font-size: 12.5px; font-family: var(--sans); text-decoration: none; transition: .18s; }
+  .fin-model .cta:hover { background: rgba(242,205,92,.16); border-color: var(--gold); }
+
+  /* final placings list (reframes the now-degenerate "title odds" panel) */
+  .place { display: flex; align-items: center; gap: 9px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+  .place:last-child { border-bottom: 0; }
+  .place .pos { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--muted); width: 20px; flex: none; text-align: center; }
+  .place .flag { width: 22px; height: 15px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.4); background: #222; flex: none; }
+  .place .nm { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
+  .place .fin { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); flex: none; }
+  .place.gold .pos, .place.gold .fin { color: var(--gold); } .place.gold .nm { color: var(--ink); font-weight: 800; }
+  .place.silver .fin { color: #c4ccd4; } .place.bronze .fin { color: #d69a63; }
+
+  /* "how the model saw it" teaser panel (reframes the degenerate deep-run panel) */
+  .modelcall .big { font-family: var(--mono); font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1; letter-spacing: -.02em; }
+  .modelcall .biglab { font-size: 12px; color: var(--muted); margin: 4px 0 14px; }
+  .modelcall .fact { display: flex; gap: 8px; padding: 6px 0; font-size: 12.5px; color: var(--ink); line-height: 1.5; border-top: 1px dashed var(--line); }
+  .modelcall .fact .i { flex: none; }
+  .modelcall .fact b { color: var(--gold); }
+  .modelcall .cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 9px 15px; border-radius: 999px;
+    border: 1px solid var(--ai); background: rgba(183,148,246,.08); color: var(--ai); font-weight: 700; font-size: 12.5px; text-decoration: none; transition: .18s; }
+  .modelcall .cta:hover { background: rgba(183,148,246,.16); }
+
   /* ---- tablet / desktop ---- */
   @media (min-width: 760px) {
     .wrap { padding: 26px 26px 110px; }
     h1 { font-size: 26px; }
+    .finale { padding: 34px 24px 26px; }
+    .fin-trophy { font-size: 52px; }
+    .fin-name { font-size: 44px; }
+    .podium { max-width: 440px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
     .span2 { grid-column: 1 / -1; }
     .fixtures { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -298,6 +362,8 @@
     </div>
     <div class="stamp" id="stamp"></div>
   </header>
+
+  <div id="finale"></div>
 
   <div class="grid">
     <div class="panel">
@@ -390,6 +456,19 @@ const I18N = {
     roadSubTeam:"<b>{pct}%</b> to lift it — the model's chance {name} <b>reaches</b> each round. Tap any flag above to follow another team's road.",
     roadPick:"Whose road? — tap a team still in it",
     stR32:"R32", stR16:"R16", stQF:"QF", stSF:"SF", stFinal:"Final", stTitle:"Title",
+    h1Done:"World Cup 2026 — Complete", phaseDone:"✓ COMPLETE",
+    taglineDone:"The tournament is over. The same honest Monte Carlo, now <b style='color:var(--gold)'>fully resolved</b> — every match locked to its real result. Here's how it finished, and how the model's call held up.",
+    finEyebrow:"World Cup 2026 · Champions", finTitle:"World Champions",
+    finFinal:"beat {opp} <b>{score}</b>{aet} in the final", aetTag:" · a.e.t.", pensTag:" · on pens",
+    finFourth:"4th <b>{team}</b> — beaten semi-finalist",
+    finModel:"The model's pre-tournament pick: <b>{champ}</b> at <b>{pct}%</b> to win it.",
+    reportCta:"See how the AI did →",
+    posChampion:"Champion", posRunner:"Runner-up", posThird:"Third", posFourth:"Fourth", posQF:"Quarter-final",
+    placeHead:"Final placings", placeSub:"How the 2026 World Cup finished — the champion down to the beaten quarter-finalists.",
+    modelHead:"How the model saw it", modelSub:"The AI's pre-tournament read on the eventual champion.",
+    modelBigLab:"pre-tournament odds on {champ} to win it all — and they did",
+    modelBlurb:"One team beating a bracket of knockout rounds is genuinely hard, which is why even the model's favourites sit in the low teens. Its full read on the field — the calls it nailed and the ones it missed — is in the report card.",
+    roadSubDone:"<b>Champions.</b> The road {name} walked to the title — every step, now history.",
     methodTitle:"How this stays honest.",
     method:"This is a <b>conditional</b> re-run of the exact pre-tournament engine — not a new model. Every finished match is <span class='em'>clamped</span> to its real scoreline (the sim reproduces it and draws no randomness for it) and only the unknown remainder is re-simulated. Team ratings are updated on the pitch by <b>FIFA's own SUM formula</b> (<code>P' = P + I·(W − We)</code>, divisor 600), so a result both fixes the past and shifts the projection for what's left. At zero games played this reproduces the frozen forecast <b>exactly</b> (verified). Neutral venue — no host advantage. Field rank is 1–48 within this field.",
     methodFoot:"{sims} simulations · seed {seed} · ratings: {rs} ({rsnap}) · source: ",
@@ -427,6 +506,19 @@ const I18N = {
     roadSubTeam:"<b>{pct}%</b> para levantarla — la probabilidad de que {name} <b>llegue</b> a cada ronda. Toca otra bandera arriba para seguir a otro equipo.",
     roadPick:"¿El camino de quién? — toca un equipo aún vivo",
     stR32:"16avos", stR16:"8vos", stQF:"4tos", stSF:"Semi", stFinal:"Final", stTitle:"Título",
+    h1Done:"Mundial 2026 — Finalizado", phaseDone:"✓ FINALIZADO",
+    taglineDone:"El torneo terminó. El mismo Monte Carlo honesto, ahora <b style='color:var(--gold)'>totalmente resuelto</b> — cada partido fijado a su resultado real. Así quedó, y así se sostuvo el pronóstico del modelo.",
+    finEyebrow:"Mundial 2026 · Campeón", finTitle:"Campeón del Mundo",
+    finFinal:"venció a {opp} <b>{score}</b>{aet} en la final", aetTag:" · pror.", pensTag:" · en penales",
+    finFourth:"4º <b>{team}</b> — semifinalista",
+    finModel:"El pronóstico previo del modelo: <b>{champ}</b> con <b>{pct}%</b> para ganarlo.",
+    reportCta:"Mira cómo le fue a la IA →",
+    posChampion:"Campeón", posRunner:"Subcampeón", posThird:"Tercero", posFourth:"Cuarto", posQF:"Cuartos",
+    placeHead:"Clasificación final", placeSub:"Cómo terminó el Mundial 2026 — del campeón hasta los cuartofinalistas eliminados.",
+    modelHead:"Cómo lo vio el modelo", modelSub:"La lectura previa de la IA sobre el eventual campeón.",
+    modelBigLab:"probabilidad previa de que {champ} lo ganara todo — y lo hizo",
+    modelBlurb:"Que un solo equipo gane una llave de eliminatorias es genuinamente difícil, por eso hasta los favoritos del modelo rondan el 10-14%. Su lectura completa del cuadro — los aciertos y los fallos — está en el informe.",
+    roadSubDone:"<b>Campeón.</b> El camino de {name} hasta el título — cada paso, ya historia.",
     methodTitle:"Cómo se mantiene honesto.",
     method:"Esto es una nueva corrida <b>condicional</b> del mismo motor pre-torneo — no un modelo nuevo. Cada partido jugado se <span class='em'>fija</span> a su marcador real (la simulación lo reproduce y no usa azar para él) y solo se vuelve a simular lo desconocido. Las valoraciones se actualizan en el campo con <b>la propia fórmula SUM de la FIFA</b> (<code>P' = P + I·(W − We)</code>, divisor 600), así un resultado fija el pasado y ajusta la proyección de lo que falta. Con cero partidos jugados esto reproduce el pronóstico congelado <b>exactamente</b> (verificado). Sede neutral — sin ventaja local. El puesto es ranking de campo (1–48) dentro de este grupo.",
     methodFoot:"{sims} simulaciones · semilla {seed} · valoraciones: {rs} ({rsnap}) · fuente: ",
@@ -493,33 +585,116 @@ function render() {
   const codeOf = n => (teamMeta[n] || {}).code;
   const rankOf = n => (teamMeta[n] || {}).fieldRank;
 
+  // ---- tournament COMPLETE: the final has been played. Flip from a "live tracker" to a
+  //      finished-tournament finale — crown the champion, retire the live framing, and
+  //      reframe the now-degenerate probability panels (title odds collapse to a lone 100%). ----
+  const finalR = koResults.find(r => r.round === "final");
+  const complete = !!(finalR && finalR.winner);
+  let podium = null;
+  if (complete) {
+    const tpR = koResults.find(r => r.round === "3rd_place");
+    const other = r => (r.winner === r.home ? r.away : r.home);
+    const champion = finalR.winner;
+    // champion-first scoreline (level score for an ET/pens final; the tag says how it was decided)
+    const champG = finalR.winner === finalR.home ? finalR.homeGoals : finalR.awayGoals;
+    const runG = finalR.winner === finalR.home ? finalR.awayGoals : finalR.homeGoals;
+    const aet = finalR.decidedBy === "PENS" ? t('pensTag') : finalR.decidedBy === "ET" ? t('aetTag') : "";
+    // positions 5–8 = the four beaten quarter-finalists (tidied by field rank)
+    const qfOut = koResults.filter(r => r.round === "QF" && r.winner).map(other)
+      .sort((a, b) => (rankOf(a) || 99) - (rankOf(b) || 99));
+    // champion's pre-tournament title % is robust: the champion is champions[0] (pct − delta)
+    const champPre = (L.champions[0] && L.champions[0].name === champion)
+      ? r1(L.champions[0].pct - (L.champions[0].delta || 0)) : null;
+    podium = { champion, runnerUp: other(finalR), third: tpR && tpR.winner ? tpR.winner : null,
+      fourth: tpR && tpR.winner ? other(tpR) : null, champG, runG, aet, qfOut, champPre };
+    // header — kill the "live" framing
+    document.getElementById("h1").textContent = t('h1Done');
+    document.getElementById("tagline").innerHTML = t('taglineDone');
+    const ld = document.querySelector(".live-dot"); if (ld) ld.classList.add("done");
+  }
+
   // as-of stamp — group-stage progress during groups, whole-tournament progress in KO
   const progPct = koPhase ? (100 * m.playedCount / TOTAL_MATCHES) : (100 * m.groupPlayedCount / m.groupTotal);
   document.getElementById("stamp").innerHTML =
     `<span>${t('asOf')} <b>${fmtDate(m.asOfDate)}</b></span>` +
     (koPhase
-      ? `<span style="color:var(--gold);font-weight:700">${t('phaseKo')}</span><span><b>${m.playedCount}</b>/${TOTAL_MATCHES} ${t('matches')}</span>`
+      ? `<span class="done-tag" style="${complete ? "" : "color:var(--gold);font-weight:700"}">${complete ? t('phaseDone') : t('phaseKo')}</span><span><b>${m.playedCount}</b>/${TOTAL_MATCHES} ${t('matches')}</span>`
       : `<span><b>${m.groupPlayedCount}</b>/${m.groupTotal} ${t('games')}</span>`) +
     `<span class="prog"><i style="width:${progPct.toFixed(1)}%"></i></span>` +
     `<span>${t('source')}: <a href="${m.sourceUrl}" target="_blank" rel="noopener">openfootball</a></span>`;
 
-  // ---- title odds (top 12) ----
-  const champs = L.champions.slice(0, 12);
-  const maxPct = champs[0] ? champs[0].pct : 1;
-  document.getElementById("titleHead").textContent = t('titleHead');
-  document.getElementById("titleSub").textContent = t('titleSub', { sims: simsTxt });
-  document.getElementById("titleOdds").innerHTML = champs.map(c => `
-    <div class="oddsrow">
-      <img class="flag" src="${FLAG(c.code)}" alt="">
-      <div style="min-width:0">
-        <div class="nm">${teamName(c.name)}<span class="rk">#${c.fieldRank}</span></div>
-        <div class="bar"><i style="width:${(100*c.pct/maxPct).toFixed(1)}%"></i></div>
+  // ---- champion finale hero (only once the final is played) ----
+  const finEl = document.getElementById("finale");
+  if (complete) {
+    const P = podium, lp = LANG === "es" ? "?lang=es" : "";
+    const pod = (team, cls, medal, num) => team ? `
+      <div class="pod ${cls}">
+        <div class="medal">${medal}</div>
+        <img class="flag" src="${FLAG(codeOf(team))}" alt="">
+        <div class="pnm">${teamName(team)}</div>
+        <div class="block">${num}</div>
+      </div>` : "";
+    finEl.innerHTML = `<div class="finale">
+      <div class="fin-eyebrow">${t('finEyebrow')}</div>
+      <div class="fin-trophy">🏆</div>
+      <div class="fin-champ"><img class="flag" src="${FLAG(codeOf(P.champion))}" alt=""><span class="fin-name">${teamName(P.champion)}</span></div>
+      <div class="fin-title">${t('finTitle')}</div>
+      <div class="fin-final">${t('finFinal', { opp: teamName(P.runnerUp), score: `${P.champG}–${P.runG}`, aet: P.aet })}</div>
+      <div class="podium">${pod(P.runnerUp, "p2", "🥈", "2")}${pod(P.champion, "p1", "🥇", "1")}${pod(P.third, "p3", "🥉", "3")}</div>
+      ${P.fourth ? `<div class="fin-fourth">${t('finFourth', { team: teamName(P.fourth) })}</div>` : ""}
+      <div class="fin-model">
+        ${P.champPre ? t('finModel', { champ: teamName(P.champion), pct: P.champPre }) : ""}
+        <br><a class="cta" href="report.html${lp}">${t('reportCta')}</a>
       </div>
-      <div><span class="val">${r1(c.pct)}%</span>${deltaChip(c.delta)}</div>
-    </div>`).join("");
+    </div>`;
+  } else finEl.innerHTML = "";
 
-  // ---- second panel: group-stage = advancement movers; KO phase = deep-run (reach-final) odds ----
-  if (koPhase) {
+  // ---- title odds (top 12) — OR, once complete, the real final placings ----
+  if (complete) {
+    document.getElementById("titleHead").textContent = t('placeHead');
+    document.getElementById("titleSub").textContent = t('placeSub');
+    const prow = (team, posLab, cls, badge) => team ? `
+      <div class="place ${cls}">
+        <span class="pos">${badge}</span>
+        <img class="flag" src="${FLAG(codeOf(team))}" alt="">
+        <span class="nm">${teamName(team)}</span>
+        <span class="fin">${posLab}</span>
+      </div>` : "";
+    document.getElementById("titleOdds").innerHTML =
+      prow(podium.champion, t('posChampion'), "gold", "🥇") +
+      prow(podium.runnerUp, t('posRunner'), "silver", "🥈") +
+      prow(podium.third, t('posThird'), "bronze", "🥉") +
+      prow(podium.fourth, t('posFourth'), "", "4") +
+      podium.qfOut.map(team => prow(team, t('posQF'), "", "")).join("");
+  } else {
+    const champs = L.champions.slice(0, 12);
+    const maxPct = champs[0] ? champs[0].pct : 1;
+    document.getElementById("titleHead").textContent = t('titleHead');
+    document.getElementById("titleSub").textContent = t('titleSub', { sims: simsTxt });
+    document.getElementById("titleOdds").innerHTML = champs.map(c => `
+      <div class="oddsrow">
+        <img class="flag" src="${FLAG(c.code)}" alt="">
+        <div style="min-width:0">
+          <div class="nm">${teamName(c.name)}<span class="rk">#${c.fieldRank}</span></div>
+          <div class="bar"><i style="width:${(100*c.pct/maxPct).toFixed(1)}%"></i></div>
+        </div>
+        <div><span class="val">${r1(c.pct)}%</span>${deltaChip(c.delta)}</div>
+      </div>`).join("");
+  }
+
+  // ---- second panel: complete = model retrospective teaser; KO = deep-run; groups = advancement ----
+  if (complete) {
+    // deep-run odds have collapsed to the two finalists at 100% — replace with the model's
+    // pre-tournament read on the champion (the one robust pre-tournament number in this data).
+    document.getElementById("advHead").textContent = t('modelHead');
+    document.getElementById("advSub").textContent = t('modelSub');
+    const lp = LANG === "es" ? "?lang=es" : "";
+    document.getElementById("advOdds").innerHTML = `<div class="modelcall">
+      ${podium.champPre ? `<div class="big">${podium.champPre}%</div><div class="biglab">${t('modelBigLab', { champ: teamName(podium.champion) })}</div>` : ""}
+      <div class="fact"><span class="i">🎯</span><span>${t('modelBlurb')}</span></div>
+      <a class="cta" href="report.html${lp}">${t('reportCta')}</a>
+    </div>`;
+  } else if (koPhase) {
     // groups are settled (advance% all 100), so surface how far each survivor is projected to go.
     const surv = [...L.reach].filter(c => (c.final || 0) > 0).sort((a, b) => b.final - a.final).slice(0, 12);
     const maxF = surv.length ? surv[0].final : 1;
@@ -758,6 +933,7 @@ function render() {
   // Flag-chip picker: the still-alive teams (sorted by title odds); tapping one re-points the
   // road strip + ★ bracket rail to that team. The strip shrinks as teams are eliminated.
   function teamPicker() {
+    if (complete) return ""; // only the champion is still "alive" — a one-chip picker is pointless
     const alive = aliveTeams();
     if (!alive.length || !L.bracketFeed) return "";
     const chip = a => `<button class="tchip ${a.name === curPathName ? "on" : ""}" data-team="${a.code}" data-name="${a.name}">
@@ -782,7 +958,7 @@ function render() {
         <div>
           <div class="rh-eyebrow">${t('roadHead')}</div>
           <div class="rh-name">${teamName(cp.name)}<span class="rk">#${cp.fieldRank}</span></div>
-          <div class="rh-sub">${t(isFav ? 'roadSub' : 'roadSubTeam', { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
+          <div class="rh-sub">${t(complete ? 'roadSubDone' : (isFav ? 'roadSub' : 'roadSubTeam'), { pct: r1(cp.titlePct), name: teamName(cp.name) })}</div>
         </div>
       </div>
       <div class="roadsteps">${stations.join('<div class="rconn"></div>')}</div>

@@ -270,8 +270,9 @@
       <div class="langtoggle" id="langToggle" role="group" aria-label="Language">
         <button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button>
       </div>
-      <a class="livelink" id="liveLink" href="live.html"><span class="live-dot"></span> Live re-forecast →</a>
-      <a class="livelink alt" id="accLink" href="accuracy.html">◷ Model accuracy →</a>
+      <a class="livelink" id="liveLink" href="live.html">🏆 Final result &amp; bracket →</a>
+      <a class="livelink alt" id="reportLink" href="report.html">◷ 2026 report card →</a>
+      <a class="livelink alt" id="accLink" href="accuracy.html">◷ 2022 backtest →</a>
       <div class="method" id="method"></div>
     </div>
   </header>
@@ -342,7 +343,7 @@ const I18N = {
   en: {
     h1:"AI World Cup 2026 — Journey Tree",
     tagline:`An honest Monte Carlo of the real 2026 World Cup, narrated by an LLM. Two engines: the <b style="color:var(--sim)">math</b> decides who wins, the <b style="color:var(--ai)">story</b> is written by Claude — constrained to the simulation's actual result.`,
-    liveLink:"Live re-forecast →", accLink:"◷ Model accuracy →",
+    liveLink:"🏆 Final result & bracket →", reportLink:"◷ 2026 report card →", accLink:"◷ 2022 backtest →",
     mSim:"SIMULATION", mRuns:"runs", mSeed:"seed", mNarr:"NARRATION", mPrebaked:"pre-baked LLM", mConstrained:"constrained to actual results",
     mRatings:"Ratings:", mFifa:"FIFA pts,", mNeutral:"neutral venue (no host bump)",
     sGoals:"goals / game", sUpsets:"knockout shocks", sDraws:"group draws", sCind:"have a Cinderella",
@@ -371,7 +372,7 @@ const I18N = {
   es: {
     h1:"Mundial 2026 con IA — Árbol del Camino",
     tagline:`Un Monte Carlo honesto del Mundial 2026 real, narrado por una IA. Dos motores: las <b style="color:var(--sim)">matemáticas</b> deciden quién gana, la <b style="color:var(--ai)">historia</b> la escribe Claude — ceñida al resultado real de la simulación.`,
-    liveLink:"Pronóstico en vivo →", accLink:"◷ Precisión del modelo →",
+    liveLink:"🏆 Resultado final y cuadro →", reportLink:"◷ Informe 2026 →", accLink:"◷ Backtest 2022 →",
     mSim:"SIMULACIÓN", mRuns:"corridas", mSeed:"semilla", mNarr:"NARRACIÓN", mPrebaked:"IA pre-generada", mConstrained:"ceñida a los resultados reales",
     mRatings:"Valoraciones:", mFifa:"pts FIFA,", mNeutral:"sede neutral (sin ventaja local)",
     sGoals:"goles / partido", sUpsets:"sorpresas en eliminatorias", sDraws:"empates en grupos", sCind:"tienen una Cenicienta",
@@ -475,7 +476,8 @@ function renderChrome() {   // static HTML labels: header, panel titles, nationb
   $("heroClose").innerHTML = `<span class="x">✕</span> ${t('back')}`; $("heroClose").title = t('backTitle');
   $("lclose").title = t('endNarr'); $("lclose").setAttribute("aria-label", t('endNarr'));
   const tag = document.querySelector('#lower .tag'); if (tag) tag.textContent = t('aiTake');
-  const ll = $("liveLink"); if (ll) { ll.innerHTML = `<span class="live-dot"></span> ${t('liveLink')}`; ll.href = "live.html" + (LANG === "es" ? "?lang=es" : ""); }
+  const ll = $("liveLink"); if (ll) { ll.textContent = t('liveLink'); ll.href = "live.html" + (LANG === "es" ? "?lang=es" : ""); }
+  const rlk = $("reportLink"); if (rlk) { rlk.textContent = t('reportLink'); rlk.href = "report.html" + (LANG === "es" ? "?lang=es" : ""); }
   const al = $("accLink"); if (al) { al.textContent = t('accLink'); al.href = "accuracy.html" + (LANG === "es" ? "?lang=es" : ""); }
 }
 

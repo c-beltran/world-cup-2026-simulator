@@ -1,0 +1,1274 @@
+{
+  "meta": {
+    "title": "AI World Cup 2026 — model report card",
+    "built": "2026-07-21",
+    "tournament": "FIFA World Cup 2026",
+    "ratingSnapshot": "1 April 2026",
+    "sims": 50000,
+    "frozenModel": true,
+    "sources": {
+      "ratings": "FIFA / Coca-Cola Men's World Ranking (1 April 2026)",
+      "results": "openfootball/worldcup.json (2026) — public domain",
+      "resultsUrl": "https://github.com/openfootball/worldcup.json",
+      "asOfDate": "2026-07-19"
+    },
+    "teamNamesEs": {
+      "France": "Francia",
+      "Spain": "España",
+      "Argentina": "Argentina",
+      "England": "Inglaterra",
+      "Portugal": "Portugal",
+      "Brazil": "Brasil",
+      "Netherlands": "Países Bajos",
+      "Morocco": "Marruecos",
+      "Belgium": "Bélgica",
+      "Germany": "Alemania",
+      "Croatia": "Croacia",
+      "Colombia": "Colombia",
+      "Senegal": "Senegal",
+      "Mexico": "México",
+      "United States": "Estados Unidos",
+      "Uruguay": "Uruguay",
+      "Japan": "Japón",
+      "Switzerland": "Suiza",
+      "Iran": "Irán",
+      "Türkiye": "Turquía",
+      "Ecuador": "Ecuador",
+      "Austria": "Austria",
+      "Korea Republic": "Corea del Sur",
+      "Australia": "Australia",
+      "Algeria": "Argelia",
+      "Egypt": "Egipto",
+      "Canada": "Canadá",
+      "Norway": "Noruega",
+      "Panama": "Panamá",
+      "Côte d'Ivoire": "Costa de Marfil",
+      "Sweden": "Suecia",
+      "Paraguay": "Paraguay",
+      "Czechia": "Chequia",
+      "Scotland": "Escocia",
+      "Tunisia": "Túnez",
+      "Congo DR": "RD Congo",
+      "Uzbekistan": "Uzbekistán",
+      "Qatar": "Catar",
+      "Iraq": "Irak",
+      "South Africa": "Sudáfrica",
+      "Saudi Arabia": "Arabia Saudita",
+      "Jordan": "Jordania",
+      "Bosnia and Herzegovina": "Bosnia y Herzegovina",
+      "Cabo Verde": "Cabo Verde",
+      "Ghana": "Ghana",
+      "Curaçao": "Curazao",
+      "Haiti": "Haití",
+      "New Zealand": "Nueva Zelanda"
+    }
+  },
+  "realChampion": "Spain",
+  "finish": {
+    "champion": "Spain",
+    "runnerUp": "Argentina",
+    "third": "England",
+    "fourth": "France"
+  },
+  "champion": {
+    "name": "Spain",
+    "code": "es",
+    "fieldRank": 2,
+    "titlePct": 0.1304,
+    "rank": 3
+  },
+  "chalk": {
+    "modelTop4": [
+      {
+        "name": "France",
+        "code": "fr",
+        "titlePct": 0.1431
+      },
+      {
+        "name": "Argentina",
+        "code": "ar",
+        "titlePct": 0.13208
+      },
+      {
+        "name": "Spain",
+        "code": "es",
+        "titlePct": 0.1304
+      },
+      {
+        "name": "England",
+        "code": "gb-eng",
+        "titlePct": 0.09396
+      }
+    ],
+    "semifinalists": [
+      "France",
+      "Spain",
+      "England",
+      "Argentina"
+    ],
+    "hits": 4
+  },
+  "finalCall": {
+    "pair": "Argentina v Spain",
+    "rank": 1,
+    "pct": 0.03448
+  },
+  "method": {
+    "koGames": 32,
+    "pens": {
+      "actual": 0.125,
+      "pred": 0.12092812500000001
+    },
+    "et": {
+      "actual": 0.15625,
+      "pred": 0.123345
+    },
+    "upset": {
+      "actual": 0.21875,
+      "pred": 0.347981875
+    }
+  },
+  "calibration": {
+    "n": 240,
+    "reliability": [
+      {
+        "lo": 0,
+        "hi": 0.1,
+        "n": 147,
+        "meanP": 0.026637959183673482,
+        "obs": 0.006802721088435374
+      },
+      {
+        "lo": 0.1,
+        "hi": 0.2,
+        "n": 37,
+        "meanP": 0.14600324324324324,
+        "obs": 0.05405405405405406
+      },
+      {
+        "lo": 0.2,
+        "hi": 0.3,
+        "n": 19,
+        "meanP": 0.24463368421052642,
+        "obs": 0.2631578947368421
+      },
+      {
+        "lo": 0.3,
+        "hi": 0.4,
+        "n": 16,
+        "meanP": 0.35348375,
+        "obs": 0.4375
+      },
+      {
+        "lo": 0.4,
+        "hi": 0.5,
+        "n": 7,
+        "meanP": 0.4606314285714285,
+        "obs": 0.7142857142857143
+      },
+      {
+        "lo": 0.5,
+        "hi": 0.6,
+        "n": 9,
+        "meanP": 0.5377888888888889,
+        "obs": 0.6666666666666666
+      },
+      {
+        "lo": 0.6,
+        "hi": 0.7,
+        "n": 4,
+        "meanP": 0.64751,
+        "obs": 1
+      },
+      {
+        "lo": 0.7,
+        "hi": 0.8,
+        "n": 1,
+        "meanP": 0.72376,
+        "obs": 1
+      },
+      {
+        "lo": 0.8,
+        "hi": 0.9,
+        "n": 0,
+        "meanP": 0,
+        "obs": 0
+      },
+      {
+        "lo": 0.9,
+        "hi": 1,
+        "n": 0,
+        "meanP": 0,
+        "obs": 0
+      }
+    ],
+    "brier": 0.06558555663333339,
+    "brierBaseline": 0.09956597222222213,
+    "logloss": 0.21384296040819878,
+    "byRound": {
+      "r16": 0.14411332948333336,
+      "qf": 0.09239344956666669,
+      "sf": 0.04519590389999998,
+      "final": 0.029164665466666666,
+      "title": 0.017060434749999995
+    }
+  },
+  "outright": [
+    {
+      "name": "France",
+      "code": "fr",
+      "fieldRank": 1,
+      "worldRank": 1,
+      "prob": {
+        "r16": 0.72376,
+        "qf": 0.51284,
+        "sf": 0.35276,
+        "final": 0.22542,
+        "title": 0.1431
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 1,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "sf"
+    },
+    {
+      "name": "Argentina",
+      "code": "ar",
+      "fieldRank": 3,
+      "worldRank": 3,
+      "prob": {
+        "r16": 0.64828,
+        "qf": 0.47256,
+        "sf": 0.33044,
+        "final": 0.2115,
+        "title": 0.13208
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 1,
+        "final": 1,
+        "title": 0
+      },
+      "reached": "final"
+    },
+    {
+      "name": "Spain",
+      "code": "es",
+      "fieldRank": 2,
+      "worldRank": 2,
+      "prob": {
+        "r16": 0.6666,
+        "qf": 0.46206,
+        "sf": 0.32852,
+        "final": 0.2094,
+        "title": 0.1304
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 1,
+        "final": 1,
+        "title": 1
+      },
+      "reached": "title"
+    },
+    {
+      "name": "England",
+      "code": "gb-eng",
+      "fieldRank": 4,
+      "worldRank": 4,
+      "prob": {
+        "r16": 0.66408,
+        "qf": 0.44114,
+        "sf": 0.276,
+        "final": 0.16462,
+        "title": 0.09396
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 1,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "sf"
+    },
+    {
+      "name": "Brazil",
+      "code": "br",
+      "fieldRank": 6,
+      "worldRank": 6,
+      "prob": {
+        "r16": 0.557,
+        "qf": 0.35124,
+        "sf": 0.19232,
+        "final": 0.10108,
+        "title": 0.04964
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Portugal",
+      "code": "pt",
+      "fieldRank": 5,
+      "worldRank": 5,
+      "prob": {
+        "r16": 0.56092,
+        "qf": 0.34518,
+        "sf": 0.19104,
+        "final": 0.10046,
+        "title": 0.04952
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Morocco",
+      "code": "ma",
+      "fieldRank": 8,
+      "worldRank": 8,
+      "prob": {
+        "r16": 0.5511,
+        "qf": 0.34486,
+        "sf": 0.18794,
+        "final": 0.09742,
+        "title": 0.0472
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "qf"
+    },
+    {
+      "name": "Netherlands",
+      "code": "nl",
+      "fieldRank": 7,
+      "worldRank": 7,
+      "prob": {
+        "r16": 0.51288,
+        "qf": 0.3317,
+        "sf": 0.17794,
+        "final": 0.09222,
+        "title": 0.04546
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Belgium",
+      "code": "be",
+      "fieldRank": 9,
+      "worldRank": 9,
+      "prob": {
+        "r16": 0.61108,
+        "qf": 0.35104,
+        "sf": 0.1722,
+        "final": 0.08458,
+        "title": 0.04088
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "qf"
+    },
+    {
+      "name": "Germany",
+      "code": "de",
+      "fieldRank": 10,
+      "worldRank": 10,
+      "prob": {
+        "r16": 0.5811,
+        "qf": 0.29086,
+        "sf": 0.15834,
+        "final": 0.0775,
+        "title": 0.03632
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Croatia",
+      "code": "hr",
+      "fieldRank": 11,
+      "worldRank": 11,
+      "prob": {
+        "r16": 0.51818,
+        "qf": 0.2774,
+        "sf": 0.1461,
+        "final": 0.07002,
+        "title": 0.03128
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Senegal",
+      "code": "sn",
+      "fieldRank": 13,
+      "worldRank": 14,
+      "prob": {
+        "r16": 0.48244,
+        "qf": 0.2494,
+        "sf": 0.12212,
+        "final": 0.055,
+        "title": 0.02186
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Mexico",
+      "code": "mx",
+      "fieldRank": 14,
+      "worldRank": 15,
+      "prob": {
+        "r16": 0.53652,
+        "qf": 0.25472,
+        "sf": 0.11564,
+        "final": 0.0509,
+        "title": 0.02154
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Colombia",
+      "code": "co",
+      "fieldRank": 12,
+      "worldRank": 13,
+      "prob": {
+        "r16": 0.45116,
+        "qf": 0.23572,
+        "sf": 0.11396,
+        "final": 0.05104,
+        "title": 0.02098
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Uruguay",
+      "code": "uy",
+      "fieldRank": 16,
+      "worldRank": 17,
+      "prob": {
+        "r16": 0.38908,
+        "qf": 0.20188,
+        "sf": 0.10558,
+        "final": 0.04546,
+        "title": 0.01782
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "United States",
+      "code": "us",
+      "fieldRank": 15,
+      "worldRank": 16,
+      "prob": {
+        "r16": 0.47394,
+        "qf": 0.23206,
+        "sf": 0.10254,
+        "final": 0.04404,
+        "title": 0.01686
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Japan",
+      "code": "jp",
+      "fieldRank": 17,
+      "worldRank": 18,
+      "prob": {
+        "r16": 0.36854,
+        "qf": 0.19502,
+        "sf": 0.08852,
+        "final": 0.03704,
+        "title": 0.01438
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Switzerland",
+      "code": "ch",
+      "fieldRank": 18,
+      "worldRank": 19,
+      "prob": {
+        "r16": 0.50956,
+        "qf": 0.23436,
+        "sf": 0.09508,
+        "final": 0.03876,
+        "title": 0.01418
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "qf"
+    },
+    {
+      "name": "Iran",
+      "code": "ir",
+      "fieldRank": 19,
+      "worldRank": 21,
+      "prob": {
+        "r16": 0.44112,
+        "qf": 0.19266,
+        "sf": 0.07606,
+        "final": 0.02934,
+        "title": 0.0098
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Korea Republic",
+      "code": "kr",
+      "fieldRank": 23,
+      "worldRank": 25,
+      "prob": {
+        "r16": 0.39354,
+        "qf": 0.1597,
+        "sf": 0.0562,
+        "final": 0.02018,
+        "title": 0.00676
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Ecuador",
+      "code": "ec",
+      "fieldRank": 21,
+      "worldRank": 23,
+      "prob": {
+        "r16": 0.37946,
+        "qf": 0.14636,
+        "sf": 0.05602,
+        "final": 0.01982,
+        "title": 0.00668
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Türkiye",
+      "code": "tr",
+      "fieldRank": 20,
+      "worldRank": 22,
+      "prob": {
+        "r16": 0.34956,
+        "qf": 0.14258,
+        "sf": 0.05374,
+        "final": 0.0193,
+        "title": 0.0057
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Austria",
+      "code": "at",
+      "fieldRank": 22,
+      "worldRank": 24,
+      "prob": {
+        "r16": 0.2686,
+        "qf": 0.1179,
+        "sf": 0.04768,
+        "final": 0.01746,
+        "title": 0.00558
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Australia",
+      "code": "au",
+      "fieldRank": 24,
+      "worldRank": 27,
+      "prob": {
+        "r16": 0.32038,
+        "qf": 0.12292,
+        "sf": 0.0457,
+        "final": 0.01592,
+        "title": 0.00528
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Egypt",
+      "code": "eg",
+      "fieldRank": 26,
+      "worldRank": 29,
+      "prob": {
+        "r16": 0.35706,
+        "qf": 0.1352,
+        "sf": 0.04744,
+        "final": 0.01592,
+        "title": 0.00508
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Canada",
+      "code": "ca",
+      "fieldRank": 27,
+      "worldRank": 30,
+      "prob": {
+        "r16": 0.36238,
+        "qf": 0.13384,
+        "sf": 0.04532,
+        "final": 0.01494,
+        "title": 0.00464
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Algeria",
+      "code": "dz",
+      "fieldRank": 25,
+      "worldRank": 28,
+      "prob": {
+        "r16": 0.23932,
+        "qf": 0.09862,
+        "sf": 0.03826,
+        "final": 0.01274,
+        "title": 0.00366
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Panama",
+      "code": "pa",
+      "fieldRank": 29,
+      "worldRank": 33,
+      "prob": {
+        "r16": 0.23678,
+        "qf": 0.08864,
+        "sf": 0.0306,
+        "final": 0.00966,
+        "title": 0.00312
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Côte d'Ivoire",
+      "code": "ci",
+      "fieldRank": 30,
+      "worldRank": 34,
+      "prob": {
+        "r16": 0.28316,
+        "qf": 0.09594,
+        "sf": 0.03128,
+        "final": 0.01028,
+        "title": 0.00282
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Norway",
+      "code": "no",
+      "fieldRank": 28,
+      "worldRank": 31,
+      "prob": {
+        "r16": 0.25362,
+        "qf": 0.09436,
+        "sf": 0.03248,
+        "final": 0.01036,
+        "title": 0.00258
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 1,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "qf"
+    },
+    {
+      "name": "Scotland",
+      "code": "gb-sct",
+      "fieldRank": 34,
+      "worldRank": 43,
+      "prob": {
+        "r16": 0.1898,
+        "qf": 0.06968,
+        "sf": 0.0194,
+        "final": 0.00586,
+        "title": 0.00146
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Sweden",
+      "code": "se",
+      "fieldRank": 31,
+      "worldRank": 38,
+      "prob": {
+        "r16": 0.17772,
+        "qf": 0.06422,
+        "sf": 0.02054,
+        "final": 0.0058,
+        "title": 0.00142
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Czechia",
+      "code": "cz",
+      "fieldRank": 33,
+      "worldRank": 41,
+      "prob": {
+        "r16": 0.24938,
+        "qf": 0.0803,
+        "sf": 0.02234,
+        "final": 0.00602,
+        "title": 0.00136
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Paraguay",
+      "code": "py",
+      "fieldRank": 32,
+      "worldRank": 40,
+      "prob": {
+        "r16": 0.19748,
+        "qf": 0.06314,
+        "sf": 0.01928,
+        "final": 0.00544,
+        "title": 0.0013
+      },
+      "hit": {
+        "r16": 1,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "r16"
+    },
+    {
+      "name": "Tunisia",
+      "code": "tn",
+      "fieldRank": 35,
+      "worldRank": 44,
+      "prob": {
+        "r16": 0.14706,
+        "qf": 0.04876,
+        "sf": 0.01386,
+        "final": 0.00408,
+        "title": 0.00108
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Congo DR",
+      "code": "cd",
+      "fieldRank": 36,
+      "worldRank": 46,
+      "prob": {
+        "r16": 0.1406,
+        "qf": 0.04392,
+        "sf": 0.01236,
+        "final": 0.00348,
+        "title": 0.00086
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Qatar",
+      "code": "qa",
+      "fieldRank": 38,
+      "worldRank": 55,
+      "prob": {
+        "r16": 0.21846,
+        "qf": 0.06172,
+        "sf": 0.015,
+        "final": 0.00388,
+        "title": 0.00076
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Uzbekistan",
+      "code": "uz",
+      "fieldRank": 37,
+      "worldRank": 50,
+      "prob": {
+        "r16": 0.12802,
+        "qf": 0.04072,
+        "sf": 0.01166,
+        "final": 0.00342,
+        "title": 0.00072
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Iraq",
+      "code": "iq",
+      "fieldRank": 39,
+      "worldRank": 57,
+      "prob": {
+        "r16": 0.12112,
+        "qf": 0.03528,
+        "sf": 0.00844,
+        "final": 0.002,
+        "title": 0.0005
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "South Africa",
+      "code": "za",
+      "fieldRank": 40,
+      "worldRank": 60,
+      "prob": {
+        "r16": 0.15738,
+        "qf": 0.04254,
+        "sf": 0.0098,
+        "final": 0.00222,
+        "title": 0.0004
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "code": "ba",
+      "fieldRank": 43,
+      "worldRank": 65,
+      "prob": {
+        "r16": 0.13366,
+        "qf": 0.03092,
+        "sf": 0.00674,
+        "final": 0.0012,
+        "title": 0.00036
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "fieldRank": 41,
+      "worldRank": 61,
+      "prob": {
+        "r16": 0.10564,
+        "qf": 0.03,
+        "sf": 0.0078,
+        "final": 0.0016,
+        "title": 0.00024
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Jordan",
+      "code": "jo",
+      "fieldRank": 42,
+      "worldRank": 63,
+      "prob": {
+        "r16": 0.07384,
+        "qf": 0.01988,
+        "sf": 0.0046,
+        "final": 0.00076,
+        "title": 0.00014
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Cabo Verde",
+      "code": "cv",
+      "fieldRank": 44,
+      "worldRank": 69,
+      "prob": {
+        "r16": 0.07046,
+        "qf": 0.0169,
+        "sf": 0.00362,
+        "final": 0.00074,
+        "title": 0.00008
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Curaçao",
+      "code": "cw",
+      "fieldRank": 46,
+      "worldRank": 82,
+      "prob": {
+        "r16": 0.05266,
+        "qf": 0.0095,
+        "sf": 0.0019,
+        "final": 0.00042,
+        "title": 0.00008
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Ghana",
+      "code": "gh",
+      "fieldRank": 45,
+      "worldRank": 74,
+      "prob": {
+        "r16": 0.0551,
+        "qf": 0.01256,
+        "sf": 0.00228,
+        "final": 0.0003,
+        "title": 0.00006
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "New Zealand",
+      "code": "nz",
+      "fieldRank": 48,
+      "worldRank": 85,
+      "prob": {
+        "r16": 0.0492,
+        "qf": 0.00892,
+        "sf": 0.00126,
+        "final": 0.00026,
+        "title": 0.00002
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    },
+    {
+      "name": "Haiti",
+      "code": "ht",
+      "fieldRank": 47,
+      "worldRank": 83,
+      "prob": {
+        "r16": 0.04122,
+        "qf": 0.00828,
+        "sf": 0.0013,
+        "final": 0.00014,
+        "title": 0
+      },
+      "hit": {
+        "r16": 0,
+        "qf": 0,
+        "sf": 0,
+        "final": 0,
+        "title": 0
+      },
+      "reached": "group"
+    }
+  ],
+  "receipts": [
+    {
+      "kind": "champion",
+      "name": "Spain",
+      "code": "es",
+      "titlePct": 0.1304,
+      "rank": 3
+    },
+    {
+      "kind": "chalk",
+      "top4": [
+        {
+          "name": "France",
+          "code": "fr"
+        },
+        {
+          "name": "Argentina",
+          "code": "ar"
+        },
+        {
+          "name": "Spain",
+          "code": "es"
+        },
+        {
+          "name": "England",
+          "code": "gb-eng"
+        }
+      ],
+      "hits": 4
+    },
+    {
+      "kind": "darkHorse",
+      "name": "Norway",
+      "code": "no",
+      "titlePct": 0.00258,
+      "reached": "qf",
+      "victim": "Brazil",
+      "victimRank": 6
+    },
+    {
+      "kind": "favouriteFell",
+      "name": "Brazil",
+      "code": "br",
+      "titlePct": 0.04964,
+      "rank": 5,
+      "reached": "r16"
+    }
+  ]
+}

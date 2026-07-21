@@ -13,9 +13,16 @@
 name: Live re-forecast
 
 on:
-  schedule:
-    - cron: '0 */6 * * *' # every 6h (UTC) — World Cup group games run most days
-  workflow_dispatch: {} # manual trigger from the Actions tab
+  # Scheduled re-forecasting is DISABLED — the 2026 World Cup concluded on
+  # 2026-07-19 (Spain 1–0 Argentina, AET). There are no new results to clamp, so
+  # the forecast is frozen at its final state and the daily re-bake is retired.
+  # The cron is left here (commented) as a record of how the live tracker ran and
+  # so it can be restored for the next tournament. The workflow is also disabled at
+  # the Actions level (`gh workflow disable "Live re-forecast"`); to resume, run
+  # `gh workflow enable` and uncomment the schedule below.
+  # schedule:
+  #   - cron: '0 */6 * * *' # every 6h (UTC) — World Cup group games run most days
+  workflow_dispatch: {} # manual one-off re-bake (requires re-enabling the workflow first)
 
 permissions:
   contents: write # commit the regenerated data back to main
